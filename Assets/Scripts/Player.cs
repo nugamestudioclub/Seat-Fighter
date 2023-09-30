@@ -34,6 +34,15 @@ public class Player
         this.block = block;
 
     }
+
+    public Player(Dictionary<Action, ActionObject> dict)
+    {
+        this.shove = dict[Action.Shove];
+        this.push = dict[Action.Push];
+        this.dodge = dict[Action.Dodge];
+        this.block = dict[Action.Block];
+    }
+
     public Action_state Tick()
     {
         if(actionqueue.Count > 0)
