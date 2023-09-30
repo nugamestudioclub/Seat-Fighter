@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87f5d191503138f4f9f4ad57c761d5eb, type: 3}
+  m_Name: Push
+  m_EditorClassIdentifier: 
+  <States>k__BackingField:
+  - state: 0
+    duration: 10
+  - state: 4
+    duration: 5
+  - state: 2
+    duration: 10
+  <StaminaCost>k__BackingField: 5

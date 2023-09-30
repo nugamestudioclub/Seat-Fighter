@@ -11,24 +11,27 @@ public class GameManager : MonoBehaviour {
 	//ui
 
 	//logic
+	private GameLogic logic;
 
-	[SerializeField]
-	private PlayerController leftPlayerController;
+
     [SerializeField]
-    private PlayerController rightPlayerController;
-	[SerializeField]
-	private Environment environment;
-
-
+    private GameConfig config;
+	
 
     private static GameManager _instance;
 
 	[SerializeField]
 	private InputController _inputController;
 
-	private PlayerInput _playerInput;
+	private PlayerInput humanController;
 
-	public static GameManager Instance => _instance;
+	private Player leftPlayer;
+
+	private Player rightPlayer;
+
+    private int frameCount;
+
+    public static GameManager Instance => _instance;
 
 	void Awake() {
 		if( _instance == null ) {
@@ -41,22 +44,53 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	private int frameCount;
-
 	void Update() {
 		int currentFrameCount = Time.frameCount;
 		if( currentFrameCount > frameCount ) {
-			var action = _playerInput.GetNextAction();
+			var action = humanController.GetNextAction();
 			if( action != Action.None ) {
-				Debug.Log(action);
+				// Debug.Log(action);
 			}
 			frameCount = currentFrameCount;
-		}
-	}
+        }
+        leftPlayer.Update();
+        rightPlayer.Update();
+    }
 
-	private void Initialize() {
+    private void FixedUpdate()
+    {
+        //we can add conditionals here
+        referee.Tick();
+    }
 
-		_inputController.Initialize();
-		_playerInput = new(_inputController);
+    private void Initialize() {
+		//create player and environment from the configs
+		leftPlayer = new Player(
+			config.leftPlayerConfig.shove,
+			config.leftPlayerConfig.push,
+			config.leftPlayerConfig.dodge,
+			config.leftPlayerConfig.block);
+
+        rightPlayer = new Player(
+            config.rightPlayerConfig.shove,
+            config.rightPlayerConfig.push,
+            config.rightPlayerConfig.dodge,
+            config.rightPlayerConfig.block);
+
+        _inputController.Initialize();
+        humanController = new(_inputController);
+        var aiController = new AIController(rightPlayer, leftPlayer, config.aIConfig);
+
+		leftPlayer.Bind(humanController);
+		rightPlayer.Bind(aiController);
+
+        Environment environment = new Environment(
+			config.environmentConfig.startingPositon,
+			config.leftPlayerConfig.health,
+			config.rightPlayerConfig.health);
+
+        referee = new Referee(leftPlayer, rightPlayer, environment);
+		logic = new GameLogic(config, leftPlayer, rightPlayer, environment);
+		logic.Bind(referee);
 	}
 }

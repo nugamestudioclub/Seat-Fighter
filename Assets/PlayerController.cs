@@ -2,19 +2,19 @@ using UnityEngine;
 
 public class PlayerController : IActionProvider
 {
-    [SerializeField]
-    private ActionObject push;
+    public Player player { get; private set; }
 
-    private Player player;
+    private PlayerInput input;
 
-    PlayerController(Player player)
+    public PlayerController(Player player, PlayerInput input)
     {
         this.player = player;
+        this.input = input;
     }
 
     public Action GetNextAction()
     {
-        Action a = Action.None;
+        Action a = input.GetNextAction();
         if (player.Current_action == Action_state.IDLE)
         {
             // TODO poll user input

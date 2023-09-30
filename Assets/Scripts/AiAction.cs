@@ -2,25 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using System;
 
+[Serializable]
 public struct AiAction
 {
 
     public readonly static AiAction EMPTY = new AiAction(Action.None, 0);
 
-    public Action Action { private set; get; }
-    public int Delay { private set; get; }
-
     public AiAction(Action action, int delay)
     {
-        this.Action = action;
-        this.Delay = delay;
+        Action = action;
+        Delay = delay;
     }
 
-    public AiAction(Action action) : this(action, 0)
-    {
-
-    }
+    public Action Action;
+    public int Delay;
+    
 
     public bool checkDelay()
     {
