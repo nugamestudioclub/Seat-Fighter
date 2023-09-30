@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "AnimationSO")]
+[CreateAssetMenu(menuName = "ScriptableObjects/AnimationSO")]
 public class AnimationSO : ScriptableObject
 {
     public Sprite idle;
