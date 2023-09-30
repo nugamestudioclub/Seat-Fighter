@@ -6,18 +6,21 @@ public class GameManager : MonoBehaviour {
 
 	//referee
 	private Referee referee;
-	//sounds
+    //sounds
 
-	//ui
+    //ui
 
-	//logic
+    //logic
 
-	[SerializeField]
+    [SerializeField]
+    private GameConfig config;
+    [SerializeField]
 	private PlayerController leftPlayerController;
     [SerializeField]
     private PlayerController rightPlayerController;
 	[SerializeField]
 	private Environment environment;
+	
 
 
 
@@ -58,5 +61,13 @@ public class GameManager : MonoBehaviour {
 
 		_inputController.Initialize();
 		_playerInput = new(_inputController);
+		referee = new Referee(leftPlayerController.playerData, rightPlayerController.playerData, environment);
+		//referee.Interaction += 
 	}
+
+    private void FixedUpdate()
+    {
+		//we can add conditionals here
+		referee.Tick();
+    }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    Player playerData;
+    public Player playerData { get; private set; }
 
     [SerializeField]
     private ActionObject push;
