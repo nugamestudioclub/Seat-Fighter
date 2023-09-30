@@ -31,5 +31,9 @@ public enum EventType
     StaminaRefresh,
     OutOfBounds,
     Win,
-    
+
+    // UNIMPLEMENTED
+    StartShove,
+    StartPush,
+    StartBlock
 }
