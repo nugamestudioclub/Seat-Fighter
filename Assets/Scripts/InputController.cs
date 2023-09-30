@@ -12,6 +12,8 @@ public class InputController : MonoBehaviour {
 
 	private InputData _inputData;
 
+	public InputData InputData => _inputData;
+
 	public void Initialize() {
 		var devices = FindDevices(_id);
 		var data = new InputData();
@@ -100,12 +102,6 @@ public class InputController : MonoBehaviour {
 		return devices;
 	}
 
-	public bool IsDown(Button button) => _inputData.GetButtonState(button).IsDown;
-
-	public bool IsPressed(Button button) => _inputData.GetButtonState(button).IsPressed;
-
-	public bool IsUp(Button button) => _inputData.GetButtonState(button).IsUp;
-
 	private static InputActionMap MapInput(string name, IEnumerable<InputDevice> devices, InputData data) {
 		var actionMap = new InputActionMap(name);
 
@@ -114,7 +110,7 @@ public class InputController : MonoBehaviour {
 		BindButton("Block", actionMap, v => data.SetButtonState(Button.Block, v), "<Keyboard>/k", "<Gamepad>/buttonSouth");
 		BindButton("Dodge", actionMap, v => data.SetButtonState(Button.Dodge, v), "<Keyboard>/j", "<Gamepad>/buttonWest");
 		BindButton("Push", actionMap, v => data.SetButtonState(Button.Push, v), "<Keyboard>/i", "<Gamepad>/buttonNorth");
-		BindButton("Shove", actionMap, v => data.SetButtonState(Button.Push, v), "<Keyboard>/l", "<Gamepad>/buttonEast");
+		BindButton("Shove", actionMap, v => data.SetButtonState(Button.Shove, v), "<Keyboard>/l", "<Gamepad>/buttonEast");
 
 		actionMap.devices = devices as InputDevice[] ?? devices.ToArray();
 		actionMap.Enable();

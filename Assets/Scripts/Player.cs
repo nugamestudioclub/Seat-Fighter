@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player
 {
+    public int Stamina;
+
     private ActionObject shove;
     private ActionObject push;
     private ActionObject dodge;
@@ -34,6 +36,15 @@ public class Player
         this.block = block;
 
     }
+
+    public Player(Dictionary<Action, ActionObject> dict)
+    {
+        this.shove = dict[Action.Shove];
+        this.push = dict[Action.Push];
+        this.dodge = dict[Action.Dodge];
+        this.block = dict[Action.Block];
+    }
+
     public Action_state Tick()
     {
         if(actionqueue.Count > 0)
@@ -74,6 +85,16 @@ public class Player
         ExecuteAction(block);
     }
 
-
+    public void Idle()
+    {
+        List<State_duration> states = new List<State_duration>();
+        states.Add(new State_duration()
+        {
+            state = Action_state.IDLE,
+            duration = 1
+        });
+        ActionObject idle = new ActionObject(states, 0);
+        ExecuteAction(idle);
+    }
 
 }

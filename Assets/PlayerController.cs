@@ -13,4 +13,21 @@ public class PlayerController : MonoBehaviour
     {
         playerData = new Player(push, push, push, push);
     }
+
+    public void FixedUpdate()
+    {
+        Action a = Action.None;
+        if (playerData.Current_action == Action_state.IDLE)
+        {
+            // TODO add InputController stuff
+            switch(a) {
+                case Action.Shove: playerData.Shove(); break;
+                case Action.Dodge: playerData.Dodge(); break;
+                case Action.Push: playerData.Push(); break;
+                case Action.Block: playerData.Block(); break;
+                case Action.None: break;
+            }
+        }
+        playerData.Tick();
+    }
 }
