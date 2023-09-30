@@ -21,8 +21,6 @@ public class GameManager : MonoBehaviour {
 		else {
 			Destroy(gameObject);
 		}
-
-		text = GetComponent<TMPro.TextMeshPro>();
 	}
 
 	private int frameCount;
