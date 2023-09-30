@@ -13,4 +13,10 @@ public class PlayerConfig : ScriptableObject
     public int stunTime;
     public int maxStamina;
     public int health;
+
+    public ActionObject push;
+    public ActionObject shove;
+    public ActionObject dodge;
+    public ActionObject block;
+
 }

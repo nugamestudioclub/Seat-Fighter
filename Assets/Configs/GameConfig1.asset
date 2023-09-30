@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftPlayerConfig: {fileID: 11400000, guid: 19ce19749975fe847bcfde9680e5d931, type: 2}
   rightPlayerConfig: {fileID: 11400000, guid: 19ce19749975fe847bcfde9680e5d931, type: 2}
-  environmentConfig: {fileID: 0}
+  environmentConfig: {fileID: 11400000, guid: c9c0874d54722a240b904a7b40383798, type: 2}
+  aIConfig: {fileID: 11400000, guid: 1a6b1e65ee9d53f4db5a5b421b0604f8, type: 2}

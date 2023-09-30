@@ -13,5 +13,6 @@ public class GameConfig : ScriptableObject
     public PlayerConfig rightPlayerConfig;
 
     public EnvironmentConfig environmentConfig;
+    public AIConfig aIConfig;
 
 }

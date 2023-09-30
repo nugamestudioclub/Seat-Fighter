@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-public class GameLogic : MonoBehaviour
+public class GameLogic
 {
     private GameConfig config;
 
