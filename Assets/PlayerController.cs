@@ -1,33 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : IActionProvider
 {
-    Player playerData;
-
     [SerializeField]
     private ActionObject push;
 
-    private void Awake()
+    private Player player;
+
+    PlayerController(Player player)
     {
-        playerData = new Player(push, push, push, push);
+        this.player = player;
     }
 
-    public void FixedUpdate()
+    public Action GetNextAction()
     {
         Action a = Action.None;
-        if (playerData.Current_action == Action_state.IDLE)
+        if (player.Current_action == Action_state.IDLE)
         {
-            // TODO add InputController stuff
-            switch(a) {
-                case Action.Shove: playerData.Shove(); break;
-                case Action.Dodge: playerData.Dodge(); break;
-                case Action.Push: playerData.Push(); break;
-                case Action.Block: playerData.Block(); break;
-                case Action.None: break;
-            }
+            // TODO poll user input
         }
-        playerData.Tick();
+        return a;
     }
 }

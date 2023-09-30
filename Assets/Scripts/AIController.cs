@@ -1,58 +1,60 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIController : MonoBehaviour
+public class AIController : IActionProvider
 {
+    private List<Action_state> oldQueue;
 
-    public Queue<Action_state> playerQueue;
-    public Queue<Action_state> aiQueue;
-
-    private Action_state[] oldQueue;
+    private Player player;
+    private Player enemy;
 
     [SerializeField]
     private List<ActionResponse> actionResponses;
 
-    public Player player;
+    AiAction curAction = AiAction.EMPTY;
 
-    [SerializeField]
-    private ActionObject push;
-
-    // Start is called before the first frame update
-    void Awake()
+    public AIController(Player player, Player enemy)
     {
-        player = new Player(push, push, push, push);
+        this.player = player;
+        this.enemy = enemy;
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    public Action GetNextAction()
     {
-        Action_state[] curQueue = playerQueue.ToArray();
-        if (aiQueue.Count == 0)
+        Action toReturn = Action.None;
+        List <Action_state> curQueue = enemy.ActionList;
+        if (!(curAction.Equals(AiAction.EMPTY)))
+        {
+            if (curAction.checkDelay())
+            {
+                toReturn = curAction.Action;
+            }
+        }
+        else if (player.Current_action == Action_state.IDLE)
         {
             if (isNewActionTaken(curQueue))
             {
                 OpponentAction action = findOpponentAction(curQueue);
-                AiAction aiAction = GetReponseAction(action);
+                curAction = GetReponseAction(action);
             }
         }
 
-
         oldQueue = curQueue;
+        return toReturn;
     }
 
-    private bool isNewActionTaken(Action_state[] curQueue) {
-        return oldQueue.Length == 0 && curQueue.Length > 0;
+    private bool isNewActionTaken(List<Action_state> curQueue) {
+        return oldQueue.Count == 0 && curQueue.Count > 0;
     }
 
-    private OpponentAction findOpponentAction(Action_state[] curQueue)
+    private OpponentAction findOpponentAction(List<Action_state> curQueue)
     {
         if (curQueue[0] == Action_state.COOLDOWN)
         {
-            return new OpponentAction(Action_state.COOLDOWN, curQueue.Length);
+            return new OpponentAction(Action_state.COOLDOWN, curQueue.Count);
         }
-        for (int i = 0; i < curQueue.Length; i++)
+        for (int i = 0; i < curQueue.Count; i++)
         {
             if (curQueue[i] != Action_state.BUSY)
             {
@@ -72,33 +74,6 @@ public class AIController : MonoBehaviour
             }
         }
         throw new Exception("You forgot a response action didn't you");
-    }
-
-    private void DoAction(AiAction action)
-    {
-        DoAction(action, 0);
-    }
-
-    private void DoAction(AiAction action, int delay)
-    {
-        for (int i = 0; i < delay; i++)
-        {
-            player.Idle();
-        }
-        switch (action) {
-            case AiAction.SHOVE:
-                player.Shove();
-                break;
-            case AiAction.PUSH:
-                player.Push();
-                break;
-            case AiAction.BLOCK:
-                player.Block();
-                break;
-            case AiAction.DODGE:
-                player.Dodge();
-                break;
-        }
     }
 
 }

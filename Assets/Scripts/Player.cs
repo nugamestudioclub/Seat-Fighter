@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Player
@@ -13,6 +14,7 @@ public class Player
 
     public float Position { get; private set; }
     private Queue<Action_state> actionqueue;
+    public List<Action_state> ActionList => actionqueue.ToList();
     public Action_state Current_action
     {
         get
@@ -83,18 +85,6 @@ public class Player
 
     public void Block() {
         ExecuteAction(block);
-    }
-
-    public void Idle()
-    {
-        List<State_duration> states = new List<State_duration>();
-        states.Add(new State_duration()
-        {
-            state = Action_state.IDLE,
-            duration = 1
-        });
-        ActionObject idle = new ActionObject(states, 0);
-        ExecuteAction(idle);
     }
 
 }
