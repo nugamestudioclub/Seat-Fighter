@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 41119008}
   - component: {fileID: 41119007}
   m_Layer: 0
-  m_Name: GORDON
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -478,7 +478,7 @@ GameObject:
   - component: {fileID: 1612028999}
   - component: {fileID: 1612028998}
   m_Layer: 0
-  m_Name: JORDAN
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
