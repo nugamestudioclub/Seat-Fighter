@@ -12,7 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8facbb8cbfcea1f4fa4deb3b3a5b8c10, type: 3}
   m_Name: Jordan
   m_EditorClassIdentifier: 
-  dodge: []
-  block: []
-  shove: []
-  push: []
+  idle: {fileID: 21300000, guid: 9adb16e2252ed0543a68068086bed5ba, type: 3}
+  dodge:
+  - {fileID: 21300000, guid: c630ddeb3c07fc14aa2acfd564a1f5e9, type: 3}
+  - {fileID: 21300000, guid: f6a1ef08e2c6f9047a76f5aa7d19012e, type: 3}
+  block:
+  - {fileID: 21300000, guid: 780f3813e109ebf4b8ae3abc8a7be04c, type: 3}
+  - {fileID: 21300000, guid: 6b90e438c4c373445a762f5f5597ea36, type: 3}
+  - {fileID: 21300000, guid: d1a1ad0297f11d342b54c30564538f84, type: 3}
+  shove:
+  - {fileID: 21300000, guid: 6d457eeb618f7bd429dba6dc93a58890, type: 3}
+  - {fileID: 21300000, guid: c9564e9ebba3f0542b0178fd97f77d5d, type: 3}
+  - {fileID: 21300000, guid: 729241ca817b3df4083bb415627af2db, type: 3}
+  - {fileID: 21300000, guid: 22538fcbffb74434185723f7ad47247a, type: 3}
+  push:
+  - {fileID: 21300000, guid: 44ff7eeafcbead043a95eec0d0528587, type: 3}
+  - {fileID: 21300000, guid: 2125b0aef0d81b14ca6cf1461541429a, type: 3}
+  - {fileID: 21300000, guid: 328dcb2db61157a49817ca7f94e99f02, type: 3}

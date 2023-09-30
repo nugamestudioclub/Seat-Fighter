@@ -9,14 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87f5d191503138f4f9f4ad57c761d5eb, type: 3}
-  m_Name: ActionObject
+  m_Script: {fileID: 11500000, guid: 8facbb8cbfcea1f4fa4deb3b3a5b8c10, type: 3}
+  m_Name: Gordon
   m_EditorClassIdentifier: 
-  <States>k__BackingField:
-  - state: 0
-    duration: 5
-  - state: 1
-    duration: 1
-  - state: 0
-    duration: 1
-  <StaminaCost>k__BackingField: 0
+  idle: {fileID: 0}
+  dodge: []
+  block: []
+  shove: []
+  push: []
