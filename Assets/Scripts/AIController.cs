@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIController : MonoBehaviour
+public class AIController : IActionProvider
 {
 
     public Queue<Action_state> playerQueue;
@@ -14,32 +14,33 @@ public class AIController : MonoBehaviour
     [SerializeField]
     private List<ActionResponse> actionResponses;
 
-    public Player player;
-
     [SerializeField]
     private ActionObject push;
 
-    // Start is called before the first frame update
-    void Awake()
-    {
-        player = new Player(push, push, push, push);
-    }
+    AiAction curAction = AiAction.EMPTY;
 
-    // Update is called once per frame
-    void FixedUpdate()
+    public Action GetNextAction()
     {
+        Action toReturn = Action.None;
         Action_state[] curQueue = playerQueue.ToArray();
-        if (aiQueue.Count == 0)
+        if (!(curAction.Equals(AiAction.EMPTY)))
+        {
+            if (curAction.checkDelay())
+            {
+                toReturn = curAction.Action;
+            }
+        }
+        else if (aiQueue.Count == 0)
         {
             if (isNewActionTaken(curQueue))
             {
                 OpponentAction action = findOpponentAction(curQueue);
-                AiAction aiAction = GetReponseAction(action);
+                curAction = GetReponseAction(action);
             }
         }
 
-
         oldQueue = curQueue;
+        return toReturn;
     }
 
     private bool isNewActionTaken(Action_state[] curQueue) {
@@ -72,33 +73,6 @@ public class AIController : MonoBehaviour
             }
         }
         throw new Exception("You forgot a response action didn't you");
-    }
-
-    private void DoAction(AiAction action)
-    {
-        DoAction(action, 0);
-    }
-
-    private void DoAction(AiAction action, int delay)
-    {
-        for (int i = 0; i < delay; i++)
-        {
-            player.Idle();
-        }
-        switch (action) {
-            case AiAction.SHOVE:
-                player.Shove();
-                break;
-            case AiAction.PUSH:
-                player.Push();
-                break;
-            case AiAction.BLOCK:
-                player.Block();
-                break;
-            case AiAction.DODGE:
-                player.Dodge();
-                break;
-        }
     }
 
 }

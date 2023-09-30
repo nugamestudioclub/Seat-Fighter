@@ -85,16 +85,4 @@ public class Player
         ExecuteAction(block);
     }
 
-    public void Idle()
-    {
-        List<State_duration> states = new List<State_duration>();
-        states.Add(new State_duration()
-        {
-            state = Action_state.IDLE,
-            duration = 1
-        });
-        ActionObject idle = new ActionObject(states, 0);
-        ExecuteAction(idle);
-    }
-
 }
