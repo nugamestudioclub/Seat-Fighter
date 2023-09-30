@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Player
 {
-    private Action shove;
-    private Action push;
-    private Action dodge;
-    private Action block;
+    private ActionObject shove;
+    private ActionObject push;
+    private ActionObject dodge;
+    private ActionObject block;
 
     public float Position { get; private set; }
     private Queue<Action_state> actionqueue;
@@ -26,7 +26,7 @@ public class Player
         }
     }
 
-    public Player(Action shove, Action push, Action dodge, Action block)
+    public Player(ActionObject shove, ActionObject push, ActionObject dodge, ActionObject block)
     {
         this.shove = shove;
         this.push = push;
@@ -44,7 +44,7 @@ public class Player
         return Current_action;
     }
 
-    private void ExecuteAction(Action move)
+    private void ExecuteAction(ActionObject move)
     {
         move.States.ForEach(state_duration =>
         {

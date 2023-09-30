@@ -4,10 +4,10 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(
-    fileName = nameof(Action),
-    menuName =  "ScriptableObjects/" + nameof(Action))
+    fileName = nameof(ActionObject),
+    menuName =  "ScriptableObjects/" + nameof(ActionObject))
 ]
-public class Action : ScriptableObject
+public class ActionObject : ScriptableObject
 {
     [field: SerializeField]
     public List<State_duration> States { get; private set; }
