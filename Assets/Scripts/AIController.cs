@@ -1,28 +1,29 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AIController : IActionProvider
 {
+    private List<Action_state> oldQueue;
 
-    public Queue<Action_state> playerQueue;
-    public Queue<Action_state> aiQueue;
-
-    private Action_state[] oldQueue;
+    private Player player;
+    private Player enemy;
 
     [SerializeField]
     private List<ActionResponse> actionResponses;
 
-    [SerializeField]
-    private ActionObject push;
-
     AiAction curAction = AiAction.EMPTY;
+
+    public AIController(Player player, Player enemy)
+    {
+        this.player = player;
+        this.enemy = enemy;
+    }
 
     public Action GetNextAction()
     {
         Action toReturn = Action.None;
-        Action_state[] curQueue = playerQueue.ToArray();
+        List <Action_state> curQueue = enemy.ActionList;
         if (!(curAction.Equals(AiAction.EMPTY)))
         {
             if (curAction.checkDelay())
@@ -30,7 +31,7 @@ public class AIController : IActionProvider
                 toReturn = curAction.Action;
             }
         }
-        else if (aiQueue.Count == 0)
+        else if (player.Current_action == Action_state.IDLE)
         {
             if (isNewActionTaken(curQueue))
             {
@@ -43,17 +44,17 @@ public class AIController : IActionProvider
         return toReturn;
     }
 
-    private bool isNewActionTaken(Action_state[] curQueue) {
-        return oldQueue.Length == 0 && curQueue.Length > 0;
+    private bool isNewActionTaken(List<Action_state> curQueue) {
+        return oldQueue.Count == 0 && curQueue.Count > 0;
     }
 
-    private OpponentAction findOpponentAction(Action_state[] curQueue)
+    private OpponentAction findOpponentAction(List<Action_state> curQueue)
     {
         if (curQueue[0] == Action_state.COOLDOWN)
         {
-            return new OpponentAction(Action_state.COOLDOWN, curQueue.Length);
+            return new OpponentAction(Action_state.COOLDOWN, curQueue.Count);
         }
-        for (int i = 0; i < curQueue.Length; i++)
+        for (int i = 0; i < curQueue.Count; i++)
         {
             if (curQueue[i] != Action_state.BUSY)
             {

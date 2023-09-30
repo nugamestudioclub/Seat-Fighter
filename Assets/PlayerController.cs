@@ -1,15 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem.XInput;
-using UnityEngine.InputSystem;
 
 public class PlayerController : IActionProvider
 {
     [SerializeField]
     private ActionObject push;
 
-    Player player;
+    private Player player;
+
+    PlayerController(Player player)
+    {
+        this.player = player;
+    }
 
     public Action GetNextAction()
     {
