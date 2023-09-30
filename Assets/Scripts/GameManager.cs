@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
-
 	private static GameManager _instance;
 
 	[SerializeField]
-	private InputController _playerInput;
+	private InputController _inputController;
+
+	private PlayerInput _playerInput;
 
 	public static GameManager Instance => _instance;
 
@@ -20,24 +21,25 @@ public class GameManager : MonoBehaviour {
 		else {
 			Destroy(gameObject);
 		}
+
+		text = GetComponent<TMPro.TextMeshPro>();
 	}
 
-	private readonly IList<int> buttonValues = Buttons.GetValues();
-	private readonly IList<string> buttonNames = Buttons.GetNames();
+	private int frameCount;
 
 	void Update() {
-		for( int i = 0; i < buttonValues.Count; ++i ) {
-			var button = (Button)i;
-			if( _playerInput.IsDown(button) )
-				Debug.Log($"{buttonNames[i]} is down");
-			else if( _playerInput.IsPressed(button) )
-				Debug.Log($"{buttonNames[i]} is pressed");
-			else if( _playerInput.IsUp(button) )
-				Debug.Log($"{buttonNames[i]} is up");
+		int currentFrameCount = Time.frameCount;
+		if( currentFrameCount > frameCount ) {
+			var action = _playerInput.GetNextAction();
+			if( action != Action.None ) {
+				Debug.Log(action);
+			}
+			frameCount = currentFrameCount;
 		}
 	}
 
 	private void Initialize() {
-		_playerInput.Initialize();
+		_inputController.Initialize();
+		_playerInput = new(_inputController);
 	}
 }
