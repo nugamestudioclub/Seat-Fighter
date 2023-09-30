@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87f5d191503138f4f9f4ad57c761d5eb, type: 3}
+  m_Name: Jordan_Block
+  m_EditorClassIdentifier: 
+  <States>k__BackingField:
+  - state: 0
+    duration: 10
+  - state: 3
+    duration: 1
+  - state: 0
+    duration: 10
+  <Sprites>k__BackingField:
+  - sprite: {fileID: 21300000, guid: 780f3813e109ebf4b8ae3abc8a7be04c, type: 3}
+    duration: 5
+  - sprite: {fileID: 21300000, guid: 6b90e438c4c373445a762f5f5597ea36, type: 3}
+    duration: 5
+  - sprite: {fileID: 21300000, guid: d1a1ad0297f11d342b54c30564538f84, type: 3}
+    duration: 1
+  - sprite: {fileID: 21300000, guid: 6b90e438c4c373445a762f5f5597ea36, type: 3}
+    duration: 5
+  - sprite: {fileID: 21300000, guid: 780f3813e109ebf4b8ae3abc8a7be04c, type: 3}
+    duration: 5
+  <StaminaCost>k__BackingField: 0

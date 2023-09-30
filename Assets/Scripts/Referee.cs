@@ -23,6 +23,8 @@ public class Referee
     {
         leftPlayer.Tick();
         rightPlayer.Tick();
+        Debug.Log($"Left action: {leftPlayer.Current_action}");
+        Debug.Log($"Right action: {rightPlayer.Current_action}");
         ResolveEvents(leftPlayer, rightPlayer, environment);
     }
 

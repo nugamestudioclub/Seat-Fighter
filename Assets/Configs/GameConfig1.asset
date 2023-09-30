@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b19b13098bb9ae4f9ab6150dfae4867, type: 3}
+  m_Name: GameConfig1
+  m_EditorClassIdentifier: 
+  leftPlayerConfig: {fileID: 11400000, guid: 19ce19749975fe847bcfde9680e5d931, type: 2}
+  rightPlayerConfig: {fileID: 11400000, guid: 19ce19749975fe847bcfde9680e5d931, type: 2}
+  environmentConfig: {fileID: 11400000, guid: c9c0874d54722a240b904a7b40383798, type: 2}
+  aIConfig: {fileID: 11400000, guid: 1a6b1e65ee9d53f4db5a5b421b0604f8, type: 2}

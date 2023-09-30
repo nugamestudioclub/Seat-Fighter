@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class AIController : IActionProvider
@@ -9,15 +10,20 @@ public class AIController : IActionProvider
     private Player player;
     private Player enemy;
 
-    [SerializeField]
+    private AIConfig config;
+   [SerializeField]
     private List<ActionResponse> actionResponses;
 
     AiAction curAction = AiAction.EMPTY;
 
-    public AIController(Player player, Player enemy)
+    public AIController(Player player, Player enemy, AIConfig config)
     {
         this.player = player;
         this.enemy = enemy;
+        this.config = config;
+        oldQueue = new();
+        actionResponses = new(config.actionResponses);
+
     }
 
     public Action GetNextAction()
