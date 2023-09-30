@@ -13,6 +13,9 @@ public class ActionObject : ScriptableObject
     public List<State_duration> States { get; private set; }
 
     [field: SerializeField]
+    public List<Sprite_duration> Sprites { get; private set; }
+
+    [field: SerializeField]
     public int StaminaCost { get; private set; }
    
     public ActionObject(List<State_duration> states, int staminaCost)
