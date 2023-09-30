@@ -30,5 +30,6 @@ public enum EventType
     Stun,
     StaminaRefresh,
     OutOfBounds,
+    Win,
     
 }

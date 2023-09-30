@@ -4,7 +4,24 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
-	private static GameManager _instance;
+	//referee
+	private Referee referee;
+	//sounds
+
+	//ui
+
+	//logic
+
+	[SerializeField]
+	private PlayerController leftPlayerController;
+    [SerializeField]
+    private PlayerController rightPlayerController;
+	[SerializeField]
+	private Environment environment;
+
+
+
+    private static GameManager _instance;
 
 	[SerializeField]
 	private InputController _playerInput;
@@ -39,5 +56,7 @@ public class GameManager : MonoBehaviour {
 
 	private void Initialize() {
 		_playerInput.Initialize();
+
+		//referee = new Referee(leftPlayerController.);
 	}
 }

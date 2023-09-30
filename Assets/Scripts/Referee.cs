@@ -8,46 +8,53 @@ public class Referee
 {
     private Player leftPlayer;
     private Player rightPlayer;
-    private int position;
+    private Environment environment;
 
     public event EventHandler<InteractionEventArgs> Interaction;
-    public Referee(Player leftPlayer, Player rightPlayer) : this(leftPlayer, rightPlayer, 50) { }
-    
 
-    public Referee(Player leftPlayer, Player rightPlayer, int startingPosition)
+    public Referee(Player leftPlayer, Player rightPlayer, Environment environment)
     {
         this.leftPlayer = leftPlayer;
         this.rightPlayer = rightPlayer;
-        position = startingPosition;
+        this.environment = environment;
     }
 
     public void Tick()
     {
         leftPlayer.Tick();
         rightPlayer.Tick();
-        ResolveEvents(leftPlayer, rightPlayer, position);
+        ResolveEvents(leftPlayer, rightPlayer, environment);
     }
 
-    private void ResolveEvents(Player leftPlayer, Player rightPlayer, int position)
+    private void ResolveEvents(Player leftPlayer, Player rightPlayer, Environment environment)
     {
         // game logic
-        if (position <= 0) //left player is oob
+        if (environment.position <= 0) //left player is oob
         {
             OnInteraction(new InteractionEventArgs(EventSource.ENVIRONEMNT, EventSource.LEFT, EventType.OutOfBounds));
-        } else if (position >= 100)
+        } else if (environment.position >= 100)
         {
             OnInteraction(new InteractionEventArgs(EventSource.ENVIRONEMNT, EventSource.RIGHT, EventType.OutOfBounds));
         }
 
+        //check game over
+        if (environment.leftPlayerTime <= 0) 
+        {
+            OnInteraction(new InteractionEventArgs(EventSource.ENVIRONEMNT, EventSource.LEFT, EventType.Win));
+        }
+        else if (environment.rightPlayerTime <= 0)
+        {
+            OnInteraction(new InteractionEventArgs(EventSource.ENVIRONEMNT, EventSource.RIGHT, EventType.Win));
+        }
 
-        ResolveActionEvents(leftPlayer, rightPlayer, position);
+        ResolveActionEvents(leftPlayer, rightPlayer);
 
 
 
     }
 
 
-    private void ResolveActionEvents(Player leftPlayer, Player rightPlayer, int position)
+    private void ResolveActionEvents(Player leftPlayer, Player rightPlayer)
     {
         //blocking shove
         if (leftPlayer.Current_action == Action_state.SHOVING && rightPlayer.Current_action == Action_state.BLOCKING)
