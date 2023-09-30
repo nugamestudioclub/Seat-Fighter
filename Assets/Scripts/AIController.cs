@@ -14,10 +14,15 @@ public class AIController : MonoBehaviour
     [SerializeField]
     private List<ActionResponse> actionResponses;
 
+    public Player player;
+
+    [SerializeField]
+    private ActionObject push;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        player = new Player(push, push, push, push);
     }
 
     // Update is called once per frame
@@ -76,7 +81,24 @@ public class AIController : MonoBehaviour
 
     private void DoAction(AiAction action, int delay)
     {
-        // TODO
+        for (int i = 0; i < delay; i++)
+        {
+            player.Idle();
+        }
+        switch (action) {
+            case AiAction.SHOVE:
+                player.Shove();
+                break;
+            case AiAction.PUSH:
+                player.Push();
+                break;
+            case AiAction.BLOCK:
+                player.Block();
+                break;
+            case AiAction.DODGE:
+                player.Dodge();
+                break;
+        }
     }
 
 }

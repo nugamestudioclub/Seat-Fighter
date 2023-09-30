@@ -4,5 +4,5 @@ using UnityEngine;
 
 public enum AiAction
 {
-
+    SHOVE, PUSH, BLOCK, DODGE
 }
