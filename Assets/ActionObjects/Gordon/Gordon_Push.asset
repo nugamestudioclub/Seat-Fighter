@@ -19,4 +19,15 @@ MonoBehaviour:
     duration: 1
   - state: 0
     duration: 10
+  <Sprites>k__BackingField:
+  - sprite: {fileID: 21300000, guid: f77b8bc0b4d60ef4eb1cf5baa427f6fc, type: 3}
+    duration: 5
+  - sprite: {fileID: 21300000, guid: 413e96e0189e49b46b758fa33142988a, type: 3}
+    duration: 5
+  - sprite: {fileID: 21300000, guid: 8759ee451e3bc6d42bf789da7eba5ec8, type: 3}
+    duration: 1
+  - sprite: {fileID: 21300000, guid: 413e96e0189e49b46b758fa33142988a, type: 3}
+    duration: 5
+  - sprite: {fileID: 21300000, guid: f77b8bc0b4d60ef4eb1cf5baa427f6fc, type: 3}
+    duration: 5
   <StaminaCost>k__BackingField: 20
