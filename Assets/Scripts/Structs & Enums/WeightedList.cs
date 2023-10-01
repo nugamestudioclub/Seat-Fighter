@@ -5,6 +5,6 @@ using UnityEngine;
 [Serializable]
 public struct WeightedItem
 {
-	public AiAction AiAction;
+	public AIAction AiAction;
 	public int Weight;
 }

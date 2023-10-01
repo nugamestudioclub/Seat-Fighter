@@ -4,21 +4,21 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(
-    fileName = nameof(ActionObject),
-    menuName =  "ScriptableObjects/" + nameof(ActionObject))
+    fileName = nameof(ActionConfig),
+    menuName =  "ScriptableObjects/" + nameof(ActionConfig))
 ]
-public class ActionObject : ScriptableObject
+public class ActionConfig : ScriptableObject
 {
     [field: SerializeField]
-    public List<State_duration> States { get; private set; }
+    public List<StateDuration> States { get; private set; }
 
     [field: SerializeField]
-    public List<Sprite_duration> Sprites { get; private set; }
+    public List<SpriteDuration> Sprites { get; private set; }
 
     [field: SerializeField]
     public int StaminaCost { get; private set; }
    
-    public ActionObject(List<State_duration> states, int staminaCost)
+    public ActionConfig(List<StateDuration> states, int staminaCost)
     {
         States = states;
         StaminaCost = staminaCost;

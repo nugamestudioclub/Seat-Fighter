@@ -26,30 +26,30 @@ public class Player
 
     private Action desiredAction;
 
-    private readonly ActionObject shove;
-    private readonly ActionObject push;
-    private readonly ActionObject dodge;
-    private readonly ActionObject block;
+    private readonly ActionConfig shove;
+    private readonly ActionConfig push;
+    private readonly ActionConfig dodge;
+    private readonly ActionConfig block;
 
     private readonly EventSource playerSide;
 
-    private readonly Queue<Action_state> actionqueue;
+    private readonly Queue<ActionState> actionqueue;
 
     public float Position { get; private set; }
-    public List<Action_state> ActionList => actionqueue.ToList();
+    public List<ActionState> ActionList => actionqueue.ToList();
 
     public event EventHandler<PlayerEventArgs> PlayerEvent;
 
-    public Player(ActionObject shove, ActionObject push, ActionObject dodge, ActionObject block, EventSource playerSide)
+    public Player(ActionConfig shove, ActionConfig push, ActionConfig dodge, ActionConfig block, EventSource playerSide)
     {
         this.shove = shove;
         this.push = push;
         this.dodge = dodge;
         this.block = block;
         this.playerSide = playerSide;
-        actionqueue = new Queue<Action_state>();
+        actionqueue = new Queue<ActionState>();
     }
-    public Player(Dictionary<Action, ActionObject> dict)
+    public Player(Dictionary<Action, ActionConfig> dict)
     {
         this.shove = dict[Action.Shove];
         this.push = dict[Action.Push];
@@ -62,7 +62,7 @@ public class Player
         input = actionProvider;
     }
 
-    public Action_state Current_action
+    public ActionState Current_action
     {
         get
         {
@@ -72,7 +72,7 @@ public class Player
             }
             else
             {
-                return Action_state.IDLE;
+                return ActionState.IDLE;
             }
         }
     }
@@ -83,9 +83,9 @@ public class Player
             desiredAction = input.GetNextAction();
     }
 
-    public Action_state Tick()
+    public ActionState Tick()
     {
-        if (Current_action == Action_state.IDLE)
+        if (Current_action == ActionState.IDLE)
         {
             switch (desiredAction)
             {
@@ -107,12 +107,12 @@ public class Player
         {
             actionqueue.Dequeue();
         }
-        if( Current_action == Action_state.IDLE )
+        if( Current_action == ActionState.IDLE )
             desiredAction = Action.None;
         return Current_action;
     }
 
-    private void ExecuteAction(ActionObject move)
+    private void ExecuteAction(ActionConfig move)
     {
         move.States.ForEach(state_duration =>
         {

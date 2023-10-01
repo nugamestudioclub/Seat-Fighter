@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public struct Sprite_duration
+public struct SpriteDuration
 {
     public Sprite sprite;
     public int duration;

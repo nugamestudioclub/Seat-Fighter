@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
 	[SerializeField]
 	private InputController _inputController;
 
-	private PlayerInput humanController;
+	private HumanController humanController;
 
 	private Player leftPlayer;
 

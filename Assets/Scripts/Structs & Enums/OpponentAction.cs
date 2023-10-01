@@ -5,10 +5,10 @@ using UnityEngine;
 public class OpponentAction
 {
 
-    public readonly Action_state Action;
+    public readonly ActionState Action;
     public readonly int Startup;
 
-    public OpponentAction(Action_state action, int startup)
+    public OpponentAction(ActionState action, int startup)
     {
         Action = action;
         Startup = startup;

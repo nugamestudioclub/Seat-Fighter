@@ -1,6 +1,4 @@
 using System;
-
-[Serializable]
 public class Environment
 {
     private int position;

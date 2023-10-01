@@ -16,27 +16,27 @@ public class AudioHandler : MonoBehaviour
         
     }
 
-    private void Referee_OnInteraction(object sender, InteractionEventArgs e)
+    private void Referee_OnInteraction(object sender, RefereeEventArgs e)
     {
         switch(e.type)
         {
-            case EventType.Dodge:
+            case RefereeEventType.Dodge:
 
                 break;
-            case EventType.ShovePush:
-            case EventType.ShoveContact:
+            case RefereeEventType.ShovePush:
+            case RefereeEventType.ShoveContact:
 
                 break;
-            case EventType.StartBlock:
+            case RefereeEventType.StartBlock:
 
                 break;
-            case EventType.StartShove:
+            case RefereeEventType.StartShove:
 
                 break;
-            case EventType.StartPush:
+            case RefereeEventType.StartPush:
 
                 break;
-            case EventType.ShoveBlock:
+            case RefereeEventType.ShoveBlock:
 
                 break;
         }

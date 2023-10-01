@@ -1,12 +1,12 @@
 using System;
 
-public class InteractionEventArgs : EventArgs
+public class RefereeEventArgs : EventArgs
 {
     public readonly EventSource sender;
     public readonly EventSource reciever;
-    public readonly EventType type;
+    public readonly RefereeEventType type;
 
-    public InteractionEventArgs(EventSource sender, EventSource reciever, EventType type)
+    public RefereeEventArgs(EventSource sender, EventSource reciever, RefereeEventType type)
     {
         this.sender = sender;
         this.reciever = reciever;

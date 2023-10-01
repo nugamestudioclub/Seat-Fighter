@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class AIController : IActionProvider
 {
-    private List<Action_state> oldQueue;
+    private List<ActionState> oldQueue;
 
     private Player player;
     private Player enemy;
@@ -14,7 +13,7 @@ public class AIController : IActionProvider
    [SerializeField]
     private List<ActionResponse> actionResponses;
 
-    AiAction curAction = AiAction.EMPTY;
+    AIAction curAction = AIAction.EMPTY;
 
     public AIController(Player player, Player enemy, AIConfig config)
     {
@@ -29,15 +28,15 @@ public class AIController : IActionProvider
     public Action GetNextAction()
     {
         Action toReturn = Action.None;
-        List <Action_state> curQueue = enemy.ActionList;
-        if (!(curAction.Equals(AiAction.EMPTY)))
+        List <ActionState> curQueue = enemy.ActionList;
+        if (!(curAction.Equals(AIAction.EMPTY)))
         {
             if (curAction.checkDelay())
             {
                 toReturn = curAction.Action;
             }
         }
-        else if (player.Current_action == Action_state.IDLE)
+        else if (player.Current_action == ActionState.IDLE)
         {
             if (isNewActionTaken(curQueue))
             {
@@ -50,19 +49,19 @@ public class AIController : IActionProvider
         return toReturn;
     }
 
-    private bool isNewActionTaken(List<Action_state> curQueue) {
+    private bool isNewActionTaken(List<ActionState> curQueue) {
         return oldQueue.Count == 0 && curQueue.Count > 0;
     }
 
-    private OpponentAction findOpponentAction(List<Action_state> curQueue)
+    private OpponentAction findOpponentAction(List<ActionState> curQueue)
     {
-        if (curQueue[0] == Action_state.COOLDOWN)
+        if (curQueue[0] == ActionState.COOLDOWN)
         {
-            return new OpponentAction(Action_state.COOLDOWN, curQueue.Count);
+            return new OpponentAction(ActionState.COOLDOWN, curQueue.Count);
         }
         for (int i = 0; i < curQueue.Count; i++)
         {
-            if (curQueue[i] != Action_state.BUSY)
+            if (curQueue[i] != ActionState.BUSY)
             {
                 return new OpponentAction(curQueue[i], i);
             }
@@ -70,7 +69,7 @@ public class AIController : IActionProvider
         throw new System.Exception("Something messed up when finding actions");
     }
 
-    private AiAction GetReponseAction(OpponentAction opponentAction)
+    private AIAction GetReponseAction(OpponentAction opponentAction)
     {
         for (int i = 0; i < actionResponses.Count; i++)
         {

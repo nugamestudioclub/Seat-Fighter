@@ -1,7 +1,7 @@
-﻿public class PlayerInput : IActionProvider {
+﻿public class HumanController : IActionProvider {
 	private readonly InputController _controller;
 
-	public PlayerInput(InputController controller) {
+	public HumanController(InputController controller) {
 		_controller = controller;
 	}
 

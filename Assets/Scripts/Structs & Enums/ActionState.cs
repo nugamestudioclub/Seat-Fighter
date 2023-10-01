@@ -1,6 +1,4 @@
-
-
-public enum Action_state 
+public enum ActionState 
 {
     BUSY,
     SHOVING,

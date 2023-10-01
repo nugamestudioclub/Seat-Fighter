@@ -19,12 +19,12 @@ public class GameLogic
 
     public void Bind(Referee referee)
     {
-        referee.Interaction += Referee_OnInteraction;
+        referee.RefereeEvent += Referee_OnInteraction;
     }
 
-    private void Referee_OnInteraction(object sender, InteractionEventArgs e)
+    private void Referee_OnInteraction(object sender, RefereeEventArgs e)
     {
-        if (e.type == EventType.OutOfBounds)
+        if (e.type == RefereeEventType.OutOfBounds)
         {
             if (e.reciever == EventSource.LEFT)
             {
@@ -35,7 +35,7 @@ public class GameLogic
                 environment.RightPlayerTime--;
             }
         }
-        else if (e.type == EventType.PushContact)
+        else if (e.type == RefereeEventType.PushContact)
         {
             if (e.reciever == EventSource.LEFT)
             {
@@ -50,7 +50,7 @@ public class GameLogic
                     environment.Position + config.leftPlayerConfig.pushDamage);
             }
         }
-        else if (e.type == EventType.ShoveContact)
+        else if (e.type == RefereeEventType.ShoveContact)
         {
             if (e.reciever == EventSource.LEFT)
             {

@@ -10,7 +10,7 @@ public class Referee
     private Player rightPlayer;
     private Environment environment;
 
-    public event EventHandler<InteractionEventArgs> Interaction;
+    public event EventHandler<RefereeEventArgs> RefereeEvent;
 
     public Referee(Player leftPlayer, Player rightPlayer, Environment environment)
     {
@@ -33,20 +33,20 @@ public class Referee
         // game logic
         if (environment.Position <= 0) //left player is oob
         {
-            OnInteraction(new InteractionEventArgs(EventSource.ENVIRONEMNT, EventSource.LEFT, EventType.OutOfBounds));
+            OnRefereeEvent(new RefereeEventArgs(EventSource.ENVIRONEMNT, EventSource.LEFT, RefereeEventType.OutOfBounds));
         } else if (environment.Position >= 100)
         {
-            OnInteraction(new InteractionEventArgs(EventSource.ENVIRONEMNT, EventSource.RIGHT, EventType.OutOfBounds));
+            OnRefereeEvent(new RefereeEventArgs(EventSource.ENVIRONEMNT, EventSource.RIGHT, RefereeEventType.OutOfBounds));
         }
 
         //check game over
         if (environment.LeftPlayerTime <= 0) 
         {
-            OnInteraction(new InteractionEventArgs(EventSource.ENVIRONEMNT, EventSource.LEFT, EventType.Win));
+            OnRefereeEvent(new RefereeEventArgs(EventSource.ENVIRONEMNT, EventSource.LEFT, RefereeEventType.Win));
         }
         else if (environment.RightPlayerTime <= 0)
         {
-            OnInteraction(new InteractionEventArgs(EventSource.ENVIRONEMNT, EventSource.RIGHT, EventType.Win));
+            OnRefereeEvent(new RefereeEventArgs(EventSource.ENVIRONEMNT, EventSource.RIGHT, RefereeEventType.Win));
         }
 
         ResolveActionEvents(leftPlayer, rightPlayer);
@@ -59,124 +59,124 @@ public class Referee
     private void ResolveActionEvents(Player leftPlayer, Player rightPlayer)
     {
         //blocking shove
-        if (leftPlayer.Current_action == Action_state.SHOVING && rightPlayer.Current_action == Action_state.BLOCKING)
+        if (leftPlayer.Current_action == ActionState.SHOVING && rightPlayer.Current_action == ActionState.BLOCKING)
         {
-            OnInteraction(new InteractionEventArgs(EventSource.LEFT, EventSource.RIGHT, EventType.PushBlock));
+            OnRefereeEvent(new RefereeEventArgs(EventSource.LEFT, EventSource.RIGHT, RefereeEventType.PushBlock));
         } 
-        else if(rightPlayer.Current_action == Action_state.SHOVING && leftPlayer.Current_action == Action_state.BLOCKING) {
-            OnInteraction(new InteractionEventArgs(EventSource.RIGHT, EventSource.LEFT, EventType.PushBlock));
+        else if(rightPlayer.Current_action == ActionState.SHOVING && leftPlayer.Current_action == ActionState.BLOCKING) {
+            OnRefereeEvent(new RefereeEventArgs(EventSource.RIGHT, EventSource.LEFT, RefereeEventType.PushBlock));
         }
 
         //blocking push
-        else if (leftPlayer.Current_action == Action_state.PUSHING && rightPlayer.Current_action == Action_state.BLOCKING)
+        else if (leftPlayer.Current_action == ActionState.PUSHING && rightPlayer.Current_action == ActionState.BLOCKING)
         {
-            OnInteraction(new InteractionEventArgs(EventSource.LEFT, EventSource.RIGHT, EventType.PushBlock));
+            OnRefereeEvent(new RefereeEventArgs(EventSource.LEFT, EventSource.RIGHT, RefereeEventType.PushBlock));
         }
-        else if (rightPlayer.Current_action == Action_state.PUSHING && leftPlayer.Current_action == Action_state.BLOCKING)
+        else if (rightPlayer.Current_action == ActionState.PUSHING && leftPlayer.Current_action == ActionState.BLOCKING)
         {
-            OnInteraction(new InteractionEventArgs(EventSource.RIGHT, EventSource.LEFT, EventType.PushBlock));
+            OnRefereeEvent(new RefereeEventArgs(EventSource.RIGHT, EventSource.LEFT, RefereeEventType.PushBlock));
         }
 
         //dodge shove
-        else if (leftPlayer.Current_action == Action_state.SHOVING && rightPlayer.Current_action == Action_state.DODGING)
+        else if (leftPlayer.Current_action == ActionState.SHOVING && rightPlayer.Current_action == ActionState.DODGING)
         {
-            OnInteraction(new InteractionEventArgs(EventSource.LEFT, EventSource.RIGHT, EventType.ShoveDodge));
+            OnRefereeEvent(new RefereeEventArgs(EventSource.LEFT, EventSource.RIGHT, RefereeEventType.ShoveDodge));
         }
-        else if (rightPlayer.Current_action == Action_state.SHOVING && leftPlayer.Current_action == Action_state.BLOCKING)
+        else if (rightPlayer.Current_action == ActionState.SHOVING && leftPlayer.Current_action == ActionState.BLOCKING)
         {
-            OnInteraction(new InteractionEventArgs(EventSource.RIGHT, EventSource.LEFT, EventType.ShoveDodge));
+            OnRefereeEvent(new RefereeEventArgs(EventSource.RIGHT, EventSource.LEFT, RefereeEventType.ShoveDodge));
         }
 
         //dodge push
-        else if (leftPlayer.Current_action == Action_state.PUSHING && rightPlayer.Current_action == Action_state.DODGING)
+        else if (leftPlayer.Current_action == ActionState.PUSHING && rightPlayer.Current_action == ActionState.DODGING)
         {
-            OnInteraction(new InteractionEventArgs(EventSource.LEFT, EventSource.RIGHT, EventType.PushDodge));
+            OnRefereeEvent(new RefereeEventArgs(EventSource.LEFT, EventSource.RIGHT, RefereeEventType.PushDodge));
         }
-        else if (rightPlayer.Current_action == Action_state.PUSHING && leftPlayer.Current_action == Action_state.BLOCKING)
+        else if (rightPlayer.Current_action == ActionState.PUSHING && leftPlayer.Current_action == ActionState.BLOCKING)
         {
-            OnInteraction(new InteractionEventArgs(EventSource.RIGHT, EventSource.LEFT, EventType.PushDodge));
+            OnRefereeEvent(new RefereeEventArgs(EventSource.RIGHT, EventSource.LEFT, RefereeEventType.PushDodge));
         }
 
         //shove push
-        else if (leftPlayer.Current_action == Action_state.PUSHING && rightPlayer.Current_action == Action_state.SHOVING)
+        else if (leftPlayer.Current_action == ActionState.PUSHING && rightPlayer.Current_action == ActionState.SHOVING)
         {
-            OnInteraction(new InteractionEventArgs(EventSource.LEFT, EventSource.RIGHT, EventType.PushShove));
+            OnRefereeEvent(new RefereeEventArgs(EventSource.LEFT, EventSource.RIGHT, RefereeEventType.PushShove));
         }
-        else if (rightPlayer.Current_action == Action_state.PUSHING && leftPlayer.Current_action == Action_state.SHOVING)
+        else if (rightPlayer.Current_action == ActionState.PUSHING && leftPlayer.Current_action == ActionState.SHOVING)
         {
-            OnInteraction(new InteractionEventArgs(EventSource.RIGHT, EventSource.LEFT, EventType.PushShove));
+            OnRefereeEvent(new RefereeEventArgs(EventSource.RIGHT, EventSource.LEFT, RefereeEventType.PushShove));
         }
 
         //shove shove 
-        else if (rightPlayer.Current_action == Action_state.SHOVING && leftPlayer.Current_action == Action_state.SHOVING)
+        else if (rightPlayer.Current_action == ActionState.SHOVING && leftPlayer.Current_action == ActionState.SHOVING)
         {
-            OnInteraction(new InteractionEventArgs(EventSource.RIGHT, EventSource.LEFT, EventType.ShoveShove));
+            OnRefereeEvent(new RefereeEventArgs(EventSource.RIGHT, EventSource.LEFT, RefereeEventType.ShoveShove));
         }
         //push push
-        else if (rightPlayer.Current_action == Action_state.PUSHING && leftPlayer.Current_action == Action_state.PUSHING)
+        else if (rightPlayer.Current_action == ActionState.PUSHING && leftPlayer.Current_action == ActionState.PUSHING)
         {
-            OnInteraction(new InteractionEventArgs(EventSource.RIGHT, EventSource.LEFT, EventType.PushPush));
+            OnRefereeEvent(new RefereeEventArgs(EventSource.RIGHT, EventSource.LEFT, RefereeEventType.PushPush));
         }
         //block block
-        else if (rightPlayer.Current_action == Action_state.BLOCKING && leftPlayer.Current_action == Action_state.BLOCKING)
+        else if (rightPlayer.Current_action == ActionState.BLOCKING && leftPlayer.Current_action == ActionState.BLOCKING)
         {
-            OnInteraction(new InteractionEventArgs(EventSource.RIGHT, EventSource.LEFT, EventType.BlockBlock));
+            OnRefereeEvent(new RefereeEventArgs(EventSource.RIGHT, EventSource.LEFT, RefereeEventType.BlockBlock));
         }
         //dodge dodge
-        else if (rightPlayer.Current_action == Action_state.DODGING && leftPlayer.Current_action == Action_state.DODGING)
+        else if (rightPlayer.Current_action == ActionState.DODGING && leftPlayer.Current_action == ActionState.DODGING)
         {
-            OnInteraction(new InteractionEventArgs(EventSource.RIGHT, EventSource.LEFT, EventType.DodgeDodge));
+            OnRefereeEvent(new RefereeEventArgs(EventSource.RIGHT, EventSource.LEFT, RefereeEventType.DodgeDodge));
         }
 
 
         //shove idle
-        else if (leftPlayer.Current_action == Action_state.SHOVING)
+        else if (leftPlayer.Current_action == ActionState.SHOVING)
         {
-            OnInteraction(new InteractionEventArgs(EventSource.LEFT, EventSource.RIGHT, EventType.ShoveContact));
+            OnRefereeEvent(new RefereeEventArgs(EventSource.LEFT, EventSource.RIGHT, RefereeEventType.ShoveContact));
         }
-        else if (rightPlayer.Current_action == Action_state.SHOVING)
+        else if (rightPlayer.Current_action == ActionState.SHOVING)
         {
-            OnInteraction(new InteractionEventArgs(EventSource.RIGHT, EventSource.LEFT, EventType.ShoveContact));
+            OnRefereeEvent(new RefereeEventArgs(EventSource.RIGHT, EventSource.LEFT, RefereeEventType.ShoveContact));
         }
 
         //push idle
-        else if (leftPlayer.Current_action == Action_state.PUSHING)
+        else if (leftPlayer.Current_action == ActionState.PUSHING)
         {
-            OnInteraction(new InteractionEventArgs(EventSource.LEFT, EventSource.RIGHT, EventType.PushContact));
+            OnRefereeEvent(new RefereeEventArgs(EventSource.LEFT, EventSource.RIGHT, RefereeEventType.PushContact));
         }
-        else if (rightPlayer.Current_action == Action_state.PUSHING)
+        else if (rightPlayer.Current_action == ActionState.PUSHING)
         {
-            OnInteraction(new InteractionEventArgs(EventSource.RIGHT, EventSource.LEFT, EventType.PushContact));
+            OnRefereeEvent(new RefereeEventArgs(EventSource.RIGHT, EventSource.LEFT, RefereeEventType.PushContact));
         }
 
         //dodge idle
-        else if (leftPlayer.Current_action == Action_state.DODGING)
+        else if (leftPlayer.Current_action == ActionState.DODGING)
         {
-            OnInteraction(new InteractionEventArgs(EventSource.LEFT, EventSource.RIGHT, EventType.Dodge));
+            OnRefereeEvent(new RefereeEventArgs(EventSource.LEFT, EventSource.RIGHT, RefereeEventType.Dodge));
         }
-        else if (rightPlayer.Current_action == Action_state.DODGING)
+        else if (rightPlayer.Current_action == ActionState.DODGING)
         {
-            OnInteraction(new InteractionEventArgs(EventSource.RIGHT, EventSource.LEFT, EventType.Dodge));
+            OnRefereeEvent(new RefereeEventArgs(EventSource.RIGHT, EventSource.LEFT, RefereeEventType.Dodge));
         }
         //block idle
-        else if (leftPlayer.Current_action == Action_state.BLOCKING)
+        else if (leftPlayer.Current_action == ActionState.BLOCKING)
         {
-            OnInteraction(new InteractionEventArgs(EventSource.LEFT, EventSource.RIGHT, EventType.Block));
+            OnRefereeEvent(new RefereeEventArgs(EventSource.LEFT, EventSource.RIGHT, RefereeEventType.Block));
         }
-        else if (rightPlayer.Current_action == Action_state.BLOCKING)
+        else if (rightPlayer.Current_action == ActionState.BLOCKING)
         {
-            OnInteraction(new InteractionEventArgs(EventSource.RIGHT, EventSource.LEFT, EventType.Dodge));
+            OnRefereeEvent(new RefereeEventArgs(EventSource.RIGHT, EventSource.LEFT, RefereeEventType.Dodge));
         }
         //idle idle
-        else if (leftPlayer.Current_action == Action_state.IDLE)
+        else if (leftPlayer.Current_action == ActionState.IDLE)
         {
-            OnInteraction(new InteractionEventArgs(EventSource.LEFT, EventSource.RIGHT, EventType.Idle));
+            OnRefereeEvent(new RefereeEventArgs(EventSource.LEFT, EventSource.RIGHT, RefereeEventType.Idle));
         }
  
     }
 
-    protected virtual void OnInteraction(InteractionEventArgs e)
+    protected virtual void OnRefereeEvent(RefereeEventArgs e)
     {
-        Interaction?.Invoke(this, e);
+        RefereeEvent?.Invoke(this, e);
     }
 }
