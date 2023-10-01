@@ -92,6 +92,6 @@ public class GameManager : MonoBehaviour
         logic.Bind(referee);
 
         view.Bind(environment, leftPlayer, rightPlayer);
-        audioManager.Bind(referee, leftPlayer, rightPlayer, environment);
+        audioManager.Bind(referee, leftPlayer, rightPlayer, environment, config.specialEffectConfig);
     }
 }
