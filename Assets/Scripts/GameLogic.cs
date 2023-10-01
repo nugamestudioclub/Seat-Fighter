@@ -27,39 +27,51 @@ public class GameLogic {
 		case RefereeEventType.BlockBlock:
 			break;
 		case RefereeEventType.BlockDodge:
-			break;
+                //normal miss dodge pentalty
+                break;
 		case RefereeEventType.BlockIdle:
 			break;
 
 		case RefereeEventType.DodgeDodge:
-			break;
+                //normal miss dodge pentalty
+                break;
 		case RefereeEventType.DodgeBlock:
-			break;
+                //normal miss dodge pentalty
+                break;
 		case RefereeEventType.DodgeIdle:
-			break;
+                //normal miss dodge pentalty
+                break;
 
 		case RefereeEventType.PushIdle:
 			HandlePushIdle(sender, e);
 			break;
 		case RefereeEventType.PushBlock:
+			// half the value of pushidle rounded up
 			break;
 		case RefereeEventType.PushShove:
+			// normal interaction +-
 			break;
 		case RefereeEventType.PushPush:
-			break;
+             // normal interaction +-
+             break;
 		case RefereeEventType.PushDodge:
+			// do not get moved by push
 			break;
 
 		case RefereeEventType.ShoveIdle:
 			HandleShoveIdle(sender, e);
 			break;
 		case RefereeEventType.ShoveShove:
-			break;
+                // normal interaction +-
+                break;
 		case RefereeEventType.ShoveBlock:
+			// shove distnace /4 rounended up
 			break;
 		case RefereeEventType.ShovePush:
-			break;
+                // normal interaction +-
+                break;
 		case RefereeEventType.ShoveDodge:
+				//caluclate wiff dont dot get hit
 			break;
 
 		case RefereeEventType.StunStun:
@@ -69,10 +81,13 @@ public class GameLogic {
 		case RefereeEventType.StunBlock:
 			break;
 		case RefereeEventType.StunPush:
+				//normal push
 			break;
 		case RefereeEventType.StunShove:
+				//normal shove
 			break;
 		case RefereeEventType.StunDodge:
+				//normal miss dodge pentalty
 			break;
 
 		case RefereeEventType.StaminaRefresh:
