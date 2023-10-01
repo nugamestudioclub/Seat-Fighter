@@ -40,10 +40,13 @@ public class AIController : IActionProvider
         }
         else
         {
-            if (curAction.checkDelay())
+            if (curAction.CheckDelay())
             {
                 toReturn = curAction.Action;
-                curAction = AIAction.EMPTY;
+                if (!curAction.HoldAction())
+                {
+                    curAction = AIAction.EMPTY;
+                }
             }
         }
 

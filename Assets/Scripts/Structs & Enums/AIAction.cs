@@ -14,13 +14,21 @@ public struct AIAction
     {
         Action = action;
         Delay = delay;
+        Duration = 0;
+    }
+
+    public AIAction(Action action, int delay, int duration)
+    {
+        Action = action;
+        Delay = delay;
+        Duration = duration;
     }
 
     public Action Action;
     public int Delay;
+    public int Duration;
 
-
-    public bool checkDelay()
+    public bool CheckDelay()
     {
         if (Delay > 0)
         {
@@ -28,6 +36,22 @@ public struct AIAction
             return false;
         }
         return true;
+    }
+
+    public bool HoldAction()
+    {
+        switch (Action) {
+            case Action.Block:
+            case Action.Push:
+                if (Duration > 0)
+                {
+                    Duration -= 1;
+                    return true;
+                }
+                return false;
+            default:
+                return false;
+        }
     }
 
     public bool Equals(AIAction other)
