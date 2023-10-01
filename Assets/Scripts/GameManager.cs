@@ -32,6 +32,10 @@ public class GameManager : MonoBehaviour {
 
 	private Player rightPlayer;
 
+	private IActionProvider leftController;
+
+	private IActionProvider rightController;
+
 	private Environment environment;
 
 	public static GameManager Instance => _instance;
@@ -86,13 +90,10 @@ public class GameManager : MonoBehaviour {
 		//create player and environment from the configs
 		leftPlayer = new Player(config.leftPlayerConfig, EventSource.LEFT);
 		rightPlayer = new Player(config.rightPlayerConfig, EventSource.RIGHT);
-
-		_inputController.Initialize();
-		humanController = new(_inputController);
-		var aiController = new AIController(rightPlayer, leftPlayer, config.aIConfig);
-
-		leftPlayer.Bind(humanController);
-		rightPlayer.Bind(aiController);
+		leftController = GetLeftController();
+		rightController = GetRightController();
+		leftPlayer.Bind(leftController);
+		rightPlayer.Bind(rightController);
 
 		environment = new Environment(
 			config.environmentConfig,
@@ -109,8 +110,24 @@ public class GameManager : MonoBehaviour {
 			audioManager.Bind(referee, leftPlayer, rightPlayer, environment, config.specialEffectConfig);
 
 		referee.RefereeEvent += Referee_OnInteraction;
-	
-    }
+
+	}
+
+	private IActionProvider GetLeftController() {
+		var input = new InputController(0);
+		return new HumanController(input);
+	}
+
+	private IActionProvider GetRightController() {
+		var gameInProgress = GameInProgress.Instance;
+		if( gameInProgress == null || gameInProgress.PlayerCount < 2 ) {
+			return new AIController(rightPlayer, leftPlayer, config.aIConfig);
+		}
+		else {
+			var input = new InputController(1);
+			return new HumanController(input);
+		}
+	}
 
 	private void Referee_OnInteraction(object sender, RefereeEventArgs e) {
 		if( e.type == RefereeEventType.Win ) {
