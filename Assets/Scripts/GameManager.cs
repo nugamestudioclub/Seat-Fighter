@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour {
 
 	private Player rightPlayer;
 
+	private Environment environment;
+
 	public static GameManager Instance => _instance;
 
 	private long fixedFrameCount;
@@ -39,53 +41,48 @@ public class GameManager : MonoBehaviour {
 	[SerializeField]
 	private int frameInterval = 5;
 
-	public int winnerId { get; private set; }
-
 	public bool IsStarted { get; private set; }
 
 	public bool IsPaused { get; private set; }
 
-	public bool ShowOnScreenControls { get; private set; }
-
-	public int PlayerCount { get; private set; } = 1;
-
-	[SerializeField]
-	private bool playOnStart;
-
 	void Awake() {
-		if( _instance == null ) {
-			_instance = this;
-			DontDestroyOnLoad(gameObject);
-			Initialize();
-		}
-		else {
-			Destroy(gameObject);
-		}
+		if( _instance != null )
+			Destroy(_instance.gameObject);
+		_instance = this;
+		Initialize();
 	}
-
-	void Start() {
-		if( playOnStart ) {
-			IsStarted = true;
-			IsPaused = false;
-		}
-	}
-
+	
 	void Update() {
 		leftPlayer.Update();
 		rightPlayer.Update();
 	}
 
+	private bool firstTick;
+
 	private void FixedUpdate() {
 		if( IsStarted && !IsPaused ) {
 			fixedFrameCount++;
 			if( fixedFrameCount % frameInterval == 0 ) {
+				if (firstTick)
+				{
+                    environment.Start();
+                    leftPlayer.Start();
+                    rightPlayer.Start();
+					firstTick = false;
+                }
 				referee.Tick();
 			}
 		}
 	}
 
+	public void Play() {
+		IsStarted = true;
+		IsPaused = false;
+	}
+
 	private void Initialize() {
 		fixedFrameCount = 0;
+		firstTick = true;
 		//create player and environment from the configs
 		leftPlayer = new Player(config.leftPlayerConfig, EventSource.LEFT);
 		rightPlayer = new Player(config.rightPlayerConfig, EventSource.RIGHT);
@@ -97,7 +94,7 @@ public class GameManager : MonoBehaviour {
 		leftPlayer.Bind(humanController);
 		rightPlayer.Bind(aiController);
 
-		Environment environment = new Environment(
+		environment = new Environment(
 			config.environmentConfig,
 			config.leftPlayerConfig.health,
 			config.rightPlayerConfig.health);
@@ -112,11 +109,12 @@ public class GameManager : MonoBehaviour {
 			audioManager.Bind(referee, leftPlayer, rightPlayer, environment, config.specialEffectConfig);
 
 		referee.RefereeEvent += Referee_OnInteraction;
-	}
+	
+    }
 
 	private void Referee_OnInteraction(object sender, RefereeEventArgs e) {
 		if( e.type == RefereeEventType.Win ) {
-			winnerId = e.sender == EventSource.LEFT ? 0 : 1;
+			GameInProgress.Instance.WinnerId = e.sender == EventSource.LEFT ? 0 : 1;
 			IsStarted = false;
 			view.enabled = false;
 			audioManager.enabled = false;

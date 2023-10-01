@@ -1,4 +1,6 @@
 using System;
+using Unity.VisualScripting.FullSerializer;
+
 public class Environment
 {
     public EnvironmentConfig Config { get; private set; }
@@ -64,6 +66,12 @@ public class Environment
         RightPlayerTime = maxRightPlayerTime;
     }
 
+    public void Start()
+    {
+        Position = Config.startingPositon;
+        RightPlayerTime = maxRightPlayerTime;
+        LeftPlayerTime = maxLeftPlayerTime;
+    }
     protected virtual void OnEnvironmentChange(EnvironmentEventArgs e)
     {
         EnvironmentChangeEvent?.Invoke(this, e);

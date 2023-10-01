@@ -20,4 +20,5 @@ MonoBehaviour:
   shove: {fileID: 11400000, guid: 904402ad548ae30409ad47a6e5e7236e, type: 2}
   dodge: {fileID: 11400000, guid: 0e64e291e203116468dfaecff3827240, type: 2}
   block: {fileID: 11400000, guid: 84d8675ab2c89f7499726fc5f4f567b8, type: 2}
+  stunned: {fileID: 11400000, guid: 4992746a4244afd47afc986d361d5c68, type: 2}
   idleSprite: {fileID: 21300000, guid: 780f3813e109ebf4b8ae3abc8a7be04c, type: 3}

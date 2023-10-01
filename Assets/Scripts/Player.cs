@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player
@@ -13,6 +14,10 @@ public class Player
         set
         {
             stamina = Math.Max(0, Math.Min(value, maxStamina));
+            if (stamina == 0)
+            {
+                Stun();
+            }
             OnPlayerEvent(
                 new PlayerEventArgs(
                     playerSide,
@@ -47,6 +52,10 @@ public class Player
         ActionList = new();
     }
 
+    public void Start()
+    {
+        Stamina = maxStamina;
+    }
     public void Bind(IActionProvider actionProvider)
     {
         input = actionProvider;
@@ -76,6 +85,7 @@ public class Player
 
     public ActionFrameData Tick()
     {
+        
         if (CurrentFrameData.state == ActionState.IDLE)
         {
             switch (desiredAction)
@@ -132,6 +142,15 @@ public class Player
         ActionList.AddRange(move.GetFrameData());
     }
 
+    private void Stun() {
+        if (CurrentFrameData.state != ActionState.STUNNED)
+        {
+            ActionList.Clear();
+            ExecuteAction(config.stunned);
+            OnPlayerEvent(new PlayerEventArgs(playerSide, Action.Stun, Stamina, maxStamina));
+        }
+        
+    }
 
     public void Shove()
     {

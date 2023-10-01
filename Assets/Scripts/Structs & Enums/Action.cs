@@ -7,4 +7,5 @@ public enum Action {
 	Dodge,
 	Push,
 	Shove,
+	Stun,
 }
