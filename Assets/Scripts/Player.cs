@@ -72,7 +72,6 @@ public class Player
     {
         if (desiredAction == Action.None)
             desiredAction = input.GetNextAction();
-        UnityEngine.Debug.Log($"Desigred Action: {desiredAction}");
     }
 
     public ActionFrameData Tick()
@@ -95,14 +94,14 @@ public class Player
                     break;
             }
         }
-        else if (CurrentFrameData.state == ActionState.BLOCKING 
-            && desiredAction == Action.Block
+        else if (desiredAction == Action.Block
+            && CurrentFrameData.state == ActionState.BLOCKING
             && NextFrameData.state != ActionState.BLOCKING)
         {
             ActionList.Insert(0, CurrentFrameData);
         }
-        else if (CurrentFrameData.state == ActionState.PUSHING
-            && desiredAction == Action.Push
+        else if (desiredAction == Action.Push
+            && CurrentFrameData.state == ActionState.PUSHING
             && NextFrameData.state != ActionState.PUSHING)
         {
             ActionList.Insert(0, CurrentFrameData);
@@ -115,12 +114,14 @@ public class Player
         {
             //this value should come from the player config
             Stamina += config.idleStaminaRegen;
-            desiredAction = Action.None;
+            
         }
         else if (CurrentFrameData.state == ActionState.BLOCKING)
         {
             Stamina += config.block.holdStaminaModifier;
         }
+        //reset input
+        desiredAction = Action.None;
         //send on Tick event
         OnTickPlayerEvent(new PlayerTickEventArgs(playerSide, CurrentFrameData));
         return CurrentFrameData;
