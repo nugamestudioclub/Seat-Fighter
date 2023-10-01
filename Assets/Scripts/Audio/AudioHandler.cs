@@ -92,7 +92,7 @@ public class AudioHandler : MonoBehaviour {
 	private AudioClip GetWinAudioClip(RefereeEventArgs e) {
 		if( interactionSounds.TryGetValue(e.type, out var sounds) ) {
 			if( sounds.Count > 2 ) {
-				if( GameManager.Instance.PlayerCount > 1 )
+				if( GameInProgress.Instance.PlayerCount > 1 )
 					return sounds[0];
 				else
 					return e.sender switch {

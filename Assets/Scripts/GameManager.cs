@@ -41,27 +41,17 @@ public class GameManager : MonoBehaviour {
 	[SerializeField]
 	private int frameInterval = 5;
 
-	public int winnerId { get; private set; }
-
 	public bool IsStarted { get; private set; }
 
 	public bool IsPaused { get; private set; }
 
-	public bool ShowOnScreenControls { get; private set; }
-
-	public int PlayerCount { get; private set; } = 1;
-
 	void Awake() {
-		if( _instance == null ) {
-			_instance = this;
-			DontDestroyOnLoad(gameObject);
-			Initialize();
-		}
-		else {
-			Destroy(gameObject);
-		}
+		if( _instance != null )
+			Destroy(_instance.gameObject);
+		_instance = this;
+		Initialize();
 	}
-
+	
 	void Update() {
 		leftPlayer.Update();
 		rightPlayer.Update();
@@ -124,7 +114,7 @@ public class GameManager : MonoBehaviour {
 
 	private void Referee_OnInteraction(object sender, RefereeEventArgs e) {
 		if( e.type == RefereeEventType.Win ) {
-			winnerId = e.sender == EventSource.LEFT ? 0 : 1;
+			GameInProgress.Instance.WinnerId = e.sender == EventSource.LEFT ? 0 : 1;
 			IsStarted = false;
 			view.enabled = false;
 			audioManager.enabled = false;
