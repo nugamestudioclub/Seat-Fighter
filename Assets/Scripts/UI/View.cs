@@ -26,6 +26,12 @@ public class View : MonoBehaviour {
 
 	private Dictionary<string, BubbleConfig> bubbles;
 
+	[SerializeField]
+	private SpriteRenderer leftSpriteRenderer;
+
+	[SerializeField]
+	private SpriteRenderer rightSpriteRenderer;
+
 	private void Awake() {
 		bubbles = new(bubbleOptions.Options.Select(x => new KeyValuePair<string, BubbleConfig>(x.name, x.bubble)));
 	}
@@ -33,49 +39,51 @@ public class View : MonoBehaviour {
 	public void Bind(Environment environment, Player leftPlayer, Player rightPlayer) {
 		environment.EnvironmentChangeEvent += Environment_OnChange;
 		leftPlayer.PlayerEvent += Player_OnChange;
-        rightPlayer.PlayerEvent += Player_OnChange;
-    }
+		leftPlayer.PlayerTickEvent += Player_OnTick;
+		rightPlayer.PlayerEvent += Player_OnChange;
+		rightPlayer.PlayerTickEvent += Player_OnTick;
+	}
 
-	private void Environment_OnChange(object sender, EnvironmentEventArgs e)
-	{
-		if (e.type == EnvironmentEventType.PosistionChange)
-		{
+	private void Environment_OnChange(object sender, EnvironmentEventArgs e) {
+		if( e.type == EnvironmentEventType.PosistionChange ) {
 			//move players
-			SetPosition(e.value/(float) e.maxValue);
+			SetPosition(e.value/(float)e.maxValue);
 
-        }
-		else
-		{
-            SetPlayerTimer(GetViewSide(e.type), e.value);
-        }
-    }
+		}
+		else {
+			SetPlayerTimer(GetViewSide(e.type), e.value);
+		}
+	}
 
-    private void Player_OnChange(object sender, PlayerEventArgs e)
-    {
+	private void Player_OnChange(object sender, PlayerEventArgs e) {
 		SetPlayerStamina(GetViewSide(e.sender), e.stamina/(float)e.maxStamina);
-    }
+	}
 
-	private ViewSide GetViewSide(EventSource source)
-	{
-		return source switch
-		{
+	private void Player_OnTick(object sender, PlayerTickEventArgs e) {
+		(e.sender switch {
+			EventSource.LEFT => leftSpriteRenderer,
+			EventSource.RIGHT => rightSpriteRenderer,
+			_ => throw new InvalidOperationException()
+		}).sprite = e.actionFrameData.sprite;
+	}
+
+	private ViewSide GetViewSide(EventSource source) {
+		return source switch {
 			EventSource.LEFT => ViewSide.Left,
 			EventSource.RIGHT => ViewSide.Right,
 			_ => ViewSide.None
 		};
 	}
 
-    private ViewSide GetViewSide(EnvironmentEventType type)
-    {
-        return type switch
-        {
-            EnvironmentEventType.LeftPlayerTimerUpdated => ViewSide.Left,
-            EnvironmentEventType.RightPlayerTimerUpdated => ViewSide.Right,
-            _ => ViewSide.None
-        };
-    }
+	private ViewSide GetViewSide(EnvironmentEventType type) {
+		return type switch {
+			EnvironmentEventType.LeftPlayerTimerUpdated => ViewSide.Left,
+			EnvironmentEventType.RightPlayerTimerUpdated => ViewSide.Right,
+			_ => ViewSide.None
+		};
+	}
 
-    private void SetPlayerTimer(ViewSide side, int value) {
+	private void SetPlayerTimer(ViewSide side, int value) {
 		(side switch {
 			ViewSide.Left => leftTimer,
 			ViewSide.Right => rightTimer,
