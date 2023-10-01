@@ -46,6 +46,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private int frameInterval = 5;
 
+    [SerializeField]
+    private bool debugWith2Players;
+
     public bool IsStarted { get; private set; }
 
     public bool IsPaused { get; private set; }
@@ -128,6 +131,9 @@ public class GameManager : MonoBehaviour
     }
 	
 	private IActionProvider GetRightController() {
+        if( debugWith2Players )
+            return new HumanController(new InputController(1));
+
         var gameInProgress = GameInProgress.Instance;
 
         if (gameInProgress == null || gameInProgress.PlayerCount < 2)
