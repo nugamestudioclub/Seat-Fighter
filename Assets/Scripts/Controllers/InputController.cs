@@ -4,9 +4,8 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InputController : MonoBehaviour {
-	[SerializeField]
-	private int _id;
+public class InputController  {
+	private readonly int _id;
 
 	private InputActionMap _actionMap;
 
@@ -14,7 +13,8 @@ public class InputController : MonoBehaviour {
 
 	public InputData InputData => _inputData;
 
-	public void Initialize() {
+	public InputController(int id) {
+		_id = id;
 		var devices = FindDevices(_id);
 		var data = new InputData();
 		_actionMap = MapInput(_id, devices, data);

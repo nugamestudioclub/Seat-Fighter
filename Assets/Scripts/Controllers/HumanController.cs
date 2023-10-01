@@ -19,6 +19,10 @@
 	}
 
 	private bool IsBlocking() {
+		UnityEngine.Debug.Log(nameof(IsBlocking));
+		UnityEngine.Debug.Log($"controller {_controller == null}");
+		UnityEngine.Debug.Log($"inputData {_controller.InputData == null}");
+
 		var blockState = _controller.InputData.GetButtonState(Button.Block);
 		var pushState = _controller.InputData.GetButtonState(Button.Push);
 		return blockState.IsPressed && (!pushState.IsPressed || pushState.DownFrame >= blockState.DownFrame);
