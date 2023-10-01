@@ -39,7 +39,7 @@ public class AudioHandler : MonoBehaviour {
 			EventSource.RIGHT => rightAudioSource,
 			_ => centerAudioSource
 		};
-		if( actionSounds.TryGetValue(e.action, out var sounds) )
+		if( actionSounds.TryGetValue(e.action, out var sounds) && sounds.Count > 0 )
 			audioSource.PlayOneShot(sounds[random.Next(sounds.Count)]);
 	}
 
@@ -74,7 +74,7 @@ public class AudioHandler : MonoBehaviour {
 			EventSource.RIGHT => rightAudioSource,
 			_ => centerAudioSource
 		};
-		if( interactionSounds.TryGetValue(e.type, out var sounds) )
+		if( interactionSounds.TryGetValue(e.type, out var sounds) && sounds.Count > 0 )
 			audioSource.PlayOneShot(sounds[random.Next(sounds.Count)]);
 	}
 }
