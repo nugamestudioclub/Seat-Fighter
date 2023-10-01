@@ -17,7 +17,7 @@ public class InputController : MonoBehaviour {
 	public void Initialize() {
 		var devices = FindDevices(_id);
 		var data = new InputData();
-		_actionMap = MapInput("Player_" + _id.ToString(), devices, data);
+		_actionMap = MapInput(_id, devices, data);
 		_inputData = data;
 	}
 
@@ -102,14 +102,24 @@ public class InputController : MonoBehaviour {
 		return devices;
 	}
 
-	private static InputActionMap MapInput(string name, IEnumerable<InputDevice> devices, InputData data) {
-		var actionMap = new InputActionMap(name);
-		BindButton("Start", actionMap, v => data.SetButtonState(Button.Start, v), "<Keyboard>/enter", "<Gamepad>/leftShoulder");
-		BindButton("Cancel", actionMap, v => data.SetButtonState(Button.Cancel, v), "<Keyboard>/escape", "<Gamepad>/rightShoulder");
-		BindButton("Block", actionMap, v => data.SetButtonState(Button.Block, v), "<Keyboard>/k", "<Gamepad>/buttonSouth");
-		BindButton("Dodge", actionMap, v => data.SetButtonState(Button.Dodge, v), "<Keyboard>/j", "<Gamepad>/buttonWest");
-		BindButton("Push", actionMap, v => data.SetButtonState(Button.Push, v), "<Keyboard>/i", "<Gamepad>/buttonNorth");
-		BindButton("Shove", actionMap, v => data.SetButtonState(Button.Shove, v), "<Keyboard>/l", "<Gamepad>/buttonEast");
+	private static InputActionMap MapInput(int id, IEnumerable<InputDevice> devices, InputData data) {
+		var actionMap = new InputActionMap("Player_" + id.ToString());
+		if( id == 0 ) {
+			BindButton("Start", actionMap, v => data.SetButtonState(Button.Start, v), "<Keyboard>/enter", "<Gamepad>/leftShoulder");
+			BindButton("Cancel", actionMap, v => data.SetButtonState(Button.Cancel, v), "<Keyboard>/escape", "<Gamepad>/rightShoulder");
+			BindButton("Block", actionMap, v => data.SetButtonState(Button.Block, v), "<Keyboard>/w", "<Gamepad>/buttonSouth");
+			BindButton("Dodge", actionMap, v => data.SetButtonState(Button.Dodge, v), "<Keyboard>/a", "<Gamepad>/buttonWest");
+			BindButton("Push", actionMap, v => data.SetButtonState(Button.Push, v), "<Keyboard>/s", "<Gamepad>/buttonNorth");
+			BindButton("Shove", actionMap, v => data.SetButtonState(Button.Shove, v), "<Keyboard>/d", "<Gamepad>/buttonEast");
+		}
+		else {
+			BindButton("Start", actionMap, v => data.SetButtonState(Button.Start, v), "<Keyboard>/enter", "<Gamepad>/leftShoulder");
+			BindButton("Cancel", actionMap, v => data.SetButtonState(Button.Cancel, v), "<Keyboard>/escape", "<Gamepad>/rightShoulder");
+			BindButton("Block", actionMap, v => data.SetButtonState(Button.Block, v), "<Keyboard>/k", "<Gamepad>/buttonSouth");
+			BindButton("Dodge", actionMap, v => data.SetButtonState(Button.Dodge, v), "<Keyboard>/j", "<Gamepad>/buttonWest");
+			BindButton("Push", actionMap, v => data.SetButtonState(Button.Push, v), "<Keyboard>/i", "<Gamepad>/buttonNorth");
+			BindButton("Shove", actionMap, v => data.SetButtonState(Button.Shove, v), "<Keyboard>/l", "<Gamepad>/buttonEast");
+		}
 
 		actionMap.devices = devices as InputDevice[] ?? devices.ToArray();
 		actionMap.Enable();
