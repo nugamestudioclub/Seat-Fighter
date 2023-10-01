@@ -94,8 +94,8 @@ public class InputController  {
 		else
 			Debug.Log($"Gamepad {playerId} is not connected");
 
-		if( playerId == 0 )
-			devices.Add(Keyboard.current);
+		devices.Add(Keyboard.current);
+
 		if( playerId == 0 )
 			devices.Add(Mouse.current);
 
