@@ -11,6 +11,9 @@ public class AIController : IActionProvider
     private Player enemy;
 
     private AIConfig config;
+   [SerializeField]
+    private List<ActionResponse> actionResponses;
+
     public List<ActionResponse> ActionResponses => config.actionResponses;
 
     AIAction curAction = AIAction.EMPTY;
@@ -30,7 +33,7 @@ public class AIController : IActionProvider
         List<ActionState> curQueue = enemy.ActionList.Select(action => action.state).ToList();
 
         if (curAction.Equals(AIAction.EMPTY)) {
-            if (player.CurrentActionData.state == ActionState.IDLE) { 
+            if (player.CurrentFrameData.state == ActionState.IDLE) { 
                 if (isNewActionTaken(curQueue))
                 {
                     OpponentAction action = findOpponentAction(curQueue);
