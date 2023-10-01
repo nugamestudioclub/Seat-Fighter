@@ -51,9 +51,6 @@ public class GameManager : MonoBehaviour {
 
 	public int PlayerCount { get; private set; } = 1;
 
-	[SerializeField]
-	private bool playOnStart;
-
 	void Awake() {
 		if( _instance == null ) {
 			_instance = this;
@@ -64,13 +61,6 @@ public class GameManager : MonoBehaviour {
 			Destroy(gameObject);
 		}
 	}
-
-	void Start() {
-		if( playOnStart ) {
-			IsStarted = true;
-			IsPaused = false;
-        }
-    }
 
 	void Update() {
 		leftPlayer.Update();
@@ -93,6 +83,11 @@ public class GameManager : MonoBehaviour {
 				referee.Tick();
 			}
 		}
+	}
+
+	public void Play() {
+		IsStarted = true;
+		IsPaused = false;
 	}
 
 	private void Initialize() {

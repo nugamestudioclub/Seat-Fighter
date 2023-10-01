@@ -18,48 +18,48 @@ MonoBehaviour:
     - AiAction:
         Action: 0
         Delay: 0
-      Weight: 10
-    - AiAction:
-        Action: 1
-        Delay: 0
-      Weight: 10
+      Weight: 0
   - ActionState: 6
     weightedList:
     - AiAction:
         Action: 4
-        Delay: 3
-      Weight: 10
+        Delay: 30
+      Weight: 5
     - AiAction:
         Action: 3
-        Delay: 3
-      Weight: 10
+        Delay: 30
+      Weight: 5
     - AiAction:
         Action: 0
-        Delay: 0
-      Weight: 2
+        Delay: 60
+      Weight: 5
   - ActionState: 3
     weightedList:
     - AiAction:
         Action: 3
-        Delay: 0
-      Weight: 10
+        Delay: 15
+      Weight: 25
     - AiAction:
         Action: 4
-        Delay: 0
-      Weight: 5
+        Delay: 15
+      Weight: 10
     - AiAction:
         Action: 0
-        Delay: 0
-      Weight: 2
+        Delay: 30
+      Weight: 5
   - ActionState: 5
     weightedList:
     - AiAction:
+        Action: 0
+        Delay: 15
+      Weight: 25
+    - AiAction:
         Action: 3
-        Delay: 0
+        Delay: 15
       Weight: 5
     - AiAction:
         Action: 4
-        Delay: 0
+        Delay: 15
       Weight: 5
     - AiAction:
         Action: 0
@@ -88,6 +88,28 @@ MonoBehaviour:
         Delay: 0
       Weight: 2
   - ActionState: 4
+    weightedList:
+    - AiAction:
+        Action: 4
+        Delay: 0
+      Weight: 10
+    - AiAction:
+        Action: 1
+        Delay: 0
+      Weight: 5
+    - AiAction:
+        Action: 2
+        Delay: 0
+      Weight: 5
+    - AiAction:
+        Action: 3
+        Delay: 0
+      Weight: 5
+    - AiAction:
+        Action: 0
+        Delay: 0
+      Weight: 2
+  - ActionState: 1
     weightedList:
     - AiAction:
         Action: 4
