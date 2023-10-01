@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b599a5a6a4394e645b9de704ffaccdf1, type: 3}
-  m_Name: WhatBubble
+  m_Name: KapowBubbleConfig
   m_EditorClassIdentifier: 
-  <FillColor>k__BackingField: {r: 1, g: 1, b: 1, a: 0}
-  <StrokeColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
-  <Text>k__BackingField: WHAT?!
-  <TextColor>k__BackingField: {r: 1, g: 0, b: 0, a: 0}
-  <ShapeScale>k__BackingField: {x: 0.9, y: 0.55, z: 1}
+  <FillColor>k__BackingField: {r: 1, g: 1, b: 0, a: 1}
+  <StrokeColor>k__BackingField: {r: 1, g: 0, b: 0, a: 0}
+  <Text>k__BackingField: KAPOW!
+  <TextColor>k__BackingField: {r: 0.101960786, g: 0.7529412, b: 0.101960786, a: 1}
+  <ShapeScale>k__BackingField: {x: 0.9, y: 0.5, z: 1}

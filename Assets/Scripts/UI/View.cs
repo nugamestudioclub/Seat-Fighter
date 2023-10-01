@@ -23,11 +23,6 @@ public class View : MonoBehaviour {
 	private Vector3 startingPositionIndicatorPosition;
     private Quaternion startingPositionIndicatorRotation;
 
-    [SerializeField]
-	private BubbleOptionsConfig bubbleOptions;
-
-	private Dictionary<string, BubbleConfig> bubbles;
-
 	[SerializeField]
 	private SpriteRenderer leftSpriteRenderer;
 
@@ -36,13 +31,6 @@ public class View : MonoBehaviour {
 
 	[SerializeField]
 	private ArmViewPosition armView;
-
-    private void Awake() {
-        startingPositionIndicatorPosition = positionIndicator.position;
-        startingPositionIndicatorRotation = positionIndicator.rotation;
-
-        bubbles = new(bubbleOptions.Options.Select(x => new KeyValuePair<string, BubbleConfig>(x.name, x.bubble)));
-	}
 
 	public void Bind(Environment environment, Player leftPlayer, Player rightPlayer) {
 		environment.EnvironmentChangeEvent += Environment_OnChange;

@@ -14,5 +14,5 @@ public class GameConfig : ScriptableObject
 
     public EnvironmentConfig environmentConfig;
     public AIConfig aIConfig;
-
+    public SpecialEffectConfig specialEffectConfig;    
 }
