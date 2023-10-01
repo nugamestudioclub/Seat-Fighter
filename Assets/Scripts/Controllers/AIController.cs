@@ -29,8 +29,16 @@ public class AIController : IActionProvider
     public Action GetNextAction()
     {
         Action toReturn = Action.None;
+
         List <ActionState> curQueue = enemy.ActionList.Select(action => action.state).ToList();
-        if (player.CurrentActionData.state == ActionState.IDLE)
+        if (!(curAction.Equals(AIAction.EMPTY)))
+        {
+            if (curAction.checkDelay())
+            {
+                toReturn = curAction.Action;
+            }
+        }
+        else if (player.CurrentActionData.state == ActionState.IDLE)
         {
             if (isNewActionTaken(curQueue))
             {
@@ -39,13 +47,7 @@ public class AIController : IActionProvider
             }
         }
 
-        else if (!(curAction.Equals(AIAction.EMPTY)))
-        {
-            if (curAction.checkDelay())
-            {
-                toReturn = curAction.Action;
-            }
-        }
+        
 
         oldQueue = curQueue;
         return toReturn;
