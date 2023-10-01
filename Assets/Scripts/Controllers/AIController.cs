@@ -11,7 +11,7 @@ public class AIController : IActionProvider
     private Player enemy;
 
     private AIConfig config;
-   [SerializeField]
+    [SerializeField]
     private List<ActionResponse> actionResponses;
 
     AIAction curAction = AIAction.EMPTY;
@@ -30,24 +30,27 @@ public class AIController : IActionProvider
     {
         Action toReturn = Action.None;
 
-        List <ActionState> curQueue = enemy.ActionList.Select(action => action.state).ToList();
-        if (!(curAction.Equals(AIAction.EMPTY)))
+        List<ActionState> curQueue = enemy.ActionList.Select(action => action.state).ToList();
+
+        if (curAction.Equals(AIAction.EMPTY)) {
+            if (player.CurrentActionData.state == ActionState.IDLE) { 
+                if (isNewActionTaken(curQueue))
+                {
+                    OpponentAction action = findOpponentAction(curQueue);
+                    curAction = GetReponseAction(action);
+                }
+            }
+        }
+        else
         {
             if (curAction.checkDelay())
             {
                 toReturn = curAction.Action;
-            }
-        }
-        else if (player.CurrentActionData.state == ActionState.IDLE)
-        {
-            if (isNewActionTaken(curQueue))
-            {
-                OpponentAction action = findOpponentAction(curQueue);
-                curAction = GetReponseAction(action);
+                curAction = AIAction.EMPTY;
             }
         }
 
-        
+
 
         oldQueue = curQueue;
         return toReturn;
