@@ -17,6 +17,76 @@ MonoBehaviour:
     specialEffect:
       sfx:
       - {fileID: 8300000, guid: b434b2f09bf41eb4c903c30bd9264e09, type: 3}
-      vfx:
-      - {fileID: 11400000, guid: b78c76bf68f957a44b7ed44d2a4b8038, type: 2}
-  interactions: []
+      vfx: []
+  - action: 1
+    specialEffect:
+      sfx:
+      - {fileID: 8300000, guid: 03202217f06a62b49a8b9bbee3380d62, type: 3}
+      vfx: []
+  - action: 2
+    specialEffect:
+      sfx:
+      - {fileID: 8300000, guid: 8bc7f40f5f4f74c46af5c705a9e1c90f, type: 3}
+      vfx: []
+  - action: 4
+    specialEffect:
+      sfx:
+      - {fileID: 8300000, guid: 911e3154b34b954448f70110120b30fe, type: 3}
+      vfx: []
+  interactions:
+  - interaction: 1
+    specialEffect:
+      sfx:
+      - {fileID: 8300000, guid: 4b7376c313eaf4842b5d4d330c86151c, type: 3}
+      vfx: []
+  - interaction: 2
+    specialEffect:
+      sfx:
+      - {fileID: 8300000, guid: 1cddf1823c7bbfe448a35f5dede21982, type: 3}
+      vfx: []
+  - interaction: 3
+    specialEffect:
+      sfx:
+      - {fileID: 8300000, guid: 4b7376c313eaf4842b5d4d330c86151c, type: 3}
+      vfx: []
+  - interaction: 4
+    specialEffect:
+      sfx:
+      - {fileID: 8300000, guid: 3a957510099473040ba3da53b1845fbb, type: 3}
+      vfx: []
+  - interaction: 6
+    specialEffect:
+      sfx:
+      - {fileID: 8300000, guid: 4b7376c313eaf4842b5d4d330c86151c, type: 3}
+      vfx: []
+  - interaction: 7
+    specialEffect:
+      sfx:
+      - {fileID: 8300000, guid: 4b7376c313eaf4842b5d4d330c86151c, type: 3}
+      vfx: []
+  - interaction: 8
+    specialEffect:
+      sfx:
+      - {fileID: 8300000, guid: 4b7376c313eaf4842b5d4d330c86151c, type: 3}
+      vfx: []
+  - interaction: 9
+    specialEffect:
+      sfx:
+      - {fileID: 8300000, guid: 3a957510099473040ba3da53b1845fbb, type: 3}
+      vfx: []
+  - interaction: 19
+    specialEffect:
+      sfx:
+      - {fileID: 8300000, guid: 57ee424e25aa06c41ab8f5726b22598b, type: 3}
+      vfx: []
+  - interaction: 17
+    specialEffect:
+      sfx:
+      - {fileID: 8300000, guid: b72bb841c105dc542a5fa43804f8663d, type: 3}
+      vfx: []
+  - interaction: 20
+    specialEffect:
+      sfx:
+      - {fileID: 8300000, guid: 08857370317e94140916e581786450ae, type: 3}
+      - {fileID: 8300000, guid: 03520a58159f29e46a6bb0526cd16cb6, type: 3}
+      vfx: []

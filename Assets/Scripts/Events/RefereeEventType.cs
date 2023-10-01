@@ -13,7 +13,7 @@ public enum RefereeEventType
 
     PushContact,
     PushBlock,
-    PushShove = ShovePush,
+    PushShove,
     PushPush,
     PushDodge,
 
@@ -22,7 +22,7 @@ public enum RefereeEventType
     Block,
 
     DodgeDodge,
-    DodgeBlock = BlockDodge,
+    DodgeBlock,
     Dodge,
 
     Idle,

@@ -46,6 +46,7 @@ public class AudioHandler : MonoBehaviour {
 	private void Environment_OnChange(object sender, EnvironmentEventArgs e) {
 
 	}
+
 	private void Referee_OnInteraction(object sender, RefereeEventArgs e) {
 		switch( e.type ) {
 		case RefereeEventType.Dodge:
@@ -74,7 +75,28 @@ public class AudioHandler : MonoBehaviour {
 			EventSource.RIGHT => rightAudioSource,
 			_ => centerAudioSource
 		};
-		if( interactionSounds.TryGetValue(e.type, out var sounds) && sounds.Count > 0 )
-			audioSource.PlayOneShot(sounds[random.Next(sounds.Count)]);
+		var audioClip = GetAudioClip(e);
+		if( audioClip != null )
+			audioSource.PlayOneShot(audioClip);
+	}
+
+	private AudioClip GetAudioClip(RefereeEventArgs e) {
+		if( e.type == RefereeEventType.Win )
+			return GetWinAudioClip(e);
+		else if( interactionSounds.TryGetValue(e.type, out var sounds) && sounds.Count > 0 )
+			return sounds[random.Next(sounds.Count)];
+		else
+			return null;
+	}
+
+	private AudioClip GetWinAudioClip(RefereeEventArgs e) {
+		if( interactionSounds.TryGetValue(e.type, out var sounds) && sounds.Count >= 2 )
+			return e.sender switch {
+				EventSource.LEFT => sounds[0],
+				EventSource.RIGHT => sounds[1],
+				_ => null
+			};
+		else
+			return null;
 	}
 }
