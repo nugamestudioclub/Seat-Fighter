@@ -32,9 +32,12 @@ public class GameManager : MonoBehaviour
 
     private Player rightPlayer;
 
-    private int frameCount;
-
     public static GameManager Instance => _instance;
+
+    private long lastTickFrame;
+
+    [SerializeField]
+    private int frameInterval = 5;
 
     void Awake()
     {
@@ -52,44 +55,25 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        int currentFrameCount = Time.frameCount;
-        if (currentFrameCount > frameCount)
-        {
-            var action = humanController.GetNextAction();
-            if (action != Action.None)
-            {
-                // Debug.Log(action);
-            }
-            frameCount = currentFrameCount;
-        }
         leftPlayer.Update();
         rightPlayer.Update();
     }
 
     private void FixedUpdate()
     {
-        //we can add conditionals here
-        referee.Tick();
+        if (Time.frameCount - lastTickFrame > frameInterval)
+        {
+            referee.Tick();
+            lastTickFrame = Time.frameCount;
+        }
     }
 
     private void Initialize()
     {
+        lastTickFrame = 0;
         //create player and environment from the configs
-        leftPlayer = new Player(
-            config.leftPlayerConfig.shove,
-            config.leftPlayerConfig.push,
-            config.leftPlayerConfig.dodge,
-            config.leftPlayerConfig.block,
-            config.leftPlayerConfig.maxStamina,
-            EventSource.LEFT);
-
-        rightPlayer = new Player(
-            config.rightPlayerConfig.shove,
-            config.rightPlayerConfig.push,
-            config.rightPlayerConfig.dodge,
-            config.rightPlayerConfig.block,
-            config.rightPlayerConfig.maxStamina,
-            EventSource.RIGHT);
+        leftPlayer = new Player(config.leftPlayerConfig, EventSource.LEFT);
+        rightPlayer = new Player(config.rightPlayerConfig, EventSource.RIGHT);
 
         _inputController.Initialize();
         humanController = new(_inputController);
@@ -99,8 +83,7 @@ public class GameManager : MonoBehaviour
         rightPlayer.Bind(aiController);
 
         Environment environment = new Environment(
-            config.environmentConfig.startingPositon,
-            config.environmentConfig.armrestWidth,
+            config.environmentConfig,
             config.leftPlayerConfig.health,
             config.rightPlayerConfig.health);
 

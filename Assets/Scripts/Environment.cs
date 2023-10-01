@@ -1,20 +1,21 @@
 using System;
 public class Environment
 {
-    private readonly int maxPosition;
+    private EnvironmentConfig config;
     private int position;
     public int Position
     {
         get => position;
         set
         {
-            position = value;
+            position = Math.Max(-config.edgeDistance, 
+                Math.Min(value, config.edgeDistance + config.armrestWidth));
             OnEnvironmentChange(
                 new EnvironmentEventArgs(
                     EventSource.ENVIRONEMNT,
                     EnvironmentEventType.PosistionChange,
                     value,
-                    maxPosition));
+                    config.armrestWidth));
         }
     }
     private readonly int maxLeftPlayerTime;
@@ -53,10 +54,10 @@ public class Environment
 
     public event EventHandler<EnvironmentEventArgs> EnvironmentChangeEvent;
 
-    public Environment(int position, int maxPosition, int maxLeftPlayerTime, int maxRightPlayerTime)
+    public Environment(EnvironmentConfig config, int maxLeftPlayerTime, int maxRightPlayerTime)
     {
-        Position = position;
-        this.maxPosition = maxPosition;
+        this.config = config;
+        Position = config.startingPositon;
         this.maxLeftPlayerTime = maxLeftPlayerTime;
         this.maxRightPlayerTime = maxRightPlayerTime;
         LeftPlayerTime = maxLeftPlayerTime;

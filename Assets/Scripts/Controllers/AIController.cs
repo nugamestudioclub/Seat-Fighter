@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class AIController : IActionProvider
@@ -28,20 +29,21 @@ public class AIController : IActionProvider
     public Action GetNextAction()
     {
         Action toReturn = Action.None;
-        List <ActionState> curQueue = enemy.ActionList;
-        if (!(curAction.Equals(AIAction.EMPTY)))
-        {
-            if (curAction.checkDelay())
-            {
-                toReturn = curAction.Action;
-            }
-        }
-        else if (player.Current_action == ActionState.IDLE)
+        List <ActionState> curQueue = enemy.ActionList.Select(action => action.state).ToList();
+        if (player.CurrentActionData.state == ActionState.IDLE)
         {
             if (isNewActionTaken(curQueue))
             {
                 OpponentAction action = findOpponentAction(curQueue);
                 curAction = GetReponseAction(action);
+            }
+        }
+
+        else if (!(curAction.Equals(AIAction.EMPTY)))
+        {
+            if (curAction.checkDelay())
+            {
+                toReturn = curAction.Action;
             }
         }
 

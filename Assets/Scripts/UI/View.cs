@@ -30,7 +30,7 @@ public class View : MonoBehaviour {
 		if (e.type == EnvironmentEventType.PosistionChange)
 		{
 			//move players
-			SetPosition(e.value);
+			SetPosition(e.value/(float) e.maxValue);
 
         }
 		else
@@ -41,7 +41,7 @@ public class View : MonoBehaviour {
 
     private void Player_OnChange(object sender, PlayerEventArgs e)
     {
-		SetPlayerStamina(GetViewSide(e.sender), e.stamina);
+		SetPlayerStamina(GetViewSide(e.sender), e.stamina/(float)e.maxStamina);
     }
 
 	private ViewSide GetViewSide(EventSource source)

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd61c0204f9b66b4291d8c460fb08227, type: 3}
+  m_Name: GordonPlayerConfig
+  m_EditorClassIdentifier: 
+  pushDamage: 25
+  shoveDamage: 5
+  stunTime: 12
+  maxStamina: 100
+  health: 15
+  push: {fileID: 11400000, guid: 4e639221d8970444c99887d94ae6ab8c, type: 2}
+  shove: {fileID: 11400000, guid: f5cfeb35be2e2cd499843202a60c5336, type: 2}
+  dodge: {fileID: 11400000, guid: 6df91fe7738a0324fa224c4260ef491b, type: 2}
+  block: {fileID: 11400000, guid: 4992746a4244afd47afc986d361d5c68, type: 2}
+  idleSprite: {fileID: 21300000, guid: 0825fd4a77e0b374592c5d038ba235bb, type: 3}

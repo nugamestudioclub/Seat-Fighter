@@ -11,7 +11,7 @@ public class Player
         get => stamina;
         set
         {
-            stamina = value;
+            stamina = Math.Max(0, Math.Min(value, maxStamina));
             OnPlayerEvent(
                 new PlayerEventArgs(
                     playerSide,
@@ -25,37 +25,26 @@ public class Player
 
     private Action desiredAction;
 
-    private readonly ActionConfig shove;
-    private readonly ActionConfig push;
-    private readonly ActionConfig dodge;
-    private readonly ActionConfig block;
+    private readonly PlayerConfig config;
 
     private readonly EventSource playerSide;
 
-    private readonly Queue<ActionState> actionqueue;
+    private readonly List<ActionFrameData> actionqueue;
 
     public float Position { get; private set; }
-    public List<ActionState> ActionList => actionqueue.ToList();
+    public List<ActionFrameData> ActionList => actionqueue.ToList();
 
     public event EventHandler<PlayerEventArgs> PlayerEvent;
 
-    public Player(ActionConfig shove, ActionConfig push, ActionConfig dodge, ActionConfig block, int maxStamina, EventSource playerSide)
+    public event EventHandler<PlayerTickEventArgs> PlayerTickEvent;
+
+    public Player(PlayerConfig config, EventSource playerSide)
     {
-        this.shove = shove;
-        this.push = push;
-        this.dodge = dodge;
-        this.block = block;
+        this.config = config;
         this.playerSide = playerSide;
-        this.maxStamina = maxStamina;
+        maxStamina = config.maxStamina;
         Stamina = maxStamina;
-        actionqueue = new Queue<ActionState>();
-    }
-    public Player(Dictionary<Action, ActionConfig> dict)
-    {
-        this.shove = dict[Action.Shove];
-        this.push = dict[Action.Push];
-        this.dodge = dict[Action.Dodge];
-        this.block = dict[Action.Block];
+        actionqueue = new();
     }
 
     public void Bind(IActionProvider actionProvider)
@@ -63,30 +52,30 @@ public class Player
         input = actionProvider;
     }
 
-    public ActionState Current_action
+    public ActionFrameData CurrentActionData
     {
         get
         {
             if (actionqueue.Count > 0)
             {
-                return actionqueue.Peek();
+                return actionqueue[0];
             }
             else
             {
-                return ActionState.IDLE;
+                return new ActionFrameData(ActionState.IDLE, config.idleSprite);
             }
         }
     }
 
     public void Update()
     {
-        if( desiredAction == Action.None )
+        if (desiredAction == Action.None)
             desiredAction = input.GetNextAction();
     }
 
-    public ActionState Tick()
+    public ActionFrameData Tick()
     {
-        if (Current_action == ActionState.IDLE)
+        if (CurrentActionData.state == ActionState.IDLE)
         {
             switch (desiredAction)
             {
@@ -104,52 +93,66 @@ public class Player
                     break;
             }
         }
-        if(actionqueue.Count > 0)
+        if (actionqueue.Count > 0)
         {
-            actionqueue.Dequeue();
+            actionqueue.RemoveAt(0);
         }
-        if( Current_action == ActionState.IDLE )
+        if (CurrentActionData.state == ActionState.IDLE)
+        {
+            //this value should come from the player config
+            Stamina += 10;
             desiredAction = Action.None;
-        return Current_action;
+        }
+        else if (CurrentActionData.state == ActionState.BLOCKING)
+        {
+            Stamina += 5;
+        }
+        //send on Tick event
+        OnTickPlayerEvent(new PlayerTickEventArgs(playerSide, CurrentActionData));
+        return CurrentActionData;
     }
 
     private void ExecuteAction(ActionConfig move)
     {
-        move.States.ForEach(state_duration =>
-        {
-            for (int i = 0; i < state_duration.duration; i++)
-            {
-                actionqueue.Enqueue(state_duration.state);
-            }
-
-        }
-       );
+        actionqueue.AddRange(move.GetFrameData());
     }
 
 
     public void Shove()
     {
+        Stamina += config.shove.StaminaModifier;
         OnPlayerEvent(new PlayerEventArgs(playerSide, Action.Shove, Stamina, maxStamina));
-        ExecuteAction(shove);
+        ExecuteAction(config.shove);
     }
 
-    public void Push() {
+    public void Push()
+    {
+        Stamina += config.push.StaminaModifier;
         OnPlayerEvent(new PlayerEventArgs(playerSide, Action.Push, Stamina, maxStamina));
-        ExecuteAction(push);
+        ExecuteAction(config.push);
     }
-    public void Dodge() {
+    public void Dodge()
+    {
+        Stamina += config.dodge.StaminaModifier;
         OnPlayerEvent(new PlayerEventArgs(playerSide, Action.Dodge, Stamina, maxStamina));
-        ExecuteAction(dodge);
+        ExecuteAction(config.dodge);
     }
 
-    public void Block() {
+    public void Block()
+    {
+        Stamina += config.block.StaminaModifier;
         OnPlayerEvent(new PlayerEventArgs(playerSide, Action.Block, Stamina, maxStamina));
-        ExecuteAction(block);
+        ExecuteAction(config.block);
     }
 
     protected virtual void OnPlayerEvent(PlayerEventArgs e)
     {
         PlayerEvent?.Invoke(this, e);
+    }
+
+    protected virtual void OnTickPlayerEvent(PlayerTickEventArgs e)
+    {
+        PlayerTickEvent?.Invoke(this, e);
     }
 
 }

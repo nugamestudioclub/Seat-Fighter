@@ -39,30 +39,22 @@ public class GameLogic
         {
             if (e.reciever == EventSource.LEFT)
             {
-                environment.Position = Math.Max(
-                    -config.environmentConfig.edgeDistance,
-                    environment.Position - config.rightPlayerConfig.pushDamage);
+                environment.Position -= config.rightPlayerConfig.pushDamage;
             }
             else
             {
-                environment.Position = Math.Min(
-                    config.environmentConfig.edgeDistance + config.environmentConfig.armrestWidth,
-                    environment.Position + config.leftPlayerConfig.pushDamage);
+                environment.Position += config.leftPlayerConfig.pushDamage;
             }
         }
         else if (e.type == RefereeEventType.ShoveContact)
         {
             if (e.reciever == EventSource.LEFT)
             {
-                environment.Position = Math.Max(
-                    -config.environmentConfig.edgeDistance,
-                    environment.Position - config.rightPlayerConfig.shoveDamage);
+                environment.Position -= config.rightPlayerConfig.shoveDamage;
             }
             else
             {
-                environment.Position = Math.Min(
-                    config.environmentConfig.edgeDistance + config.environmentConfig.armrestWidth,
-                    environment.Position + config.leftPlayerConfig.shoveDamage);
+                environment.Position += config.leftPlayerConfig.shoveDamage;
             }
         }
     }

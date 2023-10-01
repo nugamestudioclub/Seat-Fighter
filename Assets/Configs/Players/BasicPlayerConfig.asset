@@ -17,7 +17,7 @@ MonoBehaviour:
   stunTime: 12
   maxStamina: 50
   health: 60
-  push: {fileID: 11400000, guid: 2f45f4259dd399b47ba5c1bfd4464dec, type: 2}
+  push: {fileID: 11400000, guid: fb5c0e3361dfdf748b53c220104faa88, type: 2}
   shove: {fileID: 11400000, guid: 2f45f4259dd399b47ba5c1bfd4464dec, type: 2}
   dodge: {fileID: 11400000, guid: 2f45f4259dd399b47ba5c1bfd4464dec, type: 2}
   block: {fileID: 11400000, guid: 2f45f4259dd399b47ba5c1bfd4464dec, type: 2}

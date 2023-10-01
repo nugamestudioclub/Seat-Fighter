@@ -1,26 +1,64 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using System;
+using System.Linq;
 
 [CreateAssetMenu(
     fileName = nameof(ActionConfig),
-    menuName =  "ScriptableObjects/" + nameof(ActionConfig))
+    menuName = "ScriptableObjects/" + nameof(ActionConfig))
 ]
 public class ActionConfig : ScriptableObject
 {
     [field: SerializeField]
-    public List<StateDuration> States { get; private set; }
+    public List<ActionDuration> ActionDurations { get; private set; }
 
     [field: SerializeField]
-    public List<SpriteDuration> Sprites { get; private set; }
+    public List<SpriteDuration> SpriteDurations { get; private set; }
 
     [field: SerializeField]
-    public int StaminaCost { get; private set; }
-   
-    public ActionConfig(List<StateDuration> states, int staminaCost)
+    public int StaminaModifier { get; private set; }
+
+    public List<ActionFrameData> GetFrameData()
     {
-        States = states;
-        StaminaCost = staminaCost;
+        List<ActionFrameData> allFrameData = new();
+
+        List<ActionState> allActionFrames = new();
+        ActionDurations.ForEach(actionDuration =>
+        {
+            for (int i = 0; i < actionDuration.duration; i++)
+            {
+                allActionFrames.Add(actionDuration.state);
+            }
+
+        });
+        List<Sprite> allSpriteFrames = new();
+        SpriteDurations.ForEach(spriteDuration =>
+        {
+            for (int i = 0; i < spriteDuration.duration; i++)
+            {
+                allSpriteFrames.Add(spriteDuration.sprite);
+            }
+
+        });
+
+        int totalActionFrames = allActionFrames.Count;
+        int totalSpriteFrames = allSpriteFrames.Count;
+
+        if (totalActionFrames != allActionFrames.Count)
+        {
+            Debug.Log($"Total action frames {totalActionFrames} does not equal total sprite frames {totalSpriteFrames}");
+        }
+        int totalFrames = Math.Min(totalActionFrames, totalSpriteFrames);
+        for (int i =0; i< totalFrames;i++)
+        {
+            allFrameData.Add(new ActionFrameData(allActionFrames[i], allSpriteFrames[i]));
+        }
+        return allFrameData;
+    }
+
+    public ActionConfig(List<ActionDuration> states, int staminaCost)
+    {
+        ActionDurations = states;
+        StaminaModifier = staminaCost;
     }
 }

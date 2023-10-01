@@ -90,5 +90,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d75591edb7991340958f011341370e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: ed6e4e300e02d304b80b8d411073c74a, type: 2}
+  audioManager: {fileID: 0}
+  view: {fileID: 0}
+  config: {fileID: 11400000, guid: 57586a10c7e71ea4cbe10c631b6d3883, type: 2}
   _inputController: {fileID: 958014445907118870}
+  frameInterval: 5

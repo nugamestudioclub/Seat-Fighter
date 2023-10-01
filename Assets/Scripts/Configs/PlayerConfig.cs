@@ -19,4 +19,6 @@ public class PlayerConfig : ScriptableObject
     public ActionConfig dodge;
     public ActionConfig block;
 
+    public Sprite idleSprite;
+
 }
