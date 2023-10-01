@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
-using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class Bubble : MonoBehaviour {

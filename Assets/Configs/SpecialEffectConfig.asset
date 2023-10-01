@@ -15,18 +15,26 @@ MonoBehaviour:
   <Actions>k__BackingField:
   - action: 1
     specialEffect:
-      sfx: []
+      sfx:
+      - {fileID: 8300000, guid: 03202217f06a62b49a8b9bbee3380d62, type: 3}
       vfx: []
   - action: 2
     specialEffect:
-      sfx: []
+      sfx:
+      - {fileID: 8300000, guid: 8bc7f40f5f4f74c46af5c705a9e1c90f, type: 3}
       vfx: []
   - action: 3
     specialEffect:
-      sfx: []
+      sfx:
+      - {fileID: 8300000, guid: b434b2f09bf41eb4c903c30bd9264e09, type: 3}
       vfx: []
   - action: 4
     specialEffect:
+      sfx:
+      - {fileID: 8300000, guid: 911e3154b34b954448f70110120b30fe, type: 3}
+      vfx: []
+  <Interactions>k__BackingField:
+  - interaction: 0
+    specialEffect:
       sfx: []
       vfx: []
-  <Interactions>k__BackingField: []
