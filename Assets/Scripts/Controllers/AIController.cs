@@ -34,11 +34,8 @@ public class AIController : IActionProvider
 
         if (curAction.Equals(AIAction.EMPTY)) {
             if (player.CurrentFrameData.state == ActionState.IDLE) { 
-                if (isNewActionTaken(curQueue))
-                {
-                    OpponentAction action = findOpponentAction(curQueue);
-                    curAction = GetReponseAction(action);
-                }
+                OpponentAction action = findOpponentAction(curQueue);
+                curAction = GetReponseAction(action);
             }
         }
         else
@@ -60,6 +57,10 @@ public class AIController : IActionProvider
 
     private OpponentAction findOpponentAction(List<ActionState> curQueue)
     {
+        if (curQueue.Count == 0)
+        {
+            return new OpponentAction(ActionState.IDLE, 0);
+        }
         if (curQueue[0] == ActionState.COOLDOWN)
         {
             return new OpponentAction(ActionState.COOLDOWN, curQueue.Count);
