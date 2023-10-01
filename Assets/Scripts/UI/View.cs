@@ -19,9 +19,11 @@ public class View : MonoBehaviour {
 	private TMPro.TMP_Text rightTimer;
 
 	[SerializeField]
-	private Transform position;
+	private Transform positionIndicator;
+	private Vector3 startingPositionIndicatorPosition;
+    private Quaternion startingPositionIndicatorRotation;
 
-	[SerializeField]
+    [SerializeField]
 	private BubbleOptionsConfig bubbleOptions;
 
 	private Dictionary<string, BubbleConfig> bubbles;
@@ -36,7 +38,10 @@ public class View : MonoBehaviour {
 	private ArmViewPosition armView;
 
     private void Awake() {
-		bubbles = new(bubbleOptions.Options.Select(x => new KeyValuePair<string, BubbleConfig>(x.name, x.bubble)));
+        startingPositionIndicatorPosition = positionIndicator.position;
+        startingPositionIndicatorRotation = positionIndicator.rotation;
+
+        bubbles = new(bubbleOptions.Options.Select(x => new KeyValuePair<string, BubbleConfig>(x.name, x.bubble)));
 	}
 
 	public void Bind(Environment environment, Player leftPlayer, Player rightPlayer) {
@@ -104,6 +109,11 @@ public class View : MonoBehaviour {
 
 	private void SetPosition(float value) {
 		armView.UpdateTransform(value);
-		position.Rotate(0, 0, (value * 180) - 90);
+
+        positionIndicator.position = startingPositionIndicatorPosition;
+        positionIndicator.rotation = startingPositionIndicatorRotation;
+		
+		float valueConstrained = Math.Max(0, Math.Min(value, 1));
+        positionIndicator.Rotate(0, 0, (valueConstrained * 180) - 90);
 	}
 }

@@ -488,7 +488,7 @@ MonoBehaviour:
   leftTimer: {fileID: 6936889647899258204}
   rightStamina: {fileID: 3776035550155303762}
   rightTimer: {fileID: 7370628980111380225}
-  position: {fileID: 5424032146850385596}
+  positionIndicator: {fileID: 5424032146850385596}
   bubbleOptions: {fileID: 11400000, guid: fee52e3c634ea034c811e549b407db32, type: 2}
   leftSpriteRenderer: {fileID: 4661207493166368154}
   rightSpriteRenderer: {fileID: 7246311056215629672}
