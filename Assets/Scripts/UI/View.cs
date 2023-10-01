@@ -32,6 +32,11 @@ public class View : MonoBehaviour {
 	[SerializeField]
 	private ArmViewPosition armView;
 
+	private void Awake() {
+		startingPositionIndicatorPosition = positionIndicator.position;
+		startingPositionIndicatorRotation = positionIndicator.rotation;
+	}
+
 	public void Bind(Environment environment, Player leftPlayer, Player rightPlayer) {
 		environment.EnvironmentChangeEvent += Environment_OnChange;
 		leftPlayer.PlayerEvent += Player_OnChange;
