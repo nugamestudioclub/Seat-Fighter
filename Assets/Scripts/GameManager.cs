@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour {
 
 	private Player rightPlayer;
 
+	private Environment environment;
+
 	public static GameManager Instance => _instance;
 
 	private long fixedFrameCount;
@@ -67,18 +69,27 @@ public class GameManager : MonoBehaviour {
 		if( playOnStart ) {
 			IsStarted = true;
 			IsPaused = false;
-		}
-	}
+        }
+    }
 
 	void Update() {
 		leftPlayer.Update();
 		rightPlayer.Update();
 	}
 
+	private bool firstTick;
+
 	private void FixedUpdate() {
 		if( IsStarted && !IsPaused ) {
 			fixedFrameCount++;
 			if( fixedFrameCount % frameInterval == 0 ) {
+				if (firstTick)
+				{
+                    environment.Start();
+                    leftPlayer.Start();
+                    rightPlayer.Start();
+					firstTick = false;
+                }
 				referee.Tick();
 			}
 		}
@@ -86,6 +97,7 @@ public class GameManager : MonoBehaviour {
 
 	private void Initialize() {
 		fixedFrameCount = 0;
+		firstTick = true;
 		//create player and environment from the configs
 		leftPlayer = new Player(config.leftPlayerConfig, EventSource.LEFT);
 		rightPlayer = new Player(config.rightPlayerConfig, EventSource.RIGHT);
@@ -97,7 +109,7 @@ public class GameManager : MonoBehaviour {
 		leftPlayer.Bind(humanController);
 		rightPlayer.Bind(aiController);
 
-		Environment environment = new Environment(
+		environment = new Environment(
 			config.environmentConfig,
 			config.leftPlayerConfig.health,
 			config.rightPlayerConfig.health);
@@ -112,7 +124,8 @@ public class GameManager : MonoBehaviour {
 			audioManager.Bind(referee, leftPlayer, rightPlayer, environment, config.specialEffectConfig);
 
 		referee.RefereeEvent += Referee_OnInteraction;
-	}
+	
+    }
 
 	private void Referee_OnInteraction(object sender, RefereeEventArgs e) {
 		if( e.type == RefereeEventType.Win ) {

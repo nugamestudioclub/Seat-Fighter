@@ -52,6 +52,10 @@ public class Player
         ActionList = new();
     }
 
+    public void Start()
+    {
+        Stamina = maxStamina;
+    }
     public void Bind(IActionProvider actionProvider)
     {
         input = actionProvider;

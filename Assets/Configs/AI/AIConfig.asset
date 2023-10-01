@@ -65,7 +65,7 @@ MonoBehaviour:
         Action: 0
         Delay: 0
       Weight: 10
-  - ActionState: 1
+  - ActionState: 7
     weightedList:
     - AiAction:
         Action: 1
