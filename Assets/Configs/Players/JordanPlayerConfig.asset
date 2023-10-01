@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: JordanPlayerConfig
   m_EditorClassIdentifier: 
   pushDamage: 25
-  shoveDamage: 5
+  shoveDamage: 3
   stunTime: 12
   maxStamina: 100
   health: 15
