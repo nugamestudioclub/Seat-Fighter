@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: Gordon_Dodge
   m_EditorClassIdentifier: 
   positionModifier: 0
-  initialStaminaModifier: 40
+  initialStaminaModifier: 10
   holdStaminaModifier: 0
-  staminaSelfModifer: []
+  staminaSelfModifer:
+  - action: 1
+    modifier: 40
+  - action: 4
+    modifier: 20
   staminaEnemyModifer: []
   timerModifier: -1
   <ActionDurations>k__BackingField:
@@ -32,4 +36,3 @@ MonoBehaviour:
     duration: 1
   - sprite: {fileID: 21300000, guid: e64633219c193334796e9c3f1267372f, type: 3}
     duration: 1
-  <StaminaModifier>k__BackingField: 40
