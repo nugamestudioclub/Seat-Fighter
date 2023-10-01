@@ -104,7 +104,6 @@ public class InputController : MonoBehaviour {
 
 	private static InputActionMap MapInput(string name, IEnumerable<InputDevice> devices, InputData data) {
 		var actionMap = new InputActionMap(name);
-
 		BindButton("Start", actionMap, v => data.SetButtonState(Button.Start, v), "<Keyboard>/enter", "<Gamepad>/leftShoulder");
 		BindButton("Cancel", actionMap, v => data.SetButtonState(Button.Cancel, v), "<Keyboard>/escape", "<Gamepad>/rightShoulder");
 		BindButton("Block", actionMap, v => data.SetButtonState(Button.Block, v), "<Keyboard>/k", "<Gamepad>/buttonSouth");
