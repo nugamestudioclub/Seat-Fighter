@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
+using System.Diagnostics;
+using UnityEngine;
 
 public class Player
 {
@@ -72,6 +72,7 @@ public class Player
     {
         if (desiredAction == Action.None)
             desiredAction = input.GetNextAction();
+        UnityEngine.Debug.Log($"Desigred Action: {desiredAction}");
     }
 
     public ActionFrameData Tick()
@@ -95,11 +96,13 @@ public class Player
             }
         }
         else if (CurrentFrameData.state == ActionState.BLOCKING 
+            && desiredAction == Action.Block
             && NextFrameData.state != ActionState.BLOCKING)
         {
             ActionList.Insert(0, CurrentFrameData);
         }
         else if (CurrentFrameData.state == ActionState.PUSHING
+            && desiredAction == Action.Push
             && NextFrameData.state != ActionState.PUSHING)
         {
             ActionList.Insert(0, CurrentFrameData);

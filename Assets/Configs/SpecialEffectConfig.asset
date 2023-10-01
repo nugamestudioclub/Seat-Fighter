@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc4a723d54d3804083d3dfb97f14361, type: 3}
+  m_Name: SpecialEffectConfig
+  m_EditorClassIdentifier: 
+  <Actions>k__BackingField:
+  - action: 1
+    specialEffect:
+      sfx:
+      - {fileID: 8300000, guid: 03202217f06a62b49a8b9bbee3380d62, type: 3}
+      vfx: []
+  - action: 2
+    specialEffect:
+      sfx:
+      - {fileID: 8300000, guid: 8bc7f40f5f4f74c46af5c705a9e1c90f, type: 3}
+      vfx: []
+  - action: 3
+    specialEffect:
+      sfx:
+      - {fileID: 8300000, guid: b434b2f09bf41eb4c903c30bd9264e09, type: 3}
+      vfx: []
+  - action: 4
+    specialEffect:
+      sfx:
+      - {fileID: 8300000, guid: 911e3154b34b954448f70110120b30fe, type: 3}
+      vfx: []
+  <Interactions>k__BackingField:
+  - interaction: 0
+    specialEffect:
+      sfx: []
+      vfx: []

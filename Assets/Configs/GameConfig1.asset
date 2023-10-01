@@ -16,3 +16,4 @@ MonoBehaviour:
   rightPlayerConfig: {fileID: 11400000, guid: 2274129975401c945aa6768ac469e109, type: 2}
   environmentConfig: {fileID: 11400000, guid: c9c0874d54722a240b904a7b40383798, type: 2}
   aIConfig: {fileID: 11400000, guid: 1a6b1e65ee9d53f4db5a5b421b0604f8, type: 2}
+  specialEffectConfig: {fileID: 11400000, guid: d96fe7c4e7ac9fa4a9bb84f59d502447, type: 2}

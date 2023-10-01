@@ -22,23 +22,23 @@ MonoBehaviour:
   timerModifier: 0
   <ActionDurations>k__BackingField:
   - state: 0
-    duration: 15
+    duration: 2
   - state: 1
     duration: 1
   - state: 0
-    duration: 24
+    duration: 3
   <SpriteDurations>k__BackingField:
   - sprite: {fileID: 21300000, guid: e8974e6c1f2548c45aa6384235d30cdf, type: 3}
-    duration: 5
+    duration: 1
   - sprite: {fileID: 21300000, guid: c7f0f48d368ded442a12935c2cdb2ac9, type: 3}
-    duration: 5
+    duration: 1
   - sprite: {fileID: 21300000, guid: 88c2bb0f6c0e90e43b6d6d30a5667686, type: 3}
-    duration: 5
+    duration: 1
   - sprite: {fileID: 21300000, guid: a755773c38fbc774494c5ef3a567bf3e, type: 3}
-    duration: 5
+    duration: 1
   - sprite: {fileID: 21300000, guid: 88c2bb0f6c0e90e43b6d6d30a5667686, type: 3}
-    duration: 5
+    duration: 1
   - sprite: {fileID: 21300000, guid: c7f0f48d368ded442a12935c2cdb2ac9, type: 3}
-    duration: 5
+    duration: 1
   - sprite: {fileID: 21300000, guid: e8974e6c1f2548c45aa6384235d30cdf, type: 3}
-    duration: 5
+    duration: 1
