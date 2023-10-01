@@ -48,7 +48,7 @@ public class GameLogic
                 environment.RightPlayerTime--;
             }
         }
-        else if (e.type == RefereeEventType.PushContact)
+        else if (e.type == RefereeEventType.PushIdle)
         {
             if (e.reciever == EventSource.LEFT)
             {
@@ -59,7 +59,7 @@ public class GameLogic
                environment.Position += config.leftPlayerConfig.push.positionModifier;
             }
         }
-        else if (e.type == RefereeEventType.ShoveContact)
+        else if (e.type == RefereeEventType.ShoveIdle)
         {
             if (e.reciever == EventSource.LEFT)
             {

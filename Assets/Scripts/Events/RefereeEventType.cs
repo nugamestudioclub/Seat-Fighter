@@ -4,14 +4,13 @@ using UnityEngine;
 
 public enum RefereeEventType
 {
-
-    ShoveContact,
+    ShoveIdle,
     ShoveShove,
     ShoveBlock,
     ShovePush,
     ShoveDodge,
 
-    PushContact,
+    PushIdle,
     PushBlock,
     PushShove,
     PushPush,
@@ -19,21 +18,22 @@ public enum RefereeEventType
 
     BlockBlock,
     BlockDodge,
-    Block,
+    BlockIdle,
 
     DodgeDodge,
     DodgeBlock,
-    Dodge,
+    DodgeIdle,
 
-    Idle,
+    IdleIdle,
 
-    Stun,
+    StunStun,
+    StunIdle,
+    StunBlock,
+    StunPush,
+    StunShove,
+    StunDodge,
+
     StaminaRefresh,
     OutOfBounds,
     Win,
-
-    // UNIMPLEMENTED
-    StartShove,
-    StartPush,
-    StartBlock
 }
