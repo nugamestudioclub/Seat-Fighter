@@ -44,16 +44,6 @@ MonoBehaviour:
       sfx:
       - {fileID: 8300000, guid: 1cddf1823c7bbfe448a35f5dede21982, type: 3}
       vfx: []
-  - interaction: 3
-    specialEffect:
-      sfx:
-      - {fileID: 8300000, guid: 4b7376c313eaf4842b5d4d330c86151c, type: 3}
-      vfx: []
-  - interaction: 4
-    specialEffect:
-      sfx:
-      - {fileID: 0}
-      vfx: []
   - interaction: 6
     specialEffect:
       sfx:
@@ -74,10 +64,6 @@ MonoBehaviour:
       sfx:
       - {fileID: 8300000, guid: 08857370317e94140916e581786450ae, type: 3}
       - {fileID: 8300000, guid: 03520a58159f29e46a6bb0526cd16cb6, type: 3}
-      vfx: []
-  - interaction: 5
-    specialEffect:
-      sfx: []
       vfx: []
   - interaction: 5
     specialEffect:
