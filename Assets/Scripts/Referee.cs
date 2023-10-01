@@ -31,20 +31,20 @@ public class Referee
     private void ResolveEvents(Player leftPlayer, Player rightPlayer, Environment environment)
     {
         // game logic
-        if (environment.position <= 0) //left player is oob
+        if (environment.Position <= 0) //left player is oob
         {
             OnInteraction(new InteractionEventArgs(EventSource.ENVIRONEMNT, EventSource.LEFT, EventType.OutOfBounds));
-        } else if (environment.position >= 100)
+        } else if (environment.Position >= 100)
         {
             OnInteraction(new InteractionEventArgs(EventSource.ENVIRONEMNT, EventSource.RIGHT, EventType.OutOfBounds));
         }
 
         //check game over
-        if (environment.leftPlayerTime <= 0) 
+        if (environment.LeftPlayerTime <= 0) 
         {
             OnInteraction(new InteractionEventArgs(EventSource.ENVIRONEMNT, EventSource.LEFT, EventType.Win));
         }
-        else if (environment.rightPlayerTime <= 0)
+        else if (environment.RightPlayerTime <= 0)
         {
             OnInteraction(new InteractionEventArgs(EventSource.ENVIRONEMNT, EventSource.RIGHT, EventType.Win));
         }

@@ -69,13 +69,15 @@ public class GameManager : MonoBehaviour {
 			config.leftPlayerConfig.shove,
 			config.leftPlayerConfig.push,
 			config.leftPlayerConfig.dodge,
-			config.leftPlayerConfig.block);
+			config.leftPlayerConfig.block,
+			EventSource.LEFT);
 
         rightPlayer = new Player(
             config.rightPlayerConfig.shove,
             config.rightPlayerConfig.push,
             config.rightPlayerConfig.dodge,
-            config.rightPlayerConfig.block);
+            config.rightPlayerConfig.block,
+            EventSource.RIGHT);
 
         _inputController.Initialize();
         humanController = new(_inputController);

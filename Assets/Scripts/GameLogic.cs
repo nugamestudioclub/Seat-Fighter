@@ -28,41 +28,41 @@ public class GameLogic
         {
             if (e.reciever == EventSource.LEFT)
             {
-                environment.leftPlayerTime--;
+                environment.LeftPlayerTime--;
             }
             else
             {
-                environment.rightPlayerTime--;
+                environment.RightPlayerTime--;
             }
         }
         else if (e.type == EventType.PushContact)
         {
             if (e.reciever == EventSource.LEFT)
             {
-                environment.position = Math.Max(
+                environment.Position = Math.Max(
                     -config.environmentConfig.edgeDistance,
-                    environment.position - config.rightPlayerConfig.pushDamage);
+                    environment.Position - config.rightPlayerConfig.pushDamage);
             }
             else
             {
-                environment.position = Math.Min(
+                environment.Position = Math.Min(
                     config.environmentConfig.edgeDistance + config.environmentConfig.armrestWidth,
-                    environment.position + config.leftPlayerConfig.pushDamage);
+                    environment.Position + config.leftPlayerConfig.pushDamage);
             }
         }
         else if (e.type == EventType.ShoveContact)
         {
             if (e.reciever == EventSource.LEFT)
             {
-                environment.position = Math.Max(
+                environment.Position = Math.Max(
                     -config.environmentConfig.edgeDistance,
-                    environment.position - config.rightPlayerConfig.shoveDamage);
+                    environment.Position - config.rightPlayerConfig.shoveDamage);
             }
             else
             {
-                environment.position = Math.Min(
+                environment.Position = Math.Min(
                     config.environmentConfig.edgeDistance + config.environmentConfig.armrestWidth,
-                    environment.position + config.leftPlayerConfig.shoveDamage);
+                    environment.Position + config.leftPlayerConfig.shoveDamage);
             }
         }
     }
