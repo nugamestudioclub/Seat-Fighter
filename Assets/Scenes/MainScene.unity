@@ -391,6 +391,10 @@ PrefabInstance:
       propertyPath: audioManager
       value: 
       objectReference: {fileID: 2096208489}
+    - target: {fileID: 275560691232379916, guid: 1285c422daa4cf742b883b871e7baebc, type: 3}
+      propertyPath: frameInterval
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6091646690230185183, guid: 1285c422daa4cf742b883b871e7baebc, type: 3}
       propertyPath: m_Name
       value: GameManager

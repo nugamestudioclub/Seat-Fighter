@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance => _instance;
 
-    private long lastTickFrame;
+    private long fixedFrameCount;
 
     [SerializeField]
     private int frameInterval = 5;
@@ -61,16 +61,16 @@ public class GameManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Time.frameCount - lastTickFrame > frameInterval)
+        fixedFrameCount++;
+        if (fixedFrameCount % frameInterval == 0)
         {
             referee.Tick();
-            lastTickFrame = Time.frameCount;
         }
     }
 
     private void Initialize()
     {
-        lastTickFrame = 0;
+        fixedFrameCount = 0;
         //create player and environment from the configs
         leftPlayer = new Player(config.leftPlayerConfig, EventSource.LEFT);
         rightPlayer = new Player(config.rightPlayerConfig, EventSource.RIGHT);
