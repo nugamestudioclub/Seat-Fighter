@@ -15,6 +15,7 @@ MonoBehaviour:
   positionModifier: 0
   initialStaminaModifier: 10
   holdStaminaModifier: 0
+  timeModifier: -1
   staminaSelfModifer:
   - action: 1
     modifier: 40

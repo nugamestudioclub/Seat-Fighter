@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
 
         referee = new Referee(leftPlayer, rightPlayer, environment);
         logic = new GameLogic(config, leftPlayer, rightPlayer, environment);
-        logic.Bind(referee);
+        logic.Bind(referee, leftPlayer, rightPlayer);
 
         if (view != null)
             view.Bind(environment, leftPlayer, rightPlayer);

@@ -12,6 +12,7 @@ public class ActionConfig : ScriptableObject
     public int positionModifier;
     public int initialStaminaModifier;
     public int holdStaminaModifier;
+    public int timeModifier;
 
     public List<StaminaModifier> staminaSelfModifer;
     public List<StaminaModifier> staminaEnemyModifer;
