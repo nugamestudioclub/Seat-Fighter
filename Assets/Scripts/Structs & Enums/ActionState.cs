@@ -6,5 +6,6 @@ public enum ActionState
     BLOCKING,
     PUSHING,
     DODGING,
-    IDLE
+    IDLE,
+    STUNNED,
 }
