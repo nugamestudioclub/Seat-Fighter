@@ -10,7 +10,7 @@ public class AudioHandler : MonoBehaviour {
 	private AudioSource rightAudioSource;
 
 	[SerializeField]
-	private AudioSource environmentSource;
+	private AudioSource centerAudioSource;
 
 	private readonly System.Random random = new();
 
@@ -37,7 +37,7 @@ public class AudioHandler : MonoBehaviour {
 		var audioSource = e.sender switch {
 			EventSource.LEFT => leftAudioSource,
 			EventSource.RIGHT => rightAudioSource,
-			_ => environmentSource
+			_ => centerAudioSource
 		};
 		if( actionSounds.TryGetValue(e.action, out var sounds) )
 			audioSource.PlayOneShot(sounds[random.Next(sounds.Count)]);
@@ -72,7 +72,7 @@ public class AudioHandler : MonoBehaviour {
 		var audioSource = e.sender switch {
 			EventSource.LEFT => leftAudioSource,
 			EventSource.RIGHT => rightAudioSource,
-			_ => environmentSource
+			_ => centerAudioSource
 		};
 		if( interactionSounds.TryGetValue(e.type, out var sounds) )
 			audioSource.PlayOneShot(sounds[random.Next(sounds.Count)]);
