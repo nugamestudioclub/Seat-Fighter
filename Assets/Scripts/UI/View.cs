@@ -32,7 +32,10 @@ public class View : MonoBehaviour {
 	[SerializeField]
 	private SpriteRenderer rightSpriteRenderer;
 
-	private void Awake() {
+	[SerializeField]
+	private ArmViewPosition armView;
+
+    private void Awake() {
 		bubbles = new(bubbleOptions.Options.Select(x => new KeyValuePair<string, BubbleConfig>(x.name, x.bubble)));
 	}
 
@@ -100,6 +103,7 @@ public class View : MonoBehaviour {
 	}
 
 	private void SetPosition(float value) {
+		armView.UpdateTransform(value);
 		position.Rotate(0, 0, (value * 180) - 90);
 	}
 }
