@@ -24,6 +24,19 @@ public class GameLogic
 
     private void Referee_OnInteraction(object sender, RefereeEventArgs e)
     {
+        if(e.type == RefereeEventType.Win)
+        {
+            if (e.reciever == EventSource.LEFT)
+            {
+                //DISPLAY PLAYER 1 (JORDAN) WIN
+                Debug.Log("PLAYER 1 WIN");
+            }
+            else
+            {
+                //DISPLAY PLAYER 2 (GORDON) WIN
+                Debug.Log("PLAYER 2 WIN");
+            }
+        }
         if (e.type == RefereeEventType.OutOfBounds)
         {
             if (e.reciever == EventSource.LEFT)

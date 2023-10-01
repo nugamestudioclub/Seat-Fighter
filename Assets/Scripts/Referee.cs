@@ -28,22 +28,23 @@ public class Referee
     private void ResolveEvents(Player leftPlayer, Player rightPlayer, Environment environment)
     {
         // game logic
-        if (environment.Position <= 0) //left player is oob
-        {
-            OnRefereeEvent(new RefereeEventArgs(EventSource.ENVIRONEMNT, EventSource.LEFT, RefereeEventType.OutOfBounds));
-        } else if (environment.Position >= 100)
-        {
-            OnRefereeEvent(new RefereeEventArgs(EventSource.ENVIRONEMNT, EventSource.RIGHT, RefereeEventType.OutOfBounds));
-        }
-
-        //check game over
-        if (environment.LeftPlayerTime <= 0) 
+        if (environment.LeftPlayerTime <=0)
         {
             OnRefereeEvent(new RefereeEventArgs(EventSource.ENVIRONEMNT, EventSource.LEFT, RefereeEventType.Win));
+
         }
-        else if (environment.RightPlayerTime <= 0)
+        else if (environment.RightPlayerTime <=0)
         {
             OnRefereeEvent(new RefereeEventArgs(EventSource.ENVIRONEMNT, EventSource.RIGHT, RefereeEventType.Win));
+
+        }
+        else if (environment.Position <= 0) //left player is oob
+        {
+            OnRefereeEvent(new RefereeEventArgs(EventSource.ENVIRONEMNT, EventSource.LEFT, RefereeEventType.OutOfBounds));
+        } 
+        else if (environment.Position >= environment.Config.armrestWidth)
+        {
+            OnRefereeEvent(new RefereeEventArgs(EventSource.ENVIRONEMNT, EventSource.RIGHT, RefereeEventType.OutOfBounds));
         }
 
         ResolveActionEvents(leftPlayer, rightPlayer);
