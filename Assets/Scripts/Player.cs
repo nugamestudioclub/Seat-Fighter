@@ -70,8 +70,8 @@ public class Player
 
     public void Update()
     {
-        desiredAction = input.GetNextAction();
-        // UnityEngine.Debug.Log($"Desigred Action: {desiredAction}");
+        if (desiredAction == Action.None)
+            desiredAction = input.GetNextAction();
     }
 
     public ActionFrameData Tick()
@@ -114,12 +114,14 @@ public class Player
         {
             //this value should come from the player config
             Stamina += config.idleStaminaRegen;
-            desiredAction = Action.None;
+            
         }
         else if (CurrentFrameData.state == ActionState.BLOCKING)
         {
             Stamina += config.block.holdStaminaModifier;
         }
+        //reset input
+        desiredAction = Action.None;
         //send on Tick event
         OnTickPlayerEvent(new PlayerTickEventArgs(playerSide, CurrentFrameData));
         return CurrentFrameData;
