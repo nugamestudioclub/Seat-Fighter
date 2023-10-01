@@ -15,8 +15,10 @@ public class GameLogic {
 		this.environment = environment;
 	}
 
-	public void Bind(Referee referee) {
+	public void Bind(Referee referee, Player leftPlayer, Player rightPlayer) {
 		referee.RefereeEvent += Referee_OnInteraction;
+		leftPlayer.PlayerEvent += Player_OnChanged;
+		rightPlayer.PlayerEvent += Player_OnChanged;
 	}
 
 	private void Referee_OnInteraction(object sender, RefereeEventArgs e) {
@@ -136,6 +138,30 @@ public class GameLogic {
 		else {
 			//DISPLAY PLAYER 2 (GORDON) WIN
 			Debug.Log("PLAYER 2 WIN");
+		}
+	}
+
+	private void Player_OnChanged(object sender, PlayerEventArgs e) {
+		switch( e.action ) {
+		case Action.None:
+			break;
+		case Action.Block:
+			break;
+		case Action.Dodge:
+			break;
+		case Action.Push:
+			break;
+		case Action.Shove:
+			break;
+		}
+	}
+
+	private void HandlePlayerBlock(object sender, PlayerEventArgs e) {
+		if( e.sender == EventSource.LEFT ) {
+			environment.LeftPlayerTime += config.leftPlayerConfig.dodge.timeModifier;
+		}
+		else if( sender == rightPlayer ) {
+			environment.RightPlayerTime += config.rightPlayerConfig.dodge.timeModifier;
 		}
 	}
 }
