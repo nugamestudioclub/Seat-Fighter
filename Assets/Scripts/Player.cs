@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Diagnostics;
+using UnityEngine;
 
 public class Player
 {
@@ -29,10 +30,9 @@ public class Player
 
     private readonly EventSource playerSide;
 
-    private readonly List<ActionFrameData> actionqueue;
+    public List<ActionFrameData> ActionList { get; private set; }
 
     public float Position { get; private set; }
-    public List<ActionFrameData> ActionList => actionqueue.ToList();
 
     public event EventHandler<PlayerEventArgs> PlayerEvent;
 
@@ -44,7 +44,7 @@ public class Player
         this.playerSide = playerSide;
         maxStamina = config.maxStamina;
         Stamina = maxStamina;
-        actionqueue = new();
+        ActionList = new();
     }
 
     public void Bind(IActionProvider actionProvider)
@@ -52,18 +52,19 @@ public class Player
         input = actionProvider;
     }
 
-    public ActionFrameData CurrentActionData
+    public ActionFrameData CurrentFrameData { get => FrameDataAt(0); }
+
+    public ActionFrameData NextFrameData { get => FrameDataAt(1); }
+
+    public ActionFrameData FrameDataAt(int index)
     {
-        get
+        if (ActionList.Count > index)
         {
-            if (actionqueue.Count > 0)
-            {
-                return actionqueue[0];
-            }
-            else
-            {
-                return new ActionFrameData(ActionState.IDLE, config.idleSprite);
-            }
+            return ActionList[index];
+        }
+        else
+        {
+            return new ActionFrameData(ActionState.IDLE, config.idleSprite);
         }
     }
 
@@ -71,11 +72,12 @@ public class Player
     {
         if (desiredAction == Action.None)
             desiredAction = input.GetNextAction();
+        UnityEngine.Debug.Log($"Desigred Action: {desiredAction}");
     }
 
     public ActionFrameData Tick()
     {
-        if (CurrentActionData.state == ActionState.IDLE)
+        if (CurrentFrameData.state == ActionState.IDLE)
         {
             switch (desiredAction)
             {
@@ -93,54 +95,66 @@ public class Player
                     break;
             }
         }
-        if (actionqueue.Count > 0)
+        else if (CurrentFrameData.state == ActionState.BLOCKING 
+            && desiredAction == Action.Block
+            && NextFrameData.state != ActionState.BLOCKING)
         {
-            actionqueue.RemoveAt(0);
+            ActionList.Insert(0, CurrentFrameData);
         }
-        if (CurrentActionData.state == ActionState.IDLE)
+        else if (CurrentFrameData.state == ActionState.PUSHING
+            && desiredAction == Action.Push
+            && NextFrameData.state != ActionState.PUSHING)
+        {
+            ActionList.Insert(0, CurrentFrameData);
+        }
+        if (ActionList.Count > 0)
+        {
+            ActionList.RemoveAt(0);
+        }
+        if (CurrentFrameData.state == ActionState.IDLE)
         {
             //this value should come from the player config
-            Stamina += 10;
+            Stamina += config.idleStaminaRegen;
             desiredAction = Action.None;
         }
-        else if (CurrentActionData.state == ActionState.BLOCKING)
+        else if (CurrentFrameData.state == ActionState.BLOCKING)
         {
-            Stamina += 5;
+            Stamina += config.block.holdStaminaModifier;
         }
         //send on Tick event
-        OnTickPlayerEvent(new PlayerTickEventArgs(playerSide, CurrentActionData));
-        return CurrentActionData;
+        OnTickPlayerEvent(new PlayerTickEventArgs(playerSide, CurrentFrameData));
+        return CurrentFrameData;
     }
 
     private void ExecuteAction(ActionConfig move)
     {
-        actionqueue.AddRange(move.GetFrameData());
+        ActionList.AddRange(move.GetFrameData());
     }
 
 
     public void Shove()
     {
-        Stamina += config.shove.StaminaModifier;
+        Stamina += config.shove.initialStaminaModifier;
         OnPlayerEvent(new PlayerEventArgs(playerSide, Action.Shove, Stamina, maxStamina));
         ExecuteAction(config.shove);
     }
 
     public void Push()
     {
-        Stamina += config.push.StaminaModifier;
+        Stamina += config.push.initialStaminaModifier;
         OnPlayerEvent(new PlayerEventArgs(playerSide, Action.Push, Stamina, maxStamina));
         ExecuteAction(config.push);
     }
     public void Dodge()
     {
-        Stamina += config.dodge.StaminaModifier;
+        Stamina += config.dodge.initialStaminaModifier;
         OnPlayerEvent(new PlayerEventArgs(playerSide, Action.Dodge, Stamina, maxStamina));
         ExecuteAction(config.dodge);
     }
 
     public void Block()
     {
-        Stamina += config.block.StaminaModifier;
+        Stamina += config.block.initialStaminaModifier;
         OnPlayerEvent(new PlayerEventArgs(playerSide, Action.Block, Stamina, maxStamina));
         ExecuteAction(config.block);
     }

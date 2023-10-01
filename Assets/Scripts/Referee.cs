@@ -20,8 +20,8 @@ public class Referee
     {
         leftPlayer.Tick();
         rightPlayer.Tick();
-        Debug.Log($"Left action: {leftPlayer.CurrentActionData.state}");
-        Debug.Log($"Right action: {rightPlayer.CurrentActionData.state}");
+        Debug.Log($"Left action: {leftPlayer.CurrentFrameData.state}");
+        Debug.Log($"Right action: {rightPlayer.CurrentFrameData.state}");
         ResolveEvents(leftPlayer, rightPlayer, environment);
     }
 
@@ -56,8 +56,8 @@ public class Referee
 
     private void ResolveActionEvents(Player leftPlayer, Player rightPlayer)
     {
-        ActionState leftPlayerState = leftPlayer.CurrentActionData.state;
-        ActionState rightPlayerState = rightPlayer.CurrentActionData.state;
+        ActionState leftPlayerState = leftPlayer.CurrentFrameData.state;
+        ActionState rightPlayerState = rightPlayer.CurrentFrameData.state;
         //blocking shove
         if (leftPlayerState == ActionState.SHOVING && rightPlayerState == ActionState.BLOCKING)
         {
@@ -154,7 +154,7 @@ public class Referee
         {
             OnRefereeEvent(new RefereeEventArgs(EventSource.LEFT, EventSource.RIGHT, RefereeEventType.Dodge));
         }
-        else if (rightPlayer.CurrentActionData.state == ActionState.DODGING)
+        else if (rightPlayer.CurrentFrameData.state == ActionState.DODGING)
         {
             OnRefereeEvent(new RefereeEventArgs(EventSource.RIGHT, EventSource.LEFT, RefereeEventType.Dodge));
         }
