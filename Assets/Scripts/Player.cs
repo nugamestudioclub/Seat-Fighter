@@ -1,31 +1,52 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 
 public class Player
 {
-    public int Stamina;
+
+    private int stamina;
+    public int Stamina
+    {
+        get => stamina;
+        set
+        {
+            stamina = value;
+            OnPlayerEvent(
+                new PlayerEventArgs(
+                    playerSide,
+                    Action.None,
+                    value));
+        }
+    }
 
     private IActionProvider input;
 
     private Action desiredAction;
 
-    private ActionObject shove;
-    private ActionObject push;
-    private ActionObject dodge;
-    private ActionObject block;
+    private readonly ActionObject shove;
+    private readonly ActionObject push;
+    private readonly ActionObject dodge;
+    private readonly ActionObject block;
 
-    private Queue<Action_state> actionqueue;
+    private readonly EventSource playerSide;
+
+    private readonly Queue<Action_state> actionqueue;
 
     public float Position { get; private set; }
     public List<Action_state> ActionList => actionqueue.ToList();
 
-    public Player(ActionObject shove, ActionObject push, ActionObject dodge, ActionObject block)
+    public event EventHandler<PlayerEventArgs> PlayerEvent;
+
+    public Player(ActionObject shove, ActionObject push, ActionObject dodge, ActionObject block, EventSource playerSide)
     {
         this.shove = shove;
         this.push = push;
         this.dodge = dodge;
         this.block = block;
+        this.playerSide = playerSide;
         actionqueue = new Queue<Action_state>();
     }
     public Player(Dictionary<Action, ActionObject> dict)
@@ -107,18 +128,27 @@ public class Player
 
     public void Shove()
     {
+        OnPlayerEvent(new PlayerEventArgs(playerSide, Action.Shove, Stamina));
         ExecuteAction(shove);
     }
 
-    public void Push() { 
+    public void Push() {
+        OnPlayerEvent(new PlayerEventArgs(playerSide, Action.Push, Stamina));
         ExecuteAction(push);
     }
     public void Dodge() {
+        OnPlayerEvent(new PlayerEventArgs(playerSide, Action.Dodge, Stamina));
         ExecuteAction(dodge);
     }
 
     public void Block() {
+        OnPlayerEvent(new PlayerEventArgs(playerSide, Action.Block, Stamina));
         ExecuteAction(block);
+    }
+
+    protected virtual void OnPlayerEvent(PlayerEventArgs e)
+    {
+        PlayerEvent?.Invoke(this, e);
     }
 
 }
