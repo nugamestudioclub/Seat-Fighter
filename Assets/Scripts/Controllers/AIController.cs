@@ -72,7 +72,7 @@ public class AIController : IActionProvider
                 return new OpponentAction(curQueue[i], i);
             }
         }
-        throw new System.Exception("Something messed up when finding actions");
+        return new OpponentAction(ActionState.IDLE, 0);
     }
 
     private AIAction GetReponseAction(OpponentAction opponentAction)
