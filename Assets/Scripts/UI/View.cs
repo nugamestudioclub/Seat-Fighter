@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using static Unity.VisualScripting.Member;
 
 public class View : MonoBehaviour {
 	[SerializeField]
@@ -19,10 +20,51 @@ public class View : MonoBehaviour {
 	private Transform position;
 
 	public void Bind(Environment environment, Player leftPlayer, Player rightPlayer) {
-		
+		environment.EnvironmentChangeEvent += Environment_OnChange;
+		leftPlayer.PlayerEvent += Player_OnChange;
+        rightPlayer.PlayerEvent += Player_OnChange;
+    }
+
+	private void Environment_OnChange(object sender, EnvironmentEventArgs e)
+	{
+		if (e.type == EnvironmentEventType.PosistionChange)
+		{
+			//move players
+			SetPosition(e.value);
+
+        }
+		else
+		{
+            SetPlayerTimer(GetViewSide(e.type), e.value);
+        }
+    }
+
+    private void Player_OnChange(object sender, PlayerEventArgs e)
+    {
+		SetPlayerStamina(GetViewSide(e.sender), e.stamina);
+    }
+
+	private ViewSide GetViewSide(EventSource source)
+	{
+		return source switch
+		{
+			EventSource.LEFT => ViewSide.Left,
+			EventSource.RIGHT => ViewSide.Right,
+			_ => ViewSide.None
+		};
 	}
 
-	private void SetPlayerTimer(ViewSide side, int value) {
+    private ViewSide GetViewSide(EnvironmentEventType type)
+    {
+        return type switch
+        {
+            EnvironmentEventType.LeftPlayerTimerUpdated => ViewSide.Left,
+            EnvironmentEventType.RightPlayerTimerUpdated => ViewSide.Right,
+            _ => ViewSide.None
+        };
+    }
+
+    private void SetPlayerTimer(ViewSide side, int value) {
 		(side switch {
 			ViewSide.Left => leftTimer,
 			ViewSide.Right => rightTimer,

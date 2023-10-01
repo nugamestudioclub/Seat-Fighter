@@ -1,6 +1,7 @@
 using System;
 public class Environment
 {
+    private readonly int maxPosition;
     private int position;
     public int Position
     {
@@ -12,9 +13,11 @@ public class Environment
                 new EnvironmentEventArgs(
                     EventSource.ENVIRONEMNT,
                     EnvironmentEventType.PosistionChange,
-                    value));
+                    value,
+                    maxPosition));
         }
     }
+    private readonly int maxLeftPlayerTime;
 
     private int leftPlayerTime;
     public int LeftPlayerTime
@@ -27,10 +30,11 @@ public class Environment
                 new EnvironmentEventArgs(
                     EventSource.ENVIRONEMNT,
                     EnvironmentEventType.LeftPlayerTimerUpdated,
-                    value));
+                    value,
+                    maxLeftPlayerTime));
         }
     }
-
+    private readonly int maxRightPlayerTime;
     private int rightPlayerTime;
     public int RightPlayerTime
     {
@@ -42,17 +46,21 @@ public class Environment
                 new EnvironmentEventArgs(
                     EventSource.ENVIRONEMNT,
                     EnvironmentEventType.RightPlayerTimerUpdated,
-                    value));
+                    value,
+                    maxRightPlayerTime));
         }
     }
 
     public event EventHandler<EnvironmentEventArgs> EnvironmentChangeEvent;
 
-    public Environment(int position, int leftPlayerTime, int rightPlayerTime)
+    public Environment(int position, int maxPosition, int maxLeftPlayerTime, int maxRightPlayerTime)
     {
         Position = position;
-        LeftPlayerTime = leftPlayerTime;
-        RightPlayerTime = rightPlayerTime;
+        this.maxPosition = maxPosition;
+        this.maxLeftPlayerTime = maxLeftPlayerTime;
+        this.maxRightPlayerTime = maxRightPlayerTime;
+        LeftPlayerTime = maxLeftPlayerTime;
+        RightPlayerTime = maxRightPlayerTime;
     }
 
     protected virtual void OnEnvironmentChange(EnvironmentEventArgs e)

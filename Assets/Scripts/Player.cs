@@ -1,12 +1,10 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 
 public class Player
 {
-
+    private readonly int maxStamina;
     private int stamina;
     public int Stamina
     {
@@ -18,7 +16,8 @@ public class Player
                 new PlayerEventArgs(
                     playerSide,
                     Action.None,
-                    value));
+                    value,
+                    maxStamina));
         }
     }
 
@@ -40,13 +39,15 @@ public class Player
 
     public event EventHandler<PlayerEventArgs> PlayerEvent;
 
-    public Player(ActionConfig shove, ActionConfig push, ActionConfig dodge, ActionConfig block, EventSource playerSide)
+    public Player(ActionConfig shove, ActionConfig push, ActionConfig dodge, ActionConfig block, int maxStamina, EventSource playerSide)
     {
         this.shove = shove;
         this.push = push;
         this.dodge = dodge;
         this.block = block;
         this.playerSide = playerSide;
+        this.maxStamina = maxStamina;
+        Stamina = maxStamina;
         actionqueue = new Queue<ActionState>();
     }
     public Player(Dictionary<Action, ActionConfig> dict)
@@ -128,21 +129,21 @@ public class Player
 
     public void Shove()
     {
-        OnPlayerEvent(new PlayerEventArgs(playerSide, Action.Shove, Stamina));
+        OnPlayerEvent(new PlayerEventArgs(playerSide, Action.Shove, Stamina, maxStamina));
         ExecuteAction(shove);
     }
 
     public void Push() {
-        OnPlayerEvent(new PlayerEventArgs(playerSide, Action.Push, Stamina));
+        OnPlayerEvent(new PlayerEventArgs(playerSide, Action.Push, Stamina, maxStamina));
         ExecuteAction(push);
     }
     public void Dodge() {
-        OnPlayerEvent(new PlayerEventArgs(playerSide, Action.Dodge, Stamina));
+        OnPlayerEvent(new PlayerEventArgs(playerSide, Action.Dodge, Stamina, maxStamina));
         ExecuteAction(dodge);
     }
 
     public void Block() {
-        OnPlayerEvent(new PlayerEventArgs(playerSide, Action.Block, Stamina));
+        OnPlayerEvent(new PlayerEventArgs(playerSide, Action.Block, Stamina, maxStamina));
         ExecuteAction(block);
     }
 
