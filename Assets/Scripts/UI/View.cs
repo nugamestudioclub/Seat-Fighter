@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using static Unity.VisualScripting.Member;
@@ -18,6 +20,15 @@ public class View : MonoBehaviour {
 
 	[SerializeField]
 	private Transform position;
+
+	[SerializeField]
+	private BubbleOptionsConfig bubbleOptions;
+
+	private Dictionary<string, BubbleConfig> bubbles;
+
+	private void Awake() {
+		bubbles = new(bubbleOptions.Options.Select(x => new KeyValuePair<string, BubbleConfig>(x.name, x.bubble)));
+	}
 
 	public void Bind(Environment environment, Player leftPlayer, Player rightPlayer) {
 		environment.EnvironmentChangeEvent += Environment_OnChange;
