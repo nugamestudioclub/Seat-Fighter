@@ -11,8 +11,8 @@ public class AIController : IActionProvider
     private Player enemy;
 
     private AIConfig config;
-   [SerializeField]
-    private List<ActionResponse> actionResponses;
+
+    public List<ActionResponse> ActionResponses => config.actionResponses;
 
     AIAction curAction = AIAction.EMPTY;
 
@@ -22,8 +22,6 @@ public class AIController : IActionProvider
         this.enemy = enemy;
         this.config = config;
         oldQueue = new();
-        actionResponses = new(config.actionResponses);
-
     }
 
     public Action GetNextAction()
@@ -38,7 +36,7 @@ public class AIController : IActionProvider
                 toReturn = curAction.Action;
             }
         }
-        else if (player.CurrentActionData.state == ActionState.IDLE)
+        else if (player.CurrentFrameData.state == ActionState.IDLE)
         {
             if (isNewActionTaken(curQueue))
             {
@@ -46,8 +44,6 @@ public class AIController : IActionProvider
                 curAction = GetReponseAction(action);
             }
         }
-
-        
 
         oldQueue = curQueue;
         return toReturn;
@@ -75,11 +71,11 @@ public class AIController : IActionProvider
 
     private AIAction GetReponseAction(OpponentAction opponentAction)
     {
-        for (int i = 0; i < actionResponses.Count; i++)
+        for (int i = 0; i < ActionResponses.Count; i++)
         {
-            if (actionResponses[i].ActionState == opponentAction.Action)
+            if (ActionResponses[i].ActionState == opponentAction.Action)
             {
-                return actionResponses[i].GetResponse();
+                return ActionResponses[i].GetResponse();
             }
         }
         throw new Exception("You forgot a response action didn't you");
