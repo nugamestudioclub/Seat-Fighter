@@ -9,14 +9,20 @@ using System.Linq;
 ]
 public class ActionConfig : ScriptableObject
 {
+    public int positionModifier;
+    public int initialStaminaModifier;
+    public int holdStaminaModifier;
+
+    public List<StaminaModifier> staminaSelfModifer;
+    public List<StaminaModifier> staminaEnemyModifer;
+
+    public int timerModifier;
+
     [field: SerializeField]
     public List<ActionDuration> ActionDurations { get; private set; }
 
     [field: SerializeField]
     public List<SpriteDuration> SpriteDurations { get; private set; }
-
-    [field: SerializeField]
-    public int StaminaModifier { get; private set; }
 
     public List<ActionFrameData> GetFrameData()
     {
@@ -54,11 +60,5 @@ public class ActionConfig : ScriptableObject
             allFrameData.Add(new ActionFrameData(allActionFrames[i], allSpriteFrames[i]));
         }
         return allFrameData;
-    }
-
-    public ActionConfig(List<ActionDuration> states, int staminaCost)
-    {
-        ActionDurations = states;
-        StaminaModifier = staminaCost;
     }
 }

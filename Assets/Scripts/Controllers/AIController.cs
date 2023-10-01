@@ -11,8 +11,7 @@ public class AIController : IActionProvider
     private Player enemy;
 
     private AIConfig config;
-   [SerializeField]
-    private List<ActionResponse> actionResponses;
+    public List<ActionResponse> ActionResponses => config.actionResponses;
 
     AIAction curAction = AIAction.EMPTY;
 
@@ -22,32 +21,31 @@ public class AIController : IActionProvider
         this.enemy = enemy;
         this.config = config;
         oldQueue = new();
-        actionResponses = new(config.actionResponses);
-
     }
 
     public Action GetNextAction()
     {
         Action toReturn = Action.None;
 
-        List <ActionState> curQueue = enemy.ActionList.Select(action => action.state).ToList();
-        if (!(curAction.Equals(AIAction.EMPTY)))
+        List<ActionState> curQueue = enemy.ActionList.Select(action => action.state).ToList();
+
+        if (curAction.Equals(AIAction.EMPTY)) {
+            if (player.CurrentActionData.state == ActionState.IDLE) { 
+                if (isNewActionTaken(curQueue))
+                {
+                    OpponentAction action = findOpponentAction(curQueue);
+                    curAction = GetReponseAction(action);
+                }
+            }
+        }
+        else
         {
             if (curAction.checkDelay())
             {
                 toReturn = curAction.Action;
+                curAction = AIAction.EMPTY;
             }
         }
-        else if (player.CurrentActionData.state == ActionState.IDLE)
-        {
-            if (isNewActionTaken(curQueue))
-            {
-                OpponentAction action = findOpponentAction(curQueue);
-                curAction = GetReponseAction(action);
-            }
-        }
-
-        
 
         oldQueue = curQueue;
         return toReturn;
@@ -75,11 +73,11 @@ public class AIController : IActionProvider
 
     private AIAction GetReponseAction(OpponentAction opponentAction)
     {
-        for (int i = 0; i < actionResponses.Count; i++)
+        for (int i = 0; i < ActionResponses.Count; i++)
         {
-            if (actionResponses[i].ActionState == opponentAction.Action)
+            if (ActionResponses[i].ActionState == opponentAction.Action)
             {
-                return actionResponses[i].GetResponse();
+                return ActionResponses[i].GetResponse();
             }
         }
         throw new Exception("You forgot a response action didn't you");
