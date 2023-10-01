@@ -90,13 +90,26 @@ public class AudioHandler : MonoBehaviour {
 	}
 
 	private AudioClip GetWinAudioClip(RefereeEventArgs e) {
-		if( interactionSounds.TryGetValue(e.type, out var sounds) && sounds.Count >= 2 )
-			return e.sender switch {
-				EventSource.LEFT => sounds[0],
-				EventSource.RIGHT => sounds[1],
-				_ => null
-			};
-		else
+		if( interactionSounds.TryGetValue(e.type, out var sounds) ) {
+			if( sounds.Count > 2 ) {
+				if( GameManager.Instance.PlayerCount > 1 )
+					return sounds[0];
+				else
+					return e.sender switch {
+						EventSource.LEFT => sounds[0],
+						EventSource.RIGHT => sounds[1],
+						_ => null
+					};
+			}
+			else if( sounds.Count == 1 ) {
+				return sounds[0];
+			}
+			else {
+				return null;
+			}
+		}
+		else {
 			return null;
+		}
 	}
 }
