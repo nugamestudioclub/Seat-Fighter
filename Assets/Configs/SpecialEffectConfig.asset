@@ -12,60 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbc4a723d54d3804083d3dfb97f14361, type: 3}
   m_Name: SpecialEffectConfig
   m_EditorClassIdentifier: 
-  <Actions>k__BackingField:
-  - action: 1
-    specialEffect:
-      sfx:
-      - {fileID: 8300000, guid: 03202217f06a62b49a8b9bbee3380d62, type: 3}
-      vfx: []
-  - action: 2
-    specialEffect:
-      sfx:
-      - {fileID: 8300000, guid: 8bc7f40f5f4f74c46af5c705a9e1c90f, type: 3}
-      vfx: []
+  actions:
   - action: 3
     specialEffect:
       sfx:
       - {fileID: 8300000, guid: b434b2f09bf41eb4c903c30bd9264e09, type: 3}
-      vfx: []
-  - action: 4
-    specialEffect:
-      sfx:
-      - {fileID: 8300000, guid: 911e3154b34b954448f70110120b30fe, type: 3}
-      vfx: []
-  <Interactions>k__BackingField:
-  - interaction: 1
-    specialEffect:
-      sfx:
-      - {fileID: 8300000, guid: 4b7376c313eaf4842b5d4d330c86151c, type: 3}
-      vfx: []
-  - interaction: 2
-    specialEffect:
-      sfx:
-      - {fileID: 8300000, guid: 1cddf1823c7bbfe448a35f5dede21982, type: 3}
-      vfx: []
-  - interaction: 6
-    specialEffect:
-      sfx:
-      - {fileID: 8300000, guid: 4b7376c313eaf4842b5d4d330c86151c, type: 3}
-      vfx: []
-  - interaction: 3
-    specialEffect:
-      sfx:
-      - {fileID: 8300000, guid: 4b7376c313eaf4842b5d4d330c86151c, type: 3}
-      vfx: []
-  - interaction: 4
-    specialEffect:
-      sfx:
-      - {fileID: 8300000, guid: 4b7376c313eaf4842b5d4d330c86151c, type: 3}
-      vfx: []
-  - interaction: 13
-    specialEffect:
-      sfx:
-      - {fileID: 8300000, guid: 08857370317e94140916e581786450ae, type: 3}
-      - {fileID: 8300000, guid: 03520a58159f29e46a6bb0526cd16cb6, type: 3}
-      vfx: []
-  - interaction: 5
-    specialEffect:
-      sfx: []
-      vfx: []
+      vfx:
+      - {fileID: 11400000, guid: b78c76bf68f957a44b7ed44d2a4b8038, type: 2}
+  interactions: []
