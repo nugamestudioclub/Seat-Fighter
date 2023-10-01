@@ -28,12 +28,12 @@ public class Referee
     private void ResolveEvents(Player leftPlayer, Player rightPlayer, Environment environment)
     {
         // game logic
-        if (environment.LeftPlayerTime <=0)
+        if (environment.LeftPlayerTime <= 0)
         {
             OnRefereeEvent(new RefereeEventArgs(EventSource.ENVIRONEMNT, EventSource.LEFT, RefereeEventType.Win));
 
         }
-        else if (environment.RightPlayerTime <=0)
+        else if (environment.RightPlayerTime <= 0)
         {
             OnRefereeEvent(new RefereeEventArgs(EventSource.ENVIRONEMNT, EventSource.RIGHT, RefereeEventType.Win));
 
@@ -41,7 +41,7 @@ public class Referee
         else if (environment.Position <= 0) //left player is oob
         {
             OnRefereeEvent(new RefereeEventArgs(EventSource.ENVIRONEMNT, EventSource.LEFT, RefereeEventType.OutOfBounds));
-        } 
+        }
         else if (environment.Position >= environment.Config.armrestWidth)
         {
             OnRefereeEvent(new RefereeEventArgs(EventSource.ENVIRONEMNT, EventSource.RIGHT, RefereeEventType.OutOfBounds));
@@ -60,27 +60,49 @@ public class Referee
         ActionState rightPlayerState = rightPlayer.CurrentFrameData.state;
 
         //stun shove
-        //stun push
-        //stun idle
-        //stun dodge
-        //stun stun
-        //stun block
-
-        if (leftPlayerState == ActionState.SHOVING && rightPlayerState == ActionState.BLOCKING)
+        if (leftPlayerState == ActionState.STUNNED && rightPlayerState == ActionState.SHOVING)
         {
-            OnRefereeEvent(new RefereeEventArgs(EventSource.LEFT, EventSource.RIGHT, RefereeEventType.ShoveBlock));
+            OnRefereeEvent(new RefereeEventArgs(EventSource.LEFT, EventSource.RIGHT, RefereeEventType.StunShove));
         }
-        else if (rightPlayerState == ActionState.SHOVING && leftPlayerState == ActionState.BLOCKING)
+        else if (rightPlayerState == ActionState.STUNNED && leftPlayerState == ActionState.SHOVING)
         {
-            OnRefereeEvent(new RefereeEventArgs(EventSource.RIGHT, EventSource.LEFT, RefereeEventType.ShoveBlock));
+            OnRefereeEvent(new RefereeEventArgs(EventSource.RIGHT, EventSource.LEFT, RefereeEventType.StunShove));
+        }
+        //stun push
+        if (leftPlayerState == ActionState.STUNNED && rightPlayerState == ActionState.PUSHING)
+        {
+            OnRefereeEvent(new RefereeEventArgs(EventSource.LEFT, EventSource.RIGHT, RefereeEventType.StunPush));
+        }
+        else if (rightPlayerState == ActionState.STUNNED && leftPlayerState == ActionState.PUSHING)
+        {
+            OnRefereeEvent(new RefereeEventArgs(EventSource.RIGHT, EventSource.LEFT, RefereeEventType.StunPush));
+        }
+        //stun dodge
+        if (leftPlayerState == ActionState.STUNNED && rightPlayerState == ActionState.DODGING)
+        {
+            OnRefereeEvent(new RefereeEventArgs(EventSource.LEFT, EventSource.RIGHT, RefereeEventType.StunDodge));
+        }
+        else if (rightPlayerState == ActionState.STUNNED && leftPlayerState == ActionState.DODGING)
+        {
+            OnRefereeEvent(new RefereeEventArgs(EventSource.RIGHT, EventSource.LEFT, RefereeEventType.StunDodge));
+        }
+        //stun block
+        if (leftPlayerState == ActionState.STUNNED && rightPlayerState == ActionState.BLOCKING)
+        {
+            OnRefereeEvent(new RefereeEventArgs(EventSource.LEFT, EventSource.RIGHT, RefereeEventType.StunBlock));
+        }
+        else if (rightPlayerState == ActionState.STUNNED && leftPlayerState == ActionState.BLOCKING)
+        {
+            OnRefereeEvent(new RefereeEventArgs(EventSource.RIGHT, EventSource.LEFT, RefereeEventType.StunBlock));
         }
 
         //blocking shove
         if (leftPlayerState == ActionState.SHOVING && rightPlayerState == ActionState.BLOCKING)
         {
             OnRefereeEvent(new RefereeEventArgs(EventSource.LEFT, EventSource.RIGHT, RefereeEventType.ShoveBlock));
-        } 
-        else if(rightPlayerState == ActionState.SHOVING && leftPlayerState == ActionState.BLOCKING) {
+        }
+        else if (rightPlayerState == ActionState.SHOVING && leftPlayerState == ActionState.BLOCKING)
+        {
             OnRefereeEvent(new RefereeEventArgs(EventSource.RIGHT, EventSource.LEFT, RefereeEventType.ShoveBlock));
         }
 
@@ -144,6 +166,11 @@ public class Referee
         {
             OnRefereeEvent(new RefereeEventArgs(EventSource.RIGHT, EventSource.LEFT, RefereeEventType.DodgeDodge));
         }
+        //stun stun
+        else if (rightPlayerState == ActionState.STUNNED && leftPlayerState == ActionState.STUNNED)
+        {
+            OnRefereeEvent(new RefereeEventArgs(EventSource.RIGHT, EventSource.LEFT, RefereeEventType.StunStun));
+        }
 
 
         //shove idle
@@ -200,7 +227,7 @@ public class Referee
         {
             OnRefereeEvent(new RefereeEventArgs(EventSource.LEFT, EventSource.RIGHT, RefereeEventType.IdleIdle));
         }
- 
+
     }
 
     protected virtual void OnRefereeEvent(RefereeEventArgs e)
