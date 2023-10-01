@@ -128,6 +128,8 @@ public class GameManager : MonoBehaviour
     }
 	
 	private IActionProvider GetRightController() {
+        var gameInProgress = GameInProgress.Instance;
+
         if (gameInProgress == null || gameInProgress.PlayerCount < 2)
         {
             return new AIController(rightPlayer, leftPlayer, config.aIConfig);
