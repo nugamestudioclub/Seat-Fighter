@@ -8,11 +8,11 @@ using UnityEngine;
 ]
 public class PlayerConfig : ScriptableObject
 {
-    public int pushDamage;
-    public int shoveDamage;
     public int stunTime;
     public int maxStamina;
+    public int idleStaminaRegen; //maybe idle should be its own action
     public int health;
+
 
     public ActionConfig push;
     public ActionConfig shove;

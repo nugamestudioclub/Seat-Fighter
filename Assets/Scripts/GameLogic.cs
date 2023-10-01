@@ -52,22 +52,22 @@ public class GameLogic
         {
             if (e.reciever == EventSource.LEFT)
             {
-                environment.Position -= config.rightPlayerConfig.pushDamage;
+               environment.Position -= config.rightPlayerConfig.push.positionModifier;
             }
             else
             {
-                environment.Position += config.leftPlayerConfig.pushDamage;
+               environment.Position += config.leftPlayerConfig.push.positionModifier;
             }
         }
         else if (e.type == RefereeEventType.ShoveContact)
         {
             if (e.reciever == EventSource.LEFT)
             {
-                environment.Position -= config.rightPlayerConfig.shoveDamage;
+                environment.Position -= config.rightPlayerConfig.shove.positionModifier;
             }
             else
             {
-                environment.Position += config.leftPlayerConfig.shoveDamage;
+                environment.Position += config.leftPlayerConfig.shove.positionModifier;
             }
         }
     }
