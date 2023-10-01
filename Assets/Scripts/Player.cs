@@ -70,9 +70,8 @@ public class Player
 
     public void Update()
     {
-        if (desiredAction == Action.None)
-            desiredAction = input.GetNextAction();
-        UnityEngine.Debug.Log($"Desigred Action: {desiredAction}");
+        desiredAction = input.GetNextAction();
+        // UnityEngine.Debug.Log($"Desigred Action: {desiredAction}");
     }
 
     public ActionFrameData Tick()
@@ -95,14 +94,14 @@ public class Player
                     break;
             }
         }
-        else if (CurrentFrameData.state == ActionState.BLOCKING 
-            && desiredAction == Action.Block
+        else if (desiredAction == Action.Block
+            && CurrentFrameData.state == ActionState.BLOCKING
             && NextFrameData.state != ActionState.BLOCKING)
         {
             ActionList.Insert(0, CurrentFrameData);
         }
-        else if (CurrentFrameData.state == ActionState.PUSHING
-            && desiredAction == Action.Push
+        else if (desiredAction == Action.Push
+            && CurrentFrameData.state == ActionState.PUSHING
             && NextFrameData.state != ActionState.PUSHING)
         {
             ActionList.Insert(0, CurrentFrameData);
