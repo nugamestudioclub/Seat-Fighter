@@ -19,3 +19,10 @@ public struct InteractionSpecialEffect {
 	public RefereeEventType interaction;
 	public SpecialEffect specialEffect;
 }
+
+[Serializable]
+public struct PlayerStateSpecialEffect
+{
+    public PlayerState state;
+    public SpecialEffect specialEffect;
+}

@@ -13,7 +13,6 @@ public class Player
         get => stamina;
         set
         {
-
             stamina = Math.Max(0, Math.Min(value, maxStamina));
             OnPlayerEvent(
                 new PlayerEventArgs(
@@ -21,8 +20,14 @@ public class Player
                     Action.None,
                     value,
                     maxStamina));
+            if (!HasLowStamina)
+            {
+                signaledLowStamina = false;
+            }
         }
     }
+    public bool HasLowStamina => Stamina < (maxStamina * 0.25f);
+    private bool signaledLowStamina;
 
     private IActionProvider input;
 
@@ -40,8 +45,11 @@ public class Player
 
     public event EventHandler<PlayerTickEventArgs> PlayerTickEvent;
 
+    public event EventHandler<PlayerStateEventArgs> PlayerStateEvent;
+
     public Player(PlayerConfig config, EventSource playerSide)
     {
+        signaledLowStamina = false;
         this.config = config;
         this.playerSide = playerSide;
         maxStamina = config.maxStamina;
@@ -128,7 +136,11 @@ public class Player
         {
             HandleActionState(FindMove(currentState));
         }
-
+        if (HasLowStamina && !signaledLowStamina)
+        {
+            signaledLowStamina = true;
+            OnPlayerStateEvent(new PlayerStateEventArgs(playerSide, PlayerState.LowStamina));
+        }
         //reset input
         desiredAction = Action.None;
         //send on Tick event
@@ -203,6 +215,11 @@ public class Player
     protected virtual void OnTickPlayerEvent(PlayerTickEventArgs e)
     {
         PlayerTickEvent?.Invoke(this, e);
+    }
+
+    protected virtual void OnPlayerStateEvent(PlayerStateEventArgs e)
+    {
+        PlayerStateEvent?.Invoke(this, e);
     }
 
 }
