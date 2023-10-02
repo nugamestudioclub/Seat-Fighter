@@ -42,10 +42,10 @@ public class CharSel : MonoBehaviour
         if (gameInProgress.PlayerCount == 1)
         {
             rightPlayerIndex = Mathf.FloorToInt(UnityEngine.Random.Range(0, players.Count));
-            UpdateSprites();
             isAI = true;
-        }
-    }
+		}
+		UpdateSprites();
+	}
 
     private void Update()
     {
