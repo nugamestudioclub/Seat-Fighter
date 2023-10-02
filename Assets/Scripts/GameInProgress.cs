@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameInProgress : MonoBehaviour {
 	private static GameInProgress _instance;
@@ -25,6 +27,10 @@ public class GameInProgress : MonoBehaviour {
 	[field: SerializeField]
 	public PlayerConfig RightPlayer { get; set; }
 
+	public InputController LeftInput { get; set; }
+
+	public InputController RightInput { get; set; }
+
 	void Awake() {
 		if( _instance == null ) {
 			_instance = this;
@@ -33,5 +39,22 @@ public class GameInProgress : MonoBehaviour {
 		else {
 			Destroy(gameObject);
 		}
+	}
+
+	public void LoadScene(string name) {
+		if( LeftInput != null )
+			LeftInput.IsActive = false;
+		if( RightInput != null )
+			RightInput.IsActive = false;
+		StartCoroutine(DoLoadScene(name));
+		if( LeftInput != null )
+			LeftInput.IsActive = true;
+		if( RightInput != null )
+			RightInput.IsActive = true;
+	}
+
+	private IEnumerator DoLoadScene(string name) {
+		SceneManager.LoadScene(name);
+		yield return new WaitForSeconds(0.5f);
 	}
 }

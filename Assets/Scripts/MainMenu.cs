@@ -21,20 +21,20 @@ public class MainMenu : MonoBehaviour {
 
 	public void Set1Player() {
 		GameInProgress.Instance.PlayerCount = 1;
-		SceneManager.LoadScene("CharSel");
+		GameInProgress.Instance.LoadScene("CharSel");
 	}
 
 	public void Set2Player() {
 		GameInProgress.Instance.PlayerCount = 2;
-		SceneManager.LoadScene("CharSel");
+		GameInProgress.Instance.LoadScene("CharSel");
 	}
 
 	public void Controls() {
-		SceneManager.LoadScene("Controls");
+		GameInProgress.Instance.LoadScene("Controls");
 	}
 
 	public void Credits() {
-		SceneManager.LoadScene("Credits");
+		GameInProgress.Instance.LoadScene("Credits");
 	}
 
 	public void Exit() {

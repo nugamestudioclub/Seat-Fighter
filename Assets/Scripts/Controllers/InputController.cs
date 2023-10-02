@@ -11,7 +11,24 @@ public class InputController {
 
 	private InputData _inputData;
 
-	public InputData InputData => _inputData;
+	private bool _isActive;
+
+	public InputData InputData {
+		get => _inputData;
+		set {
+			if( _isActive )
+				_inputData = value;
+		}
+	}
+
+	public bool IsActive {
+		get => _isActive;
+		set {
+			_isActive = value;
+			if( !value )
+				_inputData = new();
+		}		
+	}
 
 	public InputController(int id) {
 		_id = id;

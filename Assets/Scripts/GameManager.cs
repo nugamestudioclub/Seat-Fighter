@@ -3,171 +3,163 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
-{
+public class GameManager : MonoBehaviour {
 
-    //referee
-    private Referee referee;
-    //sounds
-    [SerializeField]
-    private AudioHandler audioManager;
-    //ui
-    [SerializeField]
-    private View view;
-    //logic
-    private GameLogic logic;
-
-
-    [SerializeField]
-    private GameConfig config;
+	//referee
+	private Referee referee;
+	//sounds
+	[SerializeField]
+	private AudioHandler audioManager;
+	//ui
+	[SerializeField]
+	private View view;
+	//logic
+	private GameLogic logic;
 
 
-    private static GameManager _instance;
+	[SerializeField]
+	private GameConfig config;
 
-    [SerializeField]
-    private InputController _inputController;
 
-    private HumanController humanController;
+	private static GameManager _instance;
 
-    private Player leftPlayer;
+	[SerializeField]
+	private InputController _inputController;
 
-    private Player rightPlayer;
+	private HumanController humanController;
 
-    private IActionProvider leftController;
+	private Player leftPlayer;
 
-    private IActionProvider rightController;
+	private Player rightPlayer;
 
-    private Environment environment;
+	private IActionProvider leftController;
 
-    public static GameManager Instance => _instance;
+	private IActionProvider rightController;
 
-    private long fixedFrameCount;
+	private Environment environment;
 
-    [SerializeField]
-    private int frameInterval = 5;
+	public static GameManager Instance => _instance;
 
-    [SerializeField]
-    private bool debugWith2Players;
+	private long fixedFrameCount;
 
-    public bool IsStarted { get; private set; }
+	[SerializeField]
+	private int frameInterval = 5;
 
-    public bool IsPaused { get; private set; }
+	[SerializeField]
+	private bool debugWith2Players;
 
-    void Awake()
-    {
-        if (_instance != null)
-            Destroy(_instance.gameObject);
-        _instance = this;
-        Initialize();
-    }
+	public bool IsStarted { get; private set; }
 
-    void Update()
-    {
-        leftPlayer.Update();
-        rightPlayer.Update();
-    }
+	public bool IsPaused { get; private set; }
 
-    private bool firstTick;
+	void Awake() {
+		if( _instance != null )
+			Destroy(_instance.gameObject);
+		_instance = this;
+		Initialize();
+	}
 
-    private void FixedUpdate()
-    {
-        if (IsStarted && !IsPaused)
-        {
-            fixedFrameCount++;
-            if (fixedFrameCount % frameInterval == 0)
-            {
-                if (firstTick)
-                {
-                    environment.Start();
-                    leftPlayer.Start();
-                    rightPlayer.Start();
-                    firstTick = false;
-                }
-                referee.Tick();
-            }
-        }
-    }
+	void Update() {
+		leftPlayer.Update();
+		rightPlayer.Update();
+	}
 
-    public void Play()
-    {
-        IsStarted = true;
-        IsPaused = false;
-    }
+	private bool firstTick;
 
-    private void Initialize()
-    {
-        fixedFrameCount = 0;
-        firstTick = true;
-        //create player and environment from the configs
-        leftPlayer = new Player(GetLeftPlayerConfig(), EventSource.LEFT);
-        rightPlayer = new Player(GetRightPlayerConfig(), EventSource.RIGHT);
-        leftController = GetLeftController();
-        rightController = GetRightController();
-        leftPlayer.Bind(leftController);
-        rightPlayer.Bind(rightController);
+	private void FixedUpdate() {
+		if( IsStarted && !IsPaused ) {
+			fixedFrameCount++;
+			if( fixedFrameCount % frameInterval == 0 ) {
+				if( firstTick ) {
+					environment.Start();
+					leftPlayer.Start();
+					rightPlayer.Start();
+					firstTick = false;
+				}
+				referee.Tick();
+			}
+		}
+	}
 
-        environment = new Environment(
-            config.environmentConfig,
-            config.leftPlayerConfig.health,
-            config.rightPlayerConfig.health);
+	public void Play() {
+		IsStarted = true;
+		IsPaused = false;
+	}
 
-        referee = new Referee(leftPlayer, rightPlayer, environment);
-        logic = new GameLogic(config, leftPlayer, rightPlayer, environment);
-        logic.Bind(referee, leftPlayer, rightPlayer);
+	private void Initialize() {
+		fixedFrameCount = 0;
+		firstTick = true;
+		//create player and environment from the configs
+		leftPlayer = new Player(GetLeftPlayerConfig(), EventSource.LEFT);
+		rightPlayer = new Player(GetRightPlayerConfig(), EventSource.RIGHT);
+		leftController = GetLeftController();
+		rightController = GetRightController();
+		leftPlayer.Bind(leftController);
+		rightPlayer.Bind(rightController);
 
-        if (view != null)
-            view.Bind(environment, leftPlayer, rightPlayer);
-        if (audioManager != null)
-            audioManager.Bind(referee, leftPlayer, rightPlayer, environment, config.specialEffectConfig);
+		environment = new Environment(
+			config.environmentConfig,
+			config.leftPlayerConfig.health,
+			config.rightPlayerConfig.health);
 
-        referee.RefereeEvent += Referee_OnInteraction;
+		referee = new Referee(leftPlayer, rightPlayer, environment);
+		logic = new GameLogic(config, leftPlayer, rightPlayer, environment);
+		logic.Bind(referee, leftPlayer, rightPlayer);
 
-    }
+		if( view != null )
+			view.Bind(environment, leftPlayer, rightPlayer);
+		if( audioManager != null )
+			audioManager.Bind(referee, leftPlayer, rightPlayer, environment, config.specialEffectConfig);
 
-    private IActionProvider GetLeftController()
-    {
-        var input = new InputController(0);
-        return new HumanController(input);
-    }
-	
+		referee.RefereeEvent += Referee_OnInteraction;
+
+
+	}
+
+	private IActionProvider GetLeftController() {
+		var input = new InputController(0);
+		GameInProgress.Instance.LeftInput = input;
+		return new HumanController(input);
+	}
+
 	private IActionProvider GetRightController() {
-        if( debugWith2Players )
-            return new HumanController(new InputController(1));
+		InputController input = null;
+		IActionProvider actionProvider;
+		var gameInProgress = GameInProgress.Instance;
+		if( debugWith2Players ) {
+			input = new(1);
+			actionProvider = new HumanController(input);
+		}
+		else if( gameInProgress == null || gameInProgress.PlayerCount < 2 ) {
+			actionProvider = new AIController(rightPlayer, leftPlayer, config.aIConfig);
+		}
+		else {
+			input = new InputController(1);
+			actionProvider = new HumanController(input);
+		}
+		gameInProgress.RightInput = input;
+		return actionProvider;
+	}
 
-        var gameInProgress = GameInProgress.Instance;
-
-        if (gameInProgress == null || gameInProgress.PlayerCount < 2)
-        {
-            return new AIController(rightPlayer, leftPlayer, config.aIConfig);
-        }
-        else
-        {
-            var input = new InputController(1);
-            return new HumanController(input);
-        }
-    }
-
-    private PlayerConfig GetLeftPlayerConfig() {
+	private PlayerConfig GetLeftPlayerConfig() {
 		var gameInProgress = GameInProgress.Instance;
 		return gameInProgress == null
 			? config.leftPlayerConfig
 			: gameInProgress.LeftPlayer;
 	}
 
-    private PlayerConfig GetRightPlayerConfig() {
+	private PlayerConfig GetRightPlayerConfig() {
 		var gameInProgress = GameInProgress.Instance;
 		return gameInProgress == null
 			? config.rightPlayerConfig
 			: gameInProgress.RightPlayer;
 	}
 
-    private void Referee_OnInteraction(object sender, RefereeEventArgs e)
-    {
-        if (e.type == RefereeEventType.Win)
-        {
-            GameInProgress.Instance.WinnerId = e.receiver == EventSource.LEFT ? 0 : 1;
-            IsStarted = false;
-            SceneManager.LoadScene("GameOver");
-        }
-    }
+	private void Referee_OnInteraction(object sender, RefereeEventArgs e) {
+		if( e.type == RefereeEventType.Win ) {
+			GameInProgress.Instance.WinnerId = e.receiver == EventSource.LEFT ? 0 : 1;
+			IsStarted = false;
+			SceneManager.LoadScene("GameOver");
+		}
+	}
 }
