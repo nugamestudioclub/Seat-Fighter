@@ -11,12 +11,12 @@ public class MainMenu : MonoBehaviour
 	[SerializeField] private GameObject cursor;
 	public void Set1Player() {
 		GameInProgress.Instance.PlayerCount = 1;
-		SceneManager.LoadScene("MainScene");
+		SceneManager.LoadScene("CharSel");
 	}
 
 	public void Set2Player() {
 		GameInProgress.Instance.PlayerCount = 2;
-		SceneManager.LoadScene("MainScene");
+		SceneManager.LoadScene("CharSel");
 	}
 
 	public void Controls()
