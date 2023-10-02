@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Unity.VisualScripting;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class Player
@@ -13,7 +14,7 @@ public class Player
         get => stamina;
         set
         {
-            stamina = Math.Max(0, Math.Min(value, maxStamina));
+            stamina = Math.Clamp(value, 0, maxStamina);
             OnPlayerEvent(
                 new PlayerEventArgs(
                     playerSide,
@@ -92,6 +93,7 @@ public class Player
     {
         ActionState currentState = CurrentFrameData.state;
         ActionState nextState = NextFrameData.state;
+        
         if (currentState == ActionState.IDLE)
         {
             switch (desiredAction)
@@ -122,17 +124,19 @@ public class Player
         {
             ActionList.Insert(0, CurrentFrameData);
         }
-        if (ActionList.Count > 0)
+
+        if (Stamina <= 0)
         {
-            ActionList.RemoveAt(0);
+            Stun();
         }
-        if (currentState == ActionState.IDLE)
+        ActionState nowState = CurrentFrameData.state;
+        if (nowState == ActionState.IDLE)
         {
             //this value should come from the player config
             Stamina += config.idleStaminaRegen;
 
         }
-        else if (currentState != ActionState.BUSY)
+        else if (nowState != ActionState.BUSY)
         {
             HandleActionState(FindMove(currentState));
         }
@@ -143,12 +147,12 @@ public class Player
         }
         //reset input
         desiredAction = Action.None;
+        if (ActionList.Count > 0)
+        {
+            ActionList.RemoveAt(0);
+        }
         //send on Tick event
         OnTickPlayerEvent(new PlayerTickEventArgs(playerSide, CurrentFrameData));
-        if (stamina == 0)
-        {
-            Stun();
-        }
         return CurrentFrameData;
     }
     private ActionConfig FindMove(ActionState state)
@@ -177,9 +181,9 @@ public class Player
     {
         if (CurrentFrameData.state != ActionState.STUNNED)
         {
-            ActionList.Clear();
-            ExecuteAction(config.stunned);
+            ActionList.Clear();            
             OnPlayerEvent(new PlayerEventArgs(playerSide, Action.Stun, Stamina, maxStamina));
+            ExecuteAction(config.stunned);
         }
 
     }
