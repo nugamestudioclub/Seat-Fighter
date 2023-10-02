@@ -18,7 +18,10 @@ public class CharSel : MonoBehaviour
 
     [SerializeField] private SpriteRenderer leftPlayerSprite;
     [SerializeField] private SpriteRenderer rightPlayerSprite;
-    
+
+    [SerializeField] private TMP_Text leftPlayerNameLabel;
+    [SerializeField] private TMP_Text rightPlayerNameLabel;
+
     private bool isAI = false;
     private void Awake()
     {
@@ -110,8 +113,8 @@ public class CharSel : MonoBehaviour
     {
         leftPlayerSprite.sprite = players[leftPlayerIndex].portrait;
         rightPlayerSprite.sprite = players[rightPlayerIndex].portrait;
-        leftPlayerSprite.gameObject.GetComponentsInChildren<TextMeshPro>()[0].text = players[leftPlayerIndex].name;
-        rightPlayerSprite.gameObject.GetComponentsInChildren<TextMeshPro>()[0].text = players[rightPlayerIndex].name;
+        leftPlayerNameLabel.text = players[leftPlayerIndex].characterName;
+        rightPlayerNameLabel.text = players[rightPlayerIndex].characterName;
         
         // Update GameInProgress
         gameInProgress.LeftPlayer = players[leftPlayerIndex];
