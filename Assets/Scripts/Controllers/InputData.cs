@@ -7,6 +7,8 @@ using UnityEngine;
 public class InputData {
 	private readonly ButtonState[] _buttonState;
 
+	public Vector2 Direction { get; set; }
+
 	public InputData() {
 		_buttonState = new ButtonState[Enum.GetNames(typeof(Button)).Length];
 		for( int i = 0; i < _buttonState.Length; ++i )
