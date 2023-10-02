@@ -32,9 +32,15 @@ public class View : MonoBehaviour {
 	[SerializeField]
 	private ArmViewPosition armView;
 
-	private void Awake() {
+	void Awake() {
 		startingPositionIndicatorPosition = positionIndicator.position;
 		startingPositionIndicatorRotation = positionIndicator.rotation;
+	}
+
+	void Start() {
+		var gameInProgress = GameInProgress.Instance;
+		leftSpriteRenderer.sprite = gameInProgress.LeftPlayer.idleSprite;
+		rightSpriteRenderer.sprite = gameInProgress.RightPlayer.idleSprite;
 	}
 
 	public void Bind(Environment environment, Player leftPlayer, Player rightPlayer) {

@@ -99,8 +99,8 @@ public class GameManager : MonoBehaviour
         fixedFrameCount = 0;
         firstTick = true;
         //create player and environment from the configs
-        leftPlayer = new Player(config.leftPlayerConfig, EventSource.LEFT);
-        rightPlayer = new Player(config.rightPlayerConfig, EventSource.RIGHT);
+        leftPlayer = new Player(GetLeftPlayerConfig(), EventSource.LEFT);
+        rightPlayer = new Player(GetRightPlayerConfig(), EventSource.RIGHT);
         leftController = GetLeftController();
         rightController = GetRightController();
         leftPlayer.Bind(leftController);
@@ -146,6 +146,20 @@ public class GameManager : MonoBehaviour
             return new HumanController(input);
         }
     }
+
+    private PlayerConfig GetLeftPlayerConfig() {
+		var gameInProgress = GameInProgress.Instance;
+		return gameInProgress == null
+			? config.leftPlayerConfig
+			: gameInProgress.LeftPlayer;
+	}
+
+    private PlayerConfig GetRightPlayerConfig() {
+		var gameInProgress = GameInProgress.Instance;
+		return gameInProgress == null
+			? config.rightPlayerConfig
+			: gameInProgress.RightPlayer;
+	}
 
     private void Referee_OnInteraction(object sender, RefereeEventArgs e)
     {
