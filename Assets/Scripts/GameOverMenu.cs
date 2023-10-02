@@ -59,10 +59,10 @@ public class GameOverMenu : MonoBehaviour {
 	}
 
 	public void MainMenu() {
-		SceneManager.LoadScene(0);
+		SceneManager.LoadScene("TitleScreen");
 	}
 	public void PlayAgain() {
-		SceneManager.LoadScene(1);
+		SceneManager.LoadScene("MainScene");
 	}
 
 	public void Exit() {
