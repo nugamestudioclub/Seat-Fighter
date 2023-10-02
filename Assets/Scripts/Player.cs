@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Player
 {
-    private readonly int maxStamina;
+    public readonly int maxStamina;
     private int stamina;
     public int Stamina
     {

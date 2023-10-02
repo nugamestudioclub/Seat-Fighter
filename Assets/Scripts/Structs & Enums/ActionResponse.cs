@@ -22,4 +22,22 @@ public struct ActionResponse
         return actionPool[rand];
     }
 
+    public AIAction GetWaitResponse()
+    {
+        List<AIAction> actionPool = new List<AIAction>();
+        for (int i = 0; i < weightedList.Count; i++)
+        {
+            if (weightedList[i].AiAction.Action != Action.None)
+            {
+                continue;
+            }
+            for (int j = 0; j < weightedList[i].Weight; j++)
+            {
+                actionPool.Add(weightedList[i].AiAction);
+            }
+        }
+        int rand = UnityRandom.Range(0, actionPool.Count);
+        return actionPool[rand];
+    }
+
 }

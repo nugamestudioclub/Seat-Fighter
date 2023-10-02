@@ -8,4 +8,6 @@ using UnityEngine;
 public class AIConfig : ScriptableObject
 {
     public List<ActionResponse> actionResponses;
+    public float waitRollThreshold = .35f;
+    public float waitRollChance = .70f;
 }

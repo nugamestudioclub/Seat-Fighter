@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityRandom = UnityEngine.Random;
 
 public class AIController : IActionProvider
 {
@@ -15,6 +16,8 @@ public class AIController : IActionProvider
     private List<ActionResponse> actionResponses;
 
     public List<ActionResponse> ActionResponses => config.actionResponses;
+    private float waitRollThreshold => config.waitRollThreshold;
+    private float waitRollChance => config.waitRollChance;
 
     AIAction curAction = AIAction.EMPTY;
 
@@ -84,6 +87,11 @@ public class AIController : IActionProvider
         {
             if (ActionResponses[i].ActionState == opponentAction.Action)
             {
+                if ((float) player.Stamina / (float) player.maxStamina <= waitRollThreshold 
+                    && UnityRandom.Range(0f, 1f) <= waitRollChance)
+                {
+                    return ActionResponses[i].GetWaitResponse();
+                }
                 return ActionResponses[i].GetResponse();
             }
         }
