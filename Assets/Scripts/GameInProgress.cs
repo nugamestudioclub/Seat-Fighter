@@ -17,6 +17,9 @@ public class GameInProgress : MonoBehaviour {
 	public int PlayerCount { get; set; } = 1;
 
 	[field: SerializeField]
+	public PlayerOptionsConfig AllPlayers { get; set; }
+
+	[field: SerializeField]
 	public PlayerConfig LeftPlayer { get; set; }
 
 	[field: SerializeField]
