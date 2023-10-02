@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stunTime: 12
   maxStamina: 100
-  idleStaminaRegen: 10
+  idleStaminaRegen: 5
   health: 15
   push: {fileID: 11400000, guid: 4e639221d8970444c99887d94ae6ab8c, type: 2}
   shove: {fileID: 11400000, guid: f5cfeb35be2e2cd499843202a60c5336, type: 2}
