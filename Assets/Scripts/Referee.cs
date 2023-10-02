@@ -30,12 +30,12 @@ public class Referee
         // game logic
         if (environment.LeftPlayerTime <= 0)
         {
-            OnRefereeEvent(new RefereeEventArgs(EventSource.ENVIRONEMNT, EventSource.LEFT, RefereeEventType.Win));
+            OnRefereeEvent(new RefereeEventArgs(EventSource.ENVIRONEMNT, EventSource.RIGHT, RefereeEventType.Win));
 
         }
         else if (environment.RightPlayerTime <= 0)
         {
-            OnRefereeEvent(new RefereeEventArgs(EventSource.ENVIRONEMNT, EventSource.RIGHT, RefereeEventType.Win));
+            OnRefereeEvent(new RefereeEventArgs(EventSource.ENVIRONEMNT, EventSource.LEFT, RefereeEventType.Win));
 
         }
         else if (environment.Position <= 0) //left player is oob
