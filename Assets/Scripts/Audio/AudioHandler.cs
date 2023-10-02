@@ -30,6 +30,7 @@ public class AudioHandler : MonoBehaviour
 
         rightPlayer.PlayerEvent += Player_OnChange;
         rightPlayer.PlayerStateEvent += Player_OnState;
+
         environment.EnvironmentChangeEvent += Environment_OnChange;
 
         actionSounds = new(specialEffects.actions.Select(x =>
