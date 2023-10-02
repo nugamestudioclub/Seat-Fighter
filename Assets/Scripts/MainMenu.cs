@@ -11,22 +11,22 @@ public class MainMenu : MonoBehaviour
 	[SerializeField] private GameObject cursor;
 	public void Set1Player() {
 		GameInProgress.Instance.PlayerCount = 1;
-		SceneManager.LoadScene(1);
+		SceneManager.LoadScene("MainScene");
 	}
 
 	public void Set2Player() {
 		GameInProgress.Instance.PlayerCount = 2;
-		SceneManager.LoadScene(1);
+		SceneManager.LoadScene("MainScene");
 	}
 
 	public void Controls()
 	{
-		SceneManager.LoadScene(4);
+		SceneManager.LoadScene("Controls");
 	}
 	
 	public void Credits()
 	{
-		SceneManager.LoadScene(3);
+		SceneManager.LoadScene("Credits");
 	}
 	
 	public void Exit()
