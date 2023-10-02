@@ -264,7 +264,28 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Insert Credits Here
+  m_text: 'Brendan Brassil - UI/UX Programming
+
+    Jordan Brown - Design, Production
+
+    George
+    - Game Programming
+
+    Gordon - Jordan
+
+    Skyler Hale - Music, Sound Design
+
+    Madhav
+    Kapa - Menu Programming
+
+    Sebastian Kobori - Game Programming
+
+    Matt Lord
+    - Art, Programming
+
+    Josh Sun - AI Programming
+
+    @crabgraph - Voice Acting'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0d4752d349972b9459596e68988f552c, type: 2}
   m_sharedMaterial: {fileID: -4288456009802524343, guid: 0d4752d349972b9459596e68988f552c, type: 2}
@@ -291,19 +312,19 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 32
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -5
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 40
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
