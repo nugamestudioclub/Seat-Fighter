@@ -22,9 +22,15 @@ public class CharSel : MonoBehaviour
     [SerializeField] private TMP_Text leftPlayerNameLabel;
     [SerializeField] private TMP_Text rightPlayerNameLabel;
 
+    [SerializeField]
+    private int frameInterval = 5;
+    private int fixedFrameCount;
+    private Vector2 leftDesiredDirection;
+    private Vector2 rightDesiredDirection;
     private bool isAI = false;
     private void Awake()
     {
+        fixedFrameCount = 0;
         inputController_left = new InputController(0);
         inputController_right = new InputController(1);
     }
@@ -39,83 +45,90 @@ public class CharSel : MonoBehaviour
             UpdateSprites();
             isAI = true;
         }
-        
-        
     }
 
     private void Update()
     {
+        leftDesiredDirection = inputController_left.InputData.Direction;
+        rightDesiredDirection = inputController_right.InputData.Direction;
+
         if (inputController_right.InputData.GetButtonState(Button.Start).IsDown || inputController_left.InputData.GetButtonState(Button.Start).IsDown)
         {
             SceneManager.LoadScene("MainScene");
         }
-        
-        if (inputController_left.InputData.Direction.x > 0)
-        {
-            Debug.Log("Left input");
-            if (leftPlayerIndex < players.Count - 1)
-            {
-                leftPlayerIndex++;
-            }
-            else
-            {
-                leftPlayerIndex = 0;
-            }
 
-            UpdateSprites();
-        }
-        else if (inputController_left.InputData.Direction.x < 0)
-        {
-            if (leftPlayerIndex > 0)
-            {
-                leftPlayerIndex--;
-            }
-            else
-            {
-                leftPlayerIndex = players.Count - 1;
-            }
 
-            UpdateSprites();
-        }
-
-        if (isAI == false)
+    }
+    private void FixedUpdate()
+    {
+        fixedFrameCount++;
+        if (fixedFrameCount % frameInterval == 0)
         {
-            if (inputController_right.InputData.Direction.x > 0)
+            if (leftDesiredDirection.x > 0)
             {
-                if (rightPlayerIndex < players.Count - 1)
+                if (leftPlayerIndex < players.Count - 1)
                 {
-                    rightPlayerIndex++;
+                    leftPlayerIndex++;
                 }
                 else
                 {
-                    rightPlayerIndex = 0;
+                    leftPlayerIndex = 0;
                 }
 
                 UpdateSprites();
             }
-            else if (inputController_right.InputData.Direction.x < 0)
+            else if (leftDesiredDirection.x < 0)
             {
-                if (rightPlayerIndex > 0)
+                if (leftPlayerIndex > 0)
                 {
-                    rightPlayerIndex--;
+                    leftPlayerIndex--;
                 }
                 else
                 {
-                    rightPlayerIndex = players.Count - 1;
+                    leftPlayerIndex = players.Count - 1;
                 }
 
                 UpdateSprites();
+            }
+
+            if (isAI == false)
+            {
+                if (rightDesiredDirection.x > 0)
+                {
+                    if (rightPlayerIndex < players.Count - 1)
+                    {
+                        rightPlayerIndex++;
+                    }
+                    else
+                    {
+                        rightPlayerIndex = 0;
+                    }
+
+                    UpdateSprites();
+                }
+                else if (rightDesiredDirection.x < 0)
+                {
+                    if (rightPlayerIndex > 0)
+                    {
+                        rightPlayerIndex--;
+                    }
+                    else
+                    {
+                        rightPlayerIndex = players.Count - 1;
+                    }
+
+                    UpdateSprites();
+                }
             }
         }
     }
-
     private void UpdateSprites()
     {
         leftPlayerSprite.sprite = players[leftPlayerIndex].portrait;
         rightPlayerSprite.sprite = players[rightPlayerIndex].portrait;
         leftPlayerNameLabel.text = players[leftPlayerIndex].characterName;
         rightPlayerNameLabel.text = players[rightPlayerIndex].characterName;
-        
+
         // Update GameInProgress
         gameInProgress.LeftPlayer = players[leftPlayerIndex];
         gameInProgress.RightPlayer = players[rightPlayerIndex];
