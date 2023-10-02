@@ -8,11 +8,11 @@ using UnityEngine;
 ]
 public class PlayerConfig : ScriptableObject
 {
+    public string characterName;
     public int stunTime;
     public int maxStamina;
     public int idleStaminaRegen; //maybe idle should be its own action
     public int health;
-
 
     public ActionConfig push;
     public ActionConfig shove;
@@ -21,5 +21,7 @@ public class PlayerConfig : ScriptableObject
     public ActionConfig stunned;
 
     public Sprite idleSprite;
+    public Sprite portrait;
 
+    public List<AudioClip> taunts;
 }

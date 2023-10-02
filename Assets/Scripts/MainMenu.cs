@@ -16,7 +16,7 @@ public class MainMenu : MonoBehaviour
 
 	public void Set2Player() {
 		GameInProgress.Instance.PlayerCount = 2;
-		SceneManager.LoadScene(1);
+		SceneManager.LoadScene(0);
 	}
 
 	public void Controls()

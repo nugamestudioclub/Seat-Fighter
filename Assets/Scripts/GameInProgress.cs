@@ -16,6 +16,8 @@ public class GameInProgress : MonoBehaviour {
 	[field: SerializeField]
 	public int PlayerCount { get; set; } = 1;
 
+	public GameConfig Config { get; set; }
+
 	void Awake() {
 		if( _instance == null ) {
 			_instance = this;
