@@ -20,8 +20,8 @@ public class Referee
     {
         leftPlayer.Tick();
         rightPlayer.Tick();
-        Debug.Log($"Left action: {leftPlayer.CurrentFrameData.state}");
-        Debug.Log($"Right action: {rightPlayer.CurrentFrameData.state}");
+        //Debug.Log($"Left action: {leftPlayer.CurrentFrameData.state}");
+        //Debug.Log($"Right action: {rightPlayer.CurrentFrameData.state}");
         ResolveEvents(leftPlayer, rightPlayer, environment);
     }
 

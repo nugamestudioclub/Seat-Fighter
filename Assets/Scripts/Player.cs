@@ -13,11 +13,8 @@ public class Player
         get => stamina;
         set
         {
+
             stamina = Math.Max(0, Math.Min(value, maxStamina));
-            if (stamina == 0)
-            {
-                Stun();
-            }
             OnPlayerEvent(
                 new PlayerEventArgs(
                     playerSide,
@@ -85,8 +82,9 @@ public class Player
 
     public ActionFrameData Tick()
     {
-        
-        if (CurrentFrameData.state == ActionState.IDLE)
+        ActionState currentState = CurrentFrameData.state;
+        ActionState nextState = NextFrameData.state;
+        if (currentState == ActionState.IDLE)
         {
             switch (desiredAction)
             {
@@ -105,14 +103,14 @@ public class Player
             }
         }
         else if (desiredAction == Action.Block
-            && CurrentFrameData.state == ActionState.BLOCKING
-            && NextFrameData.state != ActionState.BLOCKING)
+            && currentState == ActionState.BLOCKING
+            && nextState != ActionState.BLOCKING)
         {
             ActionList.Insert(0, CurrentFrameData);
         }
         else if (desiredAction == Action.Push
-            && CurrentFrameData.state == ActionState.PUSHING
-            && NextFrameData.state != ActionState.PUSHING)
+            && currentState == ActionState.PUSHING
+            && nextState != ActionState.PUSHING)
         {
             ActionList.Insert(0, CurrentFrameData);
         }
@@ -120,61 +118,79 @@ public class Player
         {
             ActionList.RemoveAt(0);
         }
-        if (CurrentFrameData.state == ActionState.IDLE)
+        if (currentState == ActionState.IDLE)
         {
             //this value should come from the player config
             Stamina += config.idleStaminaRegen;
-            
+
         }
-        else if (CurrentFrameData.state == ActionState.BLOCKING)
+        else if (currentState != ActionState.BUSY)
         {
-            Stamina += config.block.holdStaminaModifier;
+            HandleActionState(FindMove(currentState));
         }
+
         //reset input
         desiredAction = Action.None;
         //send on Tick event
         OnTickPlayerEvent(new PlayerTickEventArgs(playerSide, CurrentFrameData));
+        if (stamina == 0)
+        {
+            Stun();
+        }
         return CurrentFrameData;
     }
-
+    private ActionConfig FindMove(ActionState state)
+    {
+        return (state switch
+        {
+            ActionState.PUSHING => config.push,
+            ActionState.BLOCKING => config.block,
+            ActionState.SHOVING => config.shove,
+            ActionState.STUNNED => config.stunned,
+            ActionState.DODGING => config.dodge,
+            _ => throw new ArgumentException($"Cannot handle state {state}", nameof(state))
+        });
+    }
+    private void HandleActionState(ActionConfig move)
+    {
+        Stamina += move.holdStaminaModifier;
+    }
     private void ExecuteAction(ActionConfig move)
     {
+        Stamina += move.initialStaminaModifier;
         ActionList.AddRange(move.GetFrameData());
     }
 
-    private void Stun() {
+    private void Stun()
+    {
         if (CurrentFrameData.state != ActionState.STUNNED)
         {
             ActionList.Clear();
             ExecuteAction(config.stunned);
             OnPlayerEvent(new PlayerEventArgs(playerSide, Action.Stun, Stamina, maxStamina));
         }
-        
+
     }
 
     public void Shove()
     {
-        Stamina += config.shove.initialStaminaModifier;
         OnPlayerEvent(new PlayerEventArgs(playerSide, Action.Shove, Stamina, maxStamina));
         ExecuteAction(config.shove);
     }
 
     public void Push()
     {
-        Stamina += config.push.initialStaminaModifier;
         OnPlayerEvent(new PlayerEventArgs(playerSide, Action.Push, Stamina, maxStamina));
         ExecuteAction(config.push);
     }
     public void Dodge()
     {
-        Stamina += config.dodge.initialStaminaModifier;
         OnPlayerEvent(new PlayerEventArgs(playerSide, Action.Dodge, Stamina, maxStamina));
         ExecuteAction(config.dodge);
     }
 
     public void Block()
     {
-        Stamina += config.block.initialStaminaModifier;
         OnPlayerEvent(new PlayerEventArgs(playerSide, Action.Block, Stamina, maxStamina));
         ExecuteAction(config.block);
     }

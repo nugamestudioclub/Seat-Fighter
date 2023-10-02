@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Jordan_Stunned
   m_EditorClassIdentifier: 
   positionModifier: 0
-  initialStaminaModifier: 75
-  holdStaminaModifier: 0
+  initialStaminaModifier: 0
+  holdStaminaModifier: 7
   timeModifier: 0
   staminaSelfModifer: []
   staminaEnemyModifer: []
