@@ -14,10 +14,10 @@ public class GameOverMenu : MonoBehaviour
     }
     
     public void MainMenu() {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(0);
     }
     public void PlayAgain() {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
     
     public void Exit()

@@ -9,7 +9,7 @@ public class ControlMenu : MonoBehaviour
     {
         if (Input.anyKey)
         {
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(0);
         }
     }
 }

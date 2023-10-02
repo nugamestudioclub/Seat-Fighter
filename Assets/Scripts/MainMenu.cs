@@ -16,17 +16,17 @@ public class MainMenu : MonoBehaviour
 
 	public void Set2Player() {
 		GameInProgress.Instance.PlayerCount = 2;
-		SceneManager.LoadScene(0);
+		SceneManager.LoadScene(1);
 	}
 
 	public void Controls()
 	{
-		SceneManager.LoadScene(3);
+		SceneManager.LoadScene(4);
 	}
 	
 	public void Credits()
 	{
-		SceneManager.LoadScene(2);
+		SceneManager.LoadScene(3);
 	}
 	
 	public void Exit()
