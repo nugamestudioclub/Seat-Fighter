@@ -1,14 +1,24 @@
-﻿using System;
-using Unity.VisualScripting;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
-{
-
+public class MainMenu : MonoBehaviour {
 	[SerializeField] private EventSystem eventsystem;
+
 	[SerializeField] private GameObject cursor;
+
+	private GameObject _currentSelection;
+
+	private GameObject CurrentSelection {
+		get => _currentSelection;
+		set {
+			if( value == null )
+				eventsystem.SetSelectedGameObject(_currentSelection);
+			else
+				_currentSelection = value;
+		}
+	}
+
 	public void Set1Player() {
 		GameInProgress.Instance.PlayerCount = 1;
 		SceneManager.LoadScene("CharSel");
@@ -19,25 +29,23 @@ public class MainMenu : MonoBehaviour
 		SceneManager.LoadScene("CharSel");
 	}
 
-	public void Controls()
-	{
+	public void Controls() {
 		SceneManager.LoadScene("Controls");
 	}
-	
-	public void Credits()
-	{
+
+	public void Credits() {
 		SceneManager.LoadScene("Credits");
 	}
-	
-	public void Exit()
-	{
+
+	public void Exit() {
 		Application.Quit();
 	}
-	
-	public void Update()
-	{
-		cursor.transform.position = new Vector2(cursor.transform.position.x,
-			eventsystem.currentSelectedGameObject.transform.position.y);
+
+	public void Update() {
+		CurrentSelection = eventsystem.currentSelectedGameObject;
+		cursor.transform.position = new Vector2(
+			cursor.transform.position.x,
+			CurrentSelection.transform.position.y
+		);
 	}
-	
 }
