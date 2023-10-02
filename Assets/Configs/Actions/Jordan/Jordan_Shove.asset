@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f5d191503138f4f9f4ad57c761d5eb, type: 3}
   m_Name: Jordan_Shove
   m_EditorClassIdentifier: 
-  positionModifier: 30
-  initialStaminaModifier: -35
+  positionModifier: 20
+  initialStaminaModifier: -30
   holdStaminaModifier: 0
   timeModifier: 0
   staminaSelfModifer:

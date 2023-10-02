@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Jordan_Push
   m_EditorClassIdentifier: 
   positionModifier: 3
-  initialStaminaModifier: -20
-  holdStaminaModifier: -20
+  initialStaminaModifier: -10
+  holdStaminaModifier: -5
   timeModifier: 0
   staminaSelfModifer:
   - action: 5

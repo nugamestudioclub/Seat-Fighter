@@ -26,7 +26,7 @@ MonoBehaviour:
         Action: 4
         Delay: 30
         Duration: 0
-      Weight: 5
+      Weight: 10
     - AiAction:
         Action: 3
         Delay: 30
@@ -152,5 +152,5 @@ MonoBehaviour:
         Delay: 15
         Duration: 0
       Weight: 2
-  waitRollThreshold: 0.35
-  waitRollChance: 0.7
+  waitRollThreshold: 0.65
+  waitRollChance: 0.9
