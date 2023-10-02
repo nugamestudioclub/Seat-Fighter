@@ -33,6 +33,11 @@ MonoBehaviour:
       sfx:
       - {fileID: 8300000, guid: 911e3154b34b954448f70110120b30fe, type: 3}
       vfx: []
+  - action: 5
+    specialEffect:
+      sfx:
+      - {fileID: 8300000, guid: b72bb841c105dc542a5fa43804f8663d, type: 3}
+      vfx: []
   interactions:
   - interaction: 1
     specialEffect:
@@ -74,17 +79,12 @@ MonoBehaviour:
       sfx:
       - {fileID: 8300000, guid: 3a957510099473040ba3da53b1845fbb, type: 3}
       vfx: []
-  - interaction: 19
+  - interaction: 24
     specialEffect:
       sfx:
       - {fileID: 8300000, guid: 57ee424e25aa06c41ab8f5726b22598b, type: 3}
       vfx: []
-  - interaction: 17
-    specialEffect:
-      sfx:
-      - {fileID: 8300000, guid: b72bb841c105dc542a5fa43804f8663d, type: 3}
-      vfx: []
-  - interaction: 20
+  - interaction: 25
     specialEffect:
       sfx:
       - {fileID: 8300000, guid: 08857370317e94140916e581786450ae, type: 3}

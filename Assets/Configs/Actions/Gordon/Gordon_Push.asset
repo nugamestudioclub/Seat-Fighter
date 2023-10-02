@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f5d191503138f4f9f4ad57c761d5eb, type: 3}
   m_Name: Gordon_Push
   m_EditorClassIdentifier: 
-  positionModifier: 5
+  positionModifier: 3
   initialStaminaModifier: -20
-  holdStaminaModifier: -5
+  holdStaminaModifier: -20
   timeModifier: 0
   staminaSelfModifer:
   - action: 5
