@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 305e504802dd83648af1991a0ef5e5cf, type: 3}
+  m_Name: PlayerOptionsConfig
+  m_EditorClassIdentifier: 
+  options:
+  - {fileID: 11400000, guid: 09079fefe2c27da45a2d41f9cb58340f, type: 2}
+  - {fileID: 11400000, guid: 2274129975401c945aa6768ac469e109, type: 2}
