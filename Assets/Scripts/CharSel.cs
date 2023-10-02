@@ -64,7 +64,7 @@ public class CharSel : MonoBehaviour
         fixedFrameCount++;
         if (fixedFrameCount % frameInterval == 0)
         {
-            if (leftDesiredDirection.x > 0)
+            if (leftDesiredDirection.x > 0 || leftDesiredDirection.y > 0)
             {
                 if (leftPlayerIndex < players.Count - 1)
                 {
@@ -77,7 +77,7 @@ public class CharSel : MonoBehaviour
 
                 UpdateSprites();
             }
-            else if (leftDesiredDirection.x < 0)
+            else if (leftDesiredDirection.x < 0 || leftDesiredDirection.y < 0)
             {
                 if (leftPlayerIndex > 0)
                 {
@@ -93,7 +93,7 @@ public class CharSel : MonoBehaviour
 
             if (isAI == false)
             {
-                if (rightDesiredDirection.x > 0)
+                if (rightDesiredDirection.x > 0 || rightDesiredDirection.y > 0)
                 {
                     if (rightPlayerIndex < players.Count - 1)
                     {
@@ -106,7 +106,7 @@ public class CharSel : MonoBehaviour
 
                     UpdateSprites();
                 }
-                else if (rightDesiredDirection.x < 0)
+                else if (rightDesiredDirection.x < 0 || rightDesiredDirection.y < 0)
                 {
                     if (rightPlayerIndex > 0)
                     {
