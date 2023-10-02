@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Gordon_Shove
   m_EditorClassIdentifier: 
   positionModifier: 30
-  initialStaminaModifier: -20
+  initialStaminaModifier: -35
   holdStaminaModifier: 0
   timeModifier: 0
   staminaSelfModifer:

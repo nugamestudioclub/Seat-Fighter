@@ -30,7 +30,7 @@ MonoBehaviour:
     - AiAction:
         Action: 3
         Delay: 30
-        Duration: 0
+        Duration: 20
       Weight: 5
     - AiAction:
         Action: 0
@@ -42,7 +42,7 @@ MonoBehaviour:
     - AiAction:
         Action: 3
         Delay: 15
-        Duration: 0
+        Duration: 20
       Weight: 25
     - AiAction:
         Action: 4
@@ -64,7 +64,7 @@ MonoBehaviour:
     - AiAction:
         Action: 3
         Delay: 15
-        Duration: 0
+        Duration: 20
       Weight: 5
     - AiAction:
         Action: 4
@@ -91,7 +91,7 @@ MonoBehaviour:
     - AiAction:
         Action: 3
         Delay: 15
-        Duration: 0
+        Duration: 20
       Weight: 10
     - AiAction:
         Action: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
     - AiAction:
         Action: 3
         Delay: 15
-        Duration: 15
+        Duration: 20
       Weight: 10
     - AiAction:
         Action: 4
@@ -129,26 +129,28 @@ MonoBehaviour:
     weightedList:
     - AiAction:
         Action: 4
-        Delay: 0
+        Delay: 15
         Duration: 0
       Weight: 10
     - AiAction:
         Action: 1
-        Delay: 0
+        Delay: 15
         Duration: 0
       Weight: 5
     - AiAction:
         Action: 2
-        Delay: 0
+        Delay: 15
         Duration: 0
       Weight: 5
     - AiAction:
         Action: 3
-        Delay: 0
+        Delay: 15
         Duration: 0
       Weight: 5
     - AiAction:
         Action: 0
-        Delay: 0
+        Delay: 15
         Duration: 0
       Weight: 2
+  waitRollThreshold: 0.35
+  waitRollChance: 0.7
