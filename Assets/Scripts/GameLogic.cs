@@ -112,7 +112,7 @@ public class GameLogic
 
     private void HandleDodgeMiss(object sender, RefereeEventArgs e)
     {
-        if (e.reciever == EventSource.LEFT)
+        if (e.receiver == EventSource.LEFT)
         {
             leftPlayer.Stamina += config
                 .leftPlayerConfig
@@ -151,7 +151,7 @@ public class GameLogic
 
     private void HandleOutOfBounds(object sender, RefereeEventArgs e)
     {
-        if (e.reciever == EventSource.LEFT)
+        if (e.receiver == EventSource.LEFT)
         {
             environment.LeftPlayerTime--;
         }
@@ -258,7 +258,7 @@ public class GameLogic
 
     private void HandleWin(object sender, RefereeEventArgs e)
     {
-        if (e.reciever == EventSource.LEFT)
+        if (e.receiver == EventSource.LEFT)
         {
             //DISPLAY PLAYER 1 (JORDAN) WIN
             Debug.Log("PLAYER 1 WIN");

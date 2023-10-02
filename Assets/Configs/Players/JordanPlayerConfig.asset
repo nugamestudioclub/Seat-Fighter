@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd61c0204f9b66b4291d8c460fb08227, type: 3}
   m_Name: JordanPlayerConfig
   m_EditorClassIdentifier: 
+  characterName: Jordan
   stunTime: 12
   maxStamina: 100
   idleStaminaRegen: 5
@@ -22,3 +23,5 @@ MonoBehaviour:
   block: {fileID: 11400000, guid: 84d8675ab2c89f7499726fc5f4f567b8, type: 2}
   stunned: {fileID: 11400000, guid: f9ce9e6f0e2646d46a6cfab935d2a5ea, type: 2}
   idleSprite: {fileID: 21300000, guid: 9adb16e2252ed0543a68068086bed5ba, type: 3}
+  portrait: {fileID: 0}
+  taunts: []

@@ -92,7 +92,6 @@ public class GameManager : MonoBehaviour
     {
         IsStarted = true;
         IsPaused = false;
-        GameInProgress.Instance.Config = config;
     }
 
     private void Initialize()
@@ -152,7 +151,7 @@ public class GameManager : MonoBehaviour
     {
         if (e.type == RefereeEventType.Win)
         {
-            GameInProgress.Instance.WinnerId = e.reciever == EventSource.LEFT ? 0 : 1;
+            GameInProgress.Instance.WinnerId = e.receiver == EventSource.LEFT ? 0 : 1;
             IsStarted = false;
             SceneManager.LoadScene("GameOver");
         }

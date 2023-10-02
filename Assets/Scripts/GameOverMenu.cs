@@ -39,19 +39,20 @@ public class GameOverMenu : MonoBehaviour {
 
 	private void SetWinner() {
 		Debug.Log(nameof(SetWinner));
-		int winnerId = GameInProgress.Instance.WinnerId;
-		var config =  GameInProgress.Instance.Config;
-		string winnerName = (winnerId == 0 ? config.leftPlayerConfig : config.rightPlayerConfig).characterName;
+		var gameInProgress = GameInProgress.Instance;
+		var winnerId = gameInProgress.WinnerId;
+		var winner = (winnerId == 0 ? gameInProgress.LeftPlayer : gameInProgress.RightPlayer);
 
-		Debug.Log("winner " + winnerName);
+		Debug.Log(winnerId);
+		Debug.Log(winner);
 
 		if( winnerId == 0 ) {
-			leftName.text = winnerName;
+			leftName.text = winner.characterName;
 			leftMessage.SetActive(true);
 			rightMessage.SetActive(false);
 		}
 		else {
-			rightName.text = winnerName;
+			rightName.text = winner.characterName;
 			leftMessage.SetActive(false);
 			rightMessage.SetActive(true);
 		}
