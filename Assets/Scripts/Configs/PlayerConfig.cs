@@ -23,5 +23,7 @@ public class PlayerConfig : ScriptableObject
     public Sprite idleSprite;
     public Sprite portrait;
 
+    public List<AudioClip> greetings;
     public List<AudioClip> taunts;
+
 }
