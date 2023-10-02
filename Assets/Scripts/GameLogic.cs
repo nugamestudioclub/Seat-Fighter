@@ -57,7 +57,7 @@ public class GameLogic
                 HandleScaledInteraction(sender, e, 0.5f, 1);
                 break;
             case RefereeEventType.PushShove:
-                HandleStandardInteraction(sender, e);
+                HandleScaledInteraction(sender, e, 1, 2);
                 break;
             case RefereeEventType.PushPush:
                 HandleStandardInteraction(sender, e);
@@ -76,7 +76,7 @@ public class GameLogic
                 HandleScaledInteraction(sender, e, 0.25f, 1);
                 break;
             case RefereeEventType.ShovePush:
-                HandleStandardInteraction(sender, e);
+                HandleScaledInteraction(sender, e, 2.0f, 1);
                 break;
             case RefereeEventType.ShoveDodge:
                 HandleDodgeMiss(sender, e);
