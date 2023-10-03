@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87f5d191503138f4f9f4ad57c761d5eb, type: 3}
+  m_Name: Madhav_Block
+  m_EditorClassIdentifier: 
+  positionModifier: 0
+  initialStaminaModifier: 0
+  holdStaminaModifier: 5
+  timeModifier: 0
+  staminaSelfModifer: []
+  staminaEnemyModifer: []
+  timerModifier: 0
+  <ActionDurations>k__BackingField:
+  - state: 0
+    duration: 2
+  - state: 3
+    duration: 1
+  - state: 0
+    duration: 2
+  <SpriteDurations>k__BackingField:
+  - sprite: {fileID: 21300000, guid: 043768e376005e447ba06a449e0a9227, type: 3}
+    duration: 1
+  - sprite: {fileID: 21300000, guid: da2d471d0ed6cbb4aa2dfbe2cd36c7d4, type: 3}
+    duration: 1
+  - sprite: {fileID: 21300000, guid: 6cbc42453a62fc24492dd9551c3b52e2, type: 3}
+    duration: 1
+  - sprite: {fileID: 21300000, guid: da2d471d0ed6cbb4aa2dfbe2cd36c7d4, type: 3}
+    duration: 1
+  - sprite: {fileID: 21300000, guid: 043768e376005e447ba06a449e0a9227, type: 3}
+    duration: 1

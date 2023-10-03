@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87f5d191503138f4f9f4ad57c761d5eb, type: 3}
+  m_Name: Madhav_Stunned
+  m_EditorClassIdentifier: 
+  positionModifier: 0
+  initialStaminaModifier: 0
+  holdStaminaModifier: 7
+  timeModifier: 0
+  staminaSelfModifer: []
+  staminaEnemyModifer: []
+  timerModifier: 0
+  <ActionDurations>k__BackingField:
+  - state: 7
+    duration: 10
+  <SpriteDurations>k__BackingField:
+  - sprite: {fileID: 21300000, guid: 8b17e79470d47a947a5b172b0254aa13, type: 3}
+    duration: 1
+  - sprite: {fileID: 21300000, guid: 29e21f83b5e285641a7c29aea829e911, type: 3}
+    duration: 1
+  - sprite: {fileID: 21300000, guid: 8b17e79470d47a947a5b172b0254aa13, type: 3}
+    duration: 1
+  - sprite: {fileID: 21300000, guid: 34a77bc7b1485a445a833c0f5240d122, type: 3}
+    duration: 1
+  - sprite: {fileID: 21300000, guid: 8b17e79470d47a947a5b172b0254aa13, type: 3}
+    duration: 1
+  - sprite: {fileID: 21300000, guid: 29e21f83b5e285641a7c29aea829e911, type: 3}
+    duration: 1
+  - sprite: {fileID: 21300000, guid: 8b17e79470d47a947a5b172b0254aa13, type: 3}
+    duration: 1
+  - sprite: {fileID: 21300000, guid: 50e9dd1e91ee70f45a46d50e0aeb3262, type: 3}
+    duration: 1
+  - sprite: {fileID: 21300000, guid: 8b17e79470d47a947a5b172b0254aa13, type: 3}
+    duration: 1
+  - sprite: {fileID: 21300000, guid: 50e9dd1e91ee70f45a46d50e0aeb3262, type: 3}
+    duration: 1
