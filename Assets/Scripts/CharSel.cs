@@ -41,11 +41,22 @@ public class CharSel : MonoBehaviour
         players = gameInProgress.AllPlayers.Options;
         if (gameInProgress.PlayerCount == 1)
         {
-            rightPlayerIndex = Mathf.FloorToInt(UnityEngine.Random.Range(0, players.Count));
+            rightPlayerIndex = GetOtherPlayerIndex(0, players.Count);
             isAI = true;
 		}
 		UpdateSprites();
 	}
+
+    private int GetOtherPlayerIndex(int playerIndex, int numPlayers)
+    {
+        System.Random random = new();
+        int candidate = playerIndex;
+        while (candidate == playerIndex)
+        {
+            candidate = random.Next(0, numPlayers);
+        }
+        return candidate;
+    }
 
     private void Update()
     {
