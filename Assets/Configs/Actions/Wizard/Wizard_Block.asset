@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87f5d191503138f4f9f4ad57c761d5eb, type: 3}
+  m_Name: Wizard_Block
+  m_EditorClassIdentifier: 
+  positionModifier: 0
+  initialStaminaModifier: 0
+  holdStaminaModifier: 5
+  timeModifier: 0
+  staminaSelfModifer: []
+  staminaEnemyModifer: []
+  timerModifier: 0
+  <ActionDurations>k__BackingField:
+  - state: 0
+    duration: 2
+  - state: 3
+    duration: 1
+  - state: 0
+    duration: 2
+  <SpriteDurations>k__BackingField:
+  - sprite: {fileID: 21300000, guid: 37cea8495fc2c7144824c02b9a2878b6, type: 3}
+    duration: 1
+  - sprite: {fileID: 21300000, guid: 4fe2e7a0a00e29647a778acf758bebf1, type: 3}
+    duration: 1
+  - sprite: {fileID: 21300000, guid: d914923e22f17fe4d9e7bbb6f33876c6, type: 3}
+    duration: 1
+  - sprite: {fileID: 21300000, guid: 4fe2e7a0a00e29647a778acf758bebf1, type: 3}
+    duration: 1
+  - sprite: {fileID: 21300000, guid: 37cea8495fc2c7144824c02b9a2878b6, type: 3}
+    duration: 1

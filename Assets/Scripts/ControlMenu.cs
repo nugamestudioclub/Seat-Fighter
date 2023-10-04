@@ -7,9 +7,12 @@ public class ControlMenu : MonoBehaviour
 {
     void Update()
     {
-        if (Input.anyKey)
+        if (Time.timeSinceLevelLoad > 1)
         {
-            SceneManager.LoadScene(0);
+            if (Input.anyKey)
+            {
+                SceneManager.LoadScene(0);
+            }
         }
     }
 }

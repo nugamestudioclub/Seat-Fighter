@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd61c0204f9b66b4291d8c460fb08227, type: 3}
+  m_Name: WizardPlayerConfig 1
+  m_EditorClassIdentifier: 
+  characterName: Wizard
+  stunTime: 12
+  maxStamina: 100
+  idleStaminaRegen: 5
+  health: 50
+  push: {fileID: 11400000, guid: 1f6a13e13e5f5304da617362da0796a7, type: 2}
+  shove: {fileID: 11400000, guid: 84b29e9aecc2a2f48939835f27b0680e, type: 2}
+  dodge: {fileID: 11400000, guid: cf6d4c3ae5d6cf84babed24619b73afa, type: 2}
+  block: {fileID: 11400000, guid: 2147eaa2e5781c64b9e91ca5a883d8f8, type: 2}
+  stunned: {fileID: 11400000, guid: 48e2322d94cdcc649a1e97a4a01b2f38, type: 2}
+  idleSprite: {fileID: 21300000, guid: 6b1eb87b00f383c4c8fd2a7ac9f5a432, type: 3}
+  portrait: {fileID: 21300000, guid: aa29aa5e1c645ac40a4ca7d2edc1ec14, type: 3}
+  greetings: []
+  taunts: []

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -27,9 +28,16 @@ public class CharSel : MonoBehaviour
     private int fixedFrameCount;
     private Vector2 leftDesiredDirection;
     private Vector2 rightDesiredDirection;
+    private List<bool> leftDesiredInputData = new();
+    private List<bool> rightDesiredInputData = new();
     private bool isAI = false;
     private void Awake()
     {
+        for (int i = 0; i < Enum.GetValues(typeof(Button)).Length; i++)
+        {
+            leftDesiredInputData.Add(new ButtonState());
+            rightDesiredInputData.Add(new ButtonState());
+        }
         fixedFrameCount = 0;
         inputController_left = new InputController(0);
         inputController_right = new InputController(1);
@@ -43,9 +51,9 @@ public class CharSel : MonoBehaviour
         {
             rightPlayerIndex = GetOtherPlayerIndex(0, players.Count);
             isAI = true;
-		}
-		UpdateSprites();
-	}
+        }
+        UpdateSprites();
+    }
 
     private int GetOtherPlayerIndex(int playerIndex, int numPlayers)
     {
@@ -63,72 +71,89 @@ public class CharSel : MonoBehaviour
         leftDesiredDirection = inputController_left.InputData.Direction;
         rightDesiredDirection = inputController_right.InputData.Direction;
 
-        if (inputController_right.InputData.GetButtonState(Button.Start).IsDown || inputController_left.InputData.GetButtonState(Button.Start).IsDown)
+        for (int i = 0; i < leftDesiredInputData.Count; i++)
         {
-            SceneManager.LoadScene("MainScene");
+
+            if (inputController_left.InputData.ButtonStates[i].IsDown)
+            {
+                leftDesiredInputData[i] = true;
+            }
+            if (inputController_right.InputData.ButtonStates[i].IsDown)
+            {
+                rightDesiredInputData[i] = true;
+            }
         }
-
-
     }
     private void FixedUpdate()
     {
-        fixedFrameCount++;
-        if (fixedFrameCount % frameInterval == 0)
+        if (Time.timeSinceLevelLoad > 1)
         {
-            if (leftDesiredDirection.x > 0 || leftDesiredDirection.y > 0)
-            {
-                if (leftPlayerIndex < players.Count - 1)
-                {
-                    leftPlayerIndex++;
-                }
-                else
-                {
-                    leftPlayerIndex = 0;
-                }
 
-                UpdateSprites();
-            }
-            else if (leftDesiredDirection.x < 0 || leftDesiredDirection.y < 0)
-            {
-                if (leftPlayerIndex > 0)
-                {
-                    leftPlayerIndex--;
-                }
-                else
-                {
-                    leftPlayerIndex = players.Count - 1;
-                }
 
-                UpdateSprites();
-            }
-
-            if (isAI == false)
+            fixedFrameCount++;
+            if (fixedFrameCount % frameInterval == 0)
             {
-                if (rightDesiredDirection.x > 0 || rightDesiredDirection.y > 0)
+                if (leftDesiredInputData[(int)Button.Start]
+        || rightDesiredInputData[(int)Button.Start])
                 {
-                    if (rightPlayerIndex < players.Count - 1)
+
+                    SceneManager.LoadScene("MainScene");
+                }
+                if (leftDesiredDirection.x > 0 || leftDesiredDirection.y > 0)
+                {
+                    if (leftPlayerIndex < players.Count - 1)
                     {
-                        rightPlayerIndex++;
+                        leftPlayerIndex++;
                     }
                     else
                     {
-                        rightPlayerIndex = 0;
+                        leftPlayerIndex = 0;
                     }
 
                     UpdateSprites();
                 }
-                else if (rightDesiredDirection.x < 0 || rightDesiredDirection.y < 0)
+                else if (leftDesiredDirection.x < 0 || leftDesiredDirection.y < 0)
                 {
-                    if (rightPlayerIndex > 0)
+                    if (leftPlayerIndex > 0)
                     {
-                        rightPlayerIndex--;
+                        leftPlayerIndex--;
                     }
                     else
                     {
-                        rightPlayerIndex = players.Count - 1;
+                        leftPlayerIndex = players.Count - 1;
                     }
 
                     UpdateSprites();
+                }
+
+                if (isAI == false)
+                {
+                    if (rightDesiredDirection.x > 0 || rightDesiredDirection.y > 0)
+                    {
+                        if (rightPlayerIndex < players.Count - 1)
+                        {
+                            rightPlayerIndex++;
+                        }
+                        else
+                        {
+                            rightPlayerIndex = 0;
+                        }
+
+                        UpdateSprites();
+                    }
+                    else if (rightDesiredDirection.x < 0 || rightDesiredDirection.y < 0)
+                    {
+                        if (rightPlayerIndex > 0)
+                        {
+                            rightPlayerIndex--;
+                        }
+                        else
+                        {
+                            rightPlayerIndex = players.Count - 1;
+                        }
+
+                        UpdateSprites();
+                    }
                 }
             }
         }
