@@ -99,6 +99,7 @@ public class CharSel : MonoBehaviour
 
                     SceneManager.LoadScene("MainScene");
                 }
+                
                 if (leftDesiredDirection.x > 0 || leftDesiredDirection.y > 0)
                 {
                     if (leftPlayerIndex < players.Count - 1)
@@ -160,6 +161,10 @@ public class CharSel : MonoBehaviour
     }
     private void UpdateSprites()
     {
+        if (isAI && leftPlayerIndex == rightPlayerIndex)
+        {
+            rightPlayerIndex = GetOtherPlayerIndex(leftPlayerIndex, players.Count);
+        }
         leftPlayerSprite.sprite = players[leftPlayerIndex].portrait;
         rightPlayerSprite.sprite = players[rightPlayerIndex].portrait;
         leftPlayerNameLabel.text = players[leftPlayerIndex].characterName;
@@ -168,5 +173,7 @@ public class CharSel : MonoBehaviour
         // Update GameInProgress
         gameInProgress.LeftPlayer = players[leftPlayerIndex];
         gameInProgress.RightPlayer = players[rightPlayerIndex];
+
+
     }
 }
