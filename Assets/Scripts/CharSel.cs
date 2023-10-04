@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -26,18 +23,14 @@ public class CharSel : MonoBehaviour
     [SerializeField]
     private int frameInterval = 5;
     private int fixedFrameCount;
+    [SerializeField]
+    private float timeTillInputIsEnabled = 1.0f;
+
     private Vector2 leftDesiredDirection;
     private Vector2 rightDesiredDirection;
-    private List<bool> leftDesiredInputData = new();
-    private List<bool> rightDesiredInputData = new();
     private bool isAI = false;
     private void Awake()
     {
-        for (int i = 0; i < Enum.GetValues(typeof(Button)).Length; i++)
-        {
-            leftDesiredInputData.Add(new ButtonState());
-            rightDesiredInputData.Add(new ButtonState());
-        }
         fixedFrameCount = 0;
         inputController_left = new InputController(0);
         inputController_right = new InputController(1);
@@ -71,35 +64,24 @@ public class CharSel : MonoBehaviour
         leftDesiredDirection = inputController_left.InputData.Direction;
         rightDesiredDirection = inputController_right.InputData.Direction;
 
-        for (int i = 0; i < leftDesiredInputData.Count; i++)
+        if (Time.timeSinceLevelLoad > timeTillInputIsEnabled)
         {
+            if (inputController_right.InputData.GetButtonState(Button.Start).IsDown
+            || inputController_left.InputData.GetButtonState(Button.Start).IsDown)
+            {
 
-            if (inputController_left.InputData.ButtonStates[i].IsDown)
-            {
-                leftDesiredInputData[i] = true;
-            }
-            if (inputController_right.InputData.ButtonStates[i].IsDown)
-            {
-                rightDesiredInputData[i] = true;
+                SceneManager.LoadScene("MainScene");
             }
         }
     }
     private void FixedUpdate()
     {
-        if (Time.timeSinceLevelLoad > 1)
+        if (Time.timeSinceLevelLoad > timeTillInputIsEnabled)
         {
-
-
             fixedFrameCount++;
             if (fixedFrameCount % frameInterval == 0)
             {
-                if (leftDesiredInputData[(int)Button.Start]
-        || rightDesiredInputData[(int)Button.Start])
-                {
 
-                    SceneManager.LoadScene("MainScene");
-                }
-                
                 if (leftDesiredDirection.x > 0 || leftDesiredDirection.y > 0)
                 {
                     if (leftPlayerIndex < players.Count - 1)

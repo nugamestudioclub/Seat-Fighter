@@ -23,6 +23,6 @@ MonoBehaviour:
   block: {fileID: 11400000, guid: 891b2e0ead1d09748a3a0852c7559b45, type: 2}
   stunned: {fileID: 11400000, guid: 5b00c7f0baa9c1f44b7626c297090217, type: 2}
   idleSprite: {fileID: 21300000, guid: 29e21f83b5e285641a7c29aea829e911, type: 3}
-  portrait: {fileID: 21300000, guid: aa29aa5e1c645ac40a4ca7d2edc1ec14, type: 3}
+  portrait: {fileID: 21300000, guid: 708f85aa2f67f764d911ea4802916a3a, type: 3}
   greetings: []
   taunts: []
