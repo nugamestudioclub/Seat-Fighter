@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87f5d191503138f4f9f4ad57c761d5eb, type: 3}
+  m_Name: Wizard_Shove
+  m_EditorClassIdentifier: 
+  positionModifier: 20
+  initialStaminaModifier: -35
+  holdStaminaModifier: 0
+  timeModifier: 0
+  staminaSelfModifer:
+  - action: 5
+    modifier: -40
+  staminaEnemyModifer: []
+  timerModifier: 0
+  <ActionDurations>k__BackingField:
+  - state: 0
+    duration: 2
+  - state: 1
+    duration: 1
+  - state: 0
+    duration: 3
+  <SpriteDurations>k__BackingField:
+  - sprite: {fileID: 21300000, guid: 3fc1f9af5fa434b43921abf4e4e7e7b9, type: 3}
+    duration: 1
+  - sprite: {fileID: 21300000, guid: 3769e33645e31994c97b74acaf93977d, type: 3}
+    duration: 1
+  - sprite: {fileID: 21300000, guid: 6f2faf63495aec149962afa95ddf0ea4, type: 3}
+    duration: 1
+  - sprite: {fileID: 21300000, guid: 34ea96fb8c97f794cb11b83eb38a49a0, type: 3}
+    duration: 1
+  - sprite: {fileID: 21300000, guid: 6f2faf63495aec149962afa95ddf0ea4, type: 3}
+    duration: 1
+  - sprite: {fileID: 21300000, guid: 3769e33645e31994c97b74acaf93977d, type: 3}
+    duration: 1
+  - sprite: {fileID: 21300000, guid: 3fc1f9af5fa434b43921abf4e4e7e7b9, type: 3}
+    duration: 1
