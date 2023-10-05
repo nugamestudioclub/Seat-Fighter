@@ -9,11 +9,15 @@ public class GameInProgress : MonoBehaviour {
 
 	public static GameInProgress Instance => _instance;
 
+	private const string SHOW_ON_SCREEN_CONTROLS = "showOnScreenControls";
+
 	[field: SerializeField]
 	public int WinnerId { get; set; }
 
-	[field: SerializeField]
-	public bool ShowOnScreenControls { get; set; }
+	public bool ShowOnScreenControls {
+		get => PlayerPrefs.HasKey(SHOW_ON_SCREEN_CONTROLS) && PlayerPrefs.GetInt(SHOW_ON_SCREEN_CONTROLS) != 0;
+		set => PlayerPrefs.SetInt(SHOW_ON_SCREEN_CONTROLS, value ? 1 : 0);
+	}
 
 	[field: SerializeField]
 	public int PlayerCount { get; set; } = 1;

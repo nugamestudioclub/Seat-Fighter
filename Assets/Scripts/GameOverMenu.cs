@@ -3,11 +3,23 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class GameOverMenu : MonoBehaviour {
-	[SerializeField] private EventSystem eventsystem;
-	[SerializeField] private GameObject cursor;
+	[SerializeField]
+	private EventSystem _eventSystem;
 
 	[SerializeField]
-	private Canvas canvas;
+	private GameObject cursor;
+
+	private GameObject _currentSelection;
+
+	private GameObject CurrentSelection {
+		get => _currentSelection;
+		set {
+			if( value == null )
+				_eventSystem.SetSelectedGameObject(_currentSelection);
+			else
+				_currentSelection = value;
+		}
+	}
 
 	[SerializeField]
 	private TMPro.TMP_Text leftName;
@@ -23,18 +35,12 @@ public class GameOverMenu : MonoBehaviour {
 
 	Vector3 messagePosition;
 
-	private void Awake() {
-	}
-
 	private void Start() {
 		SetWinner();
 	}
 
-	public void Update() {
-		cursor.transform.position = new Vector2(
-			cursor.transform.position.x,
-			eventsystem.currentSelectedGameObject.transform.position.y
-		);
+	void Update() {
+		UpdateSelection();
 	}
 
 	private void SetWinner() {
@@ -67,5 +73,13 @@ public class GameOverMenu : MonoBehaviour {
 
 	public void Exit() {
 		Application.Quit();
+	}
+
+	private void UpdateSelection() {
+		CurrentSelection = _eventSystem.currentSelectedGameObject;
+		cursor.transform.position = new Vector2(
+			cursor.transform.position.x,
+			CurrentSelection.transform.position.y
+		);
 	}
 }

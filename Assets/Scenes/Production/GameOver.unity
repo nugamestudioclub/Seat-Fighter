@@ -2098,9 +2098,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c88eb71ea400622d8002d637d766259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventsystem: {fileID: 1927157226}
+  _eventSystem: {fileID: 1927157226}
   cursor: {fileID: 409522150}
-  canvas: {fileID: 1334138318}
   leftName: {fileID: 2057672455}
   rightName: {fileID: 56677737}
   leftMessage: {fileID: 1864002591}

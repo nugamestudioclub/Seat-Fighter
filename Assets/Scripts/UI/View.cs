@@ -32,6 +32,12 @@ public class View : MonoBehaviour {
 	[SerializeField]
 	private ArmViewPosition armView;
 
+	[SerializeField]
+	private GameObject leftOnScreenControls;
+
+	[SerializeField]
+	private GameObject rightOnScreenControls;
+
 	void Awake() {
 		startingPositionIndicatorPosition = positionIndicator.position;
 		startingPositionIndicatorRotation = positionIndicator.rotation;
@@ -41,6 +47,8 @@ public class View : MonoBehaviour {
 		var gameInProgress = GameInProgress.Instance;
 		leftSpriteRenderer.sprite = gameInProgress.LeftPlayer.idleSprite;
 		rightSpriteRenderer.sprite = gameInProgress.RightPlayer.idleSprite;
+		leftOnScreenControls.SetActive(gameInProgress.ShowOnScreenControls);
+		rightOnScreenControls.SetActive(gameInProgress.ShowOnScreenControls && gameInProgress.PlayerCount > 1);
 	}
 
 	public void Bind(Environment environment, Player leftPlayer, Player rightPlayer) {
@@ -50,6 +58,18 @@ public class View : MonoBehaviour {
 		rightPlayer.PlayerEvent += Player_OnChange;
 		rightPlayer.PlayerTickEvent += Player_OnTick;
 	}
+
+	public void HandleBlock0() => HandleButton(Button.Block, 0);
+	public void HandleBlock1() => HandleButton(Button.Block, 1);
+
+	public void HandleDodge0() => HandleButton(Button.Block, 0);
+	public void HandleDodge1() => HandleButton(Button.Block, 1);
+
+	public void HandlePush0() => HandleButton(Button.Block, 0);
+	public void HandlePush1() => HandleButton(Button.Block, 1);
+
+	public void HandleShove0() => HandleButton(Button.Block, 0);
+	public void HandleShove1() => HandleButton(Button.Block, 1);
 
 	private void Environment_OnChange(object sender, EnvironmentEventArgs e) {
 		if( e.type == EnvironmentEventType.PosistionChange ) {
@@ -114,5 +134,12 @@ public class View : MonoBehaviour {
 		
 		float valueConstrained = Math.Max(0, Math.Min(value, 1));
         positionIndicator.Rotate(0, 0, (valueConstrained * 180) - 90);
+	}
+
+	private void HandleButton(Button button, int playerId) {
+		var input = playerId == 0
+			? GameInProgress.Instance.LeftInput
+			: GameInProgress.Instance.RightInput;
+		input.InputData.SetButtonState(button, new());
 	}
 }

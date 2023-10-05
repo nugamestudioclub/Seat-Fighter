@@ -70,10 +70,11 @@ public class CharSel : MonoBehaviour
             || inputController_left.InputData.GetButtonState(Button.Start).IsDown)
             {
 
-                SceneManager.LoadScene("MainScene");
+                GameInProgress.Instance.LoadScene("MainScene");
             }
         }
     }
+
     private void FixedUpdate()
     {
         if (Time.timeSinceLevelLoad > timeTillInputIsEnabled)
@@ -155,7 +156,5 @@ public class CharSel : MonoBehaviour
         // Update GameInProgress
         gameInProgress.LeftPlayer = players[leftPlayerIndex];
         gameInProgress.RightPlayer = players[rightPlayerIndex];
-
-
     }
 }

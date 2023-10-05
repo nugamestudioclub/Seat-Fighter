@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour {
+public class CreditsMenu : MonoBehaviour {
 	[SerializeField]
 	private EventSystem _eventSystem;
 
@@ -25,28 +27,12 @@ public class MainMenu : MonoBehaviour {
 		UpdateSelection();
 	}
 
-	public void Set1Player() {
-		GameInProgress.Instance.PlayerCount = 1;
-		GameInProgress.Instance.LoadScene("CharSel");
+	public void HandleMainMenu() {
+		if( Time.timeSinceLevelLoad <= 1 )
+			return;
+		GameInProgress.Instance.LoadScene("TitleScreen");
 	}
-
-	public void Set2Player() {
-		GameInProgress.Instance.PlayerCount = 2;
-		GameInProgress.Instance.LoadScene("CharSel");
-	}
-
-	public void Controls() {
-		GameInProgress.Instance.LoadScene("Controls");
-	}
-
-	public void Credits() {
-		GameInProgress.Instance.LoadScene("Credits");
-	}
-
-	public void Exit() {
-		Application.Quit();
-	}
-
+	
 	private void UpdateSelection() {
 		CurrentSelection = _eventSystem.currentSelectedGameObject;
 		cursor.transform.position = new Vector2(
