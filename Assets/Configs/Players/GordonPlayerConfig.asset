@@ -24,5 +24,8 @@ MonoBehaviour:
   stunned: {fileID: 11400000, guid: 67205f439f205654888d7e5a9c2aa834, type: 2}
   idleSprite: {fileID: 21300000, guid: eafa2c5989ea38a489cdf78b6bc223f7, type: 3}
   portrait: {fileID: 21300000, guid: aa29aa5e1c645ac40a4ca7d2edc1ec14, type: 3}
-  greetings: []
-  taunts: []
+  greetings:
+  - {fileID: 8300000, guid: 7c672167ee90b3246ba070334903d8a6, type: 3}
+  taunts:
+  - {fileID: 8300000, guid: 360ff0f859b25e449bd3be502402deae, type: 3}
+  - {fileID: 8300000, guid: a4a6848b505b3194299c23af61514e73, type: 3}

@@ -32,6 +32,8 @@ public class Player
 
     private readonly PlayerConfig config;
 
+    public PlayerConfig Config => config;
+
     private readonly EventSource playerSide;
 
     public List<ActionFrameData> ActionList { get; private set; }
