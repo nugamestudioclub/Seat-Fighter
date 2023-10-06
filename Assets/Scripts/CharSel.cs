@@ -96,6 +96,7 @@ public class CharSel : MonoBehaviour
     private Vector2 leftDesiredDirection;
     private Vector2 rightDesiredDirection;
     private bool isAI;
+
     private void Awake()
     {
         fixedFrameCount = 0;
@@ -133,9 +134,104 @@ public class CharSel : MonoBehaviour
             rightPlayerNameLabel.text = "Player 2";
         }
         UpdateSprites();
-    }
+	}
 
-    private int GetOtherPlayerIndex(int playerIndex, int numPlayers)
+	void Update() {
+		leftDesiredDirection = inputController_left.InputData.Direction;
+		rightDesiredDirection = inputController_right.InputData.Direction;
+		if( inputController_left.InputData.GetButtonState(Button.Cancel).IsDown ) {
+			if( isAI && isRightPlayerReady ) {
+				IsRightPlayerReady = false;
+			}
+			else {
+				if( isAI ) {
+					SetPlayerReadyUIActive(1, false);
+				}
+				IsLeftPlayerReady = false;
+			}
+		}
+		if( !isAI && inputController_right.InputData.GetButtonState(Button.Cancel).IsDown ) {
+			IsRightPlayerReady = false;
+		}
+		if( Time.timeSinceLevelLoad > timeTillStartIsEnabled ) {
+			if( IsLeftPlayerReady && IsRightPlayerReady ) {
+				pressStartLabel.text = "Press START to begin!";
+				if( HandleLeftStartInput() || HandleRightStartInput() ) {
+					GameInProgress.Instance.LoadScene("MainScene");
+				}
+			}
+			if( HandleLeftStartInput() ) {
+				if( IsLeftPlayerReady ) {
+					if( isAI ) {
+						IsRightPlayerReady = true;
+					}
+				}
+				else {
+					IsLeftPlayerReady = true;
+					if( isAI ) {
+						IsRightPlayerReady = false;
+					}
+				}
+			}
+			if( HandleRightStartInput() ) {
+				IsRightPlayerReady = true;
+			}
+		}
+	}
+
+	void FixedUpdate() {
+		fixedFrameCount++;
+		if( fixedFrameCount % frameInterval == 0 ) {
+			if( !IsLeftPlayerReady ) {
+				if( LeftPlayerMoveLeft ) {
+					LeftPlayerIndex = (LeftPlayerIndex - 1 + characters.Count) % characters.Count;
+				}
+				else if( LeftPlayerMoveRight ) {
+					LeftPlayerIndex = (LeftPlayerIndex + 1) % characters.Count;
+				}
+			}
+			else if( isAI && !IsRightPlayerReady ) {
+				if( LeftPlayerMoveLeft ) {
+					RightPlayerIndex = (RightPlayerIndex + characters.Count - 1) % characters.Count;
+				}
+				else if( LeftPlayerMoveRight ) {
+					RightPlayerIndex = (RightPlayerIndex + 1) % characters.Count;
+				}
+			}
+
+
+			if( !isAI && !IsRightPlayerReady ) {
+				if( RightPlayerMoveLeft ) {
+					RightPlayerIndex = (RightPlayerIndex + characters.Count - 1) % characters.Count;
+				}
+				else if( RightPlayerMoveRight ) {
+					RightPlayerIndex = (RightPlayerIndex + 1) % characters.Count;
+				}
+			}
+		}
+	}
+
+	public void HandleLeftPlayerNext() {
+		if( !IsLeftPlayerReady )
+			LeftPlayerIndex = (LeftPlayerIndex - 1 + characters.Count) % characters.Count;
+	}
+
+	public void HandleLeftPlayerPrevious() {
+		if( !IsLeftPlayerReady )
+			LeftPlayerIndex = (LeftPlayerIndex + 1) % characters.Count;
+	}
+
+	public void HandleRightPlayerNext() {
+		if( !IsRightPlayerReady )
+			RightPlayerIndex = (RightPlayerIndex + characters.Count - 1) % characters.Count;
+	}
+
+	public void HandleRightPlayerPrevious() {
+		if( !IsRightPlayerReady )
+			RightPlayerIndex = (RightPlayerIndex + 1) % characters.Count;
+	}
+
+	private int GetOtherPlayerIndex(int playerIndex, int numPlayers)
     {
         System.Random random = new();
         int candidate = playerIndex;
@@ -169,113 +265,12 @@ public class CharSel : MonoBehaviour
         return willMove;
     }
 
-    private void Update()
-    {
-        leftDesiredDirection = inputController_left.InputData.Direction;
-        rightDesiredDirection = inputController_right.InputData.Direction;
-        if (inputController_left.InputData.GetButtonState(Button.Cancel).IsDown)
-        {
-            if (isAI && isRightPlayerReady)
-            {
-                IsRightPlayerReady = false;
-            }
-            else
-            {
-                if (isAI)
-                {
-                    SetPlayerReadyUIActive(1, false);
-                }
-                IsLeftPlayerReady = false;
-            }
-        }
-        if (!isAI && inputController_right.InputData.GetButtonState(Button.Cancel).IsDown)
-        {
-            IsRightPlayerReady = false;
-        }
-        if (Time.timeSinceLevelLoad > timeTillStartIsEnabled)
-        {
-            if (IsLeftPlayerReady && IsRightPlayerReady)
-            {
-                pressStartLabel.text = "Press START to begin!";
-                if (HandleLeftStartInput() || HandleRightStartInput())
-                {
-                    GameInProgress.Instance.LoadScene("MainScene");
-                }
-            }
-            if (HandleLeftStartInput())
-            {
-                if (IsLeftPlayerReady)
-                {
-                    if (isAI)
-                    {
-                        IsRightPlayerReady = true;
-                    }
-                }
-                else
-                {
-                    IsLeftPlayerReady = true;
-                    if (isAI)
-                    {
-                        IsRightPlayerReady = false;
-                    }
-                }
-            }
-            if (HandleRightStartInput())
-            {
-                IsRightPlayerReady = true;
-            }
-            
-
-        }
-    }
-
-    private bool LeftPlayerMoveLeft => leftDesiredDirection.x > 0 || leftDesiredDirection.y > 0;
+	private bool LeftPlayerMoveLeft => leftDesiredDirection.x > 0 || leftDesiredDirection.y > 0;
     private bool LeftPlayerMoveRight => leftDesiredDirection.x < 0 || leftDesiredDirection.y < 0;
     private bool RightPlayerMoveLeft => rightDesiredDirection.x > 0 || rightDesiredDirection.y > 0;
     private bool RightPlayerMoveRight => leftDesiredDirection.x < 0 || leftDesiredDirection.y < 0;
 
-    private void FixedUpdate()
-    {
-        fixedFrameCount++;
-        if (fixedFrameCount % frameInterval == 0)
-        {
-            if (!IsLeftPlayerReady)
-            {
-                if (LeftPlayerMoveLeft)
-                {
-                    LeftPlayerIndex = (LeftPlayerIndex - 1 + characters.Count) % characters.Count;
-                }
-                else if (LeftPlayerMoveRight)
-                {
-                    LeftPlayerIndex = (LeftPlayerIndex + 1) % characters.Count;
-                }
-            }
-            else if (isAI && !IsRightPlayerReady)
-            {
-                if (LeftPlayerMoveLeft)
-                {
-                    RightPlayerIndex = (RightPlayerIndex + characters.Count - 1) % characters.Count;
-                }
-                else if (LeftPlayerMoveRight)
-                {
-                    RightPlayerIndex = (RightPlayerIndex + 1) % characters.Count;
-                }
-            }
 
-
-            if (!isAI && !IsRightPlayerReady)
-            {
-                if (RightPlayerMoveLeft)
-                {
-                    RightPlayerIndex = (RightPlayerIndex + characters.Count - 1) % characters.Count;
-                }
-                else if (RightPlayerMoveRight)
-                {
-                    RightPlayerIndex = (RightPlayerIndex + 1) % characters.Count;
-                }
-            }
-        }
-    }
     private void UpdateSprites()
     {
         leftPlayerSprite.sprite = characters[LeftPlayerIndex].portrait;
