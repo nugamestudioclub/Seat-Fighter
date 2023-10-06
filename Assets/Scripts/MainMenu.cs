@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 	[SerializeField]
@@ -27,12 +26,12 @@ public class MainMenu : MonoBehaviour {
 
 	public void Set1Player() {
 		GameInProgress.Instance.PlayerCount = 1;
-		GameInProgress.Instance.LoadScene("CharSel");
+		GameInProgress.Instance.LoadScene("CharacterSelect");
 	}
 
 	public void Set2Player() {
 		GameInProgress.Instance.PlayerCount = 2;
-		GameInProgress.Instance.LoadScene("CharSel");
+		GameInProgress.Instance.LoadScene("CharacterSelect");
 	}
 
 	public void Controls() {

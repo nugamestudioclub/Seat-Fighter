@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Production/TitleScreen.unity
     guid: e1f66510b9577c4429adbfb03ffcc4f9
   - enabled: 1
+    path: Assets/Scenes/Production/CharacterSelect.unity
+    guid: eb3cfb825c78bc3bc9ad4dbd1189dae4
+  - enabled: 1
     path: Assets/Scenes/Production/MainScene.unity
     guid: 12d7abdcd2eb8f647a222a8630c08f85
   - enabled: 1
@@ -20,8 +23,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Production/Controls.unity
     guid: f5e329435f82daa4da5eef16b15648b2
-  - enabled: 1
-    path: Assets/Scenes/Production/CharSel.unity
-    guid: eb3cfb825c78bc3bc9ad4dbd1189dae4
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 96167a346dbe3c949af0af2c47e63d6c, type: 2}
