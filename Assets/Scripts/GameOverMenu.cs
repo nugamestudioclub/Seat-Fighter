@@ -11,7 +11,12 @@ public class GameOverMenu : MonoBehaviour {
 
 	private GameObject _currentSelection;
 
-	private GameObject CurrentSelection {
+	[SerializeField]
+	private SpriteRenderer leftPlayerPortrait;
+    [SerializeField]
+    private SpriteRenderer rightPlayerPortrait;
+
+    private GameObject CurrentSelection {
 		get => _currentSelection;
 		set {
 			if( value == null )
@@ -48,20 +53,25 @@ public class GameOverMenu : MonoBehaviour {
 		var gameInProgress = GameInProgress.Instance;
 		var winnerId = gameInProgress.WinnerId;
 		var winner = (winnerId == 0 ? gameInProgress.LeftPlayer : gameInProgress.RightPlayer);
-
-		Debug.Log(winnerId);
+        leftPlayerPortrait.sprite = gameInProgress.LeftPlayer.portrait;
+        rightPlayerPortrait.sprite = gameInProgress.RightPlayer.portrait;
+        Debug.Log(winnerId);
 		Debug.Log(winner);
 
 		if( winnerId == 0 ) {
 			leftName.text = winner.characterName;
 			leftMessage.SetActive(true);
 			rightMessage.SetActive(false);
-		}
+			leftPlayerPortrait.flipY = false;
+            rightPlayerPortrait.flipY = true;
+        }
 		else {
 			rightName.text = winner.characterName;
 			leftMessage.SetActive(false);
 			rightMessage.SetActive(true);
-		}
+            leftPlayerPortrait.flipY = true;
+            rightPlayerPortrait.flipY = false;
+        }
 	}
 
 	public void MainMenu() {
