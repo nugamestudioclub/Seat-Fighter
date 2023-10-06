@@ -905,7 +905,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5371759060541476593, guid: 14438116d815b0c4d918bc8f64febc05, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: HandleRightPlayerNext
+      value: HandleLeftPlayerNext
       objectReference: {fileID: 0}
     - target: {fileID: 5371759060541476593, guid: 14438116d815b0c4d918bc8f64febc05, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
