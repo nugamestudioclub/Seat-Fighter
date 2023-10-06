@@ -10,6 +10,9 @@ public class CharSel : MonoBehaviour
 
     private GameInProgress gameInProgress;
 
+    [SerializeField]
+    private AudioHandler audioHandler;
+
     private int leftPlayerIndex = 0;
     private int LeftPlayerIndex
     {
@@ -46,6 +49,8 @@ public class CharSel : MonoBehaviour
     [SerializeField] private GameObject[] rightPlayerArrows;
     [SerializeField] private GameObject[] leftPlayerArrows;
 
+
+
     [SerializeField]
     private int frameInterval = 5;
     private int fixedFrameCount;
@@ -62,6 +67,10 @@ public class CharSel : MonoBehaviour
             {
                 ResetMenu();
             }
+            else
+            {
+                audioHandler.PlayRandomFromList(EventSource.LEFT, gameInProgress.LeftPlayer.greetings);
+            }
             SetPlayerReadyUIActive(0, !value);
             isLeftPlayerReady = value;
         }
@@ -75,6 +84,10 @@ public class CharSel : MonoBehaviour
             if (!value)
             {
                 ResetMenu();
+            }
+            else
+            {
+                audioHandler.PlayRandomFromList(EventSource.RIGHT, gameInProgress.RightPlayer.greetings);
             }
             SetPlayerReadyUIActive(1, !value);
             isRightPlayerReady = value;

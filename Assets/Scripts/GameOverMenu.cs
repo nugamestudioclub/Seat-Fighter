@@ -40,6 +40,9 @@ public class GameOverMenu : MonoBehaviour {
 
 	Vector3 messagePosition;
 
+	[SerializeField]
+	private AudioHandler audioHandler;
+
 	private void Start() {
 		SetWinner();
 	}
@@ -59,14 +62,16 @@ public class GameOverMenu : MonoBehaviour {
 		Debug.Log(winner);
 
 		if( winnerId == 0 ) {
-			leftName.text = winner.characterName;
+			audioHandler.PlayRandomFromList(EventSource.LEFT, winner.taunts);
+            leftName.text = winner.characterName;
 			leftMessage.SetActive(true);
 			rightMessage.SetActive(false);
 			leftPlayerPortrait.flipY = false;
             rightPlayerPortrait.flipY = true;
         }
 		else {
-			rightName.text = winner.characterName;
+            audioHandler.PlayRandomFromList(EventSource.RIGHT, winner.taunts);
+            rightName.text = winner.characterName;
 			leftMessage.SetActive(false);
 			rightMessage.SetActive(true);
             leftPlayerPortrait.flipY = true;

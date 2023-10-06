@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AudioHandler : MonoBehaviour {
@@ -20,10 +21,18 @@ public class AudioHandler : MonoBehaviour {
 
 	private Dictionary<PlayerState, List<AudioClip>> stateSounds;
 
-	private List<List<AudioClip>> selectSounds;
+	public void PlayRandomFromList(EventSource source, List<AudioClip> list)
+	{
+        var audioSource = source switch
+        {
+            EventSource.LEFT => leftAudioSource,
+            EventSource.RIGHT => rightAudioSource,
+            _ => centerAudioSource
+		};
+        audioSource.PlayOneShot(list[random.Next(list.Count)]);
+    }
 
-	private List<List<AudioClip>> tauntSounds;
-	public void Bind(Referee referee, Player leftPlayer, Player rightPlayer, Environment environment, SpecialEffectConfig specialEffects) {
+    public void Bind(Referee referee, Player leftPlayer, Player rightPlayer, Environment environment, SpecialEffectConfig specialEffects) {
 		referee.RefereeEvent += Referee_OnInteraction;
 		leftPlayer.PlayerEvent += Player_OnChange;
 		leftPlayer.PlayerStateEvent += Player_OnState;
