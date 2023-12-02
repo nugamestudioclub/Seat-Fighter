@@ -59,17 +59,21 @@ public class View : MonoBehaviour {
 		rightPlayer.PlayerTickEvent += Player_OnTick;
 	}
 
-	public void HandleBlock0() => HandleButton(Button.Block, 0);
-	public void HandleBlock1() => HandleButton(Button.Block, 1);
+	public void HandleBlockDown0() => HandleButton(Button.Block, 0, true);
+	public void HandleBlockDown1() => HandleButton(Button.Block, 1, true);
+	public void HandleBlockUp0() => HandleButton(Button.Block, 0, false);
+	public void HandleBlockUp1() => HandleButton(Button.Block, 1, false);
 
-	public void HandleDodge0() => HandleButton(Button.Block, 0);
-	public void HandleDodge1() => HandleButton(Button.Block, 1);
+	public void HandleDodgeDown0() => HandleButton(Button.Dodge, 0, true);
+	public void HandleDodgeDown1() => HandleButton(Button.Dodge, 1, true);
 
-	public void HandlePush0() => HandleButton(Button.Block, 0);
-	public void HandlePush1() => HandleButton(Button.Block, 1);
+	public void HandlePushDown0() => HandleButton(Button.Push, 0, true);
+	public void HandlePushDown1() => HandleButton(Button.Push, 1, true);
+	public void HandlePushUp0() => HandleButton(Button.Push, 0, false);
+	public void HandlePushUp1() => HandleButton(Button.Push, 1, false);
 
-	public void HandleShove0() => HandleButton(Button.Block, 0);
-	public void HandleShove1() => HandleButton(Button.Block, 1);
+	public void HandleShoveDown0() => HandleButton(Button.Shove, 0, true);
+	public void HandleShoveDown1() => HandleButton(Button.Shove, 1, true);
 
 	private void Environment_OnChange(object sender, EnvironmentEventArgs e) {
 		if( e.type == EnvironmentEventType.PosistionChange ) {
@@ -136,10 +140,11 @@ public class View : MonoBehaviour {
         positionIndicator.Rotate(0, 0, (valueConstrained * 180) - 90);
 	}
 
-	private void HandleButton(Button button, int playerId) {
+	private void HandleButton(Button button, int playerId, bool isDown) {
+		Debug.Log($"{button} ({playerId})");
 		var input = playerId == 0
 			? GameInProgress.Instance.LeftInput
 			: GameInProgress.Instance.RightInput;
-		input.InputData.SetButtonState(button, new());
+		input.InputData.SetButtonState(button, isDown);
 	}
 }
