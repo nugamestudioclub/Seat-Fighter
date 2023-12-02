@@ -291,7 +291,7 @@ public class CharSel : MonoBehaviour
 	private bool LeftPlayerMoveLeft => leftDesiredDirection.x > 0 || leftDesiredDirection.y > 0;
     private bool LeftPlayerMoveRight => leftDesiredDirection.x < 0 || leftDesiredDirection.y < 0;
     private bool RightPlayerMoveLeft => rightDesiredDirection.x > 0 || rightDesiredDirection.y > 0;
-    private bool RightPlayerMoveRight => leftDesiredDirection.x < 0 || leftDesiredDirection.y < 0;
+    private bool RightPlayerMoveRight => rightDesiredDirection.x < 0 || rightDesiredDirection.y < 0;
 
 
     private void UpdateSprites()
