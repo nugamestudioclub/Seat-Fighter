@@ -152,8 +152,8 @@ public class InputController {
 				actionMap,
 				v => data.Direction = v,
 				upPaths: new List<string>() { "<Keyboard>/i", "<Gamepad>/rightStick/up" },
-				downPaths: new List<string>() { "<Keyboard>/j", "<Gamepad>/rightStick/down" },
-				leftPaths: new List<string>() { "<Keyboard>/k", "<Gamepad>/rightStick/left" },
+				downPaths: new List<string>() { "<Keyboard>/k", "<Gamepad>/rightStick/down" },
+				leftPaths: new List<string>() { "<Keyboard>/j", "<Gamepad>/rightStick/left" },
 				rightPaths: new List<string>() { "<Keyboard>/l", "<Gamepad>/rightStick/right" }
 			);
 			break;
