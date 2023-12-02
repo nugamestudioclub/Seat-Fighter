@@ -161,7 +161,7 @@ public class CharSel : MonoBehaviour
 
 	void Update() {
         leftDesiredDirection = GetDesiredDirection(inputController_left);
-        leftDesiredDirection = GetDesiredDirection(inputController_right);
+        rightDesiredDirection = GetDesiredDirection(inputController_right);
 		if( inputController_left.InputData.GetButtonState(Button.Cancel).IsDown ) {
 			if( isAI && isRightPlayerReady ) {
 				IsRightPlayerReady = false;
