@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Madhav
   stunTime: 12
-  maxStamina: 100
-  idleStaminaRegen: 5
+  maxStamina: 200
+  idleStaminaRegen: 20
   health: 50
   push: {fileID: 11400000, guid: f2263feae70f9b345947902af0499271, type: 2}
   shove: {fileID: 11400000, guid: 4e1948592d1c01a4fb00bb5dc650d55e, type: 2}

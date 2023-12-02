@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd61c0204f9b66b4291d8c460fb08227, type: 3}
-  m_Name: WizardPlayerConfig 1
+  m_Name: WizardPlayerConfig
   m_EditorClassIdentifier: 
   characterName: Wizard
   stunTime: 12
-  maxStamina: 100
-  idleStaminaRegen: 5
+  maxStamina: 200
+  idleStaminaRegen: 20
   health: 50
   push: {fileID: 11400000, guid: 1f6a13e13e5f5304da617362da0796a7, type: 2}
   shove: {fileID: 11400000, guid: 84b29e9aecc2a2f48939835f27b0680e, type: 2}
