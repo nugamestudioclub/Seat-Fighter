@@ -2,11 +2,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using System.Linq;
+using UnityEditor.Experimental.GraphView;
 
 public class CharSel : MonoBehaviour
 {
+    private InputController inputController_menu;
     private InputController inputController_left;
-    private InputController inputController_right;
+	private InputController inputController_right;
 
     private GameInProgress gameInProgress;
 
@@ -113,7 +115,8 @@ public class CharSel : MonoBehaviour
     private void Awake()
     {
         fixedFrameCount = 0;
-        inputController_left = new InputController(0);
+		inputController_menu = new InputController(-1);
+		inputController_left = new InputController(0);
         inputController_right = new InputController(1);
         IsLeftPlayerReady = false;
         IsRightPlayerReady = false;
@@ -149,9 +152,16 @@ public class CharSel : MonoBehaviour
         UpdateSprites();
 	}
 
+    private Vector2 GetDesiredDirection(InputController controller) {
+        var direction = controller.InputData.Direction;
+        return isAI && Mathf.Approximately(direction.magnitude, 0)
+            ? inputController_menu.InputData.Direction
+            : direction;
+	}
+
 	void Update() {
-		leftDesiredDirection = inputController_left.InputData.Direction;
-		rightDesiredDirection = inputController_right.InputData.Direction;
+        leftDesiredDirection = GetDesiredDirection(inputController_left);
+        leftDesiredDirection = GetDesiredDirection(inputController_right);
 		if( inputController_left.InputData.GetButtonState(Button.Cancel).IsDown ) {
 			if( isAI && isRightPlayerReady ) {
 				IsRightPlayerReady = false;

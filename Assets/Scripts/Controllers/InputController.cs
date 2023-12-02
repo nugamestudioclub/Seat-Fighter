@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -106,7 +107,7 @@ public class InputController {
 	private static IList<InputDevice> FindDevices(int playerId) {
 		var devices = new List<InputDevice>();
 
-		if( playerId < Gamepad.all.Count )
+		if( playerId >= 0 && playerId < Gamepad.all.Count )
 			devices.Add(Gamepad.all[playerId]);
 		else
 			Debug.Log($"Gamepad {playerId} is not connected");
@@ -121,8 +122,9 @@ public class InputController {
 
 	private static InputActionMap MapInput(int id, IEnumerable<InputDevice> devices, InputData data) {
 		var actionMap = new InputActionMap("Player_" + id.ToString());
-		if( id == 0 ) {
-			BindButton("Start", actionMap, v => data.SetButtonState(Button.Start, v), "<Keyboard>/enter", "<Gamepad>/leftShoulder");
+		switch( id ) {
+		case 0:
+			BindButton("Start", actionMap, v => data.SetButtonState(Button.Start, v), "<Keyboard>/enter", "<Keyboard>/space", "<Gamepad>/leftShoulder");
 			BindButton("Cancel", actionMap, v => data.SetButtonState(Button.Cancel, v), "<Keyboard>/escape", "<Gamepad>/rightShoulder");
 			BindButton("Block", actionMap, v => data.SetButtonState(Button.Block, v), "<Keyboard>/s", "<Gamepad>/buttonSouth");
 			BindButton("Dodge", actionMap, v => data.SetButtonState(Button.Dodge, v), "<Keyboard>/a", "<Gamepad>/buttonWest");
@@ -137,9 +139,9 @@ public class InputController {
 				leftPaths: new List<string>() { "<Keyboard>/a", "<Gamepad>/rightStick/left" },
 				rightPaths: new List<string>() { "<Keyboard>/d", "<Gamepad>/rightStick/right" }
 			);
-		}
-		else {
-			BindButton("Start", actionMap, v => data.SetButtonState(Button.Start, v), "<Keyboard>/enter", "<Gamepad>/leftShoulder");
+			break;
+		case 1:
+			BindButton("Start", actionMap, v => data.SetButtonState(Button.Start, v), "<Keyboard>/enter", "<Keyboard>/space", "<Gamepad>/leftShoulder");
 			BindButton("Cancel", actionMap, v => data.SetButtonState(Button.Cancel, v), "<Keyboard>/escape", "<Gamepad>/rightShoulder");
 			BindButton("Block", actionMap, v => data.SetButtonState(Button.Block, v), "<Keyboard>/k", "<Gamepad>/buttonSouth");
 			BindButton("Dodge", actionMap, v => data.SetButtonState(Button.Dodge, v), "<Keyboard>/j", "<Gamepad>/buttonWest");
@@ -154,8 +156,21 @@ public class InputController {
 				leftPaths: new List<string>() { "<Keyboard>/k", "<Gamepad>/rightStick/left" },
 				rightPaths: new List<string>() { "<Keyboard>/l", "<Gamepad>/rightStick/right" }
 			);
+			break;
+		default: // menu
+			BindButton("Start", actionMap, v => data.SetButtonState(Button.Start, v), "<Keyboard>/enter", "<Keyboard>/space");
+			BindButton("Cancel", actionMap, v => data.SetButtonState(Button.Cancel, v), "<Keyboard>/escape");
+			BindVector2(
+				"Direction",
+				actionMap,
+				v => data.Direction = v,
+				upPaths: new List<string>() { "<Keyboard>/upArrow"},
+				downPaths: new List<string>() { "<Keyboard>/downArrow"},
+				leftPaths: new List<string>() { "<Keyboard>/leftArrow"},
+				rightPaths: new List<string>() { "<Keyboard>/rightArrow" }
+			);
+			break;
 		}
-
 		actionMap.devices = devices as InputDevice[] ?? devices.ToArray();
 		actionMap.Enable();
 
