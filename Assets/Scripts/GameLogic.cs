@@ -46,10 +46,10 @@ public class GameLogic {
 			break;
 		case RefereeEventType.PushBlock:
 			// half the value of pushidle rounded up
-			HandleScaledInteraction(sender, e, 0.5f, 1);
+			HandleScaledInteraction(sender, e, 0.6f, 1);
 			break;
 		case RefereeEventType.PushShove:
-			HandleScaledInteraction(sender, e, 1, 2);
+			HandleScaledInteraction(sender, e, 1, 1.5f);
 			break;
 		case RefereeEventType.PushPush:
 			HandleStandardInteraction(sender, e);
@@ -57,7 +57,6 @@ public class GameLogic {
 		case RefereeEventType.PushDodge:
 			HandleDodgeMiss(sender, e);
 			break;
-
 		case RefereeEventType.ShoveIdle:
 			HandleStandardInteraction(sender, e);
 			break;
@@ -68,7 +67,7 @@ public class GameLogic {
 			HandleScaledInteraction(sender, e, 0.25f, 1);
 			break;
 		case RefereeEventType.ShovePush:
-			HandleScaledInteraction(sender, e, 2.0f, 1);
+			HandleScaledInteraction(sender, e, 1.5f, 1);
 			break;
 		case RefereeEventType.ShoveDodge:
 			HandleDodgeMiss(sender, e);
