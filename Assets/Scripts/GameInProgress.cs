@@ -43,6 +43,12 @@ public class GameInProgress : MonoBehaviour {
 		}
 	}
 
+	private void Start() {
+#if UNITY_ANDROID || UNITY_IOS || DEBUG_MOBILE
+		ShowOnScreenControls = true;
+#endif
+	}
+
 	public void LoadScene(string name) {
 		if( LeftInput != null )
 			LeftInput.IsActive = false;
