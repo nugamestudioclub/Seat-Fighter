@@ -12,13 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f5d191503138f4f9f4ad57c761d5eb, type: 3}
   m_Name: Gordon_Shove
   m_EditorClassIdentifier: 
-  positionModifier: 20
+  positionModifier: 25
   initialStaminaModifier: -45
   holdStaminaModifier: 0
   timeModifier: 0
   staminaSelfModifer:
   - action: 5
     modifier: -40
+  - action: 4
+    modifier: 20
+  - action: 1
+    modifier: 15
+  - action: 3
+    modifier: -15
   staminaEnemyModifer: []
   timerModifier: 0
   <ActionDurations>k__BackingField:

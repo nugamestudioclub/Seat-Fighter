@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f5d191503138f4f9f4ad57c761d5eb, type: 3}
   m_Name: Wizard_Shove
   m_EditorClassIdentifier: 
-  positionModifier: 20
+  positionModifier: 15
   initialStaminaModifier: -60
   holdStaminaModifier: 0
   timeModifier: 0

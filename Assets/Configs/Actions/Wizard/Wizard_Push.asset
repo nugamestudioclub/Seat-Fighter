@@ -13,12 +13,18 @@ MonoBehaviour:
   m_Name: Wizard_Push
   m_EditorClassIdentifier: 
   positionModifier: 3
-  initialStaminaModifier: -10
-  holdStaminaModifier: -5
+  initialStaminaModifier: -8
+  holdStaminaModifier: -4
   timeModifier: 0
   staminaSelfModifer:
   - action: 5
     modifier: -10
+  - action: 4
+    modifier: 1
+  - action: 1
+    modifier: -15
+  - action: 3
+    modifier: 2
   staminaEnemyModifer: []
   timerModifier: 0
   <ActionDurations>k__BackingField:

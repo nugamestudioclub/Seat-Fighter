@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positionModifier: 0
   initialStaminaModifier: 0
-  holdStaminaModifier: 5
+  holdStaminaModifier: 10
   timeModifier: 0
   staminaSelfModifer: []
   staminaEnemyModifer: []

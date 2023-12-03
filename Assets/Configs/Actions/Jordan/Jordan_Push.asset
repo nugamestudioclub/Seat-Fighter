@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f5d191503138f4f9f4ad57c761d5eb, type: 3}
   m_Name: Jordan_Push
   m_EditorClassIdentifier: 
-  positionModifier: 3
+  positionModifier: 2
   initialStaminaModifier: -10
   holdStaminaModifier: -5
   timeModifier: 0
