@@ -14,6 +14,9 @@ public class ActionConfig : ScriptableObject
     public int holdStaminaModifier;
     public int timeModifier;
 
+    [field: SerializeField]
+    public List<PositionMultiplier> PositionMultipliers { get; private set; }
+
     public List<StaminaModifier> staminaSelfModifer;
     public List<StaminaModifier> staminaEnemyModifer;
 
