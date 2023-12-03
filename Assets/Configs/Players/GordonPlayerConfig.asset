@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Gordon
   stunTime: 12
-  maxStamina: 200
+  maxStamina: 150
   idleStaminaRegen: 20
   health: 50
   push: {fileID: 11400000, guid: 4e639221d8970444c99887d94ae6ab8c, type: 2}

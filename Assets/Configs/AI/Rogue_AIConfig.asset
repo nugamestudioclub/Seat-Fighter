@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9a65a631fa2ba545a4de6ca78b3a18f, type: 3}
-  m_Name: AIConfig
+  m_Name: Rogue_AIConfig
   m_EditorClassIdentifier: 
   actionResponses:
   - ActionState: 0
@@ -40,15 +40,15 @@ MonoBehaviour:
   - ActionState: 3
     weightedList:
     - AiAction:
-        Action: 3
-        Delay: 15
-        Duration: 20
-      Weight: 25
-    - AiAction:
         Action: 4
         Delay: 15
         Duration: 0
       Weight: 10
+    - AiAction:
+        Action: 3
+        Delay: 15
+        Duration: 20
+      Weight: 25
     - AiAction:
         Action: 0
         Delay: 30
@@ -57,20 +57,20 @@ MonoBehaviour:
   - ActionState: 5
     weightedList:
     - AiAction:
-        Action: 0
+        Action: 4
         Delay: 15
         Duration: 0
-      Weight: 40
+      Weight: 5
     - AiAction:
         Action: 3
         Delay: 15
         Duration: 20
       Weight: 5
     - AiAction:
-        Action: 4
+        Action: 0
         Delay: 15
         Duration: 0
-      Weight: 5
+      Weight: 40
     - AiAction:
         Action: 0
         Delay: 15
@@ -111,15 +111,15 @@ MonoBehaviour:
         Duration: 0
       Weight: 5
     - AiAction:
-        Action: 3
-        Delay: 15
-        Duration: 20
-      Weight: 10
-    - AiAction:
         Action: 4
         Delay: 15
         Duration: 0
       Weight: 40
+    - AiAction:
+        Action: 3
+        Delay: 15
+        Duration: 20
+      Weight: 10
     - AiAction:
         Action: 0
         Delay: 15
@@ -127,11 +127,6 @@ MonoBehaviour:
       Weight: 5
   - ActionState: 1
     weightedList:
-    - AiAction:
-        Action: 4
-        Delay: 15
-        Duration: 0
-      Weight: 10
     - AiAction:
         Action: 1
         Delay: 15
@@ -142,6 +137,11 @@ MonoBehaviour:
         Delay: 15
         Duration: 0
       Weight: 5
+    - AiAction:
+        Action: 4
+        Delay: 15
+        Duration: 0
+      Weight: 10
     - AiAction:
         Action: 3
         Delay: 15
