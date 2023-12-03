@@ -90,6 +90,8 @@ public class GameManager : MonoBehaviour {
 		fixedFrameCount = 0;
 		firstTick = true;
 		//create player and environment from the configs
+
+		Debug.Log($"game in progress is null? {GameInProgress.Instance == null}");
 		leftPlayer = new Player(GetLeftPlayerConfig(), EventSource.LEFT);
 		rightPlayer = new Player(GetRightPlayerConfig(), EventSource.RIGHT);
 		leftController = GetLeftController();
@@ -99,11 +101,11 @@ public class GameManager : MonoBehaviour {
 
 		environment = new Environment(
 			config.environmentConfig,
-			config.leftPlayerConfig.health,
-			config.rightPlayerConfig.health);
+			leftPlayer.Config.health,
+			rightPlayer.Config.health);
 
 		referee = new Referee(leftPlayer, rightPlayer, environment);
-		logic = new GameLogic(config, leftPlayer, rightPlayer, environment);
+		logic = new GameLogic(leftPlayer, rightPlayer, environment);
 		logic.Bind(referee, leftPlayer, rightPlayer);
 
 		if( view != null )
