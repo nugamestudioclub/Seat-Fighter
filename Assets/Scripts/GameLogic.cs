@@ -42,7 +42,6 @@ public class GameLogic
             case RefereeEventType.Win:
                 HandleWin(sender, e);
                 break;
-
             default:
                 HandleInteraction(sender, e);
                 break;
