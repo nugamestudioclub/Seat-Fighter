@@ -14,6 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftPlayerConfig: {fileID: 11400000, guid: 09079fefe2c27da45a2d41f9cb58340f, type: 2}
   rightPlayerConfig: {fileID: 11400000, guid: 2274129975401c945aa6768ac469e109, type: 2}
+  <DefaultActionConfigs>k__BackingField:
+  - {fileID: 11400000, guid: b879225385a396d40aef4ea7c47874d4, type: 2}
+  - {fileID: 11400000, guid: e6dd0acff3b510b4fb3d04ade607dfaa, type: 2}
+  - {fileID: 11400000, guid: 8b9a089c56c996e4b81458c0ea21f154, type: 2}
+  - {fileID: 11400000, guid: b366a087469bfb044be68926a36f7d32, type: 2}
+  - {fileID: 11400000, guid: e3d3da8f3b42f634c807fe87320b5ef1, type: 2}
   environmentConfig: {fileID: 11400000, guid: c9c0874d54722a240b904a7b40383798, type: 2}
   aIConfig: {fileID: 11400000, guid: 1a6b1e65ee9d53f4db5a5b421b0604f8, type: 2}
   specialEffectConfig: {fileID: 11400000, guid: d96fe7c4e7ac9fa4a9bb84f59d502447, type: 2}

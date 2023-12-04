@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f5d191503138f4f9f4ad57c761d5eb, type: 3}
   m_Name: Madhav_Push
   m_EditorClassIdentifier: 
+  <Type>k__BackingField: 3
   positionModifier: 2
   initialStaminaModifier: -5
   holdStaminaModifier: -2
   timeModifier: 0
+  <PositionMultipliers>k__BackingField: []
   staminaSelfModifer:
   - action: 5
     modifier: -10

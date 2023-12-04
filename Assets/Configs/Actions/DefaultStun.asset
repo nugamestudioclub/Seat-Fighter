@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87f5d191503138f4f9f4ad57c761d5eb, type: 3}
+  m_Name: DefaultStun
+  m_EditorClassIdentifier: 
+  <Type>k__BackingField: 5
+  positionModifier: 0
+  initialStaminaModifier: 0
+  holdStaminaModifier: 0
+  timeModifier: 0
+  <PositionMultipliers>k__BackingField: []
+  staminaSelfModifer: []
+  staminaEnemyModifer: []
+  timerModifier: 0
+  <ActionDurations>k__BackingField: []
+  <SpriteDurations>k__BackingField: []
