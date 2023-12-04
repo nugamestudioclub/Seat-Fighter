@@ -141,7 +141,7 @@ public class GameLogic
             var rawPosition = recieverActionConfig.positionModifier - senderActionConfig.positionModifier;
             environment.Position += (int)Math.Round(rawPosition * multiplier);
 
-            var (rightPlayerStamina, leftPlayerStamina) = GetStaminaModifiers(recieverActionConfig, leftPlayerState);
+            var (rightPlayerStamina, leftPlayerStamina) = GetStaminaModifiers(senderActionConfig, leftPlayerState);
 
             leftPlayer.Stamina += leftPlayerStamina;
             rightPlayer.Stamina += rightPlayerStamina;
