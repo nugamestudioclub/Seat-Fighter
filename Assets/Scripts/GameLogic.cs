@@ -123,8 +123,10 @@ public class GameLogic
         {
             var leftPlayerPositionMult = GetPositionMultiplier(senderActionConfig, rightPlayerState);
             var rightPlayerPositionMult = GetPositionMultiplier(recieverActionConfig, leftPlayerState);
-            environment.Position += (int)Math.Ceiling(senderActionConfig.positionModifier * leftPlayerPositionMult);
-            environment.Position -= (int)Math.Ceiling(recieverActionConfig.positionModifier * rightPlayerPositionMult);
+
+            var multiplier = rightPlayerPositionMult * leftPlayerPositionMult;
+            var rawPosition = senderActionConfig.positionModifier - recieverActionConfig.positionModifier;
+            environment.Position += (int)Math.Round(rawPosition * multiplier);
 
             var (leftPlayerStamina, rightPlayerStamina) = GetStaminaModifiers(senderActionConfig, rightPlayerState);
 
@@ -135,8 +137,9 @@ public class GameLogic
         {
             var leftPlayerPositionMult = GetPositionMultiplier(recieverActionConfig, rightPlayerState);
             var rightPlayerPositionMult = GetPositionMultiplier(senderActionConfig, leftPlayerState);
-            environment.Position -= (int)Math.Ceiling(senderActionConfig.positionModifier * leftPlayerPositionMult);
-            environment.Position += (int)Math.Ceiling(recieverActionConfig.positionModifier * rightPlayerPositionMult);
+            var multiplier = rightPlayerPositionMult * leftPlayerPositionMult;
+            var rawPosition = recieverActionConfig.positionModifier - senderActionConfig.positionModifier;
+            environment.Position += (int)Math.Round(rawPosition * multiplier);
 
             var (rightPlayerStamina, leftPlayerStamina) = GetStaminaModifiers(recieverActionConfig, leftPlayerState);
 
