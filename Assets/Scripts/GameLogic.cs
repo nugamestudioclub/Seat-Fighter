@@ -2,18 +2,25 @@ using UnityEngine;
 using System;
 using System.Runtime.CompilerServices;
 using System.Linq;
+using System.Collections.Generic;
 
 public class GameLogic
 {
     private readonly Player leftPlayer;
     private readonly Player rightPlayer;
     private readonly Environment environment;
+    private static readonly Dictionary<Action, ActionConfig> defaultActions = new();
 
-    public GameLogic(Player leftPlayer, Player rightPlayer, Environment environment)
+    public GameLogic(Player leftPlayer, Player rightPlayer, Environment environment, IEnumerable<ActionConfig> defaultActions)
     {
         this.leftPlayer = leftPlayer;
         this.rightPlayer = rightPlayer;
         this.environment = environment;
+
+        foreach (var action in defaultActions)
+        {
+            GameLogic.defaultActions[action.Type] = action;
+        }
     }
 
     public void Bind(Referee referee, Player leftPlayer, Player rightPlayer)
@@ -42,7 +49,7 @@ public class GameLogic
         }
     }
 
-    private static ActionConfig 
+    private static ActionConfig
         GetActionConfig(ActionState state, PlayerConfig playerConfig)
     {
         return state switch
@@ -62,14 +69,23 @@ public class GameLogic
 
         int enemyFoundIndex = config.staminaEnemyModifer.FindIndex(s => s.action == enemyState);
         int enemyMod = enemyFoundIndex >= 0 ? config.staminaEnemyModifer[enemyFoundIndex].modifier : 0;
-    
+
         return (selfMod, enemyMod);
     }
 
     private static float GetPositionMultiplier(ActionConfig config, ActionState enemyState)
     {
         int foundIndex = config.PositionMultipliers.FindIndex(s => s.action == enemyState);
-        return foundIndex >= 0 ? config.PositionMultipliers[foundIndex].multiplier : 1;
+        if (foundIndex >= 0)
+        {
+            return config.PositionMultipliers[foundIndex].multiplier;
+        }
+
+        if (defaultActions.TryGetValue(config.Type, out var defaultConfig))
+        {
+            return defaultConfig.PositionMultipliers[foundIndex].multiplier;
+        }
+        return 1;
     }
 
     private void HandleOutOfBounds(object sender, RefereeEventArgs e)
@@ -99,7 +115,7 @@ public class GameLogic
             environment.Position += (int)Math.Ceiling(senderActionConfig.positionModifier * leftPlayerPositionMult);
             environment.Position -= (int)Math.Ceiling(recieverActionConfig.positionModifier * rightPlayerPositionMult);
 
-            var(leftPlayerStamina, rightPlayerStamina) = GetStaminaModifiers(senderActionConfig, rightPlayerState);
+            var (leftPlayerStamina, rightPlayerStamina) = GetStaminaModifiers(senderActionConfig, rightPlayerState);
 
             leftPlayer.Stamina += leftPlayerStamina;
             rightPlayer.Stamina += rightPlayerStamina;

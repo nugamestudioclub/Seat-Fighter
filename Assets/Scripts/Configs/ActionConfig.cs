@@ -9,6 +9,8 @@ using System.Linq;
 ]
 public class ActionConfig : ScriptableObject
 {
+    [field: SerializeField]
+    public Action Type { get; private set; }
     public int positionModifier;
     public int initialStaminaModifier;
     public int holdStaminaModifier;

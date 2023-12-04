@@ -12,6 +12,9 @@ public class GameConfig : ScriptableObject
     public PlayerConfig leftPlayerConfig;
     public PlayerConfig rightPlayerConfig;
 
+    [field:SerializeField]
+    public List<ActionConfig> DefaultActionConfigs { get; private set; }
+
     public EnvironmentConfig environmentConfig;
     public AIConfig aIConfig;
     public SpecialEffectConfig specialEffectConfig;    
