@@ -20,7 +20,9 @@ MonoBehaviour:
   <PositionMultipliers>k__BackingField: []
   staminaSelfModifer:
   - action: 4
-    modifier: -20
+    modifier: -5
+  - action: 1
+    modifier: -2
   staminaEnemyModifer: []
   timerModifier: 0
   <ActionDurations>k__BackingField:
