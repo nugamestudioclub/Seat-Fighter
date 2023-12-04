@@ -73,14 +73,30 @@ public class GameLogic
         return (selfMod, enemyMod);
     }
 
+    private static bool TryGetPositionModifier(ActionConfig config, ActionState enemyState, out float result)
+    {
+        var multipliers = config.PositionMultipliers;
+        int index = multipliers.FindIndex(s => s.action == enemyState);
+        if (index >= 0)
+        {
+            result = multipliers[index].multiplier;
+            return true;
+        }
+        else
+        {
+            result = default;
+            return false;
+        }
+    }
+
     private static float GetPositionMultiplier(ActionConfig config, ActionState enemyState)
     {
-        int foundIndex = config.PositionMultipliers.FindIndex(s => s.action == enemyState);
-        return foundIndex >= 0
-        || (defaultActions.TryGetValue(config.Type, out config)
-            && (foundIndex = config.PositionMultipliers.FindIndex(s => s.action == enemyState)) >= 0)
-        ? config.PositionMultipliers[foundIndex].multiplier
-        : 1;
+        if (TryGetPositionModifier(config, enemyState, out float modifier))
+            return modifier;
+        else if (defaultActions.TryGetValue(config.Type, out var defaultConfig) && TryGetPositionModifier(defaultConfig, enemyState, out modifier))
+            return modifier;
+        else
+            return 1;
     }
 
     private void HandleOutOfBounds(object sender, RefereeEventArgs e)
