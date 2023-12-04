@@ -129,9 +129,9 @@ MonoBehaviour:
     weightedList:
     - AiAction:
         Action: 1
-        Delay: 15
+        Delay: 5
         Duration: 0
-      Weight: 5
+      Weight: 40
     - AiAction:
         Action: 2
         Delay: 15
