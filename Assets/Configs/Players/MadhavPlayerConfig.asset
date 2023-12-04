@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MadhavPlayerConfig
   m_EditorClassIdentifier: 
   characterName: Madhav
-  stunTime: 12
+  stunTime: 10
   maxStamina: 250
   idleStaminaRegen: 20
   health: 50

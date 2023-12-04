@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Gordon_Push
   m_EditorClassIdentifier: 
   <Type>k__BackingField: 3
-  positionModifier: 2
+  positionModifier: 20
   initialStaminaModifier: -10
   holdStaminaModifier: -5
   timeModifier: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WizardPlayerConfig
   m_EditorClassIdentifier: 
   characterName: Wizard
-  stunTime: 12
+  stunTime: 10
   maxStamina: 200
   idleStaminaRegen: 20
   health: 50

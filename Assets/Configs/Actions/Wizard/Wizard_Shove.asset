@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wizard_Shove
   m_EditorClassIdentifier: 
   <Type>k__BackingField: 4
-  positionModifier: 15
+  positionModifier: 150
   initialStaminaModifier: -60
   holdStaminaModifier: 0
   timeModifier: 0

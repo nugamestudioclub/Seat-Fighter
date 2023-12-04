@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Madhav_Push
   m_EditorClassIdentifier: 
   <Type>k__BackingField: 3
-  positionModifier: 2
+  positionModifier: 20
   initialStaminaModifier: -5
   holdStaminaModifier: -2
   timeModifier: 0

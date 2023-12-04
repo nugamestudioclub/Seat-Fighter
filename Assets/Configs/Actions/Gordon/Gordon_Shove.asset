@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Gordon_Shove
   m_EditorClassIdentifier: 
   <Type>k__BackingField: 4
-  positionModifier: 27
-  initialStaminaModifier: -45
+  positionModifier: 270
+  initialStaminaModifier: -30
   holdStaminaModifier: 0
   timeModifier: 0
   <PositionMultipliers>k__BackingField:
-  - action: 0
-    multiplier: 0
+  - action: 4
+    multiplier: 1.25
   staminaSelfModifer:
   - action: 5
     modifier: -40
@@ -27,9 +27,9 @@ MonoBehaviour:
     modifier: 20
   - action: 1
     modifier: 15
-  - action: 3
-    modifier: -15
-  staminaEnemyModifer: []
+  staminaEnemyModifer:
+  - action: 4
+    modifier: -20
   timerModifier: 0
   <ActionDurations>k__BackingField:
   - state: 0

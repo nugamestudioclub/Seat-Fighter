@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e846dba8df84825459a37542d1d24475, type: 3}
   m_Name: Level1
   m_EditorClassIdentifier: 
-  startingPositon: 50
-  edgeDistance: 5
-  armrestWidth: 100
+  startingPositon: 500
+  edgeDistance: 50
+  armrestWidth: 1000
