@@ -76,16 +76,11 @@ public class GameLogic
     private static float GetPositionMultiplier(ActionConfig config, ActionState enemyState)
     {
         int foundIndex = config.PositionMultipliers.FindIndex(s => s.action == enemyState);
-        if (foundIndex >= 0)
-        {
-            return config.PositionMultipliers[foundIndex].multiplier;
-        }
-
-        if (defaultActions.TryGetValue(config.Type, out var defaultConfig))
-        {
-            return defaultConfig.PositionMultipliers[foundIndex].multiplier;
-        }
-        return 1;
+        return foundIndex >= 0
+        || (defaultActions.TryGetValue(config.Type, out config)
+            && (foundIndex = config.PositionMultipliers.FindIndex(s => s.action == enemyState)) >= 0)
+        ? config.PositionMultipliers[foundIndex].multiplier
+        : 1;
     }
 
     private void HandleOutOfBounds(object sender, RefereeEventArgs e)
