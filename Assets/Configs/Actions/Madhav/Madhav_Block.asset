@@ -19,9 +19,9 @@ MonoBehaviour:
   timeModifier: 0
   <PositionMultipliers>k__BackingField:
   - action: 4
-    multiplier: 1
+    multiplier: 0.9
   - action: 1
-    multiplier: 1
+    multiplier: 0.9
   staminaSelfModifer:
   - action: 4
     modifier: -5

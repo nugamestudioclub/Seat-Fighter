@@ -37,11 +37,6 @@ MonoBehaviour:
         Delay: 60
         Duration: 0
       Weight: 5
-    - AiAction:
-        Action: 1
-        Delay: 60
-        Duration: 15
-      Weight: 10
   - ActionState: 3
     weightedList:
     - AiAction:
