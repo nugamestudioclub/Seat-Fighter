@@ -191,7 +191,7 @@ public class GameLogic
             Action.Push => sender.push,
             Action.Stun => sender.stunned,
             Action.Dodge => sender.dodge,
-            Action.None => sender.block, // maybe have a idle config later?
+            Action.None => sender.idle,
             _ => throw new Exception("Not all action configs are covered")
         });
 
@@ -202,7 +202,7 @@ public class GameLogic
             Action.Push => reciever.push,
             Action.Stun => reciever.stunned,
             Action.Dodge => reciever.dodge,
-            Action.None => reciever.block, // maybe have a idle config later?
+            Action.None => reciever.idle,
             _ => throw new Exception("Not all action configs are covered")
         });
 
