@@ -133,7 +133,7 @@ public class GameManager : MonoBehaviour {
 			actionProvider = new HumanController(input);
 		}
 		else if( gameInProgress == null || gameInProgress.PlayerCount < 2 ) {
-			actionProvider = new AIController(rightPlayer, leftPlayer, config.aIConfig);
+			actionProvider = new AIController(rightPlayer, leftPlayer, rightPlayer.Config.AI);
 		}
 		else {
 			input = new InputController(1);

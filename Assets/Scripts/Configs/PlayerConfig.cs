@@ -14,6 +14,9 @@ public class PlayerConfig : ScriptableObject
     public int idleStaminaRegen; //maybe idle should be its own action
     public int health;
 
+    [field: SerializeField]
+    public AIConfig AI { get; private set; }
+
     public ActionConfig push;
     public ActionConfig shove;
     public ActionConfig dodge;
