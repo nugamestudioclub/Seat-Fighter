@@ -16,6 +16,5 @@ public class GameConfig : ScriptableObject
     public List<ActionConfig> DefaultActionConfigs { get; private set; }
 
     public EnvironmentConfig environmentConfig;
-    public AIConfig aIConfig;
     public SpecialEffectConfig specialEffectConfig;    
 }
