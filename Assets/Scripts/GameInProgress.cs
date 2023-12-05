@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,8 +14,8 @@ public class GameInProgress : MonoBehaviour {
 	public int WinnerId { get; set; }
 
 	public bool ShowOnScreenControls {
-		get => PlayerPrefs.HasKey(SHOW_ON_SCREEN_CONTROLS) && PlayerPrefs.GetInt(SHOW_ON_SCREEN_CONTROLS) != 0;
-		set => PlayerPrefs.SetInt(SHOW_ON_SCREEN_CONTROLS, value ? 1 : 0);
+		get => PlayerPrefs.HasKey(SHOW_ON_SCREEN_CONTROLS) && Convert.ToBoolean(PlayerPrefs.GetInt(SHOW_ON_SCREEN_CONTROLS));
+		set => PlayerPrefs.SetInt(SHOW_ON_SCREEN_CONTROLS, Convert.ToInt32(value));
 	}
 
 	[field: SerializeField]
@@ -37,16 +38,11 @@ public class GameInProgress : MonoBehaviour {
 		if( _instance == null ) {
 			_instance = this;
 			DontDestroyOnLoad(gameObject);
+			Initialize();
 		}
 		else {
 			Destroy(gameObject);
 		}
-	}
-
-	private void Start() {
-#if UNITY_ANDROID || UNITY_IOS || DEBUG_MOBILE
-		ShowOnScreenControls = true;
-#endif
 	}
 
 	public void LoadScene(string name) {
@@ -64,5 +60,11 @@ public class GameInProgress : MonoBehaviour {
 	private IEnumerator DoLoadScene(string name) {
 		SceneManager.LoadScene(name);
 		yield return new WaitForSeconds(0.5f);
+	}
+
+	private void Initialize() {
+#if UNITY_ANDROID || UNITY_IOS || DEBUG_MOBILE
+		ShowOnScreenControls = true;
+#endif
 	}
 }
