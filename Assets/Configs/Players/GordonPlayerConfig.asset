@@ -17,11 +17,13 @@ MonoBehaviour:
   maxStamina: 150
   idleStaminaRegen: 20
   health: 50
+  <AI>k__BackingField: {fileID: 11400000, guid: d58af5273884566448aab2e34f0d80dd, type: 2}
   push: {fileID: 11400000, guid: 4e639221d8970444c99887d94ae6ab8c, type: 2}
   shove: {fileID: 11400000, guid: f5cfeb35be2e2cd499843202a60c5336, type: 2}
   dodge: {fileID: 11400000, guid: 6df91fe7738a0324fa224c4260ef491b, type: 2}
   block: {fileID: 11400000, guid: 4992746a4244afd47afc986d361d5c68, type: 2}
   stunned: {fileID: 11400000, guid: 67205f439f205654888d7e5a9c2aa834, type: 2}
+  idle: {fileID: 11400000, guid: 25323d5bfcd3b7a4888dc5c17a610e6b, type: 2}
   idleSprite: {fileID: 21300000, guid: eafa2c5989ea38a489cdf78b6bc223f7, type: 3}
   portrait: {fileID: 21300000, guid: aa29aa5e1c645ac40a4ca7d2edc1ec14, type: 3}
   greetings:
