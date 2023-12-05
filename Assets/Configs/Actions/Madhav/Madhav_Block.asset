@@ -17,7 +17,11 @@ MonoBehaviour:
   initialStaminaModifier: 0
   holdStaminaModifier: 10
   timeModifier: 0
-  <PositionMultipliers>k__BackingField: []
+  <PositionMultipliers>k__BackingField:
+  - action: 4
+    multiplier: 1
+  - action: 1
+    multiplier: 1
   staminaSelfModifer:
   - action: 4
     modifier: -5
