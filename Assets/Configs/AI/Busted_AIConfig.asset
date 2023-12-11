@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9a65a631fa2ba545a4de6ca78b3a18f, type: 3}
-  m_Name: Balanced_AIConfig
+  m_Name: Busted_AIConfig
   m_EditorClassIdentifier: 
   actionResponses:
   - ActionState: 0
@@ -24,34 +24,34 @@ MonoBehaviour:
     weightedList:
     - AiAction:
         Action: 4
-        Delay: 30
+        Delay: 10
         Duration: 0
-      Weight: 10
+      Weight: 0
     - AiAction:
         Action: 3
-        Delay: 30
-        Duration: 20
-      Weight: 5
+        Delay: 5
+        Duration: 5
+      Weight: 0
     - AiAction:
         Action: 0
-        Delay: 60
+        Delay: 15
         Duration: 0
-      Weight: 5
+      Weight: 50
   - ActionState: 3
     weightedList:
     - AiAction:
         Action: 4
-        Delay: 15
+        Delay: 10
         Duration: 0
       Weight: 10
     - AiAction:
         Action: 3
-        Delay: 15
-        Duration: 20
-      Weight: 25
+        Delay: 5
+        Duration: 15
+      Weight: 35
     - AiAction:
         Action: 0
-        Delay: 30
+        Delay: 25
         Duration: 0
       Weight: 5
   - ActionState: 5
@@ -64,7 +64,7 @@ MonoBehaviour:
     - AiAction:
         Action: 3
         Delay: 15
-        Duration: 20
+        Duration: 5
       Weight: 5
     - AiAction:
         Action: 0
@@ -91,7 +91,7 @@ MonoBehaviour:
     - AiAction:
         Action: 3
         Delay: 15
-        Duration: 20
+        Duration: 10
       Weight: 10
     - AiAction:
         Action: 0
@@ -102,54 +102,54 @@ MonoBehaviour:
     weightedList:
     - AiAction:
         Action: 1
-        Delay: 15
+        Delay: 10
         Duration: 15
       Weight: 5
     - AiAction:
         Action: 2
-        Delay: 15
+        Delay: 10
         Duration: 0
       Weight: 5
     - AiAction:
         Action: 4
-        Delay: 15
+        Delay: 5
         Duration: 0
-      Weight: 40
+      Weight: 50
     - AiAction:
         Action: 3
-        Delay: 15
-        Duration: 20
+        Delay: 10
+        Duration: 5
       Weight: 10
     - AiAction:
         Action: 0
-        Delay: 15
+        Delay: 10
         Duration: 0
       Weight: 5
   - ActionState: 1
     weightedList:
     - AiAction:
         Action: 1
-        Delay: 15
+        Delay: 0
         Duration: 5
-      Weight: 40
+      Weight: 50
     - AiAction:
         Action: 2
-        Delay: 15
+        Delay: 10
         Duration: 0
       Weight: 5
     - AiAction:
         Action: 4
-        Delay: 15
+        Delay: 10
         Duration: 0
       Weight: 10
     - AiAction:
         Action: 3
-        Delay: 15
-        Duration: 0
+        Delay: 10
+        Duration: 5
       Weight: 5
     - AiAction:
         Action: 0
-        Delay: 15
+        Delay: 10
         Duration: 0
       Weight: 2
   waitRollThreshold: 0.65

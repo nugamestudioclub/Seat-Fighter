@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd61c0204f9b66b4291d8c460fb08227, type: 3}
+  m_Name: AndroidPlayerConfig
+  m_EditorClassIdentifier: 
+  characterName: Android
+  stunTime: 10
+  maxStamina: 200
+  idleStaminaRegen: 20
+  health: 50
+  <AI>k__BackingField: {fileID: 11400000, guid: 76d6133b32117ae4a8af003f443fd9f8, type: 2}
+  push: {fileID: 11400000, guid: 3200fc63ea972f344aa2597ea5bc35c5, type: 2}
+  shove: {fileID: 11400000, guid: 43a0b02dfebbd464282c5b18ce5b8812, type: 2}
+  dodge: {fileID: 11400000, guid: 7b611f977e5d52a49827de420085e6f5, type: 2}
+  block: {fileID: 11400000, guid: 5d4306ee4bade884e92ec37424c08a9f, type: 2}
+  stunned: {fileID: 11400000, guid: 5b9bd2e0d8f58164b83db651dcfba51f, type: 2}
+  idle: {fileID: 11400000, guid: 25323d5bfcd3b7a4888dc5c17a610e6b, type: 2}
+  idleSprite: {fileID: 21300000, guid: 9adb16e2252ed0543a68068086bed5ba, type: 3}
+  portrait: {fileID: 21300000, guid: 19cc15a35a7a48546b1c70a267a4a728, type: 3}
+  greetings:
+  - {fileID: 8300000, guid: 9a0dcb78e4e32e64baf543cb1f145cd8, type: 3}
+  - {fileID: 8300000, guid: bb5f609f35d498d41875c087bad297ce, type: 3}
+  - {fileID: 8300000, guid: 11bc5d338fdd0a84086363a68a012b7b, type: 3}
+  - {fileID: 8300000, guid: 0aed2173a9f17b243ae80b01562d24d2, type: 3}
+  - {fileID: 8300000, guid: 2a37ff3c9b81cac42ab1b97d914ce1a8, type: 3}
+  taunts:
+  - {fileID: 8300000, guid: 07a1dc3987f20f94fb9193897197cff7, type: 3}
+  - {fileID: 8300000, guid: 9f290840ab4cf314da4d2dc5b6495ffe, type: 3}

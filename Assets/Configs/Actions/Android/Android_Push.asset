@@ -10,36 +10,34 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87f5d191503138f4f9f4ad57c761d5eb, type: 3}
-  m_Name: Jordan_Block
+  m_Name: Android_Push
   m_EditorClassIdentifier: 
-  <Type>k__BackingField: 1
-  positionModifier: 0
-  initialStaminaModifier: 0
-  holdStaminaModifier: 5
+  <Type>k__BackingField: 3
+  positionModifier: 20
+  initialStaminaModifier: -10
+  holdStaminaModifier: -5
   timeModifier: 0
   <PositionMultipliers>k__BackingField: []
   staminaSelfModifer:
-  - action: 4
-    modifier: 50
-  - action: 1
-    modifier: 50
+  - action: 5
+    modifier: -10
   staminaEnemyModifer: []
   timerModifier: 0
   <ActionDurations>k__BackingField:
   - state: 0
     duration: 2
-  - state: 3
+  - state: 4
     duration: 1
   - state: 0
     duration: 2
   <SpriteDurations>k__BackingField:
-  - sprite: {fileID: 21300000, guid: 780f3813e109ebf4b8ae3abc8a7be04c, type: 3}
+  - sprite: {fileID: 21300000, guid: 44ff7eeafcbead043a95eec0d0528587, type: 3}
     duration: 1
-  - sprite: {fileID: 21300000, guid: 6b90e438c4c373445a762f5f5597ea36, type: 3}
+  - sprite: {fileID: 21300000, guid: 2125b0aef0d81b14ca6cf1461541429a, type: 3}
     duration: 1
-  - sprite: {fileID: 21300000, guid: d1a1ad0297f11d342b54c30564538f84, type: 3}
+  - sprite: {fileID: 21300000, guid: 328dcb2db61157a49817ca7f94e99f02, type: 3}
     duration: 1
-  - sprite: {fileID: 21300000, guid: 6b90e438c4c373445a762f5f5597ea36, type: 3}
+  - sprite: {fileID: 21300000, guid: 2125b0aef0d81b14ca6cf1461541429a, type: 3}
     duration: 1
-  - sprite: {fileID: 21300000, guid: 780f3813e109ebf4b8ae3abc8a7be04c, type: 3}
+  - sprite: {fileID: 21300000, guid: 44ff7eeafcbead043a95eec0d0528587, type: 3}
     duration: 1
