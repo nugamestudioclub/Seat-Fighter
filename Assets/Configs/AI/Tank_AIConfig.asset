@@ -30,7 +30,7 @@ MonoBehaviour:
     - AiAction:
         Action: 3
         Delay: 30
-        Duration: 20
+        Duration: 5
       Weight: 5
     - AiAction:
         Action: 0
@@ -91,7 +91,7 @@ MonoBehaviour:
     - AiAction:
         Action: 3
         Delay: 15
-        Duration: 20
+        Duration: 5
       Weight: 10
     - AiAction:
         Action: 0
@@ -118,7 +118,7 @@ MonoBehaviour:
     - AiAction:
         Action: 3
         Delay: 15
-        Duration: 20
+        Duration: 5
       Weight: 10
     - AiAction:
         Action: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
         Action: 1
         Delay: 5
         Duration: 0
-      Weight: 40
+      Weight: 60
     - AiAction:
         Action: 2
         Delay: 15
