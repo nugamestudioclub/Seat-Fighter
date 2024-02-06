@@ -65,6 +65,8 @@ public class GameInProgress : MonoBehaviour {
 	private void Initialize() {
 #if UNITY_ANDROID || UNITY_IOS || DEBUG_MOBILE
 		ShowOnScreenControls = true;
+#else
+		ShowOnScreenControls = false;
 #endif
 	}
 }
