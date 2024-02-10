@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9104764307701894898}
   - component: {fileID: 2365407468285810516}
   - component: {fileID: 4212176388841148422}
+  - component: {fileID: 2150182233200882228}
   m_Layer: 0
   m_Name: GameInProgress
   m_TagString: Untagged
@@ -46,7 +47,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <WinnerId>k__BackingField: 0
-  <ShowOnScreenControls>k__BackingField: 0
   <PlayerCount>k__BackingField: 1
   <AllPlayers>k__BackingField: {fileID: 11400000, guid: e5ffbf111abb3b8488cf976b4fc47c6a, type: 2}
   <LeftPlayer>k__BackingField: {fileID: 11400000, guid: 09079fefe2c27da45a2d41f9cb58340f, type: 2}
@@ -147,3 +147,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2150182233200882228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6322064552546579983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d9149e010f278448a8e0f2c9dca496e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
