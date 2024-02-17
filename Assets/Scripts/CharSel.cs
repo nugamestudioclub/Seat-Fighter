@@ -1,10 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using System.Linq;
-//using UnityEditor.Experimental.GraphView;
 using UnityEngine.UI;
-using System.Security.Cryptography;
 
 public class CharSel : MonoBehaviour {
 	private InputController inputController_menu;
@@ -127,7 +124,6 @@ public class CharSel : MonoBehaviour {
 	private void Start() {
 		gameInProgress = GameInProgress.Instance;
 		characters = gameInProgress.AllPlayers.Options;
-
 		RightPlayerIndex = GetOtherPlayerIndex(0, characters.Count);
 		if( gameInProgress.PlayerCount == 1 ) {
 			leftPlayerNameLabel.text = "Player";
@@ -140,13 +136,6 @@ public class CharSel : MonoBehaviour {
 			rightPlayerNameLabel.text = "Player 2";
 		}
 		UpdateSprites();
-	}
-
-	private Vector2 GetDesiredDirection(InputController controller) {
-		var direction = controller.InputData.Direction;
-		return isAI && Mathf.Approximately(direction.magnitude, 0)
-			? inputController_menu.InputData.Direction
-			: direction;
 	}
 
 	void Update() {
@@ -269,6 +258,13 @@ public class CharSel : MonoBehaviour {
 			inputController_left.InputData.SetButtonState(Button.Start, true);
 	}
 
+	private Vector2 GetDesiredDirection(InputController controller) {
+		var direction = controller.InputData.Direction;
+		return isAI && Mathf.Approximately(direction.magnitude, 0)
+			? inputController_menu.InputData.Direction
+			: direction;
+	}
+
 	private int GetOtherPlayerIndex(int playerIndex, int numPlayers) {
 		System.Random random = new();
 		int candidate = playerIndex;
@@ -309,7 +305,6 @@ public class CharSel : MonoBehaviour {
 		leftCharacterNameLabel.text = characters[LeftPlayerIndex].characterName;
 		rightCharacterNameLabel.text = characters[RightPlayerIndex].characterName;
 
-		// Update GameInProgress
 		gameInProgress.LeftPlayer = characters[LeftPlayerIndex];
 		gameInProgress.RightPlayer = characters[RightPlayerIndex];
 	}

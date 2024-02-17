@@ -1425,6 +1425,10 @@ PrefabInstance:
       propertyPath: frameInterval
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5216219121182443075, guid: 14438116d815b0c4d918bc8f64febc05, type: 3}
+      propertyPath: txtExceptionMessage
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5371759060541476593, guid: 14438116d815b0c4d918bc8f64febc05, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
