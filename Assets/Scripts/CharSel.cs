@@ -312,11 +312,21 @@ public class CharSel : MonoBehaviour {
 	private void ShowReady(bool value) {
 		if( value ) {
 			readyButtonImage.sprite =readyButtonSprite_enabled;
-			pressStartLabel.text = "Press START to begin!";
+			pressStartLabel.text =
+#if UNITY_ANDROID || UNITY_IOS || DEBUG_MOBILE
+				"Tap READY to begin!";
+#else
+				"Press START to begin!";
+#endif
 		}
 		else {
 			readyButtonImage.sprite =readyButtonSprite_disabled;
-			pressStartLabel.text = "Press START to select";
+			pressStartLabel.text =
+#if UNITY_ANDROID || UNITY_IOS || DEBUG_MOBILE
+				"Tap a character to select!";
+#else
+				"Press START to begin!";
+#endif
 		}
 	}
 }
