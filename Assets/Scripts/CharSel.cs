@@ -50,6 +50,9 @@ public class CharSel : MonoBehaviour {
 	[SerializeField] private GameObject[] rightPlayerArrows;
 	[SerializeField] private GameObject[] leftPlayerArrows;
 
+	[SerializeField] private GameObject leftCheckmark;
+	[SerializeField] private GameObject rightCheckmark;
+
 	[SerializeField]
 	private Image readyButtonImage;
 
@@ -212,6 +215,7 @@ public class CharSel : MonoBehaviour {
 				}
 			}
 		}
+		ShowCheckmarks(IsLeftPlayerReady, IsRightPlayerReady);
 	}
 
 	public void HandleBack() {
@@ -298,6 +302,10 @@ public class CharSel : MonoBehaviour {
 		ShowReady(false);
 	}
 
+	private void ShowCheckmarks(bool isLeftPlayerChecked, bool isRightPlayerChecked) {
+		leftCheckmark.SetActive(isLeftPlayerChecked);
+		rightCheckmark.SetActive(isRightPlayerChecked);
+	}
 
 	private void UpdateSprites() {
 		leftPlayerSprite.sprite = characters[LeftPlayerIndex].portrait;

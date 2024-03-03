@@ -421,6 +421,8 @@ MonoBehaviour:
   leftPlayerArrows:
   - {fileID: 7861900807878263060}
   - {fileID: 8501366790317407563}
+  leftCheckmark: {fileID: 2461060667442404290}
+  rightCheckmark: {fileID: 5152841198270206421}
   readyButtonImage: {fileID: 4655412777949693851}
   readyButtonSprite_disabled: {fileID: 21300000, guid: 2eb1ed9149473ff4c93c2b49278e58c2, type: 3}
   readyButtonSprite_enabled: {fileID: 21300000, guid: 33393fc0b9700784da26e3ee9f83db8c, type: 3}
@@ -816,6 +818,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 24500092183130605, guid: 7e504959166d2de4089b9cd0843cb32f, type: 3}
   m_PrefabInstance: {fileID: 447660633740473637}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2461060667442404290 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2598886335306657511, guid: 7e504959166d2de4089b9cd0843cb32f, type: 3}
+  m_PrefabInstance: {fileID: 447660633740473637}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3058768404444283682 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3189821019478160903, guid: 7e504959166d2de4089b9cd0843cb32f, type: 3}
@@ -1066,6 +1073,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &5152841198270206421 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2598886335306657511, guid: 7e504959166d2de4089b9cd0843cb32f, type: 3}
+  m_PrefabInstance: {fileID: 7175228847501426482}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5753082235832289589 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3189821019478160903, guid: 7e504959166d2de4089b9cd0843cb32f, type: 3}
