@@ -159,7 +159,7 @@ public class InputController {
 			);
 			break;
 		default: // menu
-			BindButton("Start", actionMap, v => data.SetButtonState(Button.Start, v), "<Keyboard>/space");
+			BindButton("Start", actionMap, v => data.SetButtonState(Button.Start, v), "<Keyboard>/enter", "<Keyboard>/space");
 			BindButton("Cancel", actionMap, v => data.SetButtonState(Button.Cancel, v), "<Keyboard>/escape");
 			BindVector2(
 				"Direction",
