@@ -44,6 +44,9 @@ public class CharSel : MonoBehaviour {
 
 	[SerializeField] private TMP_Text leftCharacterNameLabel;
 	[SerializeField] private TMP_Text rightCharacterNameLabel;
+	
+	[SerializeField] private TMP_Text leftCharacterSpecialtyLabel;
+	[SerializeField] private TMP_Text rightCharacterSpecialtyLabel;
 
 	[SerializeField] private TMP_Text pressStartLabel;
 
@@ -312,7 +315,9 @@ public class CharSel : MonoBehaviour {
 		rightPlayerSprite.sprite = characters[RightPlayerIndex].portrait;
 		leftCharacterNameLabel.text = characters[LeftPlayerIndex].characterName;
 		rightCharacterNameLabel.text = characters[RightPlayerIndex].characterName;
-
+		leftCharacterSpecialtyLabel.text = characters[LeftPlayerIndex].characterSpecialty;
+		rightCharacterSpecialtyLabel.text = characters[RightPlayerIndex].characterSpecialty;
+			
 		gameInProgress.LeftPlayer = characters[LeftPlayerIndex];
 		gameInProgress.RightPlayer = characters[RightPlayerIndex];
 	}

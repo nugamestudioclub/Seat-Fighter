@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: AndroidPlayerConfig
   m_EditorClassIdentifier: 
   characterName: Android
+  characterSpecialty: The Boss
   stunTime: 10
   maxStamina: 200
   idleStaminaRegen: 20

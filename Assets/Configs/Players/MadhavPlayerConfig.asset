@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: MadhavPlayerConfig
   m_EditorClassIdentifier: 
   characterName: Madhav
+  characterSpecialty: Block Specialist
   stunTime: 10
   maxStamina: 250
   idleStaminaRegen: 20

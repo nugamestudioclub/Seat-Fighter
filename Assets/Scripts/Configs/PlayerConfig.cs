@@ -9,6 +9,7 @@ using UnityEngine;
 public class PlayerConfig : ScriptableObject
 {
     public string characterName;
+    public string characterSpecialty;
     public int stunTime;
     public int maxStamina;
     public int idleStaminaRegen; //maybe idle should be its own action

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: JordanPlayerConfig
   m_EditorClassIdentifier: 
   characterName: Jordan
+  characterSpecialty: Generalist
   stunTime: 10
   maxStamina: 200
   idleStaminaRegen: 20

@@ -37,6 +37,15 @@ public class MainMenu : MonoBehaviour {
 	public void Controls() {
 		GameInProgress.Instance.LoadScene("Controls");
 	}
+	
+	public void Tutorial() {
+		GameInProgress.Instance.LoadScene("Tutorial");
+	}
+	
+	public void UiExplaination() {
+		GameInProgress.Instance.LoadScene("UiExplaination");
+	}
+	
 
 	public void Credits() {
 		GameInProgress.Instance.LoadScene("Credits");

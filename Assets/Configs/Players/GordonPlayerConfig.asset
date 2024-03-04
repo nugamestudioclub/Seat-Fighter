@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: GordonPlayerConfig
   m_EditorClassIdentifier: 
   characterName: Gordon
+  characterSpecialty: Shove Specialist
   stunTime: 10
   maxStamina: 150
   idleStaminaRegen: 20
