@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class MainMenu : MonoBehaviour {
@@ -58,8 +59,9 @@ public class MainMenu : MonoBehaviour {
 	private void UpdateSelection() {
 		CurrentSelection = _eventSystem.currentSelectedGameObject;
 		cursor.transform.position = new Vector2(
-			cursor.transform.position.x,
+			CurrentSelection.transform.position.x,
 			CurrentSelection.transform.position.y
+
 		);
 	}
 }
