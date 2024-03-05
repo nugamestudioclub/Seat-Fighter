@@ -1283,6 +1283,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -225
       objectReference: {fileID: 0}
+    - target: {fileID: 630210682691980035, guid: 14438116d815b0c4d918bc8f64febc05, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1179675277494073180, guid: 14438116d815b0c4d918bc8f64febc05, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1245400048005874652, guid: 14438116d815b0c4d918bc8f64febc05, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1419,6 +1427,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2461060667442404290, guid: 14438116d815b0c4d918bc8f64febc05, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2889426609304777979, guid: 14438116d815b0c4d918bc8f64febc05, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -1486,6 +1498,10 @@ PrefabInstance:
     - target: {fileID: 3609180601635243682, guid: 14438116d815b0c4d918bc8f64febc05, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152841198270206421, guid: 14438116d815b0c4d918bc8f64febc05, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5216219121182443075, guid: 14438116d815b0c4d918bc8f64febc05, type: 3}
       propertyPath: frameInterval
@@ -1587,6 +1603,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -210
       objectReference: {fileID: 0}
+    - target: {fileID: 7861900807878263060, guid: 14438116d815b0c4d918bc8f64febc05, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8140388478283169903, guid: 14438116d815b0c4d918bc8f64febc05, type: 3}
       propertyPath: m_fontSize
       value: 20
@@ -1605,6 +1625,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8140388478283169903, guid: 14438116d815b0c4d918bc8f64febc05, type: 3}
       propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501366790317407563, guid: 14438116d815b0c4d918bc8f64febc05, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8774961820200044179, guid: 14438116d815b0c4d918bc8f64febc05, type: 3}
