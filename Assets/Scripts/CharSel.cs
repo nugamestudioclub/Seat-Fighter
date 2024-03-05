@@ -145,22 +145,42 @@ public class CharSel : MonoBehaviour {
 		}
 
 		if( IsLeftPlayerReady && IsRightPlayerReady ) {
-			if( GetLeftStart() || GetRightStart() ) {
+			if( GetRightCancel() ) {
+				IsRightPlayerReady = false;
+			}
+			else if( GetLeftCancel() ) {
+				IsLeftPlayerReady = false;
+			}
+			else if( (GetLeftStart() || GetRightStart()) ) {
 				GameInProgress.Instance.LoadScene("MainScene");
 			}
 		}
-
-		if( GetRightStart() ) {
-			IsRightPlayerReady = true;
+		else if( IsRightPlayerReady ) {
+			if( GetRightCancel() ) {
+				IsRightPlayerReady = false;
+			}
+			else if( GetLeftStart() ) {
+				IsLeftPlayerReady = true;
+			}
 		}
-		else if( GetRightCancel() ) {
-			IsRightPlayerReady = false;
+		else if( IsLeftPlayerReady ) {
+			if( GetLeftCancel() ) {
+				IsLeftPlayerReady = false;
+			}
+			else if( GetRightStart() ) {
+				IsRightPlayerReady = true;
+			}
 		}
-		if( GetLeftStart() ) {
-			IsLeftPlayerReady = true;
-		}
-		else if( GetLeftCancel() ) {
-			IsLeftPlayerReady = false;
+		else {
+			if( GetLeftCancel() || GetRightCancel() ) {
+				HandleBack();
+			}
+			else if( GetLeftStart() ) {
+				IsLeftPlayerReady = true;
+			}
+			else if( GetRightStart() ) {
+				IsRightPlayerReady= true;
+			}
 		}
 	}
 
