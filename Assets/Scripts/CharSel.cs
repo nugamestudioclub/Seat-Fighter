@@ -44,7 +44,7 @@ public class CharSel : MonoBehaviour {
 
 	[SerializeField] private TMP_Text leftCharacterNameLabel;
 	[SerializeField] private TMP_Text rightCharacterNameLabel;
-	
+
 	[SerializeField] private TMP_Text leftCharacterSpecialtyLabel;
 	[SerializeField] private TMP_Text rightCharacterSpecialtyLabel;
 
@@ -75,27 +75,20 @@ public class CharSel : MonoBehaviour {
 	private bool IsLeftPlayerReady {
 		get => isLeftPlayerReady;
 		set {
-			if( !value ) {
-				ResetMenu();
-			}
-			else {
+			if( value ) {
 				audioHandler.PlayRandomFromList(EventSource.LEFT, gameInProgress.LeftPlayer.greetings);
 			}
-			SetPlayerReadyUIActive(0, !value);
 			isLeftPlayerReady = value;
 		}
 	}
+
 	private bool isRightPlayerReady;
 	private bool IsRightPlayerReady {
 		get => isRightPlayerReady;
 		set {
-			if( !value ) {
-				ResetMenu();
-			}
-			else {
+			if( value ) {
 				audioHandler.PlayRandomFromList(EventSource.RIGHT, gameInProgress.RightPlayer.greetings);
 			}
-			SetPlayerReadyUIActive(1, !value);
 			isRightPlayerReady = value;
 		}
 	}
@@ -122,7 +115,6 @@ public class CharSel : MonoBehaviour {
 		IsLeftPlayerReady = false;
 		IsRightPlayerReady = false;
 		isAI = false;
-		ResetMenu();
 		lastLeftStart = 0;
 		lastRightStart = 0;
 	}
@@ -135,56 +127,40 @@ public class CharSel : MonoBehaviour {
 			leftPlayerNameLabel.text = "Player";
 			rightPlayerNameLabel.text = "Computer";
 			isAI = true;
-			SetPlayerReadyUIActive(1, false);
 		}
 		else {
 			leftPlayerNameLabel.text = "Player 1";
 			rightPlayerNameLabel.text = "Player 2";
 		}
+		ShowInstructions(false);
 		UpdateSprites();
 	}
 
 	void Update() {
 		leftDesiredDirection = GetDesiredDirection(inputController_left);
 		rightDesiredDirection = GetDesiredDirection(inputController_right);
-		if( inputController_left.InputData.GetButtonState(Button.Cancel).IsDown ) {
-			if( isAI && isRightPlayerReady ) {
-				IsRightPlayerReady = false;
-			}
-			else {
-				if( isAI ) {
-					SetPlayerReadyUIActive(1, false);
-				}
-				IsLeftPlayerReady = false;
+
+		if( Time.timeSinceLevelLoad < timeTillStartIsEnabled ) {
+			return;
+		}
+
+		if( IsLeftPlayerReady && IsRightPlayerReady ) {
+			if( GetLeftStart() || GetRightStart() ) {
+				GameInProgress.Instance.LoadScene("MainScene");
 			}
 		}
-		if( !isAI && inputController_right.InputData.GetButtonState(Button.Cancel).IsDown ) {
+
+		if( GetRightStart() ) {
+			IsRightPlayerReady = true;
+		}
+		else if( GetRightCancel() ) {
 			IsRightPlayerReady = false;
 		}
-		if( Time.timeSinceLevelLoad > timeTillStartIsEnabled ) {
-			if( IsLeftPlayerReady && IsRightPlayerReady ) {
-				ShowReady(true);
-
-				if( HandleLeftStartInput() || HandleRightStartInput() ) {
-					GameInProgress.Instance.LoadScene("MainScene");
-				}
-			}
-			if( HandleLeftStartInput() ) {
-				if( IsLeftPlayerReady ) {
-					if( isAI ) {
-						IsRightPlayerReady = true;
-					}
-				}
-				else {
-					IsLeftPlayerReady = true;
-					if( isAI ) {
-						IsRightPlayerReady = false;
-					}
-				}
-			}
-			if( HandleRightStartInput() ) {
-				IsRightPlayerReady = true;
-			}
+		if( GetLeftStart() ) {
+			IsLeftPlayerReady = true;
+		}
+		else if( GetLeftCancel() ) {
+			IsLeftPlayerReady = false;
 		}
 	}
 
@@ -218,7 +194,9 @@ public class CharSel : MonoBehaviour {
 				}
 			}
 		}
+		ShowArrows(IsLeftPlayerReady, IsRightPlayerReady, isAI);
 		ShowCheckmarks(IsLeftPlayerReady, IsRightPlayerReady);
+		ShowInstructions(IsLeftPlayerReady && IsRightPlayerReady);
 	}
 
 	public void HandleBack() {
@@ -253,7 +231,7 @@ public class CharSel : MonoBehaviour {
 		if( isAI ) {
 			if( !IsLeftPlayerReady )
 				return;
-			inputController_left.InputData.SetButtonState(IsRightPlayerReady ? Button.Cancel : Button.Start, true);
+			inputController_right.InputData.SetButtonState(IsRightPlayerReady ? Button.Cancel : Button.Start, true);
 		}
 		else {
 			inputController_right.InputData.SetButtonState(IsRightPlayerReady ? Button.Cancel : Button.Start, true);
@@ -281,7 +259,11 @@ public class CharSel : MonoBehaviour {
 		return candidate;
 	}
 
-	private bool HandleLeftStartInput() {
+	private bool GetLeftCancel() {
+		return inputController_left.InputData.GetButtonState(Button.Cancel).IsDown;
+	}
+
+	private bool GetLeftStart() {
 		bool ableTomove = lastLeftStart + timeTillStartIsEnabled < Time.timeSinceLevelLoad;
 		bool willMove = inputController_left.InputData.GetButtonState(Button.Start).IsDown && ableTomove;
 		if( willMove ) {
@@ -290,9 +272,14 @@ public class CharSel : MonoBehaviour {
 		return willMove;
 	}
 
-	private bool HandleRightStartInput() {
-		if( isAI ) { return false; }
+	private bool GetRightCancel() {
+		return inputController_right.InputData.GetButtonState(Button.Cancel).IsDown;
+	}
 
+	private bool GetRightStart() {
+		if( isAI && !IsLeftPlayerReady ) {
+			return false;
+		}
 		bool ableTomove = lastRightStart + timeTillStartIsEnabled < Time.timeSinceLevelLoad;
 		bool willMove = inputController_right.InputData.GetButtonState(Button.Start).IsDown && ableTomove;
 		if( willMove ) {
@@ -301,8 +288,9 @@ public class CharSel : MonoBehaviour {
 		return willMove;
 	}
 
-	private void ResetMenu() {
-		ShowReady(false);
+	private void ShowArrows(bool isLeftPlayerReady, bool isRightPlayerReady, bool isAI) {
+		SetPlayerReadyUIActive(0, !isLeftPlayerReady);
+		SetPlayerReadyUIActive(1, !isRightPlayerReady && (!isAI || isLeftPlayerReady));
 	}
 
 	private void ShowCheckmarks(bool isLeftPlayerChecked, bool isRightPlayerChecked) {
@@ -310,19 +298,7 @@ public class CharSel : MonoBehaviour {
 		rightCheckmark.SetActive(isRightPlayerChecked);
 	}
 
-	private void UpdateSprites() {
-		leftPlayerSprite.sprite = characters[LeftPlayerIndex].portrait;
-		rightPlayerSprite.sprite = characters[RightPlayerIndex].portrait;
-		leftCharacterNameLabel.text = characters[LeftPlayerIndex].characterName;
-		rightCharacterNameLabel.text = characters[RightPlayerIndex].characterName;
-		leftCharacterSpecialtyLabel.text = characters[LeftPlayerIndex].characterSpecialty;
-		rightCharacterSpecialtyLabel.text = characters[RightPlayerIndex].characterSpecialty;
-			
-		gameInProgress.LeftPlayer = characters[LeftPlayerIndex];
-		gameInProgress.RightPlayer = characters[RightPlayerIndex];
-	}
-
-	private void ShowReady(bool value) {
+	private void ShowInstructions(bool value) {
 		if( value ) {
 			readyButtonImage.sprite =readyButtonSprite_enabled;
 			pressStartLabel.text =
@@ -341,5 +317,17 @@ public class CharSel : MonoBehaviour {
 				"Press START to begin!";
 #endif
 		}
+	}
+
+	private void UpdateSprites() {
+		leftPlayerSprite.sprite = characters[LeftPlayerIndex].portrait;
+		rightPlayerSprite.sprite = characters[RightPlayerIndex].portrait;
+		leftCharacterNameLabel.text = characters[LeftPlayerIndex].characterName;
+		rightCharacterNameLabel.text = characters[RightPlayerIndex].characterName;
+		leftCharacterSpecialtyLabel.text = characters[LeftPlayerIndex].characterSpecialty;
+		rightCharacterSpecialtyLabel.text = characters[RightPlayerIndex].characterSpecialty;
+
+		gameInProgress.LeftPlayer = characters[LeftPlayerIndex];
+		gameInProgress.RightPlayer = characters[RightPlayerIndex];
 	}
 }
