@@ -31,17 +31,17 @@ MonoBehaviour:
   - state: 0
     duration: 3
   <SpriteDurations>k__BackingField:
-  - sprite: {fileID: 21300000, guid: 6d457eeb618f7bd429dba6dc93a58890, type: 3}
+  - sprite: {fileID: 21300000, guid: 4215864ed8b38a64b8a973d2ff0baf3f, type: 3}
     duration: 1
-  - sprite: {fileID: 21300000, guid: c9564e9ebba3f0542b0178fd97f77d5d, type: 3}
+  - sprite: {fileID: 21300000, guid: 309874bf99e10da4996b306fc7e9bb41, type: 3}
     duration: 1
-  - sprite: {fileID: 21300000, guid: 729241ca817b3df4083bb415627af2db, type: 3}
+  - sprite: {fileID: 21300000, guid: 5f3e83411e901c64482f90bdb31d9755, type: 3}
     duration: 1
-  - sprite: {fileID: 21300000, guid: 22538fcbffb74434185723f7ad47247a, type: 3}
+  - sprite: {fileID: 21300000, guid: d74d4c8e3ee7fca419c8631596cfb337, type: 3}
     duration: 1
-  - sprite: {fileID: 21300000, guid: 729241ca817b3df4083bb415627af2db, type: 3}
+  - sprite: {fileID: 21300000, guid: 5f3e83411e901c64482f90bdb31d9755, type: 3}
     duration: 1
-  - sprite: {fileID: 21300000, guid: c9564e9ebba3f0542b0178fd97f77d5d, type: 3}
+  - sprite: {fileID: 21300000, guid: 309874bf99e10da4996b306fc7e9bb41, type: 3}
     duration: 1
-  - sprite: {fileID: 21300000, guid: 6d457eeb618f7bd429dba6dc93a58890, type: 3}
+  - sprite: {fileID: 21300000, guid: 4215864ed8b38a64b8a973d2ff0baf3f, type: 3}
     duration: 1
