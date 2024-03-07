@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd61c0204f9b66b4291d8c460fb08227, type: 3}
   m_Name: AndroidPlayerConfig
   m_EditorClassIdentifier: 
-  characterName: Android
-  characterSpecialty: The Boss
+  characterName: Amalgam
+  characterSpecialty: Artifical Master
   stunTime: 10
   maxStamina: 200
   idleStaminaRegen: 20
