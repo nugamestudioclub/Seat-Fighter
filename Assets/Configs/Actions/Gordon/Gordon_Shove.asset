@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Type>k__BackingField: 4
   positionModifier: 270
-  initialStaminaModifier: -30
+  initialStaminaModifier: -45
   holdStaminaModifier: 0
   timeModifier: 0
   <PositionMultipliers>k__BackingField:

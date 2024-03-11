@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: MadhavPlayerConfig
   m_EditorClassIdentifier: 
   characterName: Madhav
+  characterSpecialty: Block Specialist
   stunTime: 10
   maxStamina: 250
   idleStaminaRegen: 20
   health: 50
-  <AI>k__BackingField: {fileID: 11400000, guid: 1770cd42d2e231746b7ad72d604dc970, type: 2}
+  <AI>k__BackingField: {fileID: 11400000, guid: 23c041f8781b1154dbcd78fff62d1862, type: 2}
   push: {fileID: 11400000, guid: f2263feae70f9b345947902af0499271, type: 2}
   shove: {fileID: 11400000, guid: 4e1948592d1c01a4fb00bb5dc650d55e, type: 2}
   dodge: {fileID: 11400000, guid: fea24fd37e8780a4c9a2e777ef930e9f, type: 2}
@@ -25,7 +26,7 @@ MonoBehaviour:
   stunned: {fileID: 11400000, guid: 5b00c7f0baa9c1f44b7626c297090217, type: 2}
   idle: {fileID: 11400000, guid: 25323d5bfcd3b7a4888dc5c17a610e6b, type: 2}
   idleSprite: {fileID: 21300000, guid: 29e21f83b5e285641a7c29aea829e911, type: 3}
-  portrait: {fileID: 21300000, guid: 708f85aa2f67f764d911ea4802916a3a, type: 3}
+  portrait: {fileID: 21300000, guid: 01358d2ddbb9d174d8d6e2b38efafcd6, type: 3}
   greetings:
   - {fileID: 8300000, guid: ea1bb44d218b4d840939dd4de9ce6975, type: 3}
   taunts:

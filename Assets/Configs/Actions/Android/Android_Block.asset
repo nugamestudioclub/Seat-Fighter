@@ -33,13 +33,13 @@ MonoBehaviour:
   - state: 0
     duration: 2
   <SpriteDurations>k__BackingField:
-  - sprite: {fileID: 21300000, guid: 780f3813e109ebf4b8ae3abc8a7be04c, type: 3}
+  - sprite: {fileID: 21300000, guid: adbecacca96dc404980efb3cc74b988e, type: 3}
     duration: 1
-  - sprite: {fileID: 21300000, guid: 6b90e438c4c373445a762f5f5597ea36, type: 3}
+  - sprite: {fileID: 21300000, guid: ff46dd08102bb814ab7bf265717442af, type: 3}
     duration: 1
-  - sprite: {fileID: 21300000, guid: d1a1ad0297f11d342b54c30564538f84, type: 3}
+  - sprite: {fileID: 21300000, guid: 0c010ef692cd8114ab3dc6628191062c, type: 3}
     duration: 1
-  - sprite: {fileID: 21300000, guid: 6b90e438c4c373445a762f5f5597ea36, type: 3}
+  - sprite: {fileID: 21300000, guid: ff46dd08102bb814ab7bf265717442af, type: 3}
     duration: 1
-  - sprite: {fileID: 21300000, guid: 780f3813e109ebf4b8ae3abc8a7be04c, type: 3}
+  - sprite: {fileID: 21300000, guid: adbecacca96dc404980efb3cc74b988e, type: 3}
     duration: 1

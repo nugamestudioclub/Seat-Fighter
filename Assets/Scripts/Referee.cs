@@ -109,10 +109,14 @@ public class Referee
         //blocking push
         else if (leftPlayerState == ActionState.PUSHING && rightPlayerState == ActionState.BLOCKING)
         {
+            //right player gets stam regen of block
+            rightPlayer.Stamina += rightPlayer.Config.block.holdStaminaModifier;
             OnRefereeEvent(new RefereeEventArgs(EventSource.LEFT, EventSource.RIGHT, RefereeEventType.PushBlock));
         }
         else if (rightPlayerState == ActionState.PUSHING && leftPlayerState == ActionState.BLOCKING)
         {
+            //left player gets stam regen of block
+            leftPlayer.Stamina += leftPlayer.Config.block.holdStaminaModifier;
             OnRefereeEvent(new RefereeEventArgs(EventSource.RIGHT, EventSource.LEFT, RefereeEventType.PushBlock));
         }
 
