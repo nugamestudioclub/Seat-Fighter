@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2028145866552168861}
   - component: {fileID: 2632384103088348725}
+  - component: {fileID: 6825134271430076899}
   m_Layer: 0
   m_Name: TitleMusic
   m_TagString: Untagged
@@ -42,11 +43,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d12b15bd0d1415e48a465d16d857bb50, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -128,3 +129,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6825134271430076899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5457487072704942795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d664889e4f15f040af8d4440a8809c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingTrack: {fileID: 8300000, guid: 84d3693dbdc32f84681da583f9790ee1, type: 3}
+  loopingTrack: {fileID: 8300000, guid: 7643277d4314f984385734a77d0b3688, type: 3}
+  player: {fileID: 2632384103088348725}
