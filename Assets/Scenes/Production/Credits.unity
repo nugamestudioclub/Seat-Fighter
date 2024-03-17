@@ -328,31 +328,33 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Brendan Brassil - UI/UX Programming
+  m_text: 'Austin Szema - UI/UX
 
-    Jordan Brown - Design, Production
+    Brendan Brassil - UI/UX Programming, Art
 
-    George
-    - Game Programming
+    Jordan
+    Brown - Design, Production
+
+    George - Game Programming
 
     Gordon - Jordan
 
-    Skyler Hale - Music, Sound Design
+    Skyler
+    Hale - Music, Sound Design
 
-    Madhav
-    Kapa - Menu Programming
+    Madhav Kapa - Menu Programming
 
-    Sebastian Kobori - Game Programming
+    Sebastian
+    Kobori - Game Programming
 
-    Matt Lord
-    - Art, Programming
+    Matt Lord - Art, Programming
 
-    Josh Sun - AI Programming
+    Josh Sun - AI
+    Programming
 
     @crabgraph - Voice Acting
 
-    plumjuice
-    - Voice Acting '
+    plumjuice - Voice Acting '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0d4752d349972b9459596e68988f552c, type: 2}
   m_sharedMaterial: {fileID: -4288456009802524343, guid: 0d4752d349972b9459596e68988f552c, type: 2}
@@ -379,8 +381,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
