@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2365407468285810516}
   - component: {fileID: 4212176388841148422}
   - component: {fileID: 2150182233200882228}
+  - component: {fileID: 1367214451924573379}
   m_Layer: 0
   m_Name: GameInProgress
   m_TagString: Untagged
@@ -157,5 +158,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d9149e010f278448a8e0f2c9dca496e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1367214451924573379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6322064552546579983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 664c6ffe1e104b34dbd5333c9d27a86c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
