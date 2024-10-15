@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Jordan_Shove
   m_EditorClassIdentifier: 
   <Type>k__BackingField: 4
-  positionModifier: 200
+  positionModifier: 100
   initialStaminaModifier: -100
   holdStaminaModifier: 0
   timeModifier: 0
@@ -29,7 +29,7 @@ MonoBehaviour:
   - state: 0
     duration: 2
   - state: 1
-    duration: 1
+    duration: 2
   - state: 0
     duration: 3
   <SpriteDurations>k__BackingField:
