@@ -128,7 +128,7 @@ public class InputController {
 			BindButton("Start", actionMap, v => data.SetButtonState(Button.Start, v), "<Keyboard>/enter", "<Keyboard>/space", "<Gamepad>/leftShoulder");
 			BindButton("Cancel", actionMap, v => data.SetButtonState(Button.Cancel, v), "<Keyboard>/escape", "<Gamepad>/rightShoulder");
 			BindButton("Block", actionMap, v => data.SetButtonState(Button.Block, v), "<Keyboard>/s", "<Gamepad>/buttonSouth");
-			BindButton("Dodge", actionMap, v => data.SetButtonState(Button.Dodge, v), "<Keyboard>/a", "<Gamepad>/buttonWest");
+			//BindButton("Dodge", actionMap, v => data.SetButtonState(Button.Dodge, v), "<Keyboard>/a", "<Gamepad>/buttonWest");
 			BindButton("Push", actionMap, v => data.SetButtonState(Button.Push, v), "<Keyboard>/w", "<Gamepad>/buttonNorth");
 			BindButton("Shove", actionMap, v => data.SetButtonState(Button.Shove, v), "<Keyboard>/d", "<Gamepad>/buttonEast");
 			BindVector2(
@@ -145,9 +145,9 @@ public class InputController {
 			BindButton("Start", actionMap, v => data.SetButtonState(Button.Start, v), "<Keyboard>/enter", "<Keyboard>/space", "<Gamepad>/leftShoulder");
 			BindButton("Cancel", actionMap, v => data.SetButtonState(Button.Cancel, v), "<Keyboard>/escape", "<Gamepad>/rightShoulder");
 			BindButton("Block", actionMap, v => data.SetButtonState(Button.Block, v), "<Keyboard>/k", "<Gamepad>/buttonSouth");
-			BindButton("Dodge", actionMap, v => data.SetButtonState(Button.Dodge, v), "<Keyboard>/j", "<Gamepad>/buttonWest");
+			//BindButton("Dodge", actionMap, v => data.SetButtonState(Button.Dodge, v), "<Keyboard>/j", "<Gamepad>/buttonWest");
 			BindButton("Push", actionMap, v => data.SetButtonState(Button.Push, v), "<Keyboard>/i", "<Gamepad>/buttonNorth");
-			BindButton("Shove", actionMap, v => data.SetButtonState(Button.Shove, v), "<Keyboard>/l", "<Gamepad>/buttonEast");
+			BindButton("Shove", actionMap, v => data.SetButtonState(Button.Shove, v), "<Keyboard>/j", "<Gamepad>/buttonEast");
 			BindVector2(
 				"Direction",
 				actionMap,
