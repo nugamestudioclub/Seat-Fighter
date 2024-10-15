@@ -165,10 +165,10 @@ public class InputController {
 				"Direction",
 				actionMap,
 				v => data.Direction = v,
-				upPaths: new List<string>() { "<Keyboard>/upArrow"},
-				downPaths: new List<string>() { "<Keyboard>/downArrow"},
-				leftPaths: new List<string>() { "<Keyboard>/leftArrow"},
-				rightPaths: new List<string>() { "<Keyboard>/rightArrow" }
+				upPaths: new List<string>() { "<Keyboard>/upArrow", "<Keyboard>/i"},
+				downPaths: new List<string>() { "<Keyboard>/downArrow", "<Keyboard>/k"},
+				leftPaths: new List<string>() { "<Keyboard>/leftArrow", "<Keyboard>/j"},
+				rightPaths: new List<string>() { "<Keyboard>/rightArrow", "<Keyboard>/l" }
 			);
 			break;
 		}
