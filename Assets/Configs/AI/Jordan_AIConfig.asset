@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9a65a631fa2ba545a4de6ca78b3a18f, type: 3}
-  m_Name: Aggro_AIConfig
+  m_Name: Jordan_AIConfig
   m_EditorClassIdentifier: 
   actionResponses:
   - ActionState: 6
@@ -19,37 +19,37 @@ MonoBehaviour:
         Action: 4
         Delay: 20
         Duration: 0
-      Weight: 60
+      Weight: 50
     - AiAction:
         Action: 3
         Delay: 20
         Duration: 5
-      Weight: 5
-    - AiAction:
-        Action: 3
-        Delay: 20
-        Duration: 10
-      Weight: 5
-    - AiAction:
-        Action: 3
-        Delay: 20
-        Duration: 15
       Weight: 10
     - AiAction:
-        Action: 1
+        Action: 3
         Delay: 20
-        Duration: 5
-      Weight: 0
+        Duration: 10
+      Weight: 8
     - AiAction:
-        Action: 1
+        Action: 3
+        Delay: 20
+        Duration: 10
+      Weight: 7
+    - AiAction:
+        Action: 3
         Delay: 20
         Duration: 10
       Weight: 0
     - AiAction:
-        Action: 2
+        Action: 1
         Delay: 20
-        Duration: 0
-      Weight: 0
+        Duration: 5
+      Weight: 3
+    - AiAction:
+        Action: 1
+        Delay: 20
+        Duration: 10
+      Weight: 2
     - AiAction:
         Action: 0
         Delay: 20
@@ -66,37 +66,37 @@ MonoBehaviour:
         Action: 4
         Delay: 20
         Duration: 0
-      Weight: 54
+      Weight: 44
     - AiAction:
         Action: 3
         Delay: 20
         Duration: 5
-      Weight: 6
+      Weight: 8
     - AiAction:
         Action: 3
         Delay: 20
         Duration: 10
-      Weight: 6
+      Weight: 8
     - AiAction:
         Action: 3
         Delay: 20
-        Duration: 15
-      Weight: 6
+        Duration: 10
+      Weight: 8
     - AiAction:
-        Action: 1
-        Delay: 20
-        Duration: 5
-      Weight: 12
-    - AiAction:
-        Action: 1
+        Action: 3
         Delay: 20
         Duration: 10
-      Weight: 6
-    - AiAction:
-        Action: 2
-        Delay: 20
-        Duration: 0
       Weight: 0
+    - AiAction:
+        Action: 1
+        Delay: 20
+        Duration: 5
+      Weight: 11
+    - AiAction:
+        Action: 1
+        Delay: 20
+        Duration: 10
+      Weight: 11
     - AiAction:
         Action: 0
         Delay: 20
@@ -113,42 +113,37 @@ MonoBehaviour:
         Action: 4
         Delay: 20
         Duration: 0
-      Weight: 64
+      Weight: 17
     - AiAction:
         Action: 3
         Delay: 20
         Duration: 5
-      Weight: 2
+      Weight: 3
     - AiAction:
         Action: 3
         Delay: 20
         Duration: 10
-      Weight: 2
+      Weight: 3
     - AiAction:
         Action: 3
         Delay: 20
-        Duration: 15
-      Weight: 2
+        Duration: 10
+      Weight: 3
     - AiAction:
         Action: 3
         Delay: 20
-        Duration: 20
-      Weight: 2
+        Duration: 10
+      Weight: 3
     - AiAction:
         Action: 1
         Delay: 20
         Duration: 5
-      Weight: 8
+      Weight: 34
     - AiAction:
         Action: 1
         Delay: 20
         Duration: 10
-      Weight: 8
-    - AiAction:
-        Action: 2
-        Delay: 20
-        Duration: 0
-      Weight: 8
+      Weight: 34
     - AiAction:
         Action: 0
         Delay: 20
@@ -158,61 +153,61 @@ MonoBehaviour:
         Action: 0
         Delay: 20
         Duration: 10
-      Weight: 2
+      Weight: 1
   - ActionState: 4
     weightedList:
     - AiAction:
         Action: 4
         Delay: 20
         Duration: 0
-      Weight: 67
+      Weight: 62
     - AiAction:
         Action: 3
+        Delay: 20
+        Duration: 5
+      Weight: 6
+    - AiAction:
+        Action: 3
+        Delay: 20
+        Duration: 10
+      Weight: 6
+    - AiAction:
+        Action: 3
+        Delay: 20
+        Duration: 10
+      Weight: 6
+    - AiAction:
+        Action: 3
+        Delay: 20
+        Duration: 10
+      Weight: 0
+    - AiAction:
+        Action: 1
         Delay: 20
         Duration: 5
       Weight: 5
     - AiAction:
-        Action: 3
-        Delay: 20
-        Duration: 10
-      Weight: 4
-    - AiAction:
-        Action: 3
-        Delay: 20
-        Duration: 15
-      Weight: 4
-    - AiAction:
-        Action: 1
-        Delay: 20
-        Duration: 5
-      Weight: 4
-    - AiAction:
         Action: 1
         Delay: 20
         Duration: 10
-      Weight: 3
-    - AiAction:
-        Action: 2
-        Delay: 20
-        Duration: 0
-      Weight: 7
+      Weight: 5
     - AiAction:
         Action: 0
         Delay: 20
         Duration: 5
-      Weight: 3
+      Weight: 5
     - AiAction:
         Action: 0
         Delay: 20
         Duration: 10
-      Weight: 3
+      Weight: 5
   - ActionState: 3
     weightedList:
     - AiAction:
         Action: 4
         Delay: 20
         Duration: 0
-      Weight: 25
+      Weight: 15
     - AiAction:
         Action: 3
         Delay: 20
@@ -226,69 +221,32 @@ MonoBehaviour:
     - AiAction:
         Action: 3
         Delay: 20
-        Duration: 15
+        Duration: 10
       Weight: 21
+    - AiAction:
+        Action: 3
+        Delay: 20
+        Duration: 10
+      Weight: 0
     - AiAction:
         Action: 1
         Delay: 20
         Duration: 5
-      Weight: 0
-    - AiAction:
-        Action: 2
-        Delay: 20
-        Duration: 0
-      Weight: 0
-    - AiAction:
-        Action: 0
-        Delay: 20
-        Duration: 5
-      Weight: 8
-    - AiAction:
-        Action: 0
-        Delay: 20
-        Duration: 10
-      Weight: 4
-  - ActionState: 5
-    weightedList:
-    - AiAction:
-        Action: 4
-        Delay: 20
-        Duration: 0
-      Weight: 9
-    - AiAction:
-        Action: 3
-        Delay: 20
-        Duration: 5
-      Weight: 3
-    - AiAction:
-        Action: 3
-        Delay: 20
-        Duration: 10
-      Weight: 3
-    - AiAction:
-        Action: 3
-        Delay: 20
-        Duration: 15
-      Weight: 3
+      Weight: 5
     - AiAction:
         Action: 1
         Delay: 20
-        Duration: 5
-      Weight: 0
-    - AiAction:
-        Action: 2
-        Delay: 20
-        Duration: 0
-      Weight: 0
+        Duration: 10
+      Weight: 5
     - AiAction:
         Action: 0
         Delay: 20
         Duration: 5
-      Weight: 51
+      Weight: 6
     - AiAction:
         Action: 0
         Delay: 20
         Duration: 10
-      Weight: 31
+      Weight: 6
   waitRollThreshold: 0.65
   waitRollChance: 0.9

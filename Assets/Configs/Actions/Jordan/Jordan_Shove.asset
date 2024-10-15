@@ -14,13 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Type>k__BackingField: 4
   positionModifier: 200
-  initialStaminaModifier: -60
+  initialStaminaModifier: -100
   holdStaminaModifier: 0
   timeModifier: 0
   <PositionMultipliers>k__BackingField: []
   staminaSelfModifer:
   - action: 5
     modifier: -40
+  - action: 3
+    modifier: -20
   staminaEnemyModifer: []
   timerModifier: 0
   <ActionDurations>k__BackingField:

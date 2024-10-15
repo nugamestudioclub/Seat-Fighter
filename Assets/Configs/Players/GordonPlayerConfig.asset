@@ -18,7 +18,7 @@ MonoBehaviour:
   maxStamina: 150
   idleStaminaRegen: 20
   health: 50
-  <AI>k__BackingField: {fileID: 11400000, guid: 91a6649c5761ba745868103998b66e29, type: 2}
+  <AI>k__BackingField: {fileID: 11400000, guid: 629a6e2305e5cf649b90964d7563c583, type: 2}
   push: {fileID: 11400000, guid: 4e639221d8970444c99887d94ae6ab8c, type: 2}
   shove: {fileID: 11400000, guid: f5cfeb35be2e2cd499843202a60c5336, type: 2}
   dodge: {fileID: 11400000, guid: 6df91fe7738a0324fa224c4260ef491b, type: 2}

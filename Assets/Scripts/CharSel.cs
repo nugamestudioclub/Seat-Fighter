@@ -325,7 +325,7 @@ public class CharSel : MonoBehaviour {
 #if UNITY_ANDROID || UNITY_IOS || DEBUG_MOBILE
 				"Tap READY to begin!";
 #else
-				"Press READY to begin!";
+				"Click READY to begin!";
 #endif
 		}
 		else {
@@ -334,7 +334,7 @@ public class CharSel : MonoBehaviour {
 #if UNITY_ANDROID || UNITY_IOS || DEBUG_MOBILE
 				"Tap a character to select!";
 #else
-				"Press READY to begin!";
+				"Click READY to begin!";
 #endif
 		}
 	}
