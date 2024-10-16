@@ -136,12 +136,12 @@ MonoBehaviour:
       Weight: 2
     - AiAction:
         Action: 1
-        Delay: 20
+        Delay: 0
         Duration: 5
       Weight: 25
     - AiAction:
         Action: 1
-        Delay: 20
+        Delay: 0
         Duration: 10
       Weight: 48
     - AiAction:
