@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b599a5a6a4394e645b9de704ffaccdf1, type: 3}
   m_Name: BangBubbleConfig
   m_EditorClassIdentifier: 
+  <FillSprite>k__BackingField: {fileID: 21300000, guid: adc4184fc487aa04da73ec0cbb8dc28b, type: 3}
   <FillColor>k__BackingField: {r: 1, g: 1, b: 0, a: 1}
+  <StrokeSprite>k__BackingField: {fileID: 21300000, guid: f79b21f195c5a9c43a9cf977a9812c42, type: 3}
   <StrokeColor>k__BackingField: {r: 1, g: 0, b: 0, a: 0}
   <Text>k__BackingField: BAM!
   <TextColor>k__BackingField: {r: 1, g: 1, b: 1, a: 0}

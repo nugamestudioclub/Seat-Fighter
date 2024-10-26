@@ -5,13 +5,13 @@
 	menuName = "ScriptableObjects/" + nameof(BubbleConfig))
 ]
 public class BubbleConfig : ScriptableObject {
-	[SerializeField]
+	[field: SerializeField]
 	public Sprite FillSprite { get; private set; }
 
 	[field: SerializeField]
 	public Color FillColor { get; private set; }
 
-	[SerializeField]
+	[field: SerializeField]
 	public Sprite StrokeSprite { get; private set; }
 
 	[field: SerializeField]

@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour {
 		logic.Bind(referee, leftPlayer, rightPlayer);
 
 		if( view != null )
-			view.Bind(environment, leftPlayer, rightPlayer);
+			view.Bind(referee, environment, leftPlayer, rightPlayer, config.specialEffectConfig);
 		if( audioManager != null )
 			audioManager.Bind(referee, leftPlayer, rightPlayer, environment, config.specialEffectConfig);
 

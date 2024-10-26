@@ -6,6 +6,7 @@ using UnityEngine;
 public struct SpecialEffect {
 	public List<AudioClip> sfx;
 	public List<BubbleConfig> vfx;
+	public float vfxDuration;
 }
 
 [Serializable]

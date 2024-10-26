@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b599a5a6a4394e645b9de704ffaccdf1, type: 3}
   m_Name: KapowBubbleConfig
   m_EditorClassIdentifier: 
+  <FillSprite>k__BackingField: {fileID: 21300000, guid: 29899300819bb684398146c4c7f4ec7a, type: 3}
   <FillColor>k__BackingField: {r: 1, g: 1, b: 0, a: 1}
+  <StrokeSprite>k__BackingField: {fileID: 21300000, guid: 8c4402d0bdd7ba04f84c6f433ae46151, type: 3}
   <StrokeColor>k__BackingField: {r: 1, g: 0, b: 0, a: 0}
   <Text>k__BackingField: KAPOW!
   <TextColor>k__BackingField: {r: 0.101960786, g: 0.7529412, b: 0.101960786, a: 1}

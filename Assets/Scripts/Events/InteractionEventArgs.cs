@@ -6,10 +6,10 @@ public class RefereeEventArgs : EventArgs
     public readonly EventSource receiver;
     public readonly RefereeEventType type;
 
-    public RefereeEventArgs(EventSource sender, EventSource reciever, RefereeEventType type)
+    public RefereeEventArgs(EventSource sender, EventSource receiver, RefereeEventType type)
     {
         this.sender = sender;
-        this.receiver = reciever;
+        this.receiver = receiver;
         this.type = type;
     }
 }
