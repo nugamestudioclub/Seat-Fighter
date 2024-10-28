@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b599a5a6a4394e645b9de704ffaccdf1, type: 3}
   m_Name: WhatBubbleConfig
   m_EditorClassIdentifier: 
-  <FillColor>k__BackingField: {r: 1, g: 1, b: 1, a: 0}
-  <StrokeColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
+  <FillSprite>k__BackingField: {fileID: 0}
+  <FillColor>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+  <StrokeSprite>k__BackingField: {fileID: 0}
+  <StrokeColor>k__BackingField: {r: 0, g: 0, b: 0, a: 1}
   <Text>k__BackingField: WHAT?!
-  <TextColor>k__BackingField: {r: 1, g: 0, b: 0, a: 0}
+  <TextColor>k__BackingField: {r: 1, g: 0, b: 0, a: 1}
   <ShapeScale>k__BackingField: {x: 0.9, y: 0.55, z: 1}

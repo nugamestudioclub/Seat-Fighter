@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b599a5a6a4394e645b9de704ffaccdf1, type: 3}
   m_Name: PowBubbleConfig
   m_EditorClassIdentifier: 
+  <FillSprite>k__BackingField: {fileID: 0}
   <FillColor>k__BackingField: {r: 1, g: 0, b: 0, a: 1}
-  <StrokeColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
+  <StrokeSprite>k__BackingField: {fileID: 0}
+  <StrokeColor>k__BackingField: {r: 0, g: 0, b: 0, a: 1}
   <Text>k__BackingField: POW!
-  <TextColor>k__BackingField: {r: 1, g: 1, b: 0, a: 0}
+  <TextColor>k__BackingField: {r: 1, g: 1, b: 0, a: 1}
   <ShapeScale>k__BackingField: {x: 1, y: 0.5, z: 1}

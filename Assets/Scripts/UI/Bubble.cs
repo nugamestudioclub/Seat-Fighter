@@ -98,7 +98,7 @@ public class Bubble : MonoBehaviour
         SetStrokeColor(bubbleConfig.StrokeColor);
         SetStrokeSprite(bubbleConfig.StrokeSprite);
         SetScale(bubbleConfig.ShapeScale);
-        SetShapeScale(bubbleConfig.ShapeScale);
+        //SetShapeScale(bubbleConfig.ShapeScale);
         SetText(bubbleConfig.Text);
         SetTextColor(bubbleConfig.TextColor);
     }
