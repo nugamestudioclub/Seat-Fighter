@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{865e82f6-26d0-4b42-9d08-9d8cdab32871}">
 		<property name="assetPath">
-			<value>SF_Win_Screen_-_Loop.wav</value>
+			<value>MX/SF_Win_Screen_-_Loop.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

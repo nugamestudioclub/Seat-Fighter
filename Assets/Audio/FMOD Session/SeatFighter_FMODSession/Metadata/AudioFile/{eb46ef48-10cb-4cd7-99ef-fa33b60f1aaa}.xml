@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{eb46ef48-10cb-4cd7-99ef-fa33b60f1aaa}">
 		<property name="assetPath">
-			<value>Madhav_select1.wav</value>
+			<value>VO/Madhav/Madhav_select1.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>

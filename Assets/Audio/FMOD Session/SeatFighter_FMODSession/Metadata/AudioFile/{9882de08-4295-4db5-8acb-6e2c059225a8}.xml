@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{9882de08-4295-4db5-8acb-6e2c059225a8}">
 		<property name="assetPath">
-			<value>Hit_anything_except_block.wav</value>
+			<value>SFX/Interactions/Hit_anything_except_block.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>

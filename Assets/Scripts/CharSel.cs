@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -80,6 +81,7 @@ public class CharSel : MonoBehaviour {
 		get => isLeftPlayerReady;
 		set {
 			if( value ) {
+				FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/Select");
 				FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(gameInProgress.LeftPlayer.greetings);
 				//audioHandler.PlayRandomFromList(EventSource.LEFT, gameInProgress.LeftPlayer.greetings);
 				//FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Panning", 0);
@@ -95,6 +97,7 @@ public class CharSel : MonoBehaviour {
 		get => isRightPlayerReady;
 		set {
 			if( value ) {
+				FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/Select");
 				FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(gameInProgress.RightPlayer.greetings);
 				//audioHandler.PlayRandomFromList(EventSource.LEFT, gameInProgress.LeftPlayer.greetings);
 				//FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Panning", 0);
@@ -161,18 +164,22 @@ public class CharSel : MonoBehaviour {
 
 		if( IsLeftPlayerReady && IsRightPlayerReady ) {
 			if( GetRightCancel() ) {
+				FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/Back");
 				IsRightPlayerReady = false;
 			}
 			else if( GetLeftCancel() ) {
+				FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/Back");
 				IsLeftPlayerReady = false;
 			}
 			else if( (GetLeftStart() || GetRightStart()) ) {
 				masterBus.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+				FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/Select Ready");
 				GameInProgress.Instance.LoadScene("MainScene");
 			}
 		}
 		else if( IsRightPlayerReady ) {
 			if( GetRightCancel() ) {
+				FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/Back");
 				IsRightPlayerReady = false;
 			}
 			else if( GetLeftStart() ) {
@@ -181,6 +188,7 @@ public class CharSel : MonoBehaviour {
 		}
 		else if( IsLeftPlayerReady ) {
 			if( GetLeftCancel() ) {
+				FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/Back");
 				IsLeftPlayerReady = false;
 			}
 			else if( GetRightStart() ) {
@@ -205,17 +213,21 @@ public class CharSel : MonoBehaviour {
 		if( fixedFrameCount % frameInterval == 0 ) {
 			if( !IsLeftPlayerReady ) {
 				if( LeftPlayerMoveLeft ) {
+					FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/Move Cursor");
 					LeftPlayerIndex = (LeftPlayerIndex - 1 + characters.Count) % characters.Count;
 				}
 				else if( LeftPlayerMoveRight ) {
+					FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/Move Cursor");
 					LeftPlayerIndex = (LeftPlayerIndex + 1) % characters.Count;
 				}
 			}
 			else if( isAI && !IsRightPlayerReady ) {
 				if( LeftPlayerMoveLeft ) {
+					FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/Move Cursor");
 					RightPlayerIndex = (RightPlayerIndex + characters.Count - 1) % characters.Count;
 				}
 				else if( LeftPlayerMoveRight ) {
+					FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/Move Cursor");
 					RightPlayerIndex = (RightPlayerIndex + 1) % characters.Count;
 				}
 			}
@@ -223,9 +235,11 @@ public class CharSel : MonoBehaviour {
 
 			if( !isAI && !IsRightPlayerReady ) {
 				if( RightPlayerMoveLeft ) {
+					FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/Move Cursor");
 					RightPlayerIndex = (RightPlayerIndex + characters.Count - 1) % characters.Count;
 				}
 				else if( RightPlayerMoveRight ) {
+					FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/Move Cursor");
 					RightPlayerIndex = (RightPlayerIndex + 1) % characters.Count;
 				}
 			}
@@ -236,6 +250,7 @@ public class CharSel : MonoBehaviour {
 	}
 
 	public void HandleBack() {
+		FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/Back");
 		GameInProgress.Instance.LoadScene("TitleScreen");
 	}
 

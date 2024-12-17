@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{7c438c19-634e-450b-b50b-3b7044505255}">
 		<property name="assetPath">
-			<value>gordon_taunt1.wav</value>
+			<value>VO/Gordon/gordon_taunt1.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>

@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{bffc5b8b-1eeb-444d-9d31-c0bf34872226}">
 		<property name="assetPath">
-			<value>Jordan_select2.wav</value>
+			<value>VO/Jordan/Jordan_select2.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>

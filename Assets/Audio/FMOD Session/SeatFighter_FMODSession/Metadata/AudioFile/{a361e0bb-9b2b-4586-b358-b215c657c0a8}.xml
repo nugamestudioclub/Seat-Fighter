@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{a361e0bb-9b2b-4586-b358-b215c657c0a8}">
 		<property name="assetPath">
-			<value>SF_Win_Screen_-_Intro.wav</value>
+			<value>MX/SF_Win_Screen_-_Intro.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

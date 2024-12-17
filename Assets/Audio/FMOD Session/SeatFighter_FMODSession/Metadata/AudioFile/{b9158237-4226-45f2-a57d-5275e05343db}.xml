@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{b9158237-4226-45f2-a57d-5275e05343db}">
 		<property name="assetPath">
-			<value>wizard_taunt1.wav</value>
+			<value>VO/Wizard/wizard_taunt1.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>

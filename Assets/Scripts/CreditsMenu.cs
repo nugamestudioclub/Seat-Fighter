@@ -30,6 +30,7 @@ public class CreditsMenu : MonoBehaviour {
 	public void HandleMainMenu() {
 		if( Time.timeSinceLevelLoad <= 1 )
 			return;
+		FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/Back");
 		GameInProgress.Instance.LoadScene("TitleScreen");
 	}
 	

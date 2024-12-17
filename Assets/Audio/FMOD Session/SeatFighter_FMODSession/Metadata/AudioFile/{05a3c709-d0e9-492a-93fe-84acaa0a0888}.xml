@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{05a3c709-d0e9-492a-93fe-84acaa0a0888}">
 		<property name="assetPath">
-			<value>Stamina_0.wav</value>
+			<value>SFX/Stamina_0.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>

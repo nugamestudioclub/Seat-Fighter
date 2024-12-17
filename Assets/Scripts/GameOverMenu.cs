@@ -80,9 +80,11 @@ public class GameOverMenu : MonoBehaviour {
 	}
 
 	public void MainMenu() {
+		FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/Select");
 		SceneManager.LoadScene("TitleScreen");
 	}
 	public void PlayAgain() {
+		FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/UI/Select");
 		SceneManager.LoadScene("MainScene");
 	}
 
