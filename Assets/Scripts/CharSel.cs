@@ -12,6 +12,8 @@ public class CharSel : MonoBehaviour {
 
 	private GameInProgress gameInProgress;
 
+	private FMOD.Studio.Bus masterBus;
+
 	[SerializeField]
 	//private AudioHandler audioHandler;
 
@@ -145,6 +147,8 @@ public class CharSel : MonoBehaviour {
 		}
 		ShowInstructions(false);
 		UpdateSprites();
+
+		masterBus = FMODUnity.RuntimeManager.GetBus("bus:/");
 	}
 
 	void Update() {
@@ -163,6 +167,7 @@ public class CharSel : MonoBehaviour {
 				IsLeftPlayerReady = false;
 			}
 			else if( (GetLeftStart() || GetRightStart()) ) {
+				masterBus.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 				GameInProgress.Instance.LoadScene("MainScene");
 			}
 		}

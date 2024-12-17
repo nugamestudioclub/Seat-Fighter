@@ -176,8 +176,12 @@ PrefabInstance:
       value: AudioManager
       objectReference: {fileID: 0}
     - target: {fileID: 8393086361042820818, guid: 16883b2cf549e44969cef9a4a565d480, type: 3}
+      propertyPath: EventPlayTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8393086361042820818, guid: 16883b2cf549e44969cef9a4a565d480, type: 3}
       propertyPath: EventReference.Path
-      value: event:/MX/Character Select
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8393086361042820818, guid: 16883b2cf549e44969cef9a4a565d480, type: 3}
       propertyPath: OverrideMaxDistance
@@ -189,19 +193,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8393086361042820818, guid: 16883b2cf549e44969cef9a4a565d480, type: 3}
       propertyPath: EventReference.Guid.Data1
-      value: 1247749645
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8393086361042820818, guid: 16883b2cf549e44969cef9a4a565d480, type: 3}
       propertyPath: EventReference.Guid.Data2
-      value: 1232622542
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8393086361042820818, guid: 16883b2cf549e44969cef9a4a565d480, type: 3}
       propertyPath: EventReference.Guid.Data3
-      value: 1299479725
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8393086361042820818, guid: 16883b2cf549e44969cef9a4a565d480, type: 3}
       propertyPath: EventReference.Guid.Data4
-      value: -1915512205
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

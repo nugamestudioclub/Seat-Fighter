@@ -1,6 +1,8 @@
 ﻿using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using FMODUnity;
+using FMOD;
 
 public class MainMenu : MonoBehaviour {
 	[SerializeField]
