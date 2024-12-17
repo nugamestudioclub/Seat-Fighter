@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
+using FMOD;
 
 [CreateAssetMenu(
     fileName = nameof(PlayerConfig),
@@ -28,7 +30,7 @@ public class PlayerConfig : ScriptableObject
     public Sprite idleSprite;
     public Sprite portrait;
 
-    public List<AudioClip> greetings;
-    public List<AudioClip> taunts;
+    public FMODUnity.EventReference greetings;
+    public FMODUnity.EventReference taunts;
 
 }

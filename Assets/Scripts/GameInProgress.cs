@@ -46,6 +46,7 @@ public class GameInProgress : MonoBehaviour {
 	}
 
 	public void LoadScene(string name) {
+		//Debug.Log(LeftInput.InputData);
 		if( LeftInput != null )
 			LeftInput.IsActive = false;
 		if( RightInput != null )

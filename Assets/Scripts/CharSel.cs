@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using FMODUnity;
+using FMOD;
 
 public class CharSel : MonoBehaviour {
 	private InputController inputController_menu;
@@ -11,7 +13,7 @@ public class CharSel : MonoBehaviour {
 	private GameInProgress gameInProgress;
 
 	[SerializeField]
-	private AudioHandler audioHandler;
+	//private AudioHandler audioHandler;
 
 	private int leftPlayerIndex = 0;
 	private int LeftPlayerIndex {
@@ -76,7 +78,11 @@ public class CharSel : MonoBehaviour {
 		get => isLeftPlayerReady;
 		set {
 			if( value ) {
-				audioHandler.PlayRandomFromList(EventSource.LEFT, gameInProgress.LeftPlayer.greetings);
+				FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(gameInProgress.LeftPlayer.greetings);
+				//audioHandler.PlayRandomFromList(EventSource.LEFT, gameInProgress.LeftPlayer.greetings);
+				//FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Panning", 0);
+				instance.start();
+				instance.release();
 			}
 			isLeftPlayerReady = value;
 		}
@@ -87,7 +93,12 @@ public class CharSel : MonoBehaviour {
 		get => isRightPlayerReady;
 		set {
 			if( value ) {
-				audioHandler.PlayRandomFromList(EventSource.RIGHT, gameInProgress.RightPlayer.greetings);
+				FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance(gameInProgress.RightPlayer.greetings);
+				//audioHandler.PlayRandomFromList(EventSource.LEFT, gameInProgress.LeftPlayer.greetings);
+				//FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Panning", 0);
+				instance.setParameterByName("Panning", 2);
+				instance.start();
+				instance.release();
 			}
 			isRightPlayerReady = value;
 		}

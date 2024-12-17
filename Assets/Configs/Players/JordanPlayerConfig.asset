@@ -28,11 +28,16 @@ MonoBehaviour:
   idleSprite: {fileID: 21300000, guid: 9adb16e2252ed0543a68068086bed5ba, type: 3}
   portrait: {fileID: 21300000, guid: 19cc15a35a7a48546b1c70a267a4a728, type: 3}
   greetings:
-  - {fileID: 8300000, guid: 9a0dcb78e4e32e64baf543cb1f145cd8, type: 3}
-  - {fileID: 8300000, guid: bb5f609f35d498d41875c087bad297ce, type: 3}
-  - {fileID: 8300000, guid: 11bc5d338fdd0a84086363a68a012b7b, type: 3}
-  - {fileID: 8300000, guid: 0aed2173a9f17b243ae80b01562d24d2, type: 3}
-  - {fileID: 8300000, guid: 2a37ff3c9b81cac42ab1b97d914ce1a8, type: 3}
+    Guid:
+      Data1: -1551564093
+      Data2: 1180721261
+      Data3: 1499315853
+      Data4: 1505325593
+    Path: event:/VO/Jordan/Jordan Select
   taunts:
-  - {fileID: 8300000, guid: 07a1dc3987f20f94fb9193897197cff7, type: 3}
-  - {fileID: 8300000, guid: 9f290840ab4cf314da4d2dc5b6495ffe, type: 3}
+    Guid:
+      Data1: -395682975
+      Data2: 1106663730
+      Data3: 295606152
+      Data4: -412832263
+    Path: event:/VO/Jordan/Jordan Taunt

@@ -112,7 +112,7 @@ public class View : MonoBehaviour
     public void HandleShoveDown1() => HandleButton(Button.Shove, 1, true);
     private void Referee_OnInteraction(object sender, RefereeEventArgs e)
     {
-        Debug.Log($"ref event {e.type}");
+        //Debug.Log($"ref event {e.type}");
         if (interactionVfx.TryGetValue(e.type, out KeyValuePair<List<BubbleConfig>, float> vfx) && vfx.Key.Count > 0)
         {
             Debug.Log("inside!!!");

@@ -9,6 +9,8 @@ public class Referee
 
     public event EventHandler<RefereeEventArgs> RefereeEvent;
 
+    private FMOD.Studio.EventInstance instance;
+
     public Referee(Player leftPlayer, Player rightPlayer, Environment environment)
     {
         this.leftPlayer = leftPlayer;
@@ -31,19 +33,29 @@ public class Referee
         if (environment.LeftPlayerTime <= 0)
         {
             OnRefereeEvent(new RefereeEventArgs(EventSource.ENVIRONEMNT, EventSource.RIGHT, RefereeEventType.Win));
-
+            instance = FMODUnity.RuntimeManager.CreateInstance(rightPlayer.Config.taunts);
+            instance.setParameterByName("Panning", 2);
+            instance.start();
         }
         else if (environment.RightPlayerTime <= 0)
         {
             OnRefereeEvent(new RefereeEventArgs(EventSource.ENVIRONEMNT, EventSource.LEFT, RefereeEventType.Win));
-
+            instance = FMODUnity.RuntimeManager.CreateInstance(leftPlayer.Config.taunts);
+            instance.setParameterByName("Panning", 0);
+            instance.start();
         }
         else if (environment.Position <= 0) //left player is oob
         {
+            instance = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Damage");
+            instance.setParameterByName("Panning", 0);
+            instance.start();
             OnRefereeEvent(new RefereeEventArgs(EventSource.ENVIRONEMNT, EventSource.LEFT, RefereeEventType.OutOfBounds));
         }
         else if (environment.Position >= environment.Config.armrestWidth)
         {
+            instance = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Damage");
+            instance.setParameterByName("Panning", 2);
+            instance.start();
             OnRefereeEvent(new RefereeEventArgs(EventSource.ENVIRONEMNT, EventSource.RIGHT, RefereeEventType.OutOfBounds));
         }
 
@@ -62,10 +74,16 @@ public class Referee
         //stun shove
         if (leftPlayerState == ActionState.STUNNED && rightPlayerState == ActionState.SHOVING)
         {
+            instance = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Interactions/Hit Anything Except Block");
+            instance.setParameterByName("Panning", 0);
+            instance.start();
             OnRefereeEvent(new RefereeEventArgs(EventSource.LEFT, EventSource.RIGHT, RefereeEventType.StunShove));
         }
         else if (rightPlayerState == ActionState.STUNNED && leftPlayerState == ActionState.SHOVING)
         {
+            instance = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Interactions/Hit Anything Except Block");
+            instance.setParameterByName("Panning", 2);
+            instance.start();
             OnRefereeEvent(new RefereeEventArgs(EventSource.RIGHT, EventSource.LEFT, RefereeEventType.StunShove));
         }
         //stun push
@@ -99,10 +117,17 @@ public class Referee
         //blocking shove
         if (leftPlayerState == ActionState.SHOVING && rightPlayerState == ActionState.BLOCKING)
         {
+            instance = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Interactions/Shove Hit Block");
+            instance.setParameterByName("Panning", 2);
+            instance.start();
             OnRefereeEvent(new RefereeEventArgs(EventSource.LEFT, EventSource.RIGHT, RefereeEventType.ShoveBlock));
         }
         else if (rightPlayerState == ActionState.SHOVING && leftPlayerState == ActionState.BLOCKING)
         {
+            instance = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Interactions/Shove Hit Block");
+            instance.setParameterByName("Panning", 0);
+            instance.start();
+            OnRefereeEvent(new RefereeEventArgs(EventSource.LEFT, EventSource.RIGHT, RefereeEventType.ShoveBlock));
             OnRefereeEvent(new RefereeEventArgs(EventSource.RIGHT, EventSource.LEFT, RefereeEventType.ShoveBlock));
         }
 
@@ -139,16 +164,25 @@ public class Referee
         //shove push
         else if (leftPlayerState == ActionState.PUSHING && rightPlayerState == ActionState.SHOVING)
         {
+            instance = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Interactions/Hit Anything Except Block");
+            instance.setParameterByName("Panning", 2);
+            instance.start();
             OnRefereeEvent(new RefereeEventArgs(EventSource.LEFT, EventSource.RIGHT, RefereeEventType.PushShove));
         }
         else if (rightPlayerState == ActionState.PUSHING && leftPlayerState == ActionState.SHOVING)
         {
+            instance = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Interactions/Hit Anything Except Block");
+            instance.setParameterByName("Panning", 2);
+            instance.start();
             OnRefereeEvent(new RefereeEventArgs(EventSource.RIGHT, EventSource.LEFT, RefereeEventType.PushShove));
         }
 
         //shove shove 
         else if (rightPlayerState == ActionState.SHOVING && leftPlayerState == ActionState.SHOVING)
         {
+            instance = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Interactions/Hit Anything Except Block");
+            instance.setParameterByName("Panning", 1);
+            instance.start();
             OnRefereeEvent(new RefereeEventArgs(EventSource.RIGHT, EventSource.LEFT, RefereeEventType.ShoveShove));
         }
         //push push

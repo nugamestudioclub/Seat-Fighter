@@ -26,6 +26,7 @@ public class InputController {
 		get => _isActive;
 		set {
 			_isActive = value;
+			Debug.Log(value);
 			if( !value )
 				_inputData = new();
 		}		

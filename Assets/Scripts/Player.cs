@@ -1,5 +1,7 @@
+using UnityEngine;
 using System;
 using System.Collections.Generic;
+using FMODUnity;
 
 public class Player
 {
@@ -98,15 +100,48 @@ public class Player
             {
                 case Action.Block:
                     Block();
+                    FMOD.Studio.EventInstance blockInstance = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Block");
+                    if (this.playerSide == EventSource.LEFT) {
+                        blockInstance.setParameterByName("Panning", 0);
+                    } else {
+                        blockInstance.setParameterByName("Panning", 2);
+                    }
+                    blockInstance.start();
+                    blockInstance.release();
                     break;
                 case Action.Dodge:
                     Dodge();
+                    FMOD.Studio.EventInstance dodgeInstance = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Dodge");
+                    if (this.playerSide == EventSource.LEFT) {
+                        dodgeInstance.setParameterByName("Panning", 0);
+                    } else {
+                        dodgeInstance.setParameterByName("Panning", 2);
+                    }
+                    dodgeInstance.start();
+                    dodgeInstance.release();
                     break;
                 case Action.Push:
                     Push();
+                    //Debug.Log(this.playerSide);
+                    FMOD.Studio.EventInstance pushInstance = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Push");
+                    if (this.playerSide == EventSource.LEFT) {
+                        pushInstance.setParameterByName("Panning", 0);
+                    } else {
+                        pushInstance.setParameterByName("Panning", 2);
+                    }
+                    pushInstance.start();
+                    pushInstance.release();
                     break;
                 case Action.Shove:
                     Shove();
+                    FMOD.Studio.EventInstance shoveInstance = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Shove");
+                    if (this.playerSide == EventSource.LEFT) {
+                        shoveInstance.setParameterByName("Panning", 0);
+                    } else {
+                        shoveInstance.setParameterByName("Panning", 2);
+                    }
+                    shoveInstance.start();
+                    shoveInstance.release();
                     break;
             }
         }
@@ -126,6 +161,14 @@ public class Player
         if (Stamina <= 0)
         {
             Stun();
+            FMOD.Studio.EventInstance stunInstance = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Stun");
+                    if (this.playerSide == EventSource.LEFT) {
+                        stunInstance.setParameterByName("Panning", 0);
+                    } else {
+                        stunInstance.setParameterByName("Panning", 2);
+                    }
+                    stunInstance.start();
+                    stunInstance.release();
         }
         ActionState nowState = CurrentFrameData.state;
         if (nowState == ActionState.IDLE)

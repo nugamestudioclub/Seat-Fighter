@@ -41,3 +41,10 @@ MonoBehaviour:
     duration: 1
   - sprite: {fileID: 21300000, guid: 44ff7eeafcbead043a95eec0d0528587, type: 3}
     duration: 1
+  eventReference:
+    Guid:
+      Data1: 729129425
+      Data2: 1225883267
+      Data3: -310153574
+      Data4: 1181633162
+    Path: event:/SFX/Push

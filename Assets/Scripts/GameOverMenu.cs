@@ -41,7 +41,7 @@ public class GameOverMenu : MonoBehaviour {
 	Vector3 messagePosition;
 
 	[SerializeField]
-	private AudioHandler audioHandler;
+	//private AudioHandler audioHandler;
 
 	private void Start() {
 		SetWinner();
@@ -62,7 +62,7 @@ public class GameOverMenu : MonoBehaviour {
 		Debug.Log(winner);
 
 		if( winnerId == 0 ) {
-			audioHandler.PlayRandomFromList(EventSource.LEFT, winner.taunts);
+			//audioHandler.PlayRandomFromList(EventSource.LEFT, winner.taunts);
             leftName.text = winner.characterName;
 			leftMessage.SetActive(true);
 			rightMessage.SetActive(false);
@@ -70,7 +70,7 @@ public class GameOverMenu : MonoBehaviour {
             rightPlayerPortrait.flipY = true;
         }
 		else {
-            audioHandler.PlayRandomFromList(EventSource.RIGHT, winner.taunts);
+            //audioHandler.PlayRandomFromList(EventSource.RIGHT, winner.taunts);
             rightName.text = winner.characterName;
 			leftMessage.SetActive(false);
 			rightMessage.SetActive(true);

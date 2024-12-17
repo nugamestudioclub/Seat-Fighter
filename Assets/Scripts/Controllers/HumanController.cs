@@ -1,4 +1,6 @@
-﻿public class HumanController : IActionProvider {
+﻿using FMODUnity;
+
+public class HumanController : IActionProvider {
 	private readonly InputController _controller;
 
 	public HumanController(InputController controller) {

@@ -28,7 +28,16 @@ MonoBehaviour:
   idleSprite: {fileID: 21300000, guid: eafa2c5989ea38a489cdf78b6bc223f7, type: 3}
   portrait: {fileID: 21300000, guid: aa29aa5e1c645ac40a4ca7d2edc1ec14, type: 3}
   greetings:
-  - {fileID: 8300000, guid: 7c672167ee90b3246ba070334903d8a6, type: 3}
+    Guid:
+      Data1: 2104046946
+      Data2: 1104628587
+      Data3: 150467478
+      Data4: 361202273
+    Path: event:/VO/Gordon/Gordon Select
   taunts:
-  - {fileID: 8300000, guid: 360ff0f859b25e449bd3be502402deae, type: 3}
-  - {fileID: 8300000, guid: a4a6848b505b3194299c23af61514e73, type: 3}
+    Guid:
+      Data1: -1171323489
+      Data2: 1337418950
+      Data3: -423662968
+      Data4: -412412779
+    Path: event:/VO/Gordon/Gordon Taunt

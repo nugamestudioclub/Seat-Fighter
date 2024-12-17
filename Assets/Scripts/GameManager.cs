@@ -2,14 +2,12 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using FMODUnity;
 
 public class GameManager : MonoBehaviour {
 
 	//referee
 	private Referee referee;
-	//sounds
-	[SerializeField]
-	private AudioHandler audioManager;
 	//ui
 	[SerializeField]
 	private View view;
@@ -110,8 +108,6 @@ public class GameManager : MonoBehaviour {
 
 		if( view != null )
 			view.Bind(referee, environment, leftPlayer, rightPlayer, config.specialEffectConfig);
-		if( audioManager != null )
-			audioManager.Bind(referee, leftPlayer, rightPlayer, environment, config.specialEffectConfig);
 
 		referee.RefereeEvent += Referee_OnInteraction;
 
@@ -121,6 +117,9 @@ public class GameManager : MonoBehaviour {
 	private IActionProvider GetLeftController() {
 		var input = new InputController(0);
 		GameInProgress.Instance.LeftInput = input;
+		//leftPlayer.eventReference = input;
+		//FMODUnity.PlayOneShot();
+		//Debug.Log(input);
 		return new HumanController(input);
 	}
 

@@ -28,7 +28,16 @@ MonoBehaviour:
   idleSprite: {fileID: 21300000, guid: 29e21f83b5e285641a7c29aea829e911, type: 3}
   portrait: {fileID: 21300000, guid: 01358d2ddbb9d174d8d6e2b38efafcd6, type: 3}
   greetings:
-  - {fileID: 8300000, guid: ea1bb44d218b4d840939dd4de9ce6975, type: 3}
+    Guid:
+      Data1: -505957401
+      Data2: 1334432857
+      Data3: -453199461
+      Data4: 1825432525
+    Path: event:/VO/Madhav/Madhav Select
   taunts:
-  - {fileID: 8300000, guid: bf860f659d1977d48ad4288700c46fa1, type: 3}
-  - {fileID: 8300000, guid: ccc23dfeb4bacbc469db295c07ea7939, type: 3}
+    Guid:
+      Data1: -400337362
+      Data2: 1195384084
+      Data3: -1472657733
+      Data4: 566422315
+    Path: event:/VO/Madhav/Madhav Taunt
