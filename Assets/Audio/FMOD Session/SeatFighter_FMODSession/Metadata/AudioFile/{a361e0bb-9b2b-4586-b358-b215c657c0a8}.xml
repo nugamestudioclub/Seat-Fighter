@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{a361e0bb-9b2b-4586-b358-b215c657c0a8}">
+		<property name="assetPath">
+			<value>SF_Win_Screen_-_Intro.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>13.584897959183673</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{08e7abcf-a456-411c-afde-c6ed5af7ad8c}</destination>
+		</relationship>
+	</object>
+</objects>

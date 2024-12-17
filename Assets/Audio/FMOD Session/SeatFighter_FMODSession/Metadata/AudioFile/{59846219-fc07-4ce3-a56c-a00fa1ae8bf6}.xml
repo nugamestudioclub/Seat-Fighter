@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{59846219-fc07-4ce3-a56c-a00fa1ae8bf6}">
+		<property name="assetPath">
+			<value>Jordan_select3.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>1.5354166666666667</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{08e7abcf-a456-411c-afde-c6ed5af7ad8c}</destination>
+		</relationship>
+	</object>
+</objects>
