@@ -18,6 +18,7 @@
 		<relationship name="effects">
 			<destination>{b04bf8d4-1537-4b9f-a2d6-cd5a59d2b858}</destination>
 			<destination>{284eca7e-4dc7-4b8a-80fa-c173519ddd26}</destination>
+			<destination>{2ef846a0-0590-422e-91f1-71116348da03}</destination>
 			<destination>{78b81afd-11b1-4d98-99e9-87cd4b142ad2}</destination>
 		</relationship>
 	</object>
@@ -36,7 +37,7 @@
 			<value>960</value>
 		</property>
 		<property name="gain">
-			<value>12</value>
+			<value>9</value>
 		</property>
 		<property name="linkChannels">
 			<value>false</value>
@@ -45,6 +46,11 @@
 	<object class="Sidechain" id="{284eca7e-4dc7-4b8a-80fa-c173519ddd26}">
 		<property name="level">
 			<value>-8</value>
+		</property>
+	</object>
+	<object class="LimiterEffect" id="{2ef846a0-0590-422e-91f1-71116348da03}">
+		<property name="ceiling">
+			<value>-1</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{78b81afd-11b1-4d98-99e9-87cd4b142ad2}" />
