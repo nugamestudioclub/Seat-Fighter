@@ -1,0 +1,1276 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9130345318954342145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/Gordon/Gordon Taunt
+  m_EditorClassIdentifier: 
+  Path: event:/VO/Gordon/Gordon Taunt
+  Guid:
+    Data1: -1171323489
+    Data2: 1337418950
+    Data3: -423662968
+    Data4: -412412779
+  Banks:
+  - {fileID: -2626554323551273225}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -8612058490837075217}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-9048976520372396197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/Madhav/Madhav Taunt
+  m_EditorClassIdentifier: 
+  Path: event:/VO/Madhav/Madhav Taunt
+  Guid:
+    Data1: -400337362
+    Data2: 1195384084
+    Data3: -1472657733
+    Data4: 566422315
+  Banks:
+  - {fileID: -2626554323551273225}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 5987302089495086795}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-8758983799612206800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Shove
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Shove
+  Guid:
+    Data1: 52007315
+    Data2: 1335536356
+    Data3: 1832479403
+    Data4: 112771567
+  Banks:
+  - {fileID: -1889247418213262979}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -6377146800272969083}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-8612058490837075217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Gordon Taunt/Panning
+  m_EditorClassIdentifier: 
+  Name: Panning
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 3878758159
+    data2: 2405326717
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Left
+  - Center
+  - Right
+  Exists: 1
+--- !u!114 &-8301028616472633655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/Madhav/Madhav Select
+  m_EditorClassIdentifier: 
+  Path: event:/VO/Madhav/Madhav Select
+  Guid:
+    Data1: -505957401
+    Data2: 1334432857
+    Data3: -453199461
+    Data4: 1825432525
+  Banks:
+  - {fileID: -2626554323551273225}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 2883395918404620015}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-7990470392090253096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/UI/Cancel
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/UI/Cancel
+  Guid:
+    Data1: 607502043
+    Data2: 1094839217
+    Data3: -1093599867
+    Data4: -731678019
+  Banks:
+  - {fileID: -1889247418213262979}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-7842718927065374054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Jordan Select/Panning
+  m_EditorClassIdentifier: 
+  Name: Panning
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 3878758159
+    data2: 2405326717
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Left
+  - Center
+  - Right
+  Exists: 1
+--- !u!114 &-7651468831425829965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Jordan Taunt/Panning
+  m_EditorClassIdentifier: 
+  Name: Panning
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 3878758159
+    data2: 2405326717
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Left
+  - Center
+  - Right
+  Exists: 1
+--- !u!114 &-6760142259259638821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Damage/Panning
+  m_EditorClassIdentifier: 
+  Name: Panning
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 3878758159
+    data2: 2405326717
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Left
+  - Center
+  - Right
+  Exists: 1
+--- !u!114 &-6377146800272969083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Shove/Panning
+  m_EditorClassIdentifier: 
+  Name: Panning
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 3878758159
+    data2: 2405326717
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Left
+  - Center
+  - Right
+  Exists: 1
+--- !u!114 &-5945710516832822817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Block/Panning
+  m_EditorClassIdentifier: 
+  Name: Panning
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 3878758159
+    data2: 2405326717
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Left
+  - Center
+  - Right
+  Exists: 1
+--- !u!114 &-5214395981097875005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Damage
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Damage
+  Guid:
+    Data1: 303295885
+    Data2: 1324007485
+    Data3: -2059736443
+    Data4: 1942833988
+  Banks:
+  - {fileID: -1889247418213262979}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -6760142259259638821}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-4216249582337084968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/Wizard/Wizard Taunt
+  m_EditorClassIdentifier: 
+  Path: event:/VO/Wizard/Wizard Taunt
+  Guid:
+    Data1: 957045871
+    Data2: 1146724173
+    Data3: -1464762971
+    Data4: 251134727
+  Banks:
+  - {fileID: -2626554323551273225}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 4289744191760329590}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-4171736200535273561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Interactions/Hit Anything Except Block
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Interactions/Hit Anything Except Block
+  Guid:
+    Data1: -269155392
+    Data2: 1176997856
+    Data3: 319157890
+    Data4: -1287647586
+  Banks:
+  - {fileID: -1889247418213262979}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 17280236164354586}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-3159605301357367101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/Gordon/Gordon Select
+  m_EditorClassIdentifier: 
+  Path: event:/VO/Gordon/Gordon Select
+  Guid:
+    Data1: 2104046946
+    Data2: 1104628587
+    Data3: 150467478
+    Data4: 361202273
+  Banks:
+  - {fileID: -2626554323551273225}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 6040226220847077403}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-2933453275264768754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/Jordan/Jordan Select
+  m_EditorClassIdentifier: 
+  Path: event:/VO/Jordan/Jordan Select
+  Guid:
+    Data1: -1551564093
+    Data2: 1180721261
+    Data3: 1499315853
+    Data4: 1505325593
+  Banks:
+  - {fileID: -2626554323551273225}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -7842718927065374054}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-2626554323551273225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/VO.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Audio/FMOD Session/SeatFighter_FMODSession/Build/Desktop/VO.bank
+  Name: VO
+  StudioPath: bank:/VO
+  lastModified: 638705694696966869
+  FileSizes:
+  - Name: Desktop
+    Value: 259456
+  Exists: 1
+--- !u!114 &-1889247418213262979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Audio/FMOD Session/SeatFighter_FMODSession/Build/Desktop/SFX.bank
+  Name: SFX
+  StudioPath: bank:/SFX
+  lastModified: 638705694696956866
+  FileSizes:
+  - Name: Desktop
+    Value: 88480
+  Exists: 1
+--- !u!114 &-1718545814941024636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Dodge/Panning
+  m_EditorClassIdentifier: 
+  Name: Panning
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 3878758159
+    data2: 2405326717
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Left
+  - Center
+  - Right
+  Exists: 1
+--- !u!114 &-1580413023076478669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Dodge
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Dodge
+  Guid:
+    Data1: -969462749
+    Data2: 1113577747
+    Data3: 1753622157
+    Data4: 931640176
+  Banks:
+  - {fileID: -1889247418213262979}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -1718545814941024636}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-1302536090801269162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/UI/Move Cursor
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/UI/Move Cursor
+  Guid:
+    Data1: -2048590613
+    Data2: 1213852609
+    Data3: 2124909242
+    Data4: -39308520
+  Banks:
+  - {fileID: -1889247418213262979}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-1060861880055034764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MX/Title Screen
+  m_EditorClassIdentifier: 
+  Path: event:/MX/Title Screen
+  Guid:
+    Data1: 1667615642
+    Data2: 1101209667
+    Data3: -659343712
+    Data4: 639076467
+  Banks:
+  - {fileID: 2521846409234442171}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 108169
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: 1383307702997899696}
+  - {fileID: 2378009937138764495}
+  - {fileID: 2521846409234442171}
+  - {fileID: -1889247418213262979}
+  - {fileID: -2626554323551273225}
+  EditorEvents:
+  - {fileID: 1505112886584963844}
+  - {fileID: -1060861880055034764}
+  - {fileID: 8379361209094795194}
+  - {fileID: 7690553621393243859}
+  - {fileID: 8786641214656685076}
+  - {fileID: -1580413023076478669}
+  - {fileID: 4510897418347957624}
+  - {fileID: -5214395981097875005}
+  - {fileID: -8758983799612206800}
+  - {fileID: 6169099920265403111}
+  - {fileID: -4171736200535273561}
+  - {fileID: 8815481753958702153}
+  - {fileID: 3591128616777058481}
+  - {fileID: -7990470392090253096}
+  - {fileID: 889277171798086812}
+  - {fileID: -1302536090801269162}
+  - {fileID: 6632914832584982296}
+  - {fileID: -9048976520372396197}
+  - {fileID: 5745175388727733354}
+  - {fileID: -3159605301357367101}
+  - {fileID: -4216249582337084968}
+  - {fileID: -9130345318954342145}
+  - {fileID: -2933453275264768754}
+  - {fileID: 3045165045452183778}
+  - {fileID: -8301028616472633655}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: 2378009937138764495}
+  StringsBanks:
+  - {fileID: 1383307702997899696}
+  cacheTime: 638705694696966869
+  cacheVersion: 131621
+--- !u!114 &17280236164354586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Hit Anything Except Block/Panning
+  m_EditorClassIdentifier: 
+  Name: Panning
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 3878758159
+    data2: 2405326717
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Left
+  - Center
+  - Right
+  Exists: 1
+--- !u!114 &889277171798086812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Stun
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Stun
+  Guid:
+    Data1: -1962174229
+    Data2: 1106313083
+    Data3: 1263279546
+    Data4: -1049005712
+  Banks:
+  - {fileID: -1889247418213262979}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 8559359600675915780}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3771
+--- !u!114 &1383307702997899696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Audio/FMOD Session/SeatFighter_FMODSession/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638705694696956866
+  FileSizes:
+  - Name: Desktop
+    Value: 2196
+  Exists: 1
+--- !u!114 &1505112886584963844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MX/Character Select
+  m_EditorClassIdentifier: 
+  Path: event:/MX/Character Select
+  Guid:
+    Data1: 1247749645
+    Data2: 1232622542
+    Data3: 1299479725
+    Data4: -1915512205
+  Banks:
+  - {fileID: 2521846409234442171}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 145190
+--- !u!114 &2378009937138764495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Audio/FMOD Session/SeatFighter_FMODSession/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638705694696946864
+  FileSizes:
+  - Name: Desktop
+    Value: 2122
+  Exists: 1
+--- !u!114 &2521846409234442171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/MX.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Audio/FMOD Session/SeatFighter_FMODSession/Build/Desktop/MX.bank
+  Name: MX
+  StudioPath: bank:/MX
+  lastModified: 638705694696936863
+  FileSizes:
+  - Name: Desktop
+    Value: 6107072
+  Exists: 1
+--- !u!114 &2883395918404620015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Madhav Select/Panning
+  m_EditorClassIdentifier: 
+  Name: Panning
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 3878758159
+    data2: 2405326717
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Left
+  - Center
+  - Right
+  Exists: 1
+--- !u!114 &3045165045452183778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/Wizard/Wizard Select
+  m_EditorClassIdentifier: 
+  Path: event:/VO/Wizard/Wizard Select
+  Guid:
+    Data1: -928687657
+    Data2: 1330903113
+    Data3: -525192523
+    Data4: 1772116710
+  Banks:
+  - {fileID: -2626554323551273225}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 3991233787950668011}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &3327996586725688115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Shove Hit Block/Panning
+  m_EditorClassIdentifier: 
+  Name: Panning
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 3878758159
+    data2: 2405326717
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Left
+  - Center
+  - Right
+  Exists: 1
+--- !u!114 &3479181088095431650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Push/Panning
+  m_EditorClassIdentifier: 
+  Name: Panning
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 3878758159
+    data2: 2405326717
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Left
+  - Center
+  - Right
+  Exists: 1
+--- !u!114 &3591128616777058481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Push
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Push
+  Guid:
+    Data1: 729129425
+    Data2: 1225883267
+    Data3: -310153574
+    Data4: 1181633162
+  Banks:
+  - {fileID: -1889247418213262979}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 3479181088095431650}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &3991233787950668011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Wizard Select/Panning
+  m_EditorClassIdentifier: 
+  Name: Panning
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 3878758159
+    data2: 2405326717
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Left
+  - Center
+  - Right
+  Exists: 1
+--- !u!114 &4289744191760329590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Wizard Taunt/Panning
+  m_EditorClassIdentifier: 
+  Name: Panning
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 3878758159
+    data2: 2405326717
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Left
+  - Center
+  - Right
+  Exists: 1
+--- !u!114 &4510897418347957624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/UI/Back
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/UI/Back
+  Guid:
+    Data1: -14953153
+    Data2: 1263212756
+    Data3: 1854934701
+    Data4: 961853896
+  Banks:
+  - {fileID: -1889247418213262979}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &5745175388727733354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/Jordan/Jordan Taunt
+  m_EditorClassIdentifier: 
+  Path: event:/VO/Jordan/Jordan Taunt
+  Guid:
+    Data1: -395682975
+    Data2: 1106663730
+    Data3: 295606152
+    Data4: -412832263
+  Banks:
+  - {fileID: -2626554323551273225}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -7651468831425829965}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &5987302089495086795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Madhav Taunt/Panning
+  m_EditorClassIdentifier: 
+  Name: Panning
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 3878758159
+    data2: 2405326717
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Left
+  - Center
+  - Right
+  Exists: 1
+--- !u!114 &6040226220847077403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Gordon Select/Panning
+  m_EditorClassIdentifier: 
+  Name: Panning
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 3878758159
+    data2: 2405326717
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Left
+  - Center
+  - Right
+  Exists: 1
+--- !u!114 &6169099920265403111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Block
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Block
+  Guid:
+    Data1: -1631960393
+    Data2: 1333271071
+    Data3: 2115905428
+    Data4: -1773468810
+  Banks:
+  - {fileID: -1889247418213262979}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -5945710516832822817}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6632914832584982296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/UI/Select Ready
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/UI/Select Ready
+  Guid:
+    Data1: 60940273
+    Data2: 1272692905
+    Data3: 1597078431
+    Data4: 1584865748
+  Banks:
+  - {fileID: -1889247418213262979}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1613
+--- !u!114 &7690553621393243859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MX/Results Screen
+  m_EditorClassIdentifier: 
+  Path: event:/MX/Results Screen
+  Guid:
+    Data1: -1356678988
+    Data2: 1318351086
+    Data3: 1860040865
+    Data4: 1901030145
+  Banks:
+  - {fileID: 2521846409234442171}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 49811
+--- !u!114 &8379361209094795194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MX/Gameplay
+  m_EditorClassIdentifier: 
+  Path: event:/MX/Gameplay
+  Guid:
+    Data1: -267069787
+    Data2: 1158399950
+    Data3: 1219339434
+    Data4: -1228678526
+  Banks:
+  - {fileID: 2521846409234442171}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 186902
+--- !u!114 &8559359600675915780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Stun/Panning
+  m_EditorClassIdentifier: 
+  Name: Panning
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 3878758159
+    data2: 2405326717
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Left
+  - Center
+  - Right
+  Exists: 1
+--- !u!114 &8786641214656685076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/UI/Select
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/UI/Select
+  Guid:
+    Data1: -118627553
+    Data2: 1294129689
+    Data3: -1971999564
+    Data4: 1182976806
+  Banks:
+  - {fileID: -1889247418213262979}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &8815481753958702153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Interactions/Shove Hit Block
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Interactions/Shove Hit Block
+  Guid:
+    Data1: -306626361
+    Data2: 1264544455
+    Data3: 370053820
+    Data4: -1664915934
+  Banks:
+  - {fileID: -1889247418213262979}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 3327996586725688115}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0

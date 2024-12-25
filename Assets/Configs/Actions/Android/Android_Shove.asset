@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Android_Shove
   m_EditorClassIdentifier: 
   <Type>k__BackingField: 4
-  positionModifier: 200
+  positionModifier: 100
   initialStaminaModifier: -60
   holdStaminaModifier: 0
   timeModifier: 0
